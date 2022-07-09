@@ -11,7 +11,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CTA - Automatos',
+      debugShowCheckedModeBanner: false,
+      builder: (context, child) {
+        final mediaQueryData = MediaQuery.of(context);
+        final scale = mediaQueryData.textScaleFactor.clamp(1.0, 1.1);
+        return MediaQuery(
+          child: child!,
+          data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
+        );
+      },
+      title: 'AutonoJobs',
       theme: ThemeData(
           primarySwatch: Colors.green,
           colorScheme: ColorScheme.fromSwatch(
