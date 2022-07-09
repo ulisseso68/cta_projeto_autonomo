@@ -1,8 +1,4 @@
-//import 'dart:convert';
-//import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-//import 'package:flutter_launch/flutter_launch.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Funcoes {
   var atividadesSelecionadas = <String>[];
@@ -20,8 +16,7 @@ class Funcoes {
     /* var whatsappUrl =
                     "whatsapp://send?phone=" + widget.autonomo['telefone'];
      */
-    //launch('https://app.reusos.com');
-    print(phone);
+    //print(phone);
   }
 
   seleciona(String digitado) {

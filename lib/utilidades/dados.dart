@@ -1,64 +1,49 @@
 var autonomosDados = [
   {
-    'nome': "Maria Anastacia",
+    'nome': "Ana 1",
     'atividade': "cabelereira",
     'descricao':
         'Trabalho ha 27 anos em saloes renomados. Conhecida por toda a regiao de inhauma. Atendo em domicilio nesta reuniao.',
     'precohora': '50.00',
     'telefone': '+5521997892665',
-    'fotoProfissional':
-        '/Users/ulissescampos/Coding/cta_projeto_autonomo/lib/imagens/foto1.png'
+    'fotoProfissional': 'img/foto9.jpg'
   },
   {
-    'nome': "Paulo Fonseca",
+    'nome': "Paulo 2",
     'atividade': "pedreiro",
     'descricao':
         'Trabalhei em várias obras da GAFISA. Prefiro trabalhos aos finais de semana. Compro o material se necesario.',
     'precohora': '20.00',
     'telefone': '+5521997892666',
-    "fotoProfissional":
-        '/Users/ulissescampos/Coding/cta_projeto_autonomo/lib/imagens/foto4.jpg',
+    "fotoProfissional": 'img/foto2.png',
   },
   {
-    'nome': "Maria Anastacia",
+    'nome': "Maria 3",
     'atividade': "cabelereira",
     'descricao':
         'Trabalho ha 27 anos em saloes renomados. Conhecida por toda a regiao de inhauma. Atendo em domicilio nesta reuniao.',
     'precohora': '50.00',
     'telefone': '+5521997892664',
-    'fotoProfissional':
-        '/Users/ulissescampos/Coding/cta_projeto_autonomo/lib/imagens/foto1.png'
+    'fotoProfissional': 'img/foto3.png'
   },
   {
-    'nome': "Paulo Fonseca",
+    'nome': "Joao 4",
     'atividade': "pedreiro",
     'descricao':
         'Trabalhei em várias obras da GAFISA. Prefiro trabalhos aos finais de semana. Compro o material se necesario.',
     'precohora': '20.00',
     'telefone': '+5521997892663',
-    "fotoProfissional":
-        '/Users/ulissescampos/Coding/cta_projeto_autonomo/lib/imagens/foto4.jpg',
+    "fotoProfissional": 'img/foto4.jpg',
   },
   {
-    'nome': "Maria Anastacia",
-    'atividade': "cabelereira",
+    'nome': "Mariano",
+    'atividade': "cabelereiro",
     'descricao':
         'Trabalho ha 27 anos em saloes renomados. Conhecida por toda a regiao de inhauma. Atendo em domicilio nesta reuniao.',
     'precohora': '50.00',
     'telefone': '+5521997892661',
-    'fotoProfissional':
-        '/Users/ulissescampos/Coding/cta_projeto_autonomo/lib/imagens/foto1.png'
+    'fotoProfissional': 'img/foto7.jpg'
   },
-  {
-    'nome': "Paulo Fonseca",
-    'atividade': "pedreiro",
-    'descricao':
-        'Trabalhei em várias obras da GAFISA. Prefiro trabalhos aos finais de semana. Compro o material se necesario.',
-    'precohora': '20.00',
-    'telefone': '+5521997892660',
-    "fotoProfissional":
-        '/Users/ulissescampos/Coding/cta_projeto_autonomo/lib/imagens/foto4.jpg',
-  }
 ];
 
 var atividades = [
