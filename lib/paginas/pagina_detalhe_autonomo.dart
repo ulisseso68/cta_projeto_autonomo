@@ -28,7 +28,11 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.autonomo['nome'].toString()),
+        title: const Text(
+          'AutonoJobs',
+          style: TextStyle(
+              fontSize: 30, fontFamily: 'Verdana', fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -41,7 +45,7 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                 fit: BoxFit.cover,
               )),
           ListTile(
-            leading: const Icon(Icons.people, size: 40),
+            leading: const Icon(Icons.perm_identity, size: 40),
             title: Text(
               widget.autonomo['nome'],
               style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
@@ -50,7 +54,7 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
           ),
           ListTile(
             leading: const Icon(
-              Icons.document_scanner,
+              Icons.description,
               size: 40,
             ),
             title: Text(widget.autonomo['descricao']),

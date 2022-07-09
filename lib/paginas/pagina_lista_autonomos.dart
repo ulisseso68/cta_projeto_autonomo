@@ -27,84 +27,114 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.atividade),
+        title: const Text(
+          'AutonoJobs',
+          style: TextStyle(
+              fontSize: 30, fontFamily: 'Verdana', fontWeight: FontWeight.bold),
+        ),
+        shadowColor: Colors.white70.withOpacity(0.0),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+          const Divider(
+            color: Colors.white,
+            height: 1,
+          ),
+          //Carrossel com selecionados
+          Container(
+            color: Colors.green,
+            height: 30,
+            width: largura,
+            padding: const EdgeInsets.only(top: 5, left: 10),
+            child: Text(
+              "Atividade: ${widget.atividade}",
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
           Expanded(
             child: ListView.builder(
-                padding: const EdgeInsets.all(10),
-                controller: PageController(viewportFraction: 0.95),
+                padding: const EdgeInsets.all(5),
+                controller: PageController(viewportFraction: 1.0),
                 itemCount: autonomosListar.length,
                 itemBuilder: (_, i) {
                   return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PaginaDetalheAutonomo(
-                                    autonomo: autonomosListar[i])));
-                      },
-                      child: Container(
-                        //color: Colors.amber,
-                        height: altura / 4,
-                        width: largura * 0.9,
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image(
-                              image: AssetImage(autonomosListar[i]
-                                      ['fotoProfissional']
-                                  .toString()),
-                              width: largura / 4,
-                              height: largura / 2,
-                              fit: BoxFit.cover,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PaginaDetalheAutonomo(
+                                  autonomo: autonomosListar[i])));
+                    },
+                    child: Container(
+                      //color: Colors.amber,
+                      height: altura / 4,
+                      width: largura * 0.9,
+                      padding: EdgeInsets.all(largura * 0.02),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image(
+                            image: AssetImage(autonomosListar[i]
+                                    ['fotoProfissional']
+                                .toString()),
+                            width: largura / 4,
+                            height: largura / 2,
+                            fit: BoxFit.cover,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(
+                                left: 5.0, right: 5.0, top: 5.0),
+                            height: altura / 4,
+                            width: 0.65 * largura,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  autonomosListar[i]['nome'].toString(),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    color: Colors.deepPurple,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w800,
+                                    fontFamily: "Verdana",
+                                  ),
+                                ),
+                                Text(
+                                  autonomosListar[i]['atividade'],
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: "Verdana",
+                                  ),
+                                ),
+                                const Divider(
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  autonomosListar[i]['descricao'].toString(),
+                                  maxLines: 4,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontFamily: "Verdana",
+                                  ),
+                                ),
+                              ],
                             ),
-                            Container(
-                              padding: const EdgeInsets.only(
-                                  left: 10.0, right: 10.0, top: 10.0),
-                              height: altura / 4,
-                              width: 0.60 * largura,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    autonomosListar[i]['nome'].toString(),
-                                    style: const TextStyle(
-                                      color: Colors.deepPurple,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w800,
-                                      fontFamily: "Verdana",
-                                    ),
-                                  ),
-                                  Text(
-                                    autonomosListar[i]['atividade']
-                                        .toString()
-                                        .toString(),
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: "Verdana",
-                                    ),
-                                  ),
-                                  const Divider(
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    autonomosListar[i]['descricao'].toString(),
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: "Verdana",
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ));
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 }),
           ),
         ],
