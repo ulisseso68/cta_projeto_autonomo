@@ -22,7 +22,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
   @override
   initState() {
     _atividadesSelecionadas = Funcoes().seleciona('');
-    print(_atividadesSelecionadas);
+    //print(_atividadesSelecionadas);
     super.initState();
   }
 
@@ -37,13 +37,122 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+              fontSize: 30, fontFamily: 'Verdana', fontWeight: FontWeight.bold),
+        ),
+        shadowColor: Colors.white70.withOpacity(0.0),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+          const Divider(
+            color: Colors.white,
+            height: 1,
+          ),
+          //Carrossel com selecionados
+          Container(
+            color: Colors.green,
+            height: 30,
+            width: largura,
+            padding: const EdgeInsets.only(top: 5, left: 10),
+            child: const Text(
+              "Recomendados",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            color: Colors.black12,
+            padding: const EdgeInsets.all(10),
+            height: altura / 4,
+            width: largura,
+            //color: Colors.amber,
+            child: PageView.builder(
+                controller: PageController(viewportFraction: 1.0),
+                itemCount: autonomosDados.length,
+                itemBuilder: (_, i) {
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PaginaDetalheAutonomo(
+                                    autonomo: autonomosDados[i])));
+                      },
+                      child: SizedBox(
+                        height: altura / 3,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image(
+                              image: AssetImage(autonomosDados[i]
+                                      ['fotoProfissional']
+                                  .toString()),
+                              width: largura / 4,
+                              height: largura / 2,
+                              fit: BoxFit.cover,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 5.0, top: 5.0),
+                              height: altura / 4,
+                              width: 0.65 * largura,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    autonomosDados[i]['nome'].toString(),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      color: Colors.deepPurple,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w800,
+                                      fontFamily: "Verdana",
+                                    ),
+                                  ),
+                                  Text(
+                                    autonomosDados[i]['atividade'].toString(),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "Verdana",
+                                    ),
+                                  ),
+                                  const Divider(
+                                    color: Colors.black,
+                                  ),
+                                  Text(
+                                    autonomosDados[i]['descricao'].toString(),
+                                    maxLines: 4,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      fontFamily: "Verdana",
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ));
+                }),
+          ),
+          Container(
+            width: largura,
+            height: 5,
+            color: Colors.green,
+          ), //area de busca
           SizedBox(
-            height: 100,
+            height: 70,
             width: largura * 0.9,
             child: TextField(
               onChanged: (texto) {
@@ -71,6 +180,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
               ),
             ),
           ),
+          //Lista de atividas
           SizedBox(
               height: altura / 4,
               width: largura * 0.9,
@@ -95,95 +205,8 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                       ),
                     );
                   })),
-          Container(
-            color: Colors.black12,
-            padding: const EdgeInsets.all(10),
-            height: altura / 5,
-            width: largura,
-            //color: Colors.amber,
-            child: PageView.builder(
-                controller: PageController(viewportFraction: 1.0),
-                itemCount: autonomosDados.length,
-                itemBuilder: (_, i) {
-                  return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PaginaDetalheAutonomo(
-                                    autonomo: autonomosDados[i])));
-                      },
-                      child: SizedBox(
-                        height: altura / 4,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image(
-                              image: AssetImage(autonomosDados[i]
-                                      ['fotoProfissional']
-                                  .toString()),
-                              width: largura / 4,
-                              height: largura / 2,
-                              fit: BoxFit.cover,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(
-                                  left: 10.0, right: 10.0, top: 10.0),
-                              height: altura / 4,
-                              width: 0.5 * largura,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    autonomosDados[i]['nome'].toString(),
-                                    style: const TextStyle(
-                                      color: Colors.deepPurple,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w800,
-                                      fontFamily: "Verdana",
-                                    ),
-                                  ),
-                                  Text(
-                                    autonomosDados[i]['atividade'].toString(),
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: "Verdana",
-                                    ),
-                                  ),
-                                  const Divider(
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    autonomosDados[i]['descricao'].toString(),
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: "Verdana",
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ));
-                }),
-          ),
         ],
       ),
-
-      /* floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Funcoes().calcular();
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      const PaginaListaAutonomos(atividade: 'cabelereira')));
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.search),
-      ), */ // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -3,7 +3,7 @@ var autonomosDados = [
     'nome': "Ana 1",
     'atividade': "cabelereira",
     'descricao':
-        'Trabalho ha 27 anos em saloes renomados. Conhecida por toda a regiao de inhauma. Atendo em domicilio nesta reuniao.',
+        'Trabalho ha 27 anos em saloes renomados. Conhecida por toda a regiao de inhauma. Atendo em domicilio nesta reuniao.Trabalho ha 27 anos em saloes renomados. Conhecida por toda a regiao de inhauma. Atendo em domicilio nesta reuniao.',
     'precohora': '50.00',
     'telefone': '+5521997892665',
     'fotoProfissional': 'img/foto9.jpg'

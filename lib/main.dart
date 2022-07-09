@@ -13,8 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CTA - Automatos',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+          primarySwatch: Colors.green,
+          colorScheme: ColorScheme.fromSwatch(
+            backgroundColor: Colors.black12,
+            primarySwatch: Colors.green,
+            cardColor: Colors.orange,
+          )),
       home: const PaginaInicialBusca(title: 'AutonoJobs'),
     );
   }
