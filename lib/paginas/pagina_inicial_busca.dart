@@ -57,7 +57,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
               color: Colors.green,
               height: 30,
               width: largura,
-              padding: const EdgeInsets.only(top: 5, left: 10),
+              padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
               child: const Text(
                 "Recomendados",
                 style: TextStyle(
@@ -94,8 +94,8 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                 image: AssetImage(autonomosDados[i]
                                         ['fotoProfissional']
                                     .toString()),
-                                width: largura / 4,
-                                height: largura / 2,
+                                width: largura / 3,
+                                height: altura / 3,
                                 fit: BoxFit.cover,
                               ),
                               Container(
