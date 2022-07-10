@@ -69,7 +69,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
             ),
             Container(
               color: Colors.black12,
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(0),
               height: altura / 4,
               width: largura,
               //color: Colors.amber,
