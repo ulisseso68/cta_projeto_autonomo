@@ -1,15 +1,12 @@
 import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/paginas/pagina_detalhe_autonomo.dart';
-import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-
-import 'pagina_lista_autonomos.dart';
+import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
 class PaginaInicialBusca extends StatefulWidget {
-  const PaginaInicialBusca({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const PaginaInicialBusca({Key? key}) : super(key: key);
 
   @override
   State<PaginaInicialBusca> createState() => _PaginaInicialBuscaState();
@@ -17,13 +14,23 @@ class PaginaInicialBusca extends StatefulWidget {
 
 class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
   // ignore: prefer_final_fields
-  var _atividadesSelecionadas = <String>[];
+  List _atividadesSelecionadas = [];
+  List<Autonomo> topAutonomos = <Autonomo>[];
 
   @override
   initState() {
-    _atividadesSelecionadas = Funcoes().seleciona('');
-    //print(_atividadesSelecionadas);
+    _getDatafromServer();
     super.initState();
+  }
+
+  _getDatafromServer() async {
+    await Funcoes().iniciarAtividades();
+    _atividadesSelecionadas = Funcoes.atividades;
+    await Funcoes().buscarAutonomos(cidadeNome: Funcoes.cidadeEscolhida);
+    topAutonomos = Funcoes.autonomos
+        .where((element) => element.cidade == Funcoes.cidadeEscolhida)
+        .toList();
+    setState(() {});
   }
 
   @override
@@ -37,10 +44,26 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: const TextStyle(
-              fontSize: 30, fontFamily: 'Verdana', fontWeight: FontWeight.bold),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const Text(
+                'AutonoJobs',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Verdana',
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                Funcoes.cidadeEscolhida,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
+                ),
+              ),
+            ],
+          ),
         ),
         shadowColor: Colors.white70.withOpacity(0.0),
       ),
@@ -67,86 +90,97 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                 ),
               ),
             ),
-            Container(
-              color: Colors.black12,
-              padding: const EdgeInsets.all(0),
-              height: altura / 4,
-              width: largura,
-              //color: Colors.amber,
-              child: PageView.builder(
-                  controller: PageController(viewportFraction: 1.0),
-                  itemCount: autonomosDados.length,
-                  itemBuilder: (_, i) {
-                    return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PaginaDetalheAutonomo(
-                                      autonomo: autonomosDados[i])));
-                        },
-                        child: SizedBox(
-                          height: altura / 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Image(
-                                image: AssetImage(autonomosDados[i]
-                                        ['fotoProfissional']
-                                    .toString()),
-                                width: largura / 3,
+            (topAutonomos.isEmpty)
+                ? SizedBox(
+                    height: altura / 4,
+                    child: const Center(
+                      child: Text(
+                        'Não temos ainda Autonomos recomendados nesta cidade',
+                        textAlign: TextAlign.center,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 16,
+                          fontFamily: "Verdana",
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(
+                    color: Colors.black12,
+                    padding: const EdgeInsets.all(0),
+                    height: altura / 4,
+                    width: largura,
+                    //color: Colors.amber,
+                    child: PageView.builder(
+                        controller: PageController(viewportFraction: 1.0),
+                        itemCount: min(topAutonomos.length, 3),
+                        itemBuilder: (_, i) {
+                          return GestureDetector(
+                              onTap: () {},
+                              child: SizedBox(
                                 height: altura / 3,
-                                fit: BoxFit.cover,
-                              ),
-                              Container(
-                                padding: const EdgeInsets.only(
-                                    left: 5.0, right: 5.0, top: 5.0),
-                                height: altura / 4,
-                                width: 0.65 * largura,
-                                child: Column(
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      autonomosDados[i]['nome'].toString(),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        color: Colors.deepPurple,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w800,
-                                        fontFamily: "Verdana",
-                                      ),
+                                    Container(
+                                      color: COR_02,
+                                      width: largura / 3,
+                                      height: altura / 3,
+                                      child: topAutonomos[i].image(),
                                     ),
-                                    Text(
-                                      autonomosDados[i]['atividade'].toString(),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: "Verdana",
-                                      ),
-                                    ),
-                                    const Divider(
-                                      color: Colors.black,
-                                    ),
-                                    Text(
-                                      autonomosDados[i]['descricao'].toString(),
-                                      maxLines: 4,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        fontFamily: "Verdana",
+                                    Container(
+                                      padding: const EdgeInsets.only(
+                                          left: 5.0, right: 5.0, top: 5.0),
+                                      height: altura / 4,
+                                      width: 0.65 * largura,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            topAutonomos[i].nome,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              color: Colors.deepPurple,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w800,
+                                              fontFamily: "Verdana",
+                                            ),
+                                          ),
+                                          Text(
+                                            topAutonomos[i].atividade,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              fontFamily: "Verdana",
+                                            ),
+                                          ),
+                                          const Divider(
+                                            color: Colors.black,
+                                          ),
+                                          Text(
+                                            topAutonomos[i].descricao,
+                                            maxLines: 4,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                              fontFamily: "Verdana",
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
                                 ),
-                              ),
-                            ],
-                          ),
-                        ));
-                  }),
-            ),
+                              ));
+                        }),
+                  ),
             Container(
               width: largura,
               height: 5,
@@ -164,65 +198,60 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                   });
                 },
                 onSubmitted: (texto) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              PaginaListaAutonomos(atividade: texto)));
+                  Funcoes.atividadeEscolhida = texto;
+                  Navigator.pushNamed(context, 'listaAutonomos');
                 },
                 style: const TextStyle(color: Color(0xFF000000), fontSize: 30),
                 cursorColor: Colors.red,
                 controller: textController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
-                  hintText: 'busca por atividade',
+                  hintText: 'busca da atividade',
                   hintStyle: TextStyle(
                       color: Color(0xFF9b9b9b),
-                      fontSize: 30,
+                      fontSize: 20,
                       fontWeight: FontWeight.normal),
                 ),
               ),
             ),
-            //Lista de atividas
+            //Lista de atividades
             SizedBox(
-                height: altura / 3,
-                width: largura * 0.9,
-                child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 120,
-                            mainAxisSpacing: 10.0,
-                            crossAxisSpacing: 10.0,
-                            childAspectRatio: 2),
-                    key: const Key('Tags List'),
-                    itemCount: min(_atividadesSelecionadas.length, 10),
-                    itemBuilder: (_, i) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PaginaListaAutonomos(
-                                      atividade: _atividadesSelecionadas[i])));
+              height: altura,
+              width: largura * 0.9,
+              child: ListView.builder(
+                  itemCount: _atividadesSelecionadas.length,
+                  itemBuilder: ((context, index) {
+                    return ListTile(
+                      visualDensity: VisualDensity.compact,
+                      dense: true,
+                      tileColor: (index % 2 == 0)
+                          ? const Color.fromARGB(255, 227, 223, 223)
+                          : Colors.transparent,
+                      title: Text(
+                        _atividadesSelecionadas[index]['nome'].toString(),
+                        textAlign: TextAlign.left,
+                        style: const TextStyle(
+                            fontSize: 20, color: COR_04, fontFamily: 'Verdana'),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          if (_atividadesSelecionadas[index]['id'] != 0) {
+                            Funcoes.atividadeEscolhida =
+                                _atividadesSelecionadas[index]['nome'];
+                            Navigator.pushNamed(context, 'listaAutonomos');
+                          }
                         },
-                        child: Container(
-                          //color: Colors.amber,
-                          padding: const EdgeInsets.all(2.0),
-                          decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(10.0)),
-
-                          child: Text(
-                            _atividadesSelecionadas[i],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontFamily: 'Verdana'),
-                          ),
+                        icon: Icon(
+                          Icons.open_in_new,
+                          color: (_atividadesSelecionadas[index]['id'] != 0)
+                              ? COR_04
+                              : COR_LightGrey,
+                          size: 30,
                         ),
-                      );
-                    })),
+                      ),
+                    );
+                  })),
+            )
           ],
         ),
       ),

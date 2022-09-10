@@ -1,24 +1,26 @@
 //import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 //import 'dart:html';
 
+import 'dart:math';
+
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
+import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 //import 'package:flutter/services.dart';
 
 class PaginaDetalheAutonomo extends StatefulWidget {
-  const PaginaDetalheAutonomo({Key? key, required this.autonomo})
-      : super(key: key);
+  const PaginaDetalheAutonomo({Key? key}) : super(key: key);
   // ignore: prefer_typing_uninitialized_variables
-  final autonomo;
-
   @override
   State<PaginaDetalheAutonomo> createState() => _PaginaDetalheAutonomoState();
 }
 
 class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
   //int _counter = 0;
+  final Autonomo autonomo = Funcoes.autonomoEscolhido;
+  bool expanded = false;
 
   @override
   @override
@@ -40,13 +42,17 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-                height: altura / 4,
-                width: largura,
-                child: Image(
-                  image: AssetImage(widget.autonomo['fotoProfissional']),
-                  fit: BoxFit.cover,
-                )),
+            GestureDetector(
+              onTap: () {
+                expanded = !expanded;
+                setState(() {});
+              },
+              child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  height: expanded ? altura / 2 : altura / 4,
+                  width: largura,
+                  child: autonomo.image()),
+            ),
             const Divider(
               thickness: 5.0,
               height: 5.0,
@@ -55,16 +61,14 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
             ListTile(
               leading: const Icon(Icons.perm_identity, size: 40),
               title: Text(
-                widget.autonomo['nome'],
+                autonomo.nome,
                 style:
                     const TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
               ),
               textColor: Colors.green,
             ),
             RatingBar(
-                initialRating: widget.autonomo['rating'] is int
-                    ? (widget.autonomo['rating'] as int).toDouble()
-                    : widget.autonomo['rating'],
+                initialRating: 3,
                 unratedColor: Colors.green,
                 direction: Axis.horizontal,
                 allowHalfRating: true,
@@ -87,19 +91,19 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                 Icons.description,
                 size: 40,
               ),
-              title: Text(widget.autonomo['descricao']),
+              title: Text(autonomo.descricao),
             ),
             ListTile(
               leading: const Icon(
-                Icons.money,
+                Icons.place,
                 size: 40,
               ),
-              title: Text("BRL ${widget.autonomo['precohora']}"),
+              title: Text("${autonomo.uf} ${autonomo.cidade} ${autonomo.cep}"),
             ),
             ListTile(
               leading: GestureDetector(
                 onTap: () {
-                  Funcoes().whatsapp(widget.autonomo['telefone']);
+                  Funcoes().whatsapp(autonomo.telefone);
                 },
                 child: const Icon(
                   Icons.whatsapp_sharp,
@@ -107,7 +111,7 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                   color: Colors.green,
                 ),
               ),
-              title: Text(widget.autonomo['telefone']),
+              title: Text(autonomo.telefone),
             )
           ],
         ),

@@ -51,7 +51,7 @@ var autonomosDados = [
   },
 ];
 
-var atividades = [
+/* var atividades = [
   'cabelereira',
   'pintor',
   'beleza',
@@ -61,4 +61,4 @@ var atividades = [
   'obras',
   'transporte',
   'babá',
-];
+]; */

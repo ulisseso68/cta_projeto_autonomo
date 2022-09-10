@@ -1,41 +1,52 @@
+import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:flutter/material.dart';
+
 class Autonomo {
-  int id;
-  double precohora;
+  String id = '';
   String nome;
   String descricao;
   String atividade;
-  String fotoProfissional;
-  String fotoNegocio;
-  double estrelas;
+  String telefone;
+  String foto;
+  String uf;
   String cep;
-  String cadastradoem;
+  String cidade;
 
   Autonomo(
-      this.id,
-      this.precohora,
-      this.nome,
-      this.descricao,
-      this.atividade,
-      this.fotoProfissional,
-      this.fotoNegocio,
-      this.estrelas,
-      this.cep,
-      this.cadastradoem);
+      {this.id = '',
+      this.nome = '',
+      this.descricao = '',
+      this.atividade = '',
+      this.telefone = '',
+      this.foto = '',
+      this.uf = '',
+      this.cep = '',
+      this.cidade = ''});
 
-  fromJson(Map json) {
-    id = json['id'];
-    precohora = json["precohora"] is int
-        ? (json['precohora'] as int).toDouble()
-        : json['precohora'];
-    estrelas = json["estrelas"] is int
-        ? (json['estrelas'] as int).toDouble()
-        : json['estrelas'];
-    nome = json['nome'];
-    descricao = json['descricao'];
-    atividade = json['atividade'];
-    fotoProfissional = json['fotoProfissional'];
-    fotoNegocio = json['fotoNegocio'];
-    cep = json['cep'];
-    cadastradoem = json['cadastradoem'];
+  Autonomo.fromJson(Map json)
+      : id = '',
+        nome = json['nome'],
+        descricao = json['descricao'],
+        telefone = json['telefone'],
+        atividade = json['nome_atividade'],
+        foto = json['foto'],
+        cidade = json['nome_cidade'],
+        cep = json['cep'],
+        uf = json['uf'];
+
+  Widget image() {
+    return (foto != '')
+        ? Hero(
+            tag: foto + nome,
+            child: Image(
+              image: NetworkImage(foto),
+              fit: BoxFit.cover,
+            ),
+          )
+        : const Icon(
+            Icons.badge,
+            size: 40,
+            color: COR_02,
+          );
   }
 }

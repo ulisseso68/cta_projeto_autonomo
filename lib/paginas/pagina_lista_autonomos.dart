@@ -1,14 +1,10 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-//import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-
-import 'pagina_detalhe_autonomo.dart';
+import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
 
 class PaginaListaAutonomos extends StatefulWidget {
-  const PaginaListaAutonomos({Key? key, required this.atividade})
-      : super(key: key);
-  final String atividade;
+  const PaginaListaAutonomos({Key? key}) : super(key: key);
 
   @override
   State<PaginaListaAutonomos> createState() => _PaginaListaAutonomosState();
@@ -16,14 +12,29 @@ class PaginaListaAutonomos extends StatefulWidget {
 
 class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
   //int _counter = 0;
+  List<Autonomo> autonomosListar = <Autonomo>[];
+
+  @override
+  void initState() {
+    _getDatafromServer();
+    super.initState();
+  }
+
+  _getDatafromServer() async {
+    await Funcoes().buscarAutonomos(
+        nomeAtividade: Funcoes.atividadeEscolhida,
+        cidadeNome: Funcoes.cidadeEscolhida);
+    autonomosListar = Funcoes.autonomosSelecionados;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
     //var textController;
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
-    var autonomosListar = Funcoes().filtraAutonomos(widget.atividade);
-    print(widget.atividade);
+    final atividade = Funcoes.atividadeEscolhida;
+    autonomosListar = Funcoes().filtraAutonomos(atividade);
 
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +59,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
             width: largura,
             padding: const EdgeInsets.only(top: 5, left: 10),
             child: Text(
-              "Atividade: ${widget.atividade}",
+              "Atividade: $atividade",
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -65,11 +76,8 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                 itemBuilder: (_, i) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PaginaDetalheAutonomo(
-                                  autonomo: autonomosListar[i])));
+                      Funcoes.autonomoEscolhido = autonomosListar[i];
+                      Navigator.pushNamed(context, 'detalheAutonomo');
                     },
                     child: Container(
                       //color: Colors.amber,
@@ -79,13 +87,11 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Image(
-                            image: AssetImage(autonomosListar[i]
-                                    ['fotoProfissional']
-                                .toString()),
+                          Container(
+                            color: COR_02,
                             width: largura / 4,
                             height: largura / 2,
-                            fit: BoxFit.cover,
+                            child: autonomosListar[i].image(),
                           ),
                           Container(
                             padding: const EdgeInsets.only(
@@ -97,7 +103,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  autonomosListar[i]['nome'].toString(),
+                                  autonomosListar[i].nome,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
@@ -108,7 +114,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                                   ),
                                 ),
                                 Text(
-                                  autonomosListar[i]['atividade'],
+                                  autonomosListar[i].atividade,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
@@ -120,7 +126,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                                   color: Colors.black,
                                 ),
                                 Text(
-                                  autonomosListar[i]['descricao'].toString(),
+                                  autonomosListar[i].descricao,
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
