@@ -1,7 +1,10 @@
 import 'dart:math';
 
+import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
+import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +50,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const Text(
                 'AutonoJobs',
@@ -65,8 +69,10 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
             ],
           ),
         ),
-        shadowColor: Colors.white70.withOpacity(0.0),
+
+        //shadowColor: Colors.white70.withOpacity(0.0),
       ),
+      endDrawer: AJDrawer(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -77,18 +83,33 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
             ),
             //Carrossel com selecionados
             Container(
-              color: Colors.green,
-              height: 30,
               width: largura,
               padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
               child: const Text(
-                "Recomendados",
+                "Autonomos em Destaque",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: COR_04,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+            ),
+            Container(
+              width: largura,
+              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+              child: const Text(
+                "deslize para a diretira/esquerda para ver a galeria dos autonomos mais recomendados na sua região.",
+                maxLines: 3,
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+            Container(
+              width: largura,
+              height: 5,
+              color: Colors.green,
             ),
             (topAutonomos.isEmpty)
                 ? SizedBox(
@@ -118,14 +139,17 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                         itemCount: min(topAutonomos.length, 3),
                         itemBuilder: (_, i) {
                           return GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Funcoes.autonomoEscolhido = topAutonomos[i];
+                                Navigator.pushNamed(context, 'detalheAutonomo');
+                              },
                               child: SizedBox(
                                 height: altura / 3,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Container(
-                                      color: COR_02,
+                                      color: COR_04,
                                       width: largura / 3,
                                       height: altura / 3,
                                       child: topAutonomos[i].image(),
@@ -146,9 +170,9 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(
-                                              color: Colors.deepPurple,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w800,
+                                              color: COR_02,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
                                               fontFamily: "Verdana",
                                             ),
                                           ),
@@ -157,12 +181,13 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(
+                                              color: Colors.black54,
                                               fontSize: 16,
                                               fontFamily: "Verdana",
                                             ),
                                           ),
                                           const Divider(
-                                            color: Colors.black,
+                                            color: Colors.black54,
                                           ),
                                           Text(
                                             topAutonomos[i].descricao,
@@ -171,6 +196,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                             style: const TextStyle(
                                               fontSize: 12,
                                               fontFamily: "Verdana",
+                                              color: Colors.black54,
                                             ),
                                           ),
                                         ],
@@ -186,8 +212,8 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
               height: 5,
               color: Colors.green,
             ), //area de busca
-            //Campo de Busca
 
+            //Campo de Busca
             SizedBox(
               height: 70,
               width: largura * 0.9,

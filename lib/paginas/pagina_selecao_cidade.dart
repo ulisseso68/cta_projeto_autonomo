@@ -22,6 +22,8 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
   _getDatafromServer() async {
     await Funcoes().iniciarCidades();
     _cidadesSelecionadas = Funcoes.cidades;
+    Funcoes.screenWidth = MediaQuery.of(context).size.width;
+    Funcoes.screenHeight = MediaQuery.of(context).size.height;
     setState(() {});
   }
 
@@ -35,43 +37,17 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
     var textController;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'AutonoJobs',
-          style: TextStyle(
-              fontSize: 30, fontFamily: 'Verdana', fontWeight: FontWeight.bold),
-        ),
-        shadowColor: Colors.white70.withOpacity(0.0),
-      ),
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          const Divider(
-            color: Colors.white,
-            height: 1,
-          ),
-          //Carrossel com selecionados
-          Container(
-            color: Colors.green,
-            height: 30,
-            width: largura,
-            padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
-            child: const Text(
-              "Selecione a sua cidade",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-
+          //Cabeçalho com imagem, Logo e Slogan
+          Funcoes().splash(largura, altura),
           Container(
             width: largura,
             height: 5,
             color: Colors.green,
           ), //area de busca
-          //Campo de Busca
 
+          //Campo de Busca
           SizedBox(
             height: 70,
             width: largura * 0.9,
@@ -89,7 +65,7 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
               controller: textController,
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
-                hintText: 'busca pelo nome',
+                hintText: 'selecione sua cidade',
                 hintStyle: TextStyle(
                     color: Color(0xFF9b9b9b),
                     fontSize: 20,

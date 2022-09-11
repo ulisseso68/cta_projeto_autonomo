@@ -5,6 +5,8 @@ import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
+import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -31,12 +33,31 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'AutonoJobs',
-          style: TextStyle(
-              fontSize: 30, fontFamily: 'Verdana', fontWeight: FontWeight.bold),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const Text(
+                'AutonoJobs',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Verdana',
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                '${Funcoes.cidadeEscolhida} | ${Funcoes.atividadeEscolhida}',
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
+                ),
+              ),
+            ],
+          ),
         ),
+        /* shadowColor: Colors.white70.withOpacity(0.0), */
       ),
+      endDrawer: AJDrawer(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -91,14 +112,20 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                 Icons.description,
                 size: 40,
               ),
-              title: Text(autonomo.descricao),
+              title: Text(
+                autonomo.descricao,
+                style: const TextStyle(color: Colors.black54),
+              ),
             ),
             ListTile(
               leading: const Icon(
                 Icons.place,
                 size: 40,
               ),
-              title: Text("${autonomo.uf} ${autonomo.cidade} ${autonomo.cep}"),
+              title: Text(
+                "${autonomo.uf} ${autonomo.cidade} ${autonomo.cep}",
+                style: const TextStyle(color: Colors.black54),
+              ),
             ),
             ListTile(
               leading: GestureDetector(
@@ -108,10 +135,13 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                 child: const Icon(
                   Icons.whatsapp_sharp,
                   size: 40,
-                  color: Colors.green,
+                  color: COR_04,
                 ),
               ),
-              title: Text(autonomo.telefone),
+              title: Text(
+                autonomo.telefone,
+                style: const TextStyle(color: COR_04),
+              ),
             )
           ],
         ),

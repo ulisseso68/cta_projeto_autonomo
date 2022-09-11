@@ -46,7 +46,38 @@ class Autonomo {
         : const Icon(
             Icons.badge,
             size: 40,
-            color: COR_02,
+            color: COR_04,
+          );
+  }
+
+  String localizacao() {
+    return "$uf $cidade $cep";
+  }
+
+  Widget circledImage({Color bordercolor = Colors.green, double radius = 30}) {
+    return (foto == '')
+        ? Icon(
+            Icons.badge,
+            size: radius,
+            color: bordercolor,
+          )
+        : Hero(
+            tag: foto + nome,
+            child: Container(
+              margin: const EdgeInsets.only(left: 10, right: 10),
+              height: radius,
+              width: radius,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.0),
+                  boxShadow: [
+                    BoxShadow(
+                        color: bordercolor, blurRadius: 0.0, spreadRadius: 3.0)
+                  ],
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(foto),
+                  )),
+            ),
           );
   }
 }
