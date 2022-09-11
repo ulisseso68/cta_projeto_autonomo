@@ -152,7 +152,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                   children: [
                                     Container(
                                       color: COR_02,
-                                      width: largura / 3,
+                                      width: largura * 0.4,
                                       height: altura / 3,
                                       child: topAutonomos[i].image(),
                                     ),
@@ -160,7 +160,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                       padding: const EdgeInsets.only(
                                           left: 5.0, right: 5.0, top: 5.0),
                                       height: altura / 4,
-                                      width: 0.65 * largura,
+                                      width: 0.6 * largura,
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
@@ -193,7 +193,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                           ),
                                           Text(
                                             topAutonomos[i].descricaoLimpa(),
-                                            maxLines: 4,
+                                            maxLines: 6,
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(
                                               fontSize: 12,

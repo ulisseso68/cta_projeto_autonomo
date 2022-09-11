@@ -143,24 +143,6 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                     ),
                   )
                 : Container(),
-            ListTile(
-              visualDensity: VisualDensity.compact,
-              leading: GestureDetector(
-                onTap: () {
-                  autonomo.sendWA();
-                },
-                child: const Icon(
-                  Icons.whatsapp,
-                  size: 30,
-                  color: COR_04,
-                ),
-              ),
-              title: Text(
-                autonomo.telefone,
-                style:
-                    const TextStyle(color: COR_04, fontWeight: FontWeight.w500),
-              ),
-            ),
             (autonomo.getURL() != '')
                 ? ListTile(
                     onTap: () {
@@ -179,6 +161,24 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                     ),
                   )
                 : Container(),
+            ListTile(
+              visualDensity: VisualDensity.compact,
+              leading: GestureDetector(
+                onTap: () {
+                  autonomo.sendWA();
+                },
+                child: const Icon(
+                  Icons.whatsapp,
+                  size: 30,
+                  color: COR_04,
+                ),
+              ),
+              title: Text(
+                autonomo.telefone,
+                style:
+                    const TextStyle(color: COR_04, fontWeight: FontWeight.w500),
+              ),
+            ),
           ],
         ),
       ),
