@@ -50,6 +50,21 @@ class AJDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
+                Icons.privacy_tip,
+                size: 40,
+                color: COR_04,
+              ),
+              title: const Text(
+                'Termos de Uso e Privacidade',
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_04, fontSize: 14),
+              ),
+              onTap: () {
+                Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
+              },
+            ),
+            ListTile(
+              leading: const Icon(
                 Icons.work,
                 size: 40,
                 color: COR_04,
@@ -60,7 +75,7 @@ class AJDrawer extends StatelessWidget {
                 style: TextStyle(color: COR_04, fontSize: 14),
               ),
               onTap: () {
-                CallApi().launchUrlOut(urlfacebook);
+                CallApi().launchUrlOut(urlCadastro);
               },
             )
           ],

@@ -71,56 +71,74 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
             height: 10,
           ),
           Expanded(
-            child: ListView.builder(
-                //padding: const EdgeInsets.all(5),
-                controller: PageController(viewportFraction: 1.0),
-                itemCount: autonomosListar.length,
-                itemBuilder: (_, i) {
-                  return ListTile(
-                    tileColor: (i % 2) == 0
-                        ? Colors.grey.shade300
-                        : Colors.transparent,
-                    onTap: () {
-                      Funcoes.autonomoEscolhido = autonomosListar[i];
-                      Navigator.pushNamed(context, 'detalheAutonomo');
-                    },
-                    leading: autonomosListar[i].circledImage(radius: 50),
-                    title: Text(
-                      autonomosListar[i].nome,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Colors.deepPurple,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
-                        fontFamily: "Verdana",
+            child: (autonomosListar.isEmpty)
+                ? Container(
+                    padding: const EdgeInsets.all(20),
+                    height: altura / 4,
+                    child: const Center(
+                      child: Text(
+                        'Não temos ainda Autonomos cadastrados nesta atividade e nesta cidade. Tente em locais próximos.',
+                        textAlign: TextAlign.center,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 16,
+                          fontFamily: "Verdana",
+                        ),
                       ),
                     ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          autonomosListar[i].localizacao(),
+                  )
+                : ListView.builder(
+                    //padding: const EdgeInsets.all(5),
+                    controller: PageController(viewportFraction: 1.0),
+                    itemCount: autonomosListar.length,
+                    itemBuilder: (_, i) {
+                      return ListTile(
+                        tileColor: (i % 2) == 0
+                            ? Colors.grey.shade300
+                            : Colors.transparent,
+                        onTap: () {
+                          Funcoes.autonomoEscolhido = autonomosListar[i];
+                          Navigator.pushNamed(context, 'detalheAutonomo');
+                        },
+                        leading: autonomosListar[i].circledImage(radius: 50),
+                        title: Text(
+                          autonomosListar[i].nome,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                            fontSize: 12,
+                            color: Colors.deepPurple,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
                             fontFamily: "Verdana",
                           ),
                         ),
-                        Text(
-                          autonomosListar[i].telefone,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontFamily: "Verdana",
-                          ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              autonomosListar[i].localizacao(),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontFamily: "Verdana",
+                              ),
+                            ),
+                            Text(
+                              autonomosListar[i].telefone,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontFamily: "Verdana",
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  );
-                  /*   return GestureDetector(
+                      );
+                      /*   return GestureDetector(
                     onTap: () {
                       Funcoes.autonomoEscolhido = autonomosListar[i];
                       Navigator.pushNamed(context, 'detalheAutonomo');
@@ -188,7 +206,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                     ),
                   );
                  */
-                }),
+                    }),
           ),
         ],
       ),

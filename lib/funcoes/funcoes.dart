@@ -41,13 +41,6 @@ class Funcoes {
     autonomos.addAll(novos);
   }
 
-  void whatsapp(String phone) {
-    /* var whatsappUrl =
-                    "whatsapp://send?phone=" + widget.autonomo['telefone'];
-     */
-    //print(phone);
-  }
-
   seleciona(String digitado) {
     atividadesSelecionadas.clear();
     for (var ativ in atividades) {
@@ -101,12 +94,12 @@ class Funcoes {
     return autonomosSelecionados;
   }
 
-  Widget splash(double largura, double altura, {double fSize = 16}) {
+  Widget splash(double largura, double altura, {double fSize = 15}) {
     return Stack(
       children: [
         Container(
             color: COR_04,
-            height: altura / 3,
+            height: altura / 2,
             width: largura,
             child: const Image(
               image: AssetImage('img/autonojobs.gif'),
@@ -118,11 +111,11 @@ class Funcoes {
           child: Container(
             height: largura / 4,
             color: Colors.black.withOpacity(0.3),
-            width: largura / 3 * 2,
+            width: largura / 3 * 2 * 0.95,
             padding:
                 const EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 20),
             child: Text(
-              "Sempre que precisar, recorra a um profissional conhecido, perto de você.",
+              "Quando precisar, recorra a um profissional conhecido, perto de você.",
               textAlign: TextAlign.end,
               maxLines: 4,
               style: TextStyle(

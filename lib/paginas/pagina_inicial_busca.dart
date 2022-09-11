@@ -1,10 +1,8 @@
 import 'dart:math';
 
-import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
-import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -29,9 +27,11 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
   _getDatafromServer() async {
     await Funcoes().iniciarAtividades();
     _atividadesSelecionadas = Funcoes.atividades;
+    _atividadesSelecionadas.sort(((a, b) => a['nome'].compareTo(b['nome'])));
     await Funcoes().buscarAutonomos(cidadeNome: Funcoes.cidadeEscolhida);
     topAutonomos = Funcoes.autonomos
-        .where((element) => element.cidade == Funcoes.cidadeEscolhida)
+        .where((element) => (element.cidade == Funcoes.cidadeEscolhida &&
+            element.recomendado()))
         .toList();
     setState(() {});
   }
@@ -59,13 +59,15 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                     fontFamily: 'Verdana',
                     fontWeight: FontWeight.bold),
               ),
-              Text(
-                Funcoes.cidadeEscolhida,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
-                ),
-              ),
+              (Funcoes.cidadeEscolhida != '')
+                  ? Text(
+                      Funcoes.cidadeEscolhida,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
+                      ),
+                    )
+                  : Container(),
             ],
           ),
         ),
@@ -144,12 +146,12 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                 Navigator.pushNamed(context, 'detalheAutonomo');
                               },
                               child: SizedBox(
-                                height: altura / 3,
+                                height: altura / 2,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Container(
-                                      color: COR_04,
+                                      color: COR_02,
                                       width: largura / 3,
                                       height: altura / 3,
                                       child: topAutonomos[i].image(),
@@ -190,7 +192,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                             color: Colors.black54,
                                           ),
                                           Text(
-                                            topAutonomos[i].descricao,
+                                            topAutonomos[i].descricaoLimpa(),
                                             maxLines: 4,
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(
@@ -250,9 +252,6 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                     return ListTile(
                       visualDensity: VisualDensity.compact,
                       dense: true,
-                      tileColor: (index % 2 == 0)
-                          ? const Color.fromARGB(255, 227, 223, 223)
-                          : Colors.transparent,
                       title: Text(
                         _atividadesSelecionadas[index]['nome'].toString(),
                         textAlign: TextAlign.left,

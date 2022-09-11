@@ -12,6 +12,7 @@ class PaginaSelecaoCidade extends StatefulWidget {
 class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
   // ignore: prefer_final_fields
   List _cidadesSelecionadas = [];
+  bool extended = true;
 
   @override
   initState() {
@@ -40,7 +41,13 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           //Cabeçalho com imagem, Logo e Slogan
-          Funcoes().splash(largura, altura),
+          GestureDetector(
+              onTap: () {
+                extended = !extended;
+                setState(() {});
+              },
+              child:
+                  Funcoes().splash(largura, (extended) ? altura : altura / 2)),
           Container(
             width: largura,
             height: 5,
@@ -48,17 +55,16 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
           ), //area de busca
 
           //Campo de Busca
-          SizedBox(
+          Container(
+            color: Colors.grey.shade50,
             height: 70,
             width: largura * 0.9,
             child: TextField(
               onChanged: (texto) {
+                extended = false;
                 setState(() {
                   _cidadesSelecionadas = Funcoes().selecionaCidade(texto);
                 });
-              },
-              onSubmitted: (texto) {
-                Navigator.pushNamed(context, 'listaAutonomos');
               },
               style: const TextStyle(color: Color(0xFF000000), fontSize: 30),
               cursorColor: COR_02,
@@ -77,11 +83,13 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
           Container(
               margin:
                   EdgeInsets.only(left: largura * 0.05, right: largura * 0.05),
-              height: altura / 3,
+              height: altura / 2,
               child: ListView.builder(
                   itemCount: _cidadesSelecionadas.length,
                   itemBuilder: ((context, index) {
                     return ListTile(
+                      dense: true,
+                      visualDensity: VisualDensity.compact,
                       tileColor: (index % 2 == 0)
                           ? const Color.fromARGB(255, 227, 223, 223)
                           : Colors.transparent,
@@ -93,6 +101,8 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
                       ),
                       trailing: IconButton(
                         onPressed: () {
+                          extended = true;
+                          setState(() {});
                           Funcoes.cidadeEscolhida =
                               _cidadesSelecionadas[index]['nome'];
                           Navigator.pushNamed(context, 'selecionaAtividade');

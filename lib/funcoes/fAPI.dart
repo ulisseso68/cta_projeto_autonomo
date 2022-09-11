@@ -35,7 +35,7 @@ class CallApi {
   //Open Web Page
   void launchUrlOut(String url) async {
     if (!await launchUrl(Uri.parse(url))) {
-      throw 'Could not launch $_url';
+      throw 'Could not launch $url';
     }
   }
 

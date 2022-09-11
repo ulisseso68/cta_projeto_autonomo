@@ -3,6 +3,7 @@
 
 import 'dart:math';
 
+import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
@@ -80,15 +81,15 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
               color: Colors.green,
             ),
             ListTile(
-              leading: const Icon(Icons.perm_identity, size: 40),
+              leading: const Icon(Icons.badge_outlined, size: 30),
               title: Text(
                 autonomo.nome,
                 style:
                     const TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
               ),
-              textColor: Colors.green,
+              textColor: Colors.black54,
             ),
-            RatingBar(
+            /* RatingBar(
                 initialRating: 3,
                 unratedColor: Colors.green,
                 direction: Axis.horizontal,
@@ -106,43 +107,78 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                     )),
                 onRatingUpdate: (value) {
                   setState(() {});
-                }),
+                }), */
             ListTile(
               leading: const Icon(
-                Icons.description,
-                size: 40,
+                Icons.description_outlined,
+                size: 30,
               ),
               title: Text(
-                autonomo.descricao,
+                autonomo.descricaoLimpa(),
                 style: const TextStyle(color: Colors.black54),
               ),
             ),
             ListTile(
               leading: const Icon(
-                Icons.place,
-                size: 40,
+                Icons.place_outlined,
+                size: 30,
               ),
               title: Text(
                 "${autonomo.uf} ${autonomo.cidade} ${autonomo.cep}",
                 style: const TextStyle(color: Colors.black54),
               ),
             ),
+            (autonomo.getPreco() != '')
+                ? ListTile(
+                    visualDensity: VisualDensity.compact,
+                    leading: const Icon(
+                      Icons.wallet,
+                      size: 30,
+                      color: Colors.black54,
+                    ),
+                    title: Text(
+                      autonomo.preco,
+                      style: const TextStyle(
+                          color: Colors.black54, fontWeight: FontWeight.w500),
+                    ),
+                  )
+                : Container(),
             ListTile(
+              visualDensity: VisualDensity.compact,
               leading: GestureDetector(
                 onTap: () {
-                  Funcoes().whatsapp(autonomo.telefone);
+                  autonomo.sendWA();
                 },
                 child: const Icon(
-                  Icons.whatsapp_sharp,
-                  size: 40,
+                  Icons.whatsapp,
+                  size: 30,
                   color: COR_04,
                 ),
               ),
               title: Text(
                 autonomo.telefone,
-                style: const TextStyle(color: COR_04),
+                style:
+                    const TextStyle(color: COR_04, fontWeight: FontWeight.w500),
               ),
-            )
+            ),
+            (autonomo.getURL() != '')
+                ? ListTile(
+                    onTap: () {
+                      CallApi().launchUrlOut(autonomo.url);
+                    },
+                    visualDensity: VisualDensity.compact,
+                    leading: const Icon(
+                      Icons.web,
+                      size: 30,
+                      color: COR_04,
+                    ),
+                    title: Text(
+                      autonomo.url,
+                      style: const TextStyle(
+                          color: COR_04, fontWeight: FontWeight.w500),
+                    ),
+                  )
+                : Container(),
           ],
         ),
       ),

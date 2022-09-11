@@ -3,14 +3,16 @@ import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:flutter/material.dart';
 
-class PaginaCreditoProjeto extends StatefulWidget {
-  const PaginaCreditoProjeto({Key? key}) : super(key: key);
+class PaginaTermosUsoPrivacidade extends StatefulWidget {
+  const PaginaTermosUsoPrivacidade({Key? key}) : super(key: key);
   // ignore: prefer_typing_uninitialized_variables
   @override
-  State<PaginaCreditoProjeto> createState() => _PaginaCreditoProjetoState();
+  State<PaginaTermosUsoPrivacidade> createState() =>
+      _PaginaTermosUsoPrivacidadeState();
 }
 
-class _PaginaCreditoProjetoState extends State<PaginaCreditoProjeto> {
+class _PaginaTermosUsoPrivacidadeState
+    extends State<PaginaTermosUsoPrivacidade> {
   //int _counter = 0;
   //final Autonomo autonomo = Funcoes.autonomoEscolhido;
   bool expanded = false;
@@ -39,7 +41,7 @@ class _PaginaCreditoProjetoState extends State<PaginaCreditoProjeto> {
                       height: expanded ? altura / 2 : altura / 4,
                       width: largura,
                       child: const Image(
-                        image: AssetImage('img/timeAutonoJobs.jpeg'),
+                        image: AssetImage('img/tncs.png'),
                         fit: BoxFit.cover,
                       )),
                 ),
@@ -48,7 +50,7 @@ class _PaginaCreditoProjetoState extends State<PaginaCreditoProjeto> {
                     left: 10,
                     child: FloatingActionButton(
                       mini: true,
-                      heroTag: 'voltaCreditos',
+                      heroTag: 'voltaTnCs',
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -89,32 +91,30 @@ class _PaginaCreditoProjetoState extends State<PaginaCreditoProjeto> {
   List<ListTile> buildTiles() {
     List<ListTile> tiles = [];
     tiles.add(
-      ListTile(
+      const ListTile(
         title: Text(
-          projetoAJ['descricao'].toString(),
-          maxLines: 10,
-          style: const TextStyle(fontSize: 15),
+          'Termos de Uso e Privacidade',
+          maxLines: 2,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 20),
         ),
         textColor: Colors.black54,
       ),
     );
-    tiles.add(
-      ListTile(
-        title: Text(
-          projetoAJ['msg3'].toString(),
-          maxLines: 10,
-          style: const TextStyle(fontSize: 15, color: Colors.black54),
+
+    for (var element in tncs) {
+      tiles.add(
+        ListTile(
+          dense: true,
+          visualDensity: VisualDensity.compact,
+          leading: const Icon(Icons.comment),
+          title: Text(
+            element['clausula'].toString(),
+            style: const TextStyle(
+                fontSize: 14, color: Colors.black54, fontFamily: 'Verdana'),
+          ),
         ),
-      ),
-    );
-    for (var element in projetoParticipates) {
-      tiles.add(ListTile(
-        dense: true,
-        visualDensity: VisualDensity.compact,
-        leading: const Icon(Icons.badge),
-        title: Text(element['nome'].toString()),
-        subtitle: Text(element['cargo'].toString()),
-      ));
+      );
     }
     return tiles;
   }
