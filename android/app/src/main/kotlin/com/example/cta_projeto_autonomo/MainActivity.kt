@@ -1,4 +1,4 @@
-package com.example.cta_projeto_autonomo
+package com.autonojobs.cta_projeto_autonomo
 
 import io.flutter.embedding.android.FlutterActivity
 

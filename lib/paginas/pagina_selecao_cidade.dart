@@ -55,66 +55,87 @@ class _PaginaSelecaoCidadeState extends State<PaginaSelecaoCidade> {
           ), //area de busca
 
           //Campo de Busca
-          Container(
-            color: Colors.grey.shade50,
-            height: 70,
-            width: largura * 0.9,
-            child: TextField(
-              onChanged: (texto) {
-                extended = false;
-                setState(() {
-                  _cidadesSelecionadas = Funcoes().selecionaCidade(texto);
-                });
-              },
-              style: const TextStyle(color: Color(0xFF000000), fontSize: 30),
-              cursorColor: COR_02,
-              controller: textController,
-              keyboardType: TextInputType.text,
-              decoration: const InputDecoration(
-                hintText: 'selecione sua cidade',
-                hintStyle: TextStyle(
-                    color: Color(0xFF9b9b9b),
-                    fontSize: 20,
-                    fontWeight: FontWeight.normal),
-              ),
-            ),
-          ),
-          //Lista de atividas
+          (_cidadesSelecionadas.length > 5)
+              ? Container(
+                  color: Colors.grey.shade50,
+                  height: 70,
+                  width: largura * 0.9,
+                  child: TextField(
+                    onChanged: (texto) {
+                      extended = false;
+                      setState(() {
+                        _cidadesSelecionadas = Funcoes().selecionaCidade(texto);
+                      });
+                    },
+                    style:
+                        const TextStyle(color: Color(0xFF000000), fontSize: 30),
+                    cursorColor: COR_02,
+                    controller: textController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      hintText: 'selecione sua cidade',
+                      hintStyle: TextStyle(
+                          color: Color(0xFF9b9b9b),
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ),
+                )
+              : Container(),
+
+          //Lista de cidades
           Container(
               margin:
                   EdgeInsets.only(left: largura * 0.05, right: largura * 0.05),
               height: altura / 2,
-              child: ListView.builder(
-                  itemCount: _cidadesSelecionadas.length,
-                  itemBuilder: ((context, index) {
-                    return ListTile(
-                      dense: true,
-                      visualDensity: VisualDensity.compact,
-                      tileColor: (index % 2 == 0)
-                          ? const Color.fromARGB(255, 227, 223, 223)
-                          : Colors.transparent,
-                      title: Text(
-                        _cidadesSelecionadas[index]['nome'],
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(
-                            fontSize: 20, color: COR_04, fontFamily: 'Verdana'),
-                      ),
-                      trailing: IconButton(
-                        onPressed: () {
-                          extended = true;
-                          setState(() {});
-                          Funcoes.cidadeEscolhida =
-                              _cidadesSelecionadas[index]['nome'];
-                          Navigator.pushNamed(context, 'selecionaAtividade');
-                        },
-                        icon: const Icon(
-                          Icons.open_in_new,
-                          color: COR_04,
-                          size: 30,
+              child: (_cidadesSelecionadas.isEmpty)
+                  ? const Center(
+                      child: Text(
+                        'Ocorreu um problema na comunicação com os servidores do AUtonoJobs. Cheque sua internet e tente novamente.',
+                        textAlign: TextAlign.center,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 16,
+                          fontFamily: "Verdana",
                         ),
                       ),
-                    );
-                  }))),
+                    )
+                  : ListView.builder(
+                      itemCount: _cidadesSelecionadas.length,
+                      itemBuilder: ((context, index) {
+                        return ListTile(
+                          dense: true,
+                          visualDensity: VisualDensity.compact,
+                          tileColor: (index % 2 == 0)
+                              ? const Color.fromARGB(255, 227, 223, 223)
+                              : Colors.transparent,
+                          title: Text(
+                            _cidadesSelecionadas[index]['nome'],
+                            textAlign: TextAlign.left,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: COR_04,
+                                fontFamily: 'Verdana'),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              extended = true;
+                              setState(() {});
+                              Funcoes.cidadeEscolhida =
+                                  _cidadesSelecionadas[index]['nome'];
+                              Navigator.pushNamed(
+                                  context, 'selecionaAtividade');
+                            },
+                            icon: const Icon(
+                              Icons.open_in_new,
+                              color: COR_04,
+                              size: 30,
+                            ),
+                          ),
+                        );
+                      }))),
         ]),
       ),
     );
