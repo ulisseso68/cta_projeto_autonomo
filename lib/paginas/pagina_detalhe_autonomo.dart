@@ -1,7 +1,7 @@
 //import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 //import 'dart:html';
 
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
@@ -9,7 +9,7 @@ import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+//import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 //import 'package:flutter/services.dart';
 
@@ -168,7 +168,7 @@ class _PaginaDetalheAutonomoState extends State<PaginaDetalheAutonomo> {
                   autonomo.sendWA();
                 },
                 child: const Icon(
-                  Icons.whatsapp,
+                  Icons.facebook,
                   size: 30,
                   color: COR_04,
                 ),

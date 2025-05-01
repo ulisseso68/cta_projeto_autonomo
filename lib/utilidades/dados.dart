@@ -1,5 +1,5 @@
 var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
-var urlCadastro = 'https://forms.gle/ko9uNubsrnBUQ5jq7';
+var urlCadastro = 'https://docs.google.com/forms/d/e/1FAIpQLSdxctAaBWuY1EuSe20_r6jER96zFfXjeRo4VMqesq_aVH0ixA/viewform';
 var projetoAJ = {
   'descricao':
       'O projeto AutonoJobs é fruto de um trabalho conjunto entre a área de Tecnologia da DUFRY Brasil e os alunos do CTA - Centro de Treinamento Administrativo. Juntos, este time de profissionais e alunos materializaram uma proposta de negócios com o uso de tecnologia.',
@@ -38,9 +38,9 @@ var projetoParticipates = [
   {'nome': 'Amanda dos Anjos', 'cargo': 'Aluno CTA'},
   {'nome': 'Brenda Assis', 'cargo': 'Aluno CTA'},
   {'nome': 'Eyshila Souza', 'cargo': 'Aluno CTA'},
-  {'nome': 'Henry ', 'cargo': 'Aluno CTA'},
+  {'nome': 'Henry Oliveira', 'cargo': 'Aluno CTA'},
   {'nome': 'Jessica da Silva', 'cargo': 'Aluno CTA'},
-  {'nome': 'Kailan Gularte', 'cargo': 'Aluno CTA'},
+  {'nome': 'Kailan Santos', 'cargo': 'Aluno CTA'},
   {'nome': 'Luis Xavier', 'cargo': 'Aluno CTA'},
   {'nome': 'Maicon Nascimento', 'cargo': 'Aluno CTA'},
   {'nome': 'Marcelle Souza', 'cargo': 'Aluno CTA'},
@@ -53,7 +53,7 @@ var projetoParticipates = [
   {'nome': 'Victoria Chagas', 'cargo': 'Aluno CTA'},
   {'nome': 'Vitória Silva', 'cargo': 'Aluno CTA'},
   {'nome': 'Walleks Soares', 'cargo': 'Aluno CTA'},
-  {'nome': 'Yasmin', 'cargo': 'Aluno CTA'},
+  {'nome': 'Yasmin Costa', 'cargo': 'Aluno CTA'},
   {'nome': 'Mirtes Medeiros', 'cargo': 'CTA - Coordenação'},
   {'nome': 'Neuza Azeredo', 'cargo': 'CTA - Coordenação'},
   {'nome': 'Fabio Marques', 'cargo': 'Dufry - Time de Tecnologia'},
