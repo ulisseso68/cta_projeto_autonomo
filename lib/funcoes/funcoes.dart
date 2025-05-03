@@ -1,5 +1,6 @@
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ class Funcoes {
   static List atividadesSelecionadas = [];
   static List<Autonomo> autonomosSelecionados = <Autonomo>[];
   static List cidadesSelecionadas = [];
-  static List atividades = [];
+  static List preguntas = [];
   static List cidades = [];
   static List<Autonomo> autonomos = <Autonomo>[];
   static String cidadeEscolhida = '';
@@ -20,12 +21,14 @@ class Funcoes {
     print(autonomos.length);
   }
 
-  iniciarAtividades() async {
-    atividades = await CallApi().getPublicData('atividades');
+  iniciarPreguntas() async {
+    //atividades = await CallApi().getPublicData('atividades');
+    preguntas = preguntasConfig.toList();
   }
 
   iniciarCidades() async {
-    cidades = await CallApi().getPublicData('cidades');
+    //cidades = await CallApi().getPublicData('cidades');
+    cidades = cidadesConfig.toList();
     cidadesSelecionadas.addAll(cidades);
   }
 
@@ -98,29 +101,30 @@ class Funcoes {
     return Stack(
       children: [
         Container(
-            color: COR_04,
+            color: COR_02,
             height: altura / 2,
             width: largura,
             child: const Image(
-              image: AssetImage('img/autonojobs.gif'),
+              image: AssetImage('img/ccse1.gif'),
               fit: BoxFit.cover,
+              gaplessPlayback: true,
             )),
         Positioned(
           bottom: 10,
           left: 10,
           child: Container(
             height: largura / 4,
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.red.withOpacity(0.8),
             width: largura / 3 * 2 * 0.95,
             padding:
                 const EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 20),
             child: Text(
-              "Quando precisar, recorra a um profissional conhecido, perto de você.",
+              "CCSE es una prueba de examen que evalúa el conocimiento de la Constitución y de la realidad social y cultural españolas",
               textAlign: TextAlign.end,
               maxLines: 4,
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: fSize,
+                  fontSize: fSize * 0.9,
                   fontWeight: FontWeight.w500),
             ),
           ),
@@ -129,7 +133,7 @@ class Funcoes {
           bottom: 10,
           right: 10,
           child: Image(
-            image: const AssetImage('img/appstore.png'),
+            image: const AssetImage('img/ccse.png'),
             fit: BoxFit.cover,
             width: largura / 4,
             height: largura / 4,

@@ -1,8 +1,9 @@
 import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+//import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
+import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -15,24 +16,25 @@ class PaginaInicialBusca extends StatefulWidget {
 
 class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
   // ignore: prefer_final_fields
-  List _atividadesSelecionadas = [];
-  List<Autonomo> topAutonomos = <Autonomo>[];
+  List _preguntasSelecionadas = [];
+  //List<Autonomo> _preguntasSelecionadas = <Autonomo>[];
 
   @override
   initState() {
-    _getDatafromServer();
+    _getData();
     super.initState();
   }
 
-  _getDatafromServer() async {
-    await Funcoes().iniciarAtividades();
-    _atividadesSelecionadas = Funcoes.atividades;
-    _atividadesSelecionadas.sort(((a, b) => a['nome'].compareTo(b['nome'])));
-    await Funcoes().buscarAutonomos(cidadeNome: Funcoes.cidadeEscolhida);
-    topAutonomos = Funcoes.autonomos
+  _getData() async {
+    await Funcoes().iniciarPreguntas();
+    _preguntasSelecionadas = Funcoes.preguntas;
+    //_preguntasSelecionadas.sort(((a, b) => a['nome'].compareTo(b['nome'])));
+    //await Funcoes().buscarAutonomos(cidadeNome: Funcoes.cidadeEscolhida);
+    /* _preguntasSelecionadas = Funcoes.autonomos
         .where((element) => (element.cidade == Funcoes.cidadeEscolhida &&
             element.recomendado()))
-        .toList();
+        .toList(); */
+    indexPreguntas = 0;
     setState(() {});
   }
 
@@ -43,7 +45,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
     final double largura = MediaQuery.of(context).size.width;
 
     // ignore: prefer_typing_uninitialized_variables
-    var textController;
+    //var textController;
 
     return Scaffold(
       appBar: AppBar(
@@ -53,15 +55,15 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const Text(
-                'AutonoJobs',
+                appname,
                 style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'Verdana',
                     fontWeight: FontWeight.bold),
               ),
-              (Funcoes.cidadeEscolhida != '')
+              (temaPreguntas != '')
                   ? Text(
-                      Funcoes.cidadeEscolhida,
+                      temaPreguntas,
                       style: const TextStyle(
                         fontSize: 12,
                         fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
@@ -71,65 +73,114 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
             ],
           ),
         ),
-
         //shadowColor: Colors.white70.withOpacity(0.0),
       ),
       endDrawer: AJDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          const Divider(
+          Divider(
             color: Colors.white,
-            height: 1,
+            height: altura * 0.02,
           ),
-          //Carrossel com selecionados
+          // Counter with number of Answers Correct
           Container(
             width: largura,
             padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
             child: const Text(
-              "Autonomos em Destaque",
+              "(n) Preguntas correctas",
               style: TextStyle(
-                color: COR_04,
-                fontSize: 18,
+                color: redEspana,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          // Container with the divider
+          Divider(
+            color: Colors.white,
+            height: altura * 0.02,
+          ),
+          // Container with the question
           Container(
             width: largura,
             padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
-            child: const Text(
-              "deslize para a diretira/esquerda para ver a galeria dos autonomos mais recomendados na sua região.",
+            child: Text(
+              (_preguntasSelecionadas.isEmpty)
+                  ? 'No hay preguntas para esta selección'
+                  : _preguntasSelecionadas[indexPreguntas]['pergunta'],
               maxLines: 3,
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 14,
+              style: const TextStyle(
+                color: COR_01,
+                fontSize: 24,
               ),
             ),
           ),
-          Container(
-            width: largura,
-            height: 5,
-            color: Colors.green,
+          // Container with the divider
+          const Divider(
+            color: Colors.white,
+            height: 1,
           ),
-          (topAutonomos.isEmpty)
+          // Container with the answers
+          (_preguntasSelecionadas[indexPreguntas]['respostas'].toList().isEmpty)
               ? SizedBox(
                   height: altura / 4,
                   child: const Center(
                     child: Text(
-                      'Não temos ainda Autonomos recomendados nesta cidade',
+                      'No hay preguntas para esta selección',
                       textAlign: TextAlign.center,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 16,
+                        color: COR_01,
+                        fontSize: 20,
                         fontFamily: "Verdana",
                       ),
                     ),
                   ),
                 )
-              : Container(
+              : SizedBox(
+                  height: altura * 0.35,
+                  width: largura * 0.9,
+                  child: ListView.builder(
+                      itemCount: _preguntasSelecionadas[indexPreguntas]
+                              ['respostas']
+                          .toList()
+                          .length,
+                      itemBuilder: ((context, index) {
+                        return ListTile(
+                          visualDensity: VisualDensity.compact,
+                          dense: true,
+                          title: Text(
+                            _preguntasSelecionadas[indexPreguntas]['respostas']
+                                .toList()[index]['resposta'],
+                            textAlign: TextAlign.left,
+                            style: const TextStyle(
+                                fontSize: 22,
+                                color: COR_01,
+                                fontFamily: 'Verdana'),
+                          ),
+                          leading: IconButton(
+                            onPressed: () {
+                              /* if (_preguntasSelecionadas[index]['id'] != 0) {
+                          Funcoes.atividadeEscolhida =
+                              _preguntasSelecionadas[index]['nome'];
+                          Navigator.pushNamed(context, 'listaAutonomos');
+                        } */
+                            },
+                            icon: const Icon(
+                              Icons.radio_button_unchecked,
+                              color: COR_01,
+                              /* (_preguntasSelecionadas[index]['id'] != 0)
+                            ? COR_04
+                            : COR_LightGrey, */
+                              size: 20,
+                            ),
+                          ),
+                        );
+                      })),
+                ),
+          /* Container(
                   color: Colors.black12,
                   padding: const EdgeInsets.all(0),
                   height: altura / 4,
@@ -137,11 +188,12 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                   //color: Colors.amber,
                   child: PageView.builder(
                       controller: PageController(viewportFraction: 1.0),
-                      itemCount: min(topAutonomos.length, 3),
+                      itemCount: min(_preguntasSelecionadas.length, 3),
                       itemBuilder: (_, i) {
                         return GestureDetector(
                             onTap: () {
-                              Funcoes.autonomoEscolhido = topAutonomos[i];
+                              Funcoes.autonomoEscolhido =
+                                  _preguntasSelecionadas[i];
                               Navigator.pushNamed(context, 'detalheAutonomo');
                             },
                             child: SizedBox(
@@ -149,17 +201,17 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Container(
+                                  /* Container(
                                     color: COR_02,
                                     width: largura * 0.4,
                                     height: altura / 3,
-                                    child: topAutonomos[i].image(),
-                                  ),
+                                    child: _preguntasSelecionadas[i].image(),
+                                  ), */
                                   Container(
                                     padding: const EdgeInsets.only(
                                         left: 5.0, right: 5.0, top: 5.0),
                                     height: altura / 4,
-                                    width: 0.6 * largura,
+                                    width: largura,
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -167,18 +219,18 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          topAutonomos[i].nome,
-                                          maxLines: 1,
+                                          _preguntasSelecionadas[i]["pergunta"],
+                                          maxLines: 4,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
-                                            color: COR_02,
+                                            color: redEspana,
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: "Verdana",
                                           ),
                                         ),
-                                        Text(
-                                          topAutonomos[i].atividade,
+                                        /* Text(
+                                          _preguntasSelecionadas[i].atividade,
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
@@ -186,12 +238,13 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                             fontSize: 16,
                                             fontFamily: "Verdana",
                                           ),
-                                        ),
+                                        ), */
                                         const Divider(
                                           color: Colors.black54,
                                         ),
-                                        Text(
-                                          topAutonomos[i].descricaoLimpa(),
+                                        /* Text(
+                                          _preguntasSelecionadas[i]
+                                              .descricaoLimpa(),
                                           maxLines: 6,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
@@ -199,7 +252,7 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                                             fontFamily: "Verdana",
                                             color: Colors.black54,
                                           ),
-                                        ),
+                                        ), */
                                       ],
                                     ),
                                   ),
@@ -207,21 +260,20 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                               ),
                             ));
                       }),
-                ),
-          Container(
-            width: largura,
+                ), */
+          const Divider(
             height: 5,
-            color: Colors.green,
+            color: Colors.white,
           ), //area de busca
 
           //Campo de Busca
-          SizedBox(
+          /* SizedBox(
             height: altura * 0.1,
             width: largura * 0.9,
             child: TextField(
               onChanged: (texto) {
                 setState(() {
-                  _atividadesSelecionadas = Funcoes().seleciona(texto);
+                  _preguntasSelecionadas = Funcoes().seleciona(texto);
                 });
               },
               onSubmitted: (texto) {
@@ -240,43 +292,24 @@ class _PaginaInicialBuscaState extends State<PaginaInicialBusca> {
                     fontWeight: FontWeight.normal),
               ),
             ),
-          ),
-          //Lista de atividades
-          SizedBox(
-            height: altura * 0.35,
-            width: largura * 0.9,
-            child: ListView.builder(
-                itemCount: _atividadesSelecionadas.length,
-                itemBuilder: ((context, index) {
-                  return ListTile(
-                    visualDensity: VisualDensity.compact,
-                    dense: true,
-                    title: Text(
-                      _atividadesSelecionadas[index]['nome'].toString(),
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(
-                          fontSize: 20, color: COR_04, fontFamily: 'Verdana'),
-                    ),
-                    trailing: IconButton(
-                      onPressed: () {
-                        if (_atividadesSelecionadas[index]['id'] != 0) {
-                          Funcoes.atividadeEscolhida =
-                              _atividadesSelecionadas[index]['nome'];
-                          Navigator.pushNamed(context, 'listaAutonomos');
-                        }
-                      },
-                      icon: Icon(
-                        Icons.open_in_new,
-                        color: (_atividadesSelecionadas[index]['id'] != 0)
-                            ? COR_04
-                            : COR_LightGrey,
-                        size: 30,
-                      ),
-                    ),
-                  );
-                })),
-          )
+          ), */
+          //Lista de preguntas
         ],
+      ),
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        child: FloatingActionButton(
+          backgroundColor: COR_01,
+          onPressed: () {
+            setState(() {
+              indexPreguntas++;
+              if (indexPreguntas >= _preguntasSelecionadas.length) {
+                indexPreguntas = 0;
+              }
+            });
+          },
+          child: const Icon(Icons.arrow_forward),
+        ),
       ),
     );
   }

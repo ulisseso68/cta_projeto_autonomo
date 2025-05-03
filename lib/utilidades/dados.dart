@@ -1,5 +1,10 @@
+var indexPreguntas = 0;
+var temaPreguntas = 'Cidadania e Direitos';
+
 var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
-var urlCadastro = 'https://docs.google.com/forms/d/e/1FAIpQLSdxctAaBWuY1EuSe20_r6jER96zFfXjeRo4VMqesq_aVH0ixA/viewform';
+
+var urlCadastro =
+    'https://docs.google.com/forms/d/e/1FAIpQLSdxctAaBWuY1EuSe20_r6jER96zFfXjeRo4VMqesq_aVH0ixA/viewform';
 var projetoAJ = {
   'descricao':
       'O projeto AutonoJobs é fruto de um trabalho conjunto entre a área de Tecnologia da DUFRY Brasil e os alunos do CTA - Centro de Treinamento Administrativo. Juntos, este time de profissionais e alunos materializaram uma proposta de negócios com o uso de tecnologia.',
@@ -31,6 +36,59 @@ var tncs = [
     'clausula':
         'O aplicativo AutonoJobs não mantém, nem busca ter acesso, a nenhum dado dos clientes que o utilizam.'
   }
+];
+
+var cidadesConfig = [
+  {'nome': 'Gobierno y Legislación', 'estado': 'SP'},
+  {'nome': 'Derecho y Deberes Fundamentales', 'estado': 'RJ'},
+  {'nome': 'Organización Territorial. Geografia y Política', 'estado': 'MG'},
+  {'nome': 'Cultura y Historia', 'estado': 'BA'},
+  {'nome': 'Sociedad Española', 'estado': 'PR'},
+];
+
+var preguntasConfig = [
+  {
+    'pergunta': '¿Cuál es el nombre del rey actual de España?',
+    'respostas': [
+      {'resposta': 'Felipe VI', 'correcta': true},
+      {'resposta': 'Juan Carlos I', 'correcta': false},
+      {'resposta': 'Alfonso XIII', 'correcta': false}
+    ],
+  },
+  {
+    'pergunta': '¿Cuál es la capital de España?',
+    'respostas': [
+      {'resposta': 'Madrid', 'correcta': true},
+      {'resposta': 'Barcelona', 'correcta': false},
+      {'resposta': 'Valencia', 'correcta': false}
+    ],
+  },
+  {
+    'pergunta': '¿Cuántas comunidades autónomas hay en España?',
+    'respostas': [
+      {'resposta': '17', 'correcta': true},
+      {'resposta': '15', 'correcta': false},
+      {'resposta': '20', 'correcta': false}
+    ],
+  },
+  {
+    'pergunta': '¿Qué idioma se habla en la comunidad autónoma de Cataluña?',
+    'respostas': [
+      {'resposta': 'Catalán', 'correcta': true},
+      {'resposta': 'Gallego', 'correcta': false},
+      {'resposta': 'Vasco', 'correcta': false}
+    ],
+  },
+];
+var atividades = [
+  {'nome': 'Cabeleireiro', 'id': 1},
+  {'nome': 'Manicure', 'id': 2},
+  {'nome': 'Pedicure', 'id': 3},
+  {'nome': 'Esteticista', 'id': 4},
+  {'nome': 'Maquiador', 'id': 5},
+  {'nome': 'Barbeiro', 'id': 6},
+  {'nome': 'Massagista', 'id': 7},
+  {'nome': 'Pintor de Unhas', 'id': 8},
 ];
 
 var projetoParticipates = [
