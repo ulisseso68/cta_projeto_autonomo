@@ -35,7 +35,6 @@ class _HomePageState extends State<HomePage> {
 
     // ignore: prefer_typing_uninitialized_variables
     //var textController;
-    const redEspana = Color.fromARGB(255, 199, 17, 32);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -56,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             width: largura,
             height: 5,
-            color: Colors.orange[300],
+            color: COR_02,
           ), //
           //Campo de Busca
           /*          (_cidadesSelecionadas.length > 5)
@@ -130,7 +129,10 @@ class _HomePageState extends State<HomePage> {
                               Funcoes.cidadeEscolhida =
                                   _cidadesSelecionadas[index]['nome'];
                               Navigator.pushNamed(
-                                  context, 'selecionaAtividade');
+                                  context, 'questionsPage1', arguments: {
+                                'cidade': Funcoes.cidadeEscolhida,
+                                'idCidade': _cidadesSelecionadas[index]['id']
+                              });
                             },
                             icon: const Icon(
                               Icons.open_in_new,

@@ -3,8 +3,9 @@ import 'package:cta_projeto_autonomo/paginas/pagina_detalhe_autonomo.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_lista_autonomos.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
+//import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
-import 'paginas/pagina_inicial_busca.dart';
+import 'paginas/questionsPage1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,16 +26,15 @@ class MyApp extends StatelessWidget {
           child: child!,
         );
       },
-      title: 'AppName',
+      title: 'CCSE Fácil',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch(
-        backgroundColor: Colors.black12,
-        primarySwatch: Colors.orange,
-        cardColor: Colors.red,
-      )),
+              backgroundColor: Colors.black12,
+              primarySwatch: Colors.yellow,
+              cardColor: Colors.red.shade700)),
       routes: {
         'homePage': ((context) => const HomePage()),
-        'selecionaAtividade': ((context) => const PaginaInicialBusca()),
+        'questionsPage1': ((context) => const QuestionsPage1()),
         'listaAutonomos': ((context) => const PaginaListaAutonomos()),
         'detalheAutonomo': ((context) => const PaginaDetalheAutonomo()),
         'paginaCreditos': (context) => const PaginaCreditoProjeto(),

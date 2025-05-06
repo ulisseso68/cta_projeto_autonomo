@@ -54,6 +54,14 @@ var preguntasConfig = [
       {'resposta': 'Juan Carlos I', 'correcta': false},
       {'resposta': 'Alfonso XIII', 'correcta': false}
     ],
+    'tema': 'Gobierno y Legislación',
+    'hasDetails': true,
+    'details': {
+      'detalhe':
+          'El rey actual de España es Felipe VI, quien ascendió al trono en 2014 tras la abdicación de su padre, Juan Carlos I.',
+      'fotografia':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/King_Felipe_VI_of_Spain_%28cropped%29.jpg/800px-King_Felipe_VI_of_Spain_%28cropped%29.jpg'
+    }
   },
   {
     'pergunta': '¿Cuál es la capital de España?',
@@ -62,6 +70,14 @@ var preguntasConfig = [
       {'resposta': 'Barcelona', 'correcta': false},
       {'resposta': 'Valencia', 'correcta': false}
     ],
+    'tema': 'Gobierno y Legislación',
+    'hasDetails': true,
+    'details': {
+      'detalhe':
+          'La capital de España es Madrid, que también es la ciudad más grande del país.',
+      'fotografia':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Madrid_-_Puerta_del_Sol.jpg/800px-Madrid_-_Puerta_del_Sol.jpg'
+    }
   },
   {
     'pergunta': '¿Cuántas comunidades autónomas hay en España?',
@@ -70,6 +86,14 @@ var preguntasConfig = [
       {'resposta': '15', 'correcta': false},
       {'resposta': '20', 'correcta': false}
     ],
+    'tema': 'Gobierno y Legislación',
+    'hasDetails': true,
+    'details': {
+      'detalhe':
+          'España está dividida en 17 comunidades autónomas y 2 ciudades autónomas (Ceuta y Melilla).',
+      'fotografia':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Spain_communities_map.svg/800px-Spain_communities_map.svg.png'
+    }
   },
   {
     'pergunta': '¿Qué idioma se habla en la comunidad autónoma de Cataluña?',
@@ -78,6 +102,14 @@ var preguntasConfig = [
       {'resposta': 'Gallego', 'correcta': false},
       {'resposta': 'Vasco', 'correcta': false}
     ],
+    'tema': 'Gobierno y Legislación',
+    'hasDetails': true,
+    'details': {
+      'detalhe':
+          'En Cataluña se habla principalmente el catalán, aunque el español también es oficial.',
+      'fotografia':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Catalonia_location_map.svg/800px-Catalonia_location_map.svg.png'
+    }
   },
 ];
 var atividades = [

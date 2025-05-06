@@ -1,3 +1,5 @@
+//
+
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
@@ -18,7 +20,7 @@ class Funcoes {
   static double screenWidth = 300;
 
   calcular() {
-    print(autonomos.length);
+    //print(autonomos.length);
   }
 
   iniciarPreguntas() async {
@@ -139,6 +141,54 @@ class Funcoes {
             height: largura / 4,
           ),
         ),
+      ],
+    );
+  }
+
+  Widget answerDetails(double largura, double altura, String answerImageAddress,
+      String answerDetails,
+      {double fSize = 15}) {
+    return Stack(
+      children: [
+        Container(
+            color: COR_02,
+            height: altura / 2,
+            width: largura,
+            child: Image(
+              image: AssetImage(answerImageAddress),
+              fit: BoxFit.cover,
+              gaplessPlayback: true,
+            )),
+        Positioned(
+          bottom: 10,
+          left: 10,
+          child: Container(
+            height: largura / 4,
+            color: Colors.red.withOpacity(0.8),
+            width: largura / 3 * 2 * 0.95,
+            padding:
+                const EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 20),
+            child: Text(
+              answerDetails,
+              textAlign: TextAlign.end,
+              maxLines: 4,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: fSize * 0.9,
+                  fontWeight: FontWeight.w500),
+            ),
+          ),
+        ),
+        /* Positioned(
+          bottom: 10,
+          right: 10,
+          child: Image(
+            image: const AssetImage('img/ccse.png'),
+            fit: BoxFit.cover,
+            width: largura / 4,
+            height: largura / 4,
+          ),
+        ), */
       ],
     );
   }
