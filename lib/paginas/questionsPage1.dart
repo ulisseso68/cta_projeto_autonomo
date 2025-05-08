@@ -30,7 +30,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
 
   _getData() async {
     await Funcoes().iniciarPreguntas();
-    _preguntasSelecionadas = Funcoes.preguntas;
+    _preguntasSelecionadas = preguntas;
     //_preguntasSelecionadas.sort(((a, b) => a['nome'].compareTo(b['nome'])));
     //await Funcoes().buscarAutonomos(cidadeNome: Funcoes.cidadeEscolhida);
     /* _preguntasSelecionadas = Funcoes.autonomos
@@ -344,9 +344,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     if (indexPreguntas >= _preguntasSelecionadas.length) {
                       indexPreguntas = 0;
                     }
-                    _respostasLista = _preguntasSelecionadas[indexPreguntas]
-                            ['respostas']
-                        .toList();
+                    _respostasLista =
+                        _preguntasSelecionadas[indexPreguntas].answers;
                     responded = false;
                     respostaErrada = -1;
                   });

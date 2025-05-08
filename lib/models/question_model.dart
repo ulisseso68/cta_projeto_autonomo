@@ -11,7 +11,8 @@ class Question {
   bool hasDetails;
   List? answers;
   String category;
-  List? details;
+  String? description;
+  String? photo;
 
   Question(
       {this.id = 0,
@@ -26,7 +27,8 @@ class Question {
         hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
         answers = json['respostas'].toList(),
         category = json['tema'] is String ? json['tema'] : 'sin categoria',
-        details = json['hasDetails'] ? json['details'].toList() : null;
+        description = json['detalhe'] is String ? json['detalhe'] : '',
+        photo = json['fotografia'] is String ? json['fotografia'] : '';
 
   /* Widget image() {
     return (foto != '')

@@ -11,7 +11,7 @@ class Funcoes {
   static List atividadesSelecionadas = [];
   static List<Autonomo> autonomosSelecionados = <Autonomo>[];
   static List cidadesSelecionadas = [];
-  static List preguntas = [];
+
   static List cidades = [];
   static List<Autonomo> autonomos = <Autonomo>[];
   static String cidadeEscolhida = '';

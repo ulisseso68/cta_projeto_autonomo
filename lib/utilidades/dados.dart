@@ -1,5 +1,6 @@
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
+List preguntas = [];
 
 var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
 
@@ -57,11 +58,9 @@ var preguntasConfig = [
     ],
     'tema': 'Gobierno y Legislación',
     'hasDetails': true,
-    'details': {
-      'detalhe':
-          '\nFelipe VI de Borbón y Grecia es el rey actual de España, hijo de Juan Carlos I y Sofía de Grecia. Nació en Madrid en 1968 y accedió al trono en 2014 tras la abdicación de su padre. Es el actual jefe de estado y comandante supremo de las Fuerzas Armadas españolas. ',
-      'fotografia': 'img/felipevi.png'
-    }
+    'detalhe':
+        '\nFelipe VI de Borbón y Grecia es el rey actual de España, hijo de Juan Carlos I y Sofía de Grecia. Nació en Madrid en 1968 y accedió al trono en 2014 tras la abdicación de su padre. Es el actual jefe de estado y comandante supremo de las Fuerzas Armadas españolas. ',
+    'fotografia': 'img/felipevi.png'
   },
   {
     'id': 2,
@@ -84,12 +83,10 @@ var preguntasConfig = [
     ],
     'tema': 'Gobierno y Legislación',
     'hasDetails': false,
-    'details': {
-      'detalhe':
-          'España está dividida en 17 comunidades autónomas y 2 ciudades autónomas (Ceuta y Melilla).',
-      'fotografia':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Spain_communities_map.svg/800px-Spain_communities_map.svg.png'
-    }
+    'detalhe':
+        'España está dividida en 17 comunidades autónomas y 2 ciudades autónomas (Ceuta y Melilla).',
+    'fotografia':
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Spain_communities_map.svg/800px-Spain_communities_map.svg.png'
   },
   {
     'id': 4,
@@ -101,12 +98,10 @@ var preguntasConfig = [
     ],
     'tema': 'Gobierno y Legislación',
     'hasDetails': false,
-    'details': {
-      'detalhe':
-          'En Cataluña se habla principalmente el catalán, aunque el español también es oficial.',
-      'fotografia':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Catalonia_location_map.svg/800px-Catalonia_location_map.svg.png'
-    }
+    'detalhe':
+        'En Cataluña se habla principalmente el catalán, aunque el español también es oficial.',
+    'fotografia':
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Catalonia_location_map.svg/800px-Catalonia_location_map.svg.png'
   },
 ];
 var atividades = [
