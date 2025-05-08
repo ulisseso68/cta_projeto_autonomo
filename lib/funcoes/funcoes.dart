@@ -2,6 +2,7 @@
 
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
+import 'package:cta_projeto_autonomo/models/question_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,9 @@ class Funcoes {
 
   iniciarPreguntas() async {
     //atividades = await CallApi().getPublicData('atividades');
-    preguntas = preguntasConfig.toList();
+    //preguntas = preguntasConfig.toList();
+    preguntas = preguntasConfig.map((e) => Question.fromJson(e)).toList();
+    //print(preguntas[0].answers.toString());
   }
 
   iniciarCidades() async {

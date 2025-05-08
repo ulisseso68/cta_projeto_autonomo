@@ -48,6 +48,7 @@ var cidadesConfig = [
 
 var preguntasConfig = [
   {
+    'id': 1,
     'pergunta': '¿Cuál es el nombre del rey actual de España?',
     'respostas': [
       {'resposta': 'Felipe VI', 'correcta': true},
@@ -58,12 +59,12 @@ var preguntasConfig = [
     'hasDetails': true,
     'details': {
       'detalhe':
-          'El rey actual de España es Felipe VI, quien ascendió al trono en 2014 tras la abdicación de su padre, Juan Carlos I.',
-      'fotografia':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/King_Felipe_VI_of_Spain_%28cropped%29.jpg/800px-King_Felipe_VI_of_Spain_%28cropped%29.jpg'
+          '\nFelipe VI de Borbón y Grecia es el rey actual de España, hijo de Juan Carlos I y Sofía de Grecia. Nació en Madrid en 1968 y accedió al trono en 2014 tras la abdicación de su padre. Es el actual jefe de estado y comandante supremo de las Fuerzas Armadas españolas. ',
+      'fotografia': 'img/felipevi.png'
     }
   },
   {
+    'id': 2,
     'pergunta': '¿Cuál es la capital de España?',
     'respostas': [
       {'resposta': 'Madrid', 'correcta': true},
@@ -71,15 +72,10 @@ var preguntasConfig = [
       {'resposta': 'Valencia', 'correcta': false}
     ],
     'tema': 'Gobierno y Legislación',
-    'hasDetails': true,
-    'details': {
-      'detalhe':
-          'La capital de España es Madrid, que también es la ciudad más grande del país.',
-      'fotografia':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Madrid_-_Puerta_del_Sol.jpg/800px-Madrid_-_Puerta_del_Sol.jpg'
-    }
+    'hasDetails': false,
   },
   {
+    'id': 3,
     'pergunta': '¿Cuántas comunidades autónomas hay en España?',
     'respostas': [
       {'resposta': '17', 'correcta': true},
@@ -87,7 +83,7 @@ var preguntasConfig = [
       {'resposta': '20', 'correcta': false}
     ],
     'tema': 'Gobierno y Legislación',
-    'hasDetails': true,
+    'hasDetails': false,
     'details': {
       'detalhe':
           'España está dividida en 17 comunidades autónomas y 2 ciudades autónomas (Ceuta y Melilla).',
@@ -96,6 +92,7 @@ var preguntasConfig = [
     }
   },
   {
+    'id': 4,
     'pergunta': '¿Qué idioma se habla en la comunidad autónoma de Cataluña?',
     'respostas': [
       {'resposta': 'Catalán', 'correcta': true},
@@ -103,7 +100,7 @@ var preguntasConfig = [
       {'resposta': 'Vasco', 'correcta': false}
     ],
     'tema': 'Gobierno y Legislación',
-    'hasDetails': true,
+    'hasDetails': false,
     'details': {
       'detalhe':
           'En Cataluña se habla principalmente el catalán, aunque el español también es oficial.',

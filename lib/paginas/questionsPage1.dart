@@ -38,8 +38,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             element.recomendado()))
         .toList(); */
     //print(indexPreguntas);
-    _respostasLista =
-        _preguntasSelecionadas[indexPreguntas]['respostas'].toList();
+    _respostasLista = _preguntasSelecionadas[indexPreguntas].answers;
     //print(_preguntasSelecionadas[indexPreguntas]['pergunta']);
     setState(() {});
   }
@@ -111,7 +110,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                   Text(
                     (_preguntasSelecionadas.isEmpty)
                         ? 'No hay preguntas para esta selección'
-                        : _preguntasSelecionadas[indexPreguntas]['pergunta'],
+                        : _preguntasSelecionadas[indexPreguntas].question,
                     maxLines: 3,
                     style: const TextStyle(
                       color: COR_01,
@@ -187,6 +186,17 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                 responded = true;
                               });
                             }),
+                            trailing: IconButton(
+                              onPressed: () {
+                                setState(() {});
+                                Navigator.pushNamed(context, 'learningPage',
+                                    arguments: _respostasLista[index]);
+                              },
+                              icon: const Icon(
+                                Icons.info_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
                             leading: IconButton(
                               onPressed: () {
                                 setState(() {

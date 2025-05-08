@@ -128,11 +128,7 @@ class _HomePageState extends State<HomePage> {
                               setState(() {});
                               Funcoes.cidadeEscolhida =
                                   _cidadesSelecionadas[index]['nome'];
-                              Navigator.pushNamed(
-                                  context, 'questionsPage1', arguments: {
-                                'cidade': Funcoes.cidadeEscolhida,
-                                'idCidade': _cidadesSelecionadas[index]['id']
-                              });
+                              Navigator.pushNamed(context, 'questionsPage1');
                             },
                             icon: const Icon(
                               Icons.open_in_new,
