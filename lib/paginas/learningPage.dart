@@ -72,7 +72,7 @@ class _LearningPageState extends State<LearningPage> {
                   expanded = !expanded;
                   setState(() {});
                 },
-                child: Container(
+                child: SizedBox(
                     height: altura / 3,
                     width: largura,
                     child: Image(

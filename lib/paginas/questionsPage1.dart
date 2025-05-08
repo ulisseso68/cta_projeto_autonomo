@@ -186,17 +186,23 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                 responded = true;
                               });
                             }),
-                            trailing: IconButton(
-                              onPressed: () {
-                                setState(() {});
-                                Navigator.pushNamed(context, 'learningPage',
-                                    arguments: _respostasLista[index]);
-                              },
-                              icon: const Icon(
-                                Icons.info_rounded,
-                                color: Colors.white,
-                              ),
-                            ),
+                            trailing: (_respostasLista[index]['correcta'] &
+                                    responded &
+                                    _preguntasSelecionadas[indexPreguntas]
+                                        .hasDetails)
+                                ? IconButton(
+                                    onPressed: () {
+                                      setState(() {});
+                                      Navigator.pushNamed(
+                                          context, 'learningPage',
+                                          arguments: _respostasLista[index]);
+                                    },
+                                    icon: const Icon(
+                                      Icons.info_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : const SizedBox(height: 0, width: 0),
                             leading: IconButton(
                               onPressed: () {
                                 setState(() {
