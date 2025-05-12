@@ -1,4 +1,5 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
+import 'package:cta_projeto_autonomo/models/catalog.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // ignore: prefer_final_fields
   List _cidadesSelecionadas = [];
+  List<Catalog> _learningCatalog = [];
   bool extended = true;
 
   @override
@@ -52,41 +54,19 @@ class _HomePageState extends State<HomePage> {
             height: 5,
             color: redEspana,
           ), //area de busca
-          Container(
-            width: largura,
-            height: 5,
-            color: COR_02,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'sanfona');
+              setState(() {});
+            },
+            child: Container(
+              width: largura,
+              height: 20,
+              color: COR_02,
+            ),
           ), //
-          //Campo de Busca
-          /*          (_cidadesSelecionadas.length > 5)
-              ? Container(
-                  color: Colors.grey.shade50,
-                  height: 70,
-                  width: largura * 0.9,
-                  child: TextField(
-                    onChanged: (texto) {
-                      extended = false;
-                      setState(() {
-                        _cidadesSelecionadas = Funcoes().selecionaCidade(texto);
-                      });
-                    },
-                    style:
-                        const TextStyle(color: Color(0xFF000000), fontSize: 30),
-                    cursorColor: COR_02,
-                    controller: textController,
-                    keyboardType: TextInputType.text,
-                    decoration: const InputDecoration(
-                      hintText: 'selecione sua cidade',
-                      hintStyle: TextStyle(
-                          color: Color(0xFF9b9b9b),
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ),
-                )
-              : Container(), */
 
-          //Possible Areas
+          //Training Trail
           Container(
               margin:
                   EdgeInsets.only(left: largura * 0.05, right: largura * 0.05),

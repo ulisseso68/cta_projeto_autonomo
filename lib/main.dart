@@ -3,6 +3,7 @@ import 'package:cta_projeto_autonomo/paginas/learningPage.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_lista_autonomos.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
+import 'package:cta_projeto_autonomo/paginas/sanfona.dart';
 //import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'paginas/questionsPage1.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         'homePage': ((context) => const HomePage()),
         'questionsPage1': ((context) => const QuestionsPage1()),
         'learningPage': ((context) => const LearningPage()),
+        'sanfona': ((context) => const CatalogWidget()),
         'listaAutonomos': ((context) => const PaginaListaAutonomos()),
         'paginaCreditos': (context) => const PaginaCreditoProjeto(),
         'termosUsoPrivacidade': (context) => const PaginaTermosUsoPrivacidade(),

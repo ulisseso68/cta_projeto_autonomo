@@ -12,6 +12,7 @@ class CallApi {
   getPublicData(apiUrl) async {
     try {
       var response = await Dio().get(_url + apiUrl);
+
       if (response.statusCode == 200) {
         return response.data;
       } else {

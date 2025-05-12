@@ -38,6 +38,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             element.recomendado()))
         .toList(); */
     //print(indexPreguntas);
+    currentQuestion = _preguntasSelecionadas[indexPreguntas];
     _respostasLista = _preguntasSelecionadas[indexPreguntas].answers;
     //print(_preguntasSelecionadas[indexPreguntas]['pergunta']);
     setState(() {});
@@ -157,14 +158,14 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             tileColor: (responded)
-                                ? (_respostasLista[index]['correcta'])
+                                ? (_respostasLista[index]['correct'])
                                     ? Colors.green.shade300
                                     : Colors.grey.shade50
                                 : (index % 2 == 0)
                                     ? Colors.grey.shade200
                                     : Colors.white,
                             title: Text(
-                              _respostasLista[index]['resposta'],
+                              _respostasLista[index]['answer'],
                               textAlign: TextAlign.left,
                               maxLines: 4,
                               overflow: TextOverflow.ellipsis,
@@ -177,7 +178,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                             ),
                             onTap: () => setState(() {
                               setState(() {
-                                if (_respostasLista[index]['correcta']) {
+                                if (_respostasLista[index]['correct']) {
                                   respostasCorretas++;
                                 } else {
                                   respostasErradas++;
@@ -186,7 +187,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                 responded = true;
                               });
                             }),
-                            trailing: (_respostasLista[index]['correcta'] &
+                            /* trailing: (_respostasLista[index]['correct'] &
                                     responded &
                                     _preguntasSelecionadas[indexPreguntas]
                                         .hasDetails)
@@ -202,21 +203,25 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                       color: Colors.white,
                                     ),
                                   )
-                                : const SizedBox(height: 0, width: 0),
+                                : const SizedBox(height: 0, width: 0), */
                             leading: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  if (_respostasLista[index]['correcta']) {
-                                    respostasCorretas++;
-                                  } else {
-                                    respostasErradas++;
-                                    respostaErrada = index;
-                                  }
-                                  responded = true;
+                                  setState(() {
+                                    if (!responded) {
+                                      responded = true;
+                                      if (_respostasLista[index]['correct']) {
+                                        respostasCorretas++;
+                                      } else {
+                                        respostasErradas++;
+                                        respostaErrada = index;
+                                      }
+                                    }
+                                  });
                                 });
                               },
                               icon: Icon(
-                                (responded & _respostasLista[index]['correcta'])
+                                (responded & _respostasLista[index]['correct'])
                                     ? Icons.check_circle
                                     : (respostaErrada == index)
                                         ? Icons.cancel
@@ -350,6 +355,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     if (indexPreguntas >= _preguntasSelecionadas.length) {
                       indexPreguntas = 0;
                     }
+                    currentQuestion = _preguntasSelecionadas[indexPreguntas];
                     _respostasLista =
                         _preguntasSelecionadas[indexPreguntas].answers;
                     responded = false;

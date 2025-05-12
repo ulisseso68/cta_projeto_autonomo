@@ -9,7 +9,7 @@ class Question {
   int id;
   String question;
   bool hasDetails;
-  List? answers;
+  List answers;
   String category;
   String? description;
   String? photo;
@@ -17,6 +17,7 @@ class Question {
   Question(
       {this.id = 0,
       this.question = '',
+      this.answers = const [],
       this.hasDetails = false,
       this.category = ''});
 
@@ -29,6 +30,17 @@ class Question {
         category = json['tema'] is String ? json['tema'] : 'sin categoria',
         description = json['detalhe'] is String ? json['detalhe'] : '',
         photo = json['fotografia'] is String ? json['fotografia'] : '';
+
+  Question.fromServerJson(Map json)
+      : id = json['id'] is int ? json['id'] : -1,
+        question =
+            json['question'] is String ? json['question'] : 'sin pregunta',
+        hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
+        answers = json['answers'].toList(),
+        category =
+            json['category'] is String ? json['category'] : 'sin categoria',
+        description = json['description'] is String ? json['description'] : '',
+        photo = json['photo'] is String ? json['photo'] : '';
 
   /* Widget image() {
     return (foto != '')
