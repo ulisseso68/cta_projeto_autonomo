@@ -4,6 +4,8 @@
 //import 'package:flutter/material.dart';
 
 import 'dart:convert';
+import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
+import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 
 class Question {
   int id;
@@ -41,6 +43,8 @@ class Question {
             json['category'] is String ? json['category'] : 'sin categoria',
         description = json['description'] is String ? json['description'] : '',
         photo = json['photo'] is String ? json['photo'] : '';
+
+  answeredQuestion get getAnsQue => Funcoes().findAnsweredQuestion(id);
 
   /* Widget image() {
     return (foto != '')

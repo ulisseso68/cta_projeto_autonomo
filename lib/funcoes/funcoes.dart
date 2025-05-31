@@ -1,11 +1,15 @@
 //
 
+import 'dart:convert';
+
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/models/question_model.dart';
+import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Funcoes {
   static List atividadesSelecionadas = [];
@@ -14,7 +18,7 @@ class Funcoes {
 
   static List cidades = [];
   static List<Autonomo> autonomos = <Autonomo>[];
-  static String cidadeEscolhida = '';
+  static String categorySelected = '';
   static String atividadeEscolhida = '';
   static Autonomo autonomoEscolhido = Autonomo();
   static double screenHeight = 800;
@@ -24,26 +28,76 @@ class Funcoes {
     //print(autonomos.length);
   }
 
+  Future<void> saveAnsweredQuestionsToLocal() async {
+    // You need to add shared_preferences to your pubspec.yaml
+    // import 'package:shared_preferences/shared_preferences.dart';
+    final prefs = await SharedPreferences.getInstance();
+    List<String> questionsJson =
+        answeredQuestions.map((q) => q.toJson().toString()).toList();
+    await prefs.setStringList('answeredQuestions', questionsJson);
+    print('Answered questions saved to local storage.' +
+        questionsJson.toString());
+  }
+
+  Future<List<answeredQuestion>> loadAnsweredQuestionsFromLocal() async {
+    final prefs = await SharedPreferences.getInstance();
+    List<String>? questionsJson = prefs.getStringList('answeredQuestions');
+    if (questionsJson != null) {
+      print('Answered questions loaded from local storage.' +
+          questionsJson.toString());
+      return questionsJson
+          .map((q) => answeredQuestion.fromJson(jsonDecode(q)))
+          .toList();
+    }
+    return [];
+  }
+
+  findAnsweredQuestion(int id) {
+    for (var i = 0; i < answeredQuestions.length; i++) {
+      if (answeredQuestions[i].id == id) {
+        return answeredQuestions[i];
+      }
+    }
+    answeredQuestion newQuestion = answeredQuestion(id: id);
+    answeredQuestions.add(newQuestion);
+    return newQuestion;
+  }
+
   iniciarPreguntas() async {
     var questionsFromServer = await CallApi().getPublicData('questions/index');
-    print(questionsFromServer.toString());
     //preguntas = preguntasConfig.map((e) => Question.fromJson(e)).toList();
     preguntas =
         questionsFromServer.map((e) => Question.fromServerJson(e)).toList();
-    print(preguntas[0].answers.toString());
   }
 
-  initializaCatalog() async {
+  List selectQuestions(String categoryChosen) {
+    return preguntas
+        .where((element) => element.category == categoryChosen)
+        .toList();
+  }
+
+  initializeCatalog() async {
     //catalogConfig = await CallApi().getPublicData('catalog');
-    Set<String> uniqueCategories = {};
-    for (var question in preguntas) {
-      if (question.category != null) {
-        uniqueCategories.add(question.category);
+
+    await iniciarPreguntas();
+    uniqueCategories.clear();
+
+    for (var i = 0; i < preguntas.length; i++) {
+      if (!uniqueCategories
+          .toString()
+          .contains(preguntas[i].category.toString())) {
+        uniqueCategories.add(preguntas[i].category);
       }
     }
-    // uniqueCategories now contains all unique values of Question.category in preguntas
 
-    //_learningCatalog = catalogConfig.map((e) => Catalog.fromJson(e)).toList();
+    uniqueCategories = uniqueCategories.map((category) {
+      return category
+          .toString()
+          .split(' ')
+          .map(
+              (word) => word[0].toUpperCase() + word.substring(1).toLowerCase())
+          .join(' ');
+    }).toList();
   }
 
   iniciarCidades() async {

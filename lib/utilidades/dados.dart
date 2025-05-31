@@ -2,8 +2,10 @@ import 'package:cta_projeto_autonomo/models/question_model.dart';
 
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
+List uniqueCategories = [];
 List preguntas = [];
 Question currentQuestion = Question();
+List answeredQuestions = [];
 
 var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
 

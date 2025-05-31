@@ -2,6 +2,7 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 //import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
+import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -20,25 +21,27 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   int respostasCorretas = 0;
   int respostasErradas = 0;
   int respostaErrada = -1;
+  int printed = 0;
+  int answeredCorrect = 0;
 
   @override
   initState() {
-    indexPreguntas = 1;
+    indexPreguntas = 0;
+    temaPreguntas = Funcoes.categorySelected;
     _getData();
     super.initState();
   }
 
   _getData() async {
-    await Funcoes().iniciarPreguntas();
-    _preguntasSelecionadas = preguntas;
-    //_preguntasSelecionadas.sort(((a, b) => a['nome'].compareTo(b['nome'])));
-    //await Funcoes().buscarAutonomos(cidadeNome: Funcoes.cidadeEscolhida);
-    /* _preguntasSelecionadas = Funcoes.autonomos
-        .where((element) => (element.cidade == Funcoes.cidadeEscolhida &&
-            element.recomendado()))
-        .toList(); */
-    //print(indexPreguntas);
+    //await Funcoes().iniciarPreguntas();
+    //print(Funcoes.categorySelected);
+    _preguntasSelecionadas = preguntas
+        .where((element) => element.category == Funcoes.categorySelected)
+        .toList();
+
     currentQuestion = _preguntasSelecionadas[indexPreguntas];
+    printed = currentQuestion.getAnsQue.printed;
+    answeredCorrect = currentQuestion.getAnsQue.correct;
     _respostasLista = _preguntasSelecionadas[indexPreguntas].answers;
     //print(_preguntasSelecionadas[indexPreguntas]['pergunta']);
     setState(() {});
@@ -57,7 +60,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
       appBar: AppBar(
         backgroundColor: COR_02,
         title: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(2.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -71,9 +74,13 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               ),
               (temaPreguntas != '')
                   ? Text(
-                      temaPreguntas,
+                      temaPreguntas.toLowerCase(),
+                      maxLines: 1,
+                      textAlign: TextAlign.end,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        fontSize: 20,
+                        overflow: TextOverflow.ellipsis,
+                        fontSize: 13,
                         color: Colors.white,
                         fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
                       ),
@@ -99,20 +106,33 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                   Container(
                     width: largura,
                     padding: const EdgeInsets.only(top: 10, bottom: 5),
-                    child: Text(
-                      "Pregunta: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
-                      style: const TextStyle(
-                        color: COR_02,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Pregunta: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
+                          style: const TextStyle(
+                            color: COR_02,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "Printed: ${currentQuestion.getAnsQue.printed} | Correct: ${currentQuestion.getAnsQue.correct}",
+                          style: const TextStyle(
+                            color: COR_02,
+                            fontSize: 15,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Text(
                     (_preguntasSelecionadas.isEmpty)
                         ? 'No hay preguntas para esta selección'
                         : _preguntasSelecionadas[indexPreguntas].question,
-                    maxLines: 3,
+                    maxLines: 4,
                     style: const TextStyle(
                       color: COR_01,
                       fontSize: 24,
@@ -150,7 +170,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     width: largura - 20,
                     child: ListView.builder(
                         itemCount: _respostasLista.length,
-                        itemBuilder: ((context, index) {
+                        itemBuilder: ((context, indexAnswers) {
                           return ListTile(
                             //VisualDensity.comfortable,
                             //dense: true,
@@ -158,36 +178,46 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             tileColor: (responded)
-                                ? (_respostasLista[index]['correct'])
+                                ? (_respostasLista[indexAnswers]['Correct'])
                                     ? Colors.green.shade300
                                     : Colors.grey.shade50
-                                : (index % 2 == 0)
+                                : (indexAnswers % 2 == 0)
                                     ? Colors.grey.shade200
                                     : Colors.white,
                             title: Text(
-                              _respostasLista[index]['answer'],
+                              _respostasLista[indexAnswers]['answer'],
                               textAlign: TextAlign.left,
                               maxLines: 4,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontSize: 22,
-                                  color: (respostaErrada == index)
+                                  color: (respostaErrada == indexAnswers)
                                       ? Colors.red
                                       : COR_01,
                                   fontFamily: 'Verdana'),
                             ),
                             onTap: () => setState(() {
                               setState(() {
-                                if (_respostasLista[index]['correct']) {
+                                if (_respostasLista[indexAnswers]['Correct']) {
                                   respostasCorretas++;
+                                  Funcoes()
+                                      .findAnsweredQuestion(
+                                          _preguntasSelecionadas[indexPreguntas]
+                                              .id)
+                                      .registerCorrect();
                                 } else {
                                   respostasErradas++;
-                                  respostaErrada = index;
+                                  Funcoes()
+                                      .findAnsweredQuestion(
+                                          _preguntasSelecionadas[indexPreguntas]
+                                              .id)
+                                      .registerIncorrect();
+                                  respostaErrada = indexAnswers;
                                 }
                                 responded = true;
                               });
                             }),
-                            /* trailing: (_respostasLista[index]['correct'] &
+                            /* trailing: (_respostasLista[index]['Correct'] &
                                     responded &
                                     _preguntasSelecionadas[indexPreguntas]
                                         .hasDetails)
@@ -210,23 +240,32 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                   setState(() {
                                     if (!responded) {
                                       responded = true;
-                                      if (_respostasLista[index]['correct']) {
+                                      if (_respostasLista[indexAnswers]
+                                          ["Correct"]) {
                                         respostasCorretas++;
+                                        // Register the answer as correct
+                                        currentQuestion.getAnsQue
+                                            .registerCorrect();
                                       } else {
                                         respostasErradas++;
-                                        respostaErrada = index;
+                                        // Register the answer as incorrect
+                                        currentQuestion.getAnsQue
+                                            .registerIncorrect();
+                                        respostaErrada = indexAnswers;
                                       }
                                     }
                                   });
                                 });
                               },
                               icon: Icon(
-                                (responded & _respostasLista[index]['correct'])
+                                (responded &
+                                        _respostasLista[indexAnswers]
+                                            ['Correct'])
                                     ? Icons.check_circle
-                                    : (respostaErrada == index)
+                                    : (respostaErrada == indexAnswers)
                                         ? Icons.cancel
                                         : Icons.radio_button_unchecked,
-                                color: (respostaErrada == index)
+                                color: (respostaErrada == indexAnswers)
                                     ? Colors.red
                                     : COR_01,
                                 size: 20,
@@ -334,13 +373,18 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           ///color: Colors.yellow.shade100,
           padding:
               const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-          child: Text(
-            "Respostas: $respostasCorretas | Erros: $respostasErradas",
-            style: const TextStyle(
-              color: COR_02,
-              fontSize: 15,
-              fontWeight: FontWeight.normal,
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Respostas: $respostasCorretas | Erros: $respostasErradas",
+                style: const TextStyle(
+                  color: COR_02,
+                  fontSize: 15,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ],
           ),
         ),
       ],
@@ -352,6 +396,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                 onPressed: () {
                   setState(() {
                     indexPreguntas++;
+                    Funcoes().saveAnsweredQuestionsToLocal();
                     if (indexPreguntas >= _preguntasSelecionadas.length) {
                       indexPreguntas = 0;
                     }

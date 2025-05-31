@@ -133,7 +133,7 @@ class Autonomo {
   void sendWA() {
     if (telefone != '') {
       var whatsappUrl = "whatsapp://send?phone=+55$telefone";
-      print(whatsappUrl);
+      //print(whatsappUrl);
       CallApi().launchUrlOut(whatsappUrl);
     }
   }

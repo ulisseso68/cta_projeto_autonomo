@@ -24,7 +24,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
   _getDatafromServer() async {
     await Funcoes().buscarAutonomos(
         nomeAtividade: Funcoes.atividadeEscolhida,
-        cidadeNome: Funcoes.cidadeEscolhida);
+        cidadeNome: Funcoes.categorySelected);
     autonomosListar = Funcoes.autonomosSelecionados;
     setState(() {});
   }
@@ -52,7 +52,7 @@ class _PaginaListaAutonomosState extends State<PaginaListaAutonomos> {
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                '${Funcoes.cidadeEscolhida} | $atividade',
+                '${Funcoes.categorySelected} | $atividade',
                 style: const TextStyle(
                   fontSize: 12,
                   fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
