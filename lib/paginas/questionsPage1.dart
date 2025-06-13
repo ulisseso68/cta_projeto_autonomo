@@ -110,7 +110,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Pregunta: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
+                          "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
                           style: const TextStyle(
                             color: COR_02,
                             fontSize: 24,
@@ -118,7 +118,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                           ),
                         ),
                         Text(
-                          "Printed: ${currentQuestion.getAnsQue.printed} | Correct: ${currentQuestion.getAnsQue.correct}",
+                          "${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} | ${Funcoes().appLang("Correct")}: ${currentQuestion.getAnsQue.correct}",
                           style: const TextStyle(
                             color: COR_02,
                             fontSize: 15,
@@ -398,7 +398,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     indexPreguntas++;
                     Funcoes().saveAnsweredQuestionsToLocal();
                     if (indexPreguntas >= _preguntasSelecionadas.length) {
-                      indexPreguntas = 0;
+                      Navigator.pushNamed(context, 'questionsClosing');
                     }
                     currentQuestion = _preguntasSelecionadas[indexPreguntas];
                     _respostasLista =

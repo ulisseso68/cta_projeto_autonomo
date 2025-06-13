@@ -106,12 +106,13 @@ class _HomePageState extends State<HomePage> {
                                 color: Color.fromARGB(255, 199, 17, 32),
                                 fontFamily: 'Verdana'),
                           ),
-                          subtitle: Text("$qty Preguntas",
-                              textAlign: TextAlign.start,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: COR_02,
-                              )),
+                          subtitle:
+                              Text("$qty ${Funcoes().appLang("Questions")}",
+                                  textAlign: TextAlign.start,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    color: COR_02,
+                                  )),
                           leading: IconButton(
                             onPressed: () {
                               extended = true;

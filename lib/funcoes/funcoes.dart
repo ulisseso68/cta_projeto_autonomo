@@ -7,6 +7,7 @@ import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/models/question_model.dart';
 import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
+import 'package:cta_projeto_autonomo/utilidades/languages.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,6 +29,36 @@ class Funcoes {
     //print(autonomos.length);
   }
 
+  // functions to treat language settings
+  void setLanguage(int lang) {
+    language = lang;
+    setLanguageToStorage(lang);
+  }
+
+  Future<void> getLanguageFromStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var savedlanguage = localStorage.getString('language');
+    if (savedlanguage != null) {
+      language = int.parse(savedlanguage);
+    } else {
+      language = 2;
+    }
+  }
+
+  Future<void> setLanguageToStorage(int value) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setString('language', value.toString());
+    await getLanguageFromStorage();
+  }
+
+  String appLang(String sentence) {
+    if (lang.containsKey(sentence)) {
+      return lang[sentence]![language];
+    } else {
+      return sentence;
+    }
+  }
+
   Future<void> saveAnsweredQuestionsToLocal() async {
     // You need to add shared_preferences to your pubspec.yaml
     // import 'package:shared_preferences/shared_preferences.dart';
@@ -35,16 +66,12 @@ class Funcoes {
     List<String> questionsJson =
         answeredQuestions.map((q) => q.toJson().toString()).toList();
     await prefs.setStringList('answeredQuestions', questionsJson);
-    print('Answered questions saved to local storage.' +
-        questionsJson.toString());
   }
 
   Future<List<answeredQuestion>> loadAnsweredQuestionsFromLocal() async {
     final prefs = await SharedPreferences.getInstance();
     List<String>? questionsJson = prefs.getStringList('answeredQuestions');
     if (questionsJson != null) {
-      print('Answered questions loaded from local storage.' +
-          questionsJson.toString());
       return questionsJson
           .map((q) => answeredQuestion.fromJson(jsonDecode(q)))
           .toList();

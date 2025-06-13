@@ -4,17 +4,19 @@ import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+//import 'package:flutter/services.dart';
 //ignore: camel_case_types
 
-class LearningPage extends StatefulWidget {
-  const LearningPage({Key? key}) : super(key: key);
+class QuestionareClosing extends StatefulWidget {
+  const QuestionareClosing({Key? key}) : super(key: key);
   // ignore: prefer_typing_uninitialized_variables
 
   @override
-  State<LearningPage> createState() => _LearningPageState();
+  State<QuestionareClosing> createState() => _QuestionareClosingState();
 }
 
-class _LearningPageState extends State<LearningPage> {
+class _QuestionareClosingState extends State<QuestionareClosing> {
   final Autonomo autonomo = Funcoes.autonomoEscolhido;
   bool expanded = false;
   //final String texto = 'Phelipe VI da Espanha';
@@ -66,19 +68,17 @@ class _LearningPageState extends State<LearningPage> {
                 child: SizedBox(
                     height: altura / 3,
                     width: largura,
-                    child: Image(
-                      image: AssetImage(
-                          preguntas[indexPreguntas].photo), //autonomo.foto
+                    child: const Image(
+                      image: AssetImage('img/ccse1.gif'), //autonomo.foto
                       fit: BoxFit.cover,
                       gaplessPlayback: true,
                     ))),
             const Divider(thickness: 5.0, height: 5.0, color: COR_02),
-            ListTile(
+            const ListTile(
               //  leading: Icon(Icons.info, size: 30),
               title: Text(
-                preguntas[indexPreguntas].description,
-                style: const TextStyle(
-                    fontWeight: FontWeight.normal, fontSize: 20),
+                'texto de finalização',
+                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
               ),
               textColor: Colors.black54,
             ),

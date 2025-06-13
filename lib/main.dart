@@ -1,5 +1,6 @@
 import 'package:cta_projeto_autonomo/paginas/pagina_creditos_projeto.dart';
 import 'package:cta_projeto_autonomo/paginas/learningPage.dart';
+import 'package:cta_projeto_autonomo/paginas/questionaireClosing.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_lista_autonomos.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'homePage': ((context) => const HomePage()),
         'questionsPage1': ((context) => const QuestionsPage1()),
+        'questionsClosing': ((context) => const QuestionareClosing()),
         'learningPage': ((context) => const LearningPage()),
         'sanfona': ((context) => const CatalogWidget()),
         'listaAutonomos': ((context) => const PaginaListaAutonomos()),
