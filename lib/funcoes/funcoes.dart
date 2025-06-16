@@ -243,4 +243,38 @@ class Funcoes {
       ],
     );
   }
+
+  //KPIbox widget to display key performance indicators
+  Widget KPIbox(
+      double largura, String text1, String text2, Color backgroundColor,
+      {Color foreColor = Colors.white, IconData icon = Icons.check}) {
+    return Container(
+      width: largura * 0.5,
+      height: 95,
+      color: backgroundColor,
+      alignment: Alignment.topCenter,
+      child: ListTile(
+        trailing: Icon(icon, size: 50, color: foreColor),
+        title: Text(
+          text1,
+          style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Verdana',
+              color: foreColor),
+        ),
+        subtitle: Text(
+          text2,
+          style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Verdana',
+              color: foreColor),
+        ),
+        onTap: () {
+          // Implement your onTap functionality here
+        },
+      ),
+    );
+  }
 }
