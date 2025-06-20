@@ -18,8 +18,6 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   List _preguntasSelecionadas = [];
   List _respostasLista = [];
   bool responded = false;
-  int respostasCorretas = 0;
-  int respostasErradas = 0;
   int respostaErrada = -1;
   int printed = 0;
   int answeredCorrect = 0;
@@ -27,7 +25,9 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   @override
   initState() {
     indexPreguntas = 0;
-    temaPreguntas = Funcoes.categorySelected;
+    respostasCorretas = 0;
+    respostasErradas = 0;
+    temaPreguntas = Funcoes.categorySelected.toUpperCase();
     _getData();
     super.initState();
   }
@@ -36,8 +36,13 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
     //await Funcoes().iniciarPreguntas();
     //print(Funcoes.categorySelected);
     _preguntasSelecionadas = preguntas
-        .where((element) => element.category == Funcoes.categorySelected)
+        .where((element) =>
+            element.category == Funcoes.categorySelected.toUpperCase())
         .toList();
+    if (numberOfQuestions > 0) {
+      _preguntasSelecionadas =
+          _preguntasSelecionadas.take(numberOfQuestions).toList();
+    }
 
     currentQuestion = _preguntasSelecionadas[indexPreguntas];
     printed = currentQuestion.getAnsQue.printed;
@@ -74,7 +79,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               ),
               (temaPreguntas != '')
                   ? Text(
-                      temaPreguntas.toLowerCase(),
+                      Funcoes.categorySelected,
                       maxLines: 1,
                       textAlign: TextAlign.end,
                       overflow: TextOverflow.ellipsis,
@@ -398,7 +403,12 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     indexPreguntas++;
                     Funcoes().saveAnsweredQuestionsToLocal();
                     if (indexPreguntas >= _preguntasSelecionadas.length) {
-                      Navigator.pushNamed(context, 'questionsClosing');
+                      Navigator.pushNamed(context, 'questionsClosing',
+                          arguments: {
+                            'respostasCorretas': respostasCorretas,
+                            'respostasErradas': respostasErradas,
+                            'tema': temaPreguntas,
+                          });
                     }
                     currentQuestion = _preguntasSelecionadas[indexPreguntas];
                     _respostasLista =

@@ -72,13 +72,13 @@ class _HomePageState extends State<HomePage> {
                   EdgeInsets.only(left: largura * 0.05, right: largura * 0.05),
               height: altura / 2,
               child: (_categoriesSelected.isEmpty)
-                  ? const Center(
+                  ? Center(
                       child: Text(
-                        'Ocorreu um problema na comunicação com os servidores do AUtonoJobs. Cheque sua internet e tente novamente.',
+                        Funcoes().appLang("Problem loading data"),
                         textAlign: TextAlign.center,
                         maxLines: 4,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.green,
                           fontSize: 16,
                           fontFamily: "Verdana",
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                               extended = true;
                               setState(() {});
                               Funcoes.categorySelected =
-                                  _categoriesSelected[index].toUpperCase();
+                                  _categoriesSelected[index];
                               Navigator.pushNamed(context, 'questionsPage1');
                             },
                             icon: const Icon(

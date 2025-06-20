@@ -7,6 +7,9 @@ List preguntas = [];
 Question currentQuestion = Question();
 List answeredQuestions = [];
 int language = 2;
+int respostasCorretas = 0;
+int respostasErradas = 0;
+int numberOfQuestions = 5;
 
 var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
 
