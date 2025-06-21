@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:cta_projeto_autonomo/models/question_model.dart';
 
 var indexPreguntas = 0;
@@ -10,6 +12,9 @@ int language = 2;
 int respostasCorretas = 0;
 int respostasErradas = 0;
 int numberOfQuestions = 5;
+
+double screenH = 100;
+double screenW = 100;
 
 var quesOptions = [
   {'id': 1, 'nome': '25 questions', 'nbr': 25},

@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   List<Catalog> _learningCatalog = [];
   List<bool> _isOpen = [];
   bool extended = true;
+  bool _isOpenTotal = false;
 
   @override
   initState() {
@@ -35,6 +36,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     //var textController;
+    screenH = MediaQuery.of(context).size.height;
+    screenW = MediaQuery.of(context).size.width;
+
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
 
@@ -67,81 +71,101 @@ class _HomePageState extends State<HomePage> {
               color: COR_02,
             ),
           ), //
+          const SizedBox(
+            height: 10,
+          ),
 
+          //Espaço entre a área de busca e o título
           //Training Trail
-          Container(
-              margin:
-                  EdgeInsets.only(left: largura * 0.05, right: largura * 0.05),
-              height: altura / 2,
-              child: (_categoriesSelected.isEmpty)
-                  ? Center(
-                      child: Text(
-                        Funcoes().appLang("Problem loading data"),
-                        textAlign: TextAlign.center,
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: Colors.green,
-                          fontSize: 16,
-                          fontFamily: "Verdana",
-                        ),
-                      ),
-                    )
-                  : ListView.builder(
-                      itemCount: _categoriesSelected.length,
-                      itemBuilder: ((context, index) {
-                        String catsel = _categoriesSelected[index];
-                        int qty = Funcoes()
-                            .selectQuestions(catsel.toUpperCase())
-                            .length;
-                        return ListTile(
-                          dense: true,
-                          visualDensity: VisualDensity.compact,
-                          tileColor: (index % 2 == 0)
-                              ? const Color.fromARGB(255, 227, 223, 223)
-                              : Colors.transparent,
-                          title: Text(
-                            _categoriesSelected[index],
-                            textAlign: TextAlign.left,
-                            style: const TextStyle(
-                                fontSize: 18,
-                                color: Color.fromARGB(255, 199, 17, 32),
-                                fontFamily: 'Verdana'),
-                          ),
-                          subtitle:
-                              /* Text("$qty ${Funcoes().appLang("Questions")}",
-                                  textAlign: TextAlign.start,
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    color: COR_02,
-                                  )) */
-                              Funcoes().questionaryOptions(
+          Funcoes().titleWithIcon(Funcoes().appLang("Training Trail"),
+              Funcoes().appLang("Training Trail Description"), context,
+              isOpen: true),
+
+          Divider(
+            color: COR_02.withOpacity(0.2),
+            height: 10,
+            indent: 10,
+            endIndent: 10,
+            thickness: 1,
+          ),
+
+          Column(
+            children: [
+              ListTile(
+                dense: true,
+                visualDensity: VisualDensity.compact,
+                title: Text(
+                  "${Funcoes().appLang("All")} ${Funcoes().appLang("Questions")}",
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(fontSize: 18, color: COR_01),
+                ),
+                /* subtitle: Funcoes().questionaryOptions(
                                   _isOpen[index],
-                                  largura,
-                                  altura,
                                   qty.toString(),
-                                  _categoriesSelected[index]),
-                          leading: IconButton(
-                            onPressed: () {
-                              /* extended = true;
-                              setState(() {});
-                              Funcoes.categorySelected =
-                                  _categoriesSelected[index];
-                              Navigator.pushNamed(context, 'questionsPage1'); */
-                              setState(() {
-                                _isOpen[index] = !_isOpen[index];
-                              });
-                            },
-                            icon: Icon(
-                              _isOpen[index]
-                                  ? Icons.expand_less
-                                  : Icons.expand_more,
-                              color: const Color.fromARGB(255, 199, 17, 32),
-                              size: 30,
-                            ),
-                          ),
-                        );
-                      }))),
+                                  _categoriesSelected[index],
+                                  context), */
+                leading: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _isOpenTotal = !_isOpenTotal;
+                    });
+                  },
+                  icon: Icon(
+                    _isOpenTotal ? Icons.expand_less : Icons.expand_more,
+                    color: COR_01,
+                    size: 30,
+                  ),
+                ),
+              ),
+              Container(
+                  color: Colors.transparent,
+                  height: screenH,
+                  child: /* (_categoriesSelected.isEmpty)
+                      ? const SizedBox(
+                          height: 0,
+                        )
+                      :  */
+                      ListView.builder(
+                          itemCount: _categoriesSelected.length,
+                          itemBuilder: ((context, index) {
+                            String catsel = _categoriesSelected[index];
+                            int qty = Funcoes()
+                                .selectQuestions(catsel.toUpperCase())
+                                .length;
+                            return ListTile(
+                              dense: true,
+                              visualDensity: VisualDensity.compact,
+                              title: Text(
+                                _categoriesSelected[index],
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    color: COR_01,
+                                    fontFamily: 'Verdana'),
+                              ),
+                              subtitle: Funcoes().questionaryOptions(
+                                  _isOpen[index],
+                                  qty.toString(),
+                                  _categoriesSelected[index],
+                                  context),
+                              leading: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isOpen[index] = !_isOpen[index];
+                                  });
+                                },
+                                icon: Icon(
+                                  _isOpen[index]
+                                      ? Icons.expand_less
+                                      : Icons.expand_more,
+                                  color: COR_01,
+                                  size: 30,
+                                ),
+                              ),
+                            );
+                          }))),
+            ],
+          ),
         ]),
       ),
     );

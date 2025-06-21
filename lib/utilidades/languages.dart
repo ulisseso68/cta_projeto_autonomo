@@ -36,4 +36,22 @@ final lang = {
     'Problema ao carregar os dados',
     'Problema al cargar los datos'
   ],
+  'All': ['All', 'Todas', 'Todas'],
+  'Only': ['Only', 'Somente', 'Solo'],
+  'Unanswered': ['Unanswered', 'Não Respondidas', 'No Respondidas'],
+  'Wrong Answers': [
+    'Wrong Answers',
+    'Respostas Erradas',
+    'Respuestas Incorrectas'
+  ],
+  'Training Trail': [
+    'Training Trail',
+    'Trilha de Treinamento',
+    'Ruta de Entrenamiento'
+  ],
+  'Training Trail Description': [
+    'We recommend that you train your knowledge in steps, that are ordered below. Select the step that you want to train at the moment.',
+    'Recomendamos que você treine seu conhecimento em etapas, que estão ordenadas abaixo. Selecione a etapa que deseja treinar no momento.',
+    'Recomendamos que entrenes tu conocimiento en pasos, que están ordenados a continuación. Selecciona el paso que deseas entrenar en este momento.'
+  ],
 };

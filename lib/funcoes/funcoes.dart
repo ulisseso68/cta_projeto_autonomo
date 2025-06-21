@@ -245,6 +245,7 @@ class Funcoes {
   }
 
   //KPIbox widget to display key performance indicators
+  // ignore: non_constant_identifier_names
   Widget KPIbox(
       double largura, String text1, String text2, Color backgroundColor,
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
@@ -275,47 +276,98 @@ class Funcoes {
     );
   }
 
-  Widget questionaryOptions(bool isOpen, double largura, double altura,
-      String title, String category) {
-    return isOpen
-        ? Text("$title ${Funcoes().appLang("Questions")}",
+  Widget questionaryOptions(
+      bool isOpen, String title, String category, BuildContext context) {
+    return Column(
+      children: [
+        const Divider(
+          color: COR_02,
+          thickness: 1,
+          height: 10,
+        ),
+        !isOpen
+            ? Text("$title ${Funcoes().appLang("Questions")}",
+                textAlign: TextAlign.start,
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: COR_02,
+                ))
+            : ButtonBar(
+                alignment: MainAxisAlignment.start,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      backgroundColor: COR_02,
+                    ),
+                    onPressed: () {
+                      Funcoes.categorySelected = category;
+                      numberOfQuestions = 10;
+                      Navigator.pushNamed(context, 'questionsPage1');
+                    },
+                    child: Text(Funcoes().appLang("10"),
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.white)),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      backgroundColor: COR_02,
+                    ),
+                    onPressed: () {
+                      Funcoes.categorySelected = category;
+                      numberOfQuestions = 1000;
+                      Navigator.pushNamed(context, 'questionsPage1');
+                    },
+                    child: Text(Funcoes().appLang("All"),
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.white)),
+                  ),
+                ],
+              ),
+      ],
+    );
+  }
+
+  Widget titleWithIcon(String title, String subTitle, BuildContext context,
+      {bool isOpen = false}) {
+    return ListTile(
+      dense: true,
+      visualDensity: VisualDensity.compact,
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            Funcoes().appLang(title),
             textAlign: TextAlign.start,
             style: const TextStyle(
-              fontSize: 15,
-              color: COR_02,
-            ))
-        : ButtonBar(
-            alignment: MainAxisAlignment.start,
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  backgroundColor: COR_02,
-                ),
-                onPressed: () {
-                  Funcoes.categorySelected = category;
-                  //Navigator.pushNamed(context, 'questionsPage1');
-                },
-                child: Text(Funcoes().appLang("25"),
-                    style: const TextStyle(fontSize: 15, color: Colors.white)),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  backgroundColor: COR_02,
-                ),
-                onPressed: () {
-                  Funcoes.categorySelected = category;
-                  //Navigator.pushNamed(context, 'questionsPage1');
-                },
-                child: Text(Funcoes().appLang("All"),
-                    style: const TextStyle(fontSize: 15, color: Colors.white)),
-              ),
-            ],
-          );
+                fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+          ),
+          const Divider(
+            color: COR_02,
+            height: 10,
+            thickness: 1,
+          ),
+        ],
+      ),
+      subtitle: isOpen
+          ? Text(
+              Funcoes().appLang(subTitle),
+              textAlign: TextAlign.start,
+              style: const TextStyle(fontSize: 14, color: COR_01),
+            )
+          : const SizedBox(
+              height: 0,
+            ),
+      leading: const Icon(
+        Icons.question_answer_rounded,
+        color: COR_02,
+        size: 30,
+      ),
+    );
   }
 }
