@@ -14,11 +14,13 @@ class _HomePageState extends State<HomePage> {
   // ignore: prefer_final_fields
   List _categoriesSelected = [];
   List<Catalog> _learningCatalog = [];
+  List<bool> _isOpen = [];
   bool extended = true;
 
   @override
   initState() {
     _getDatafromServer();
+
     super.initState();
   }
 
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     answeredQuestions = await Funcoes().loadAnsweredQuestionsFromLocal();
     await Funcoes().initializeCatalog();
     _categoriesSelected = uniqueCategories;
+    _isOpen = List.generate(_categoriesSelected.length, (index) => false);
     setState(() {});
   }
 
@@ -56,7 +59,6 @@ class _HomePageState extends State<HomePage> {
           ), //area de busca
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'sanfona');
               setState(() {});
             },
             child: Container(
@@ -107,23 +109,34 @@ class _HomePageState extends State<HomePage> {
                                 fontFamily: 'Verdana'),
                           ),
                           subtitle:
-                              Text("$qty ${Funcoes().appLang("Questions")}",
+                              /* Text("$qty ${Funcoes().appLang("Questions")}",
                                   textAlign: TextAlign.start,
                                   style: const TextStyle(
                                     fontSize: 15,
                                     color: COR_02,
-                                  )),
+                                  )) */
+                              Funcoes().questionaryOptions(
+                                  _isOpen[index],
+                                  largura,
+                                  altura,
+                                  qty.toString(),
+                                  _categoriesSelected[index]),
                           leading: IconButton(
                             onPressed: () {
-                              extended = true;
+                              /* extended = true;
                               setState(() {});
                               Funcoes.categorySelected =
                                   _categoriesSelected[index];
-                              Navigator.pushNamed(context, 'questionsPage1');
+                              Navigator.pushNamed(context, 'questionsPage1'); */
+                              setState(() {
+                                _isOpen[index] = !_isOpen[index];
+                              });
                             },
-                            icon: const Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color.fromARGB(255, 199, 17, 32),
+                            icon: Icon(
+                              _isOpen[index]
+                                  ? Icons.expand_less
+                                  : Icons.expand_more,
+                              color: const Color.fromARGB(255, 199, 17, 32),
                               size: 30,
                             ),
                           ),

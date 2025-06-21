@@ -11,6 +11,14 @@ int respostasCorretas = 0;
 int respostasErradas = 0;
 int numberOfQuestions = 5;
 
+var quesOptions = [
+  {'id': 1, 'nome': '25 questions', 'nbr': 25},
+  {'id': 2, 'nome': 'All questions', 'nbr': -1},
+  {'id': 3, 'nome': 'Only 5 questions', 'nbr': 5},
+  {'id': 4, 'nome': 'Only unanswered questions', 'nbr': -2},
+  {'id': 5, 'nome': 'Only wrong answers', 'nbr': -3}
+];
+
 var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
 
 var urlCadastro =

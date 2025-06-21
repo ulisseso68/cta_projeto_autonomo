@@ -248,33 +248,74 @@ class Funcoes {
   Widget KPIbox(
       double largura, String text1, String text2, Color backgroundColor,
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
-    return Container(
+    return SizedBox(
       width: largura * 0.5,
       height: 95,
-      color: backgroundColor,
-      alignment: Alignment.topCenter,
       child: ListTile(
-        trailing: Icon(icon, size: 50, color: foreColor),
+        tileColor: backgroundColor,
+        trailing: Icon(
+          icon,
+          size: 30,
+          color: foreColor,
+        ),
         title: Text(
           text1,
           style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Verdana',
-              color: foreColor),
+              fontSize: 40, fontWeight: FontWeight.bold, color: foreColor),
         ),
         subtitle: Text(
           text2,
           style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Verdana',
-              color: foreColor),
+              fontSize: 15, fontWeight: FontWeight.bold, color: foreColor),
         ),
         onTap: () {
           // Implement your onTap functionality here
         },
       ),
     );
+  }
+
+  Widget questionaryOptions(bool isOpen, double largura, double altura,
+      String title, String category) {
+    return isOpen
+        ? Text("$title ${Funcoes().appLang("Questions")}",
+            textAlign: TextAlign.start,
+            style: const TextStyle(
+              fontSize: 15,
+              color: COR_02,
+            ))
+        : ButtonBar(
+            alignment: MainAxisAlignment.start,
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  backgroundColor: COR_02,
+                ),
+                onPressed: () {
+                  Funcoes.categorySelected = category;
+                  //Navigator.pushNamed(context, 'questionsPage1');
+                },
+                child: Text(Funcoes().appLang("25"),
+                    style: const TextStyle(fontSize: 15, color: Colors.white)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  backgroundColor: COR_02,
+                ),
+                onPressed: () {
+                  Funcoes.categorySelected = category;
+                  //Navigator.pushNamed(context, 'questionsPage1');
+                },
+                child: Text(Funcoes().appLang("All"),
+                    style: const TextStyle(fontSize: 15, color: Colors.white)),
+              ),
+            ],
+          );
   }
 }

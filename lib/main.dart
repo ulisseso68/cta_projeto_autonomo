@@ -4,7 +4,6 @@ import 'package:cta_projeto_autonomo/paginas/questionaireClosing.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_lista_autonomos.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
-import 'package:cta_projeto_autonomo/paginas/sanfona.dart';
 //import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'paginas/questionsPage1.dart';
@@ -30,6 +29,7 @@ class MyApp extends StatelessWidget {
       },
       title: 'CCSE Fácil',
       theme: ThemeData(
+          fontFamily: 'Verdana',
           colorScheme: ColorScheme.fromSwatch(
               backgroundColor: Colors.black12,
               primarySwatch: Colors.yellow,
@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
         'questionsPage1': ((context) => const QuestionsPage1()),
         'questionsClosing': ((context) => const QuestionareClosing()),
         'learningPage': ((context) => const LearningPage()),
-        'sanfona': ((context) => const CatalogWidget()),
         'listaAutonomos': ((context) => const PaginaListaAutonomos()),
         'paginaCreditos': (context) => const PaginaCreditoProjeto(),
         'termosUsoPrivacidade': (context) => const PaginaTermosUsoPrivacidade(),

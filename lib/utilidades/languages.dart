@@ -14,6 +14,16 @@ final lang = {
     'Perguntas Respondidas',
     'Preguntas Respondidas'
   ],
+  'Correct Answers': [
+    'Correct Answers',
+    'Respostas Corretas',
+    'Respuestas Correctas'
+  ],
+  'Number of Questions': [
+    'Number of Questions',
+    'Número de Perguntas',
+    'Número de Preguntas'
+  ],
   'Wrongly': ['Wrongly', 'Errado', 'Incorrecto'],
   'Incorrect': ['was incorrect', 'resposta incorreta', 'respuesta incorrecta'],
   'Correctly': ['Correctly', 'Corretamente', 'Correctamente'],
