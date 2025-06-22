@@ -1,7 +1,7 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/models/catalog.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,10 +13,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // ignore: prefer_final_fields
   List _categoriesSelected = [];
-  List<Catalog> _learningCatalog = [];
   List<bool> _isOpen = [];
   bool extended = true;
-  bool _isOpenTotal = false;
 
   @override
   initState() {
@@ -42,21 +40,65 @@ class _HomePageState extends State<HomePage> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      drawer: const AJDrawer(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white, size: 40),
+        toolbarHeight: (extended) ? altura / 3 : altura / 6,
+        title: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.4),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: const Text(
+            appname,
+            style: TextStyle(
+                fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            color: Colors.white,
+            icon: Icon(extended ? Icons.zoom_out : Icons.zoom_in),
+            iconSize: 40,
+            onPressed: () {
+              extended = !extended;
+              setState(() {});
+              // Implement search functionality here
+            },
+          ),
+        ],
+        flexibleSpace: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(
+              'img/ccse1.gif',
+              fit: BoxFit.cover,
+            ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                width: largura,
+                height: 5,
+                color: redEspana,
+              ),
+            ),
+          ],
+        ),
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           //Cabeçalho com imagem, Logo e Slogan
-          GestureDetector(
-              onTap: () {
-                extended = !extended;
-                setState(() {});
-              },
-              child:
-                  Funcoes().splash(largura, (extended) ? altura : altura / 2)),
-          Container(
-            width: largura,
-            height: 5,
-            color: redEspana,
-          ), //area de busca
+
+          //area de busca
           GestureDetector(
             onTap: () {
               setState(() {});
@@ -84,7 +126,7 @@ class _HomePageState extends State<HomePage> {
             endIndent: 10,
             thickness: 1,
           ),
-          _buildListTile()
+          _buildListTile(),
         ]),
       ),
     );
