@@ -18,18 +18,23 @@ class AJDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Funcoes().splash(Funcoes.screenWidth * 1, Funcoes.screenHeight,
-                fSize: 13),
+            Container(
+              height: screenH / 5,
+              color: COR_02,
+              child: Center(
+                child: Funcoes().logoWidget(fontSize: 30, opacity: 0.05),
+              ),
+            ),
             ListTile(
               leading: const Icon(
                 Icons.facebook,
                 size: 40,
-                color: COR_04,
+                color: COR_02,
               ),
               title: const Text(
                 'Blog no faceboog',
                 textAlign: TextAlign.start,
-                style: TextStyle(color: COR_04, fontSize: 14),
+                style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
                 CallApi().launchUrlOut(urlfacebook);
@@ -39,12 +44,12 @@ class AJDrawer extends StatelessWidget {
               leading: const Icon(
                 Icons.info,
                 size: 40,
-                color: COR_04,
+                color: COR_02,
               ),
               title: const Text(
                 'O Projeto AutonoJobs',
                 textAlign: TextAlign.start,
-                style: TextStyle(color: COR_04, fontSize: 14),
+                style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
                 Navigator.popAndPushNamed(context, 'paginaCreditos');
@@ -54,12 +59,12 @@ class AJDrawer extends StatelessWidget {
               leading: const Icon(
                 Icons.privacy_tip,
                 size: 40,
-                color: COR_04,
+                color: COR_02,
               ),
               title: const Text(
                 'Termos de Uso e Privacidade',
                 textAlign: TextAlign.start,
-                style: TextStyle(color: COR_04, fontSize: 14),
+                style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
                 Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
@@ -69,12 +74,12 @@ class AJDrawer extends StatelessWidget {
               leading: const Icon(
                 Icons.work,
                 size: 40,
-                color: COR_04,
+                color: COR_02,
               ),
               title: const Text(
                 'Cadastre-se como Autonomo',
                 textAlign: TextAlign.start,
-                style: TextStyle(color: COR_04, fontSize: 14),
+                style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
                 CallApi().launchUrlOut(urlCadastro);

@@ -1,8 +1,6 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-//import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
-import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
+import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
@@ -93,7 +91,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
 
         //shadowColor: Colors.white70.withOpacity(0.0),
       ),
-      endDrawer: AJDrawer(),
+      endDrawer: const AJDrawer(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

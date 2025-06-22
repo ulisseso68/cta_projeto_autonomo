@@ -1,7 +1,7 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
-import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
+import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,24 +44,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         toolbarHeight: (extended) ? altura / 3 : altura / 6,
-        title: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.4),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(0, 3), // changes position of shadow
-              ),
-            ],
-          ),
-          child: const Text(
-            appname,
-            style: TextStyle(
-                fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ),
+        title: Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
         centerTitle: true,
         actions: [
           IconButton(
@@ -99,21 +82,15 @@ class _HomePageState extends State<HomePage> {
           //Cabeçalho com imagem, Logo e Slogan
 
           //area de busca
-          GestureDetector(
-            onTap: () {
-              setState(() {});
-            },
-            child: Container(
-              width: largura,
-              height: 20,
-              color: COR_02,
-            ),
-          ), //
+          Container(
+            width: largura,
+            height: 10,
+            color: COR_02,
+          ),
           const SizedBox(
             height: 10,
           ),
 
-          //Espaço entre a área de busca e o título
           //Training Trail
           Funcoes().titleWithIcon(Funcoes().appLang("Training Trail"),
               Funcoes().appLang("Training Trail Description"), context,
@@ -144,14 +121,14 @@ class _HomePageState extends State<HomePage> {
         title: Text(
           catsel,
           textAlign: TextAlign.left,
-          style: const TextStyle(
-              fontSize: 18, color: COR_01, fontFamily: 'Verdana'),
+          style: const TextStyle(fontSize: 18, color: COR_01),
         ),
         subtitle: Funcoes()
             .questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
         leading: IconButton(
           onPressed: () {
             setState(() {
+              extended = false;
               _isOpen[i] = !_isOpen[i];
             });
           },

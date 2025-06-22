@@ -16,7 +16,6 @@ class Funcoes {
   static List atividadesSelecionadas = [];
   static List<Autonomo> autonomosSelecionados = <Autonomo>[];
   static List cidadesSelecionadas = [];
-
   static List cidades = [];
   static List<Autonomo> autonomos = <Autonomo>[];
   static String categorySelected = '';
@@ -286,6 +285,7 @@ class Funcoes {
   Widget questionaryOptions(
       bool isOpen, String title, String category, BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Divider(
           color: COR_02,
@@ -299,61 +299,160 @@ class Funcoes {
                   fontSize: 15,
                   color: COR_02,
                 ))
-            : ButtonBar(
-                alignment: MainAxisAlignment.start,
+            : Column(
                 children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
+                  progressBar(category: category),
+                  ButtonBar(
+                    alignment: MainAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          backgroundColor: COR_02,
+                        ),
+                        onPressed: () {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 10;
+                          Navigator.pushNamed(context, 'questionsPage1');
+                        },
+                        child: Text(Funcoes().appLang("10"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
                       ),
-                      backgroundColor: COR_02,
-                    ),
-                    onPressed: () {
-                      Funcoes.categorySelected = category;
-                      numberOfQuestions = 10;
-                      Navigator.pushNamed(context, 'questionsPage1');
-                    },
-                    child: Text(Funcoes().appLang("10"),
-                        style:
-                            const TextStyle(fontSize: 15, color: Colors.white)),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          backgroundColor: COR_02,
+                        ),
+                        onPressed: () {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 25;
+                          Navigator.pushNamed(context, 'questionsPage1');
+                        },
+                        child: Text(Funcoes().appLang("25"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
                       ),
-                      backgroundColor: COR_02,
-                    ),
-                    onPressed: () {
-                      Funcoes.categorySelected = category;
-                      numberOfQuestions = 25;
-                      Navigator.pushNamed(context, 'questionsPage1');
-                    },
-                    child: Text(Funcoes().appLang("25"),
-                        style:
-                            const TextStyle(fontSize: 15, color: Colors.white)),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          backgroundColor: COR_02,
+                        ),
+                        onPressed: () {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 1000;
+                          Navigator.pushNamed(context, 'questionsPage1');
+                        },
+                        child: Text(Funcoes().appLang("All"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
                       ),
-                      backgroundColor: COR_02,
-                    ),
-                    onPressed: () {
-                      Funcoes.categorySelected = category;
-                      numberOfQuestions = 1000;
-                      Navigator.pushNamed(context, 'questionsPage1');
-                    },
-                    child: Text(Funcoes().appLang("All"),
-                        style:
-                            const TextStyle(fontSize: 15, color: Colors.white)),
+                    ],
                   ),
                 ],
               ),
       ],
     );
+  }
+
+  Widget progressBar(
+      {int total = 0,
+      int answered = 0,
+      int correct = 0,
+      int printed = 0,
+      String category = ''}) {
+    List ques = Funcoes().selectQuestions(category.toUpperCase());
+    total = ques.length;
+
+    for (var i = 0; i < ques.length; i++) {
+      answeredQuestion aques = Funcoes().findAnsweredQuestion(ques[i].id);
+      printed += aques.printed;
+      aques.printed > 0 ? answered++ : null;
+      correct += aques.correct;
+    }
+
+    return printed > 0
+        ? Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                      width: screenW * 0.3,
+                      child: Text('${Funcoes().appLang('Answered')} #')),
+                  Stack(
+                    children: [
+                      Container(
+                        //color: COR_04,
+                        height: 20,
+                        width: screenW * 0.4 * answered / total,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: COR_02),
+                        child: Center(
+                          child: Text(
+                            answered.toString(),
+                            style: const TextStyle(
+                                fontSize: 14, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: COR_01.withOpacity(0.05)),
+                        height: 20,
+                        width: screenW * 0.4,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                      width: screenW * 0.3,
+                      child: Text('${Funcoes().appLang('Correctly')} %')),
+                  Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: COR_02),
+                        height: 20,
+                        width: screenW * 0.4 * correct / printed,
+                        child: Center(
+                          child: Text(
+                            '${(correct / printed * 100).toStringAsFixed(0)}%',
+                            style: const TextStyle(
+                                fontSize: 14, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: COR_01.withOpacity(0.05)),
+                        height: 20,
+                        width: screenW * 0.4,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          )
+        : const SizedBox(
+            height: 0,
+          );
   }
 
   Widget titleWithIcon(String title, String subTitle, BuildContext context,
@@ -390,6 +489,30 @@ class Funcoes {
         Icons.question_answer_rounded,
         color: COR_02,
         size: 30,
+      ),
+    );
+  }
+
+  Widget logoWidget({double fontSize = 40, double opacity = 0.3}) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(opacity),
+            spreadRadius: 1,
+            blurRadius: 10,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Text(
+        appname,
+        style: TextStyle(
+            fontSize: fontSize,
+            color: Colors.white,
+            fontWeight: FontWeight.bold),
       ),
     );
   }
