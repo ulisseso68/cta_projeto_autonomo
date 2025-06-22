@@ -37,19 +37,21 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                       largura,
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
                       Funcoes().appLang('Success Rate'),
-                      COR_02),
-                  /* Funcoes().KPIbox(largura, '', '', Colors.grey), */
+                      COR_02,
+                      icon: Icons.percent),
                 ],
               ),
               Row(
                 children: [
                   Funcoes().KPIbox(largura, '$respostasCorretas',
-                      Funcoes().appLang('Correct Answers'), Colors.grey),
+                      Funcoes().appLang('Correct Answers'), Colors.grey,
+                      icon: Icons.verified),
                   Funcoes().KPIbox(
                       largura,
                       '${respostasCorretas + respostasErradas}',
                       Funcoes().appLang('Number of Questions'),
-                      COR_02),
+                      COR_02,
+                      icon: Icons.numbers),
                 ],
               ),
             ],
@@ -62,20 +64,15 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: altura * 0.1,
+              height: altura * 0.08,
             ),
-            ListTile(
-              //  leading: Icon(Icons.info, size: 30),
-              title: Text(
+            Funcoes().titleWithIcon(
                 Funcoes.categorySelected,
-                textAlign: TextAlign.start,
-                style: const TextStyle(fontSize: 25, color: COR_02),
-              ),
-              textColor: Colors.black54,
-            ),
-            SizedBox(
-              height: altura * 0.1,
-            ),
+                Funcoes().appLang(
+                    'You have finished your training. This are your results'),
+                context,
+                isOpen: true,
+                hasIcon: false),
             Stack(children: [
               Container(
                 padding: const EdgeInsets.all(20),
@@ -103,15 +100,13 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                       style: const TextStyle(
                           fontSize: 100,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Verdana',
                           color: COR_02),
                     ),
                     const Text(
                       '%',
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Verdana',
                           color: COR_02),
                     ),
                   ],

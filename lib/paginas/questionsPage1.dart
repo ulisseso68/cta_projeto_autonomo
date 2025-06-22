@@ -99,42 +99,27 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             // Container with the question
             Container(
               width: largura,
-              padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+              padding: const EdgeInsets.only(top: 10),
               child: Column(
                 children: [
+                  Funcoes().titleWithIcon(
+                      "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
+                      "${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} \n${Funcoes().appLang("Correct Answers")}: ${currentQuestion.getAnsQue.correct}",
+                      context,
+                      isOpen: true,
+                      hasIcon: false),
+                  const SizedBox(height: 20),
                   Container(
-                    width: largura,
-                    padding: const EdgeInsets.only(top: 10, bottom: 5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
-                          style: const TextStyle(
-                            color: COR_02,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} | ${Funcoes().appLang("Correct")}: ${currentQuestion.getAnsQue.correct}",
-                          style: const TextStyle(
-                            color: COR_02,
-                            fontSize: 15,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    (_preguntasSelecionadas.isEmpty)
-                        ? 'No hay preguntas para esta selección'
-                        : _preguntasSelecionadas[indexPreguntas].question,
-                    maxLines: 4,
-                    style: const TextStyle(
-                      color: COR_01,
-                      fontSize: 24,
+                    padding: EdgeInsets.all(screenW * 0.05),
+                    child: Text(
+                      (_preguntasSelecionadas.isEmpty)
+                          ? 'No hay preguntas para esta selección'
+                          : _preguntasSelecionadas[indexPreguntas].question,
+                      maxLines: 4,
+                      style: const TextStyle(
+                        color: COR_01,
+                        fontSize: 24,
+                      ),
                     ),
                   ),
                 ],
@@ -144,8 +129,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             Container(
               color: COR_02,
               height: 5,
-              margin: const EdgeInsets.only(
-                  left: 10, right: 10, bottom: 10, top: 10),
+              margin:
+                  EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
             ),
 
             // Container with the answers
@@ -164,7 +149,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                       ),
                     ),
                   )
-                : SizedBox(
+                : Container(
+                    padding: EdgeInsets.all(screenW * 0.05),
                     height: altura * 0.40,
                     width: largura - 20,
                     child: ListView.builder(
@@ -367,7 +353,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           height: 5,
         ), */
         Container(
-          width: largura,
+          width: screenH,
 
           ///color: Colors.yellow.shade100,
           padding:
@@ -376,12 +362,23 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Respostas: $respostasCorretas | Erros: $respostasErradas",
+                "${Funcoes().appLang('This training')} \n${Funcoes().appLang('Correct Answers')}: $respostasCorretas \n${Funcoes().appLang('Wrong Answers')}: $respostasErradas",
                 style: const TextStyle(
                   color: COR_02,
                   fontSize: 15,
                   fontWeight: FontWeight.normal,
                 ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              LinearProgressIndicator(
+                value: (respostasCorretas) / _preguntasSelecionadas.length,
+                color: COR_02,
+                minHeight: 10,
+                backgroundColor: Colors.grey.withOpacity(0.3),
+                semanticsLabel:
+                    '${((respostasCorretas + respostasErradas) / _preguntasSelecionadas.length * 100).toInt()}%',
               ),
             ],
           ),

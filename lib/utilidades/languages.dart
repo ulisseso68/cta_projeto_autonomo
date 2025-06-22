@@ -54,4 +54,5 @@ final lang = {
     'Recomendamos que você treine seu conhecimento em etapas, que estão ordenadas abaixo. Selecione a etapa que deseja treinar no momento.',
     'Recomendamos que entrenes tu conocimiento en pasos, que están ordenados a continuación. Selecciona el paso que deseas entrenar en este momento.'
   ],
+  'This Training': ['This Training', 'Este Treinamento', 'Este Entrenamiento'],
 };

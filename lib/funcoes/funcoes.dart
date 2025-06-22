@@ -105,7 +105,7 @@ class Funcoes {
     if (selQue.isEmpty) {
       selQue = preguntas;
     }
-
+    selQue.sort((a, b) => a.getAnsQue.printed.compareTo(b.getAnsQue.printed));
     return selQue;
   }
 
@@ -132,6 +132,8 @@ class Funcoes {
           .join(' ');
     }).toList();
   }
+
+  // DEPRICATED
 
   iniciarCidades() async {
     //cidades = await CallApi().getPublicData('cidades');
@@ -204,6 +206,9 @@ class Funcoes {
     return autonomosSelecionados;
   }
 
+  // WIDGETS
+
+  // Used at Home Page
   Widget splash(double largura, double altura, {double fSize = 15}) {
     return Stack(
       children: [
@@ -250,16 +255,20 @@ class Funcoes {
     );
   }
 
-  //KPIbox widget to display key performance indicators
+  // Used at Questionaire Closing
   // ignore: non_constant_identifier_names
   Widget KPIbox(
       double largura, String text1, String text2, Color backgroundColor,
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
-    return SizedBox(
+    return Container(
       width: largura * 0.5,
+      padding: const EdgeInsets.all(5),
       height: 95,
       child: ListTile(
         tileColor: backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
         trailing: Icon(
           icon,
           size: 30,
@@ -268,7 +277,7 @@ class Funcoes {
         title: Text(
           text1,
           style: TextStyle(
-              fontSize: 40, fontWeight: FontWeight.bold, color: foreColor),
+              fontSize: 25, fontWeight: FontWeight.bold, color: foreColor),
         ),
         subtitle: Text(
           text2,
@@ -282,6 +291,7 @@ class Funcoes {
     );
   }
 
+  // HOME Page
   Widget questionaryOptions(
       bool isOpen, String title, String category, BuildContext context) {
     return Column(
@@ -361,6 +371,7 @@ class Funcoes {
     );
   }
 
+  // Used at the HOME page and DRAWER
   Widget progressBar(
       {int total = 0,
       int answered = 0,
@@ -462,8 +473,9 @@ class Funcoes {
           );
   }
 
+  // Used at Home, Questionaire Closing
   Widget titleWithIcon(String title, String subTitle, BuildContext context,
-      {bool isOpen = false}) {
+      {bool isOpen = false, bool hasIcon = true}) {
     return ListTile(
       dense: true,
       visualDensity: VisualDensity.compact,
@@ -492,14 +504,17 @@ class Funcoes {
           : const SizedBox(
               height: 0,
             ),
-      leading: const Icon(
-        Icons.question_answer_rounded,
-        color: COR_02,
-        size: 30,
-      ),
+      leading: hasIcon
+          ? const Icon(
+              Icons.question_answer_rounded,
+              color: COR_02,
+              size: 30,
+            )
+          : null,
     );
   }
 
+  // Used at Many Pages
   Widget logoWidget({double fontSize = 40, double opacity = 0.3}) {
     return Container(
       padding: const EdgeInsets.all(10),
