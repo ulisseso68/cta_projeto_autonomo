@@ -35,15 +35,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //var textController;
     screenH = MediaQuery.of(context).size.height;
     screenW = MediaQuery.of(context).size.width;
 
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
-
-    // ignore: prefer_typing_uninitialized_variables
-    //var textController;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -88,86 +84,45 @@ class _HomePageState extends State<HomePage> {
             endIndent: 10,
             thickness: 1,
           ),
-
-          Column(
-            children: [
-              ListTile(
-                dense: true,
-                visualDensity: VisualDensity.compact,
-                title: Text(
-                  "${Funcoes().appLang("All")} ${Funcoes().appLang("Questions")}",
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 18, color: COR_01),
-                ),
-                /* subtitle: Funcoes().questionaryOptions(
-                                  _isOpen[index],
-                                  qty.toString(),
-                                  _categoriesSelected[index],
-                                  context), */
-                leading: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _isOpenTotal = !_isOpenTotal;
-                    });
-                  },
-                  icon: Icon(
-                    _isOpenTotal ? Icons.expand_less : Icons.expand_more,
-                    color: COR_01,
-                    size: 30,
-                  ),
-                ),
-              ),
-              Container(
-                  color: Colors.transparent,
-                  height: screenH,
-                  child: /* (_categoriesSelected.isEmpty)
-                      ? const SizedBox(
-                          height: 0,
-                        )
-                      :  */
-                      ListView.builder(
-                          itemCount: _categoriesSelected.length,
-                          itemBuilder: ((context, index) {
-                            String catsel = _categoriesSelected[index];
-                            int qty = Funcoes()
-                                .selectQuestions(catsel.toUpperCase())
-                                .length;
-                            return ListTile(
-                              dense: true,
-                              visualDensity: VisualDensity.compact,
-                              title: Text(
-                                _categoriesSelected[index],
-                                textAlign: TextAlign.left,
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    color: COR_01,
-                                    fontFamily: 'Verdana'),
-                              ),
-                              subtitle: Funcoes().questionaryOptions(
-                                  _isOpen[index],
-                                  qty.toString(),
-                                  _categoriesSelected[index],
-                                  context),
-                              leading: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _isOpen[index] = !_isOpen[index];
-                                  });
-                                },
-                                icon: Icon(
-                                  _isOpen[index]
-                                      ? Icons.expand_less
-                                      : Icons.expand_more,
-                                  color: COR_01,
-                                  size: 30,
-                                ),
-                              ),
-                            );
-                          }))),
-            ],
-          ),
+          _buildListTile()
         ]),
       ),
+    );
+  }
+
+  Widget _buildListTile() {
+    List<Widget> listTiles = [];
+
+    for (int i = 0; i < _categoriesSelected.length; i++) {
+      String catsel = _categoriesSelected[i];
+      int qty = Funcoes().selectQuestions(catsel.toUpperCase()).length;
+      listTiles.add(ListTile(
+        dense: true,
+        visualDensity: VisualDensity.compact,
+        title: Text(
+          catsel,
+          textAlign: TextAlign.left,
+          style: const TextStyle(
+              fontSize: 18, color: COR_01, fontFamily: 'Verdana'),
+        ),
+        subtitle: Funcoes()
+            .questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
+        leading: IconButton(
+          onPressed: () {
+            setState(() {
+              _isOpen[i] = !_isOpen[i];
+            });
+          },
+          icon: Icon(
+            _isOpen[i] ? Icons.expand_less : Icons.expand_more,
+            color: COR_01,
+            size: 30,
+          ),
+        ),
+      ));
+    }
+    return Column(
+      children: listTiles,
     );
   }
 }

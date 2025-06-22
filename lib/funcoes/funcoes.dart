@@ -98,9 +98,16 @@ class Funcoes {
   }
 
   List selectQuestions(String categoryChosen) {
-    return preguntas
+    List selQue = [];
+    selQue = preguntas
         .where((element) => element.category == categoryChosen)
         .toList();
+
+    if (selQue.isEmpty) {
+      selQue = preguntas;
+    }
+
+    return selQue;
   }
 
   initializeCatalog() async {
@@ -116,7 +123,7 @@ class Funcoes {
         uniqueCategories.add(preguntas[i].category);
       }
     }
-
+    uniqueCategories.add('Todos los temas \n( Simulación de Examen CCSE )');
     uniqueCategories = uniqueCategories.map((category) {
       return category
           .toString()
@@ -308,6 +315,22 @@ class Funcoes {
                       Navigator.pushNamed(context, 'questionsPage1');
                     },
                     child: Text(Funcoes().appLang("10"),
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.white)),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      backgroundColor: COR_02,
+                    ),
+                    onPressed: () {
+                      Funcoes.categorySelected = category;
+                      numberOfQuestions = 25;
+                      Navigator.pushNamed(context, 'questionsPage1');
+                    },
+                    child: Text(Funcoes().appLang("25"),
                         style:
                             const TextStyle(fontSize: 15, color: Colors.white)),
                   ),

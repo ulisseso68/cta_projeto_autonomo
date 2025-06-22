@@ -33,12 +33,9 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   }
 
   _getData() async {
-    //await Funcoes().iniciarPreguntas();
-    //print(Funcoes.categorySelected);
-    _preguntasSelecionadas = preguntas
-        .where((element) =>
-            element.category == Funcoes.categorySelected.toUpperCase())
-        .toList();
+    _preguntasSelecionadas =
+        Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
+
     if (numberOfQuestions > 0) {
       _preguntasSelecionadas =
           _preguntasSelecionadas.take(numberOfQuestions).toList();
@@ -48,7 +45,6 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
     printed = currentQuestion.getAnsQue.printed;
     answeredCorrect = currentQuestion.getAnsQue.correct;
     _respostasLista = _preguntasSelecionadas[indexPreguntas].answers;
-    //print(_preguntasSelecionadas[indexPreguntas]['pergunta']);
     setState(() {});
   }
 
