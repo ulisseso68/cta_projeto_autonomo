@@ -32,14 +32,21 @@ class AJDrawer extends StatelessWidget {
             ),
             ListTile(
               title: Funcoes().progressBar(barSize: 0.30),
-              /* leading: const Icon(
-                Icons.bar_chart,
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.start_rounded,
                 size: 40,
                 color: COR_02,
               ),
+              title: const Text(
+                'Zerar o Questionário',
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
               onTap: () {
                 answeredQuestions.clear();
-              }, */
+              },
             ),
             Container(height: 1, color: COR_02.withOpacity(0.2)),
             ListTile(
