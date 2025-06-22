@@ -366,6 +366,7 @@ class Funcoes {
       int answered = 0,
       int correct = 0,
       int printed = 0,
+      double barSize = 0.4,
       String category = ''}) {
     List ques = Funcoes().selectQuestions(category.toUpperCase());
     total = ques.length;
@@ -384,13 +385,16 @@ class Funcoes {
                 children: [
                   SizedBox(
                       width: screenW * 0.3,
-                      child: Text('${Funcoes().appLang('Answered')} #')),
+                      child: Text(
+                        '${Funcoes().appLang('Answered')} #',
+                        style: const TextStyle(fontSize: 14, color: COR_01),
+                      )),
                   Stack(
                     children: [
                       Container(
                         //color: COR_04,
                         height: 20,
-                        width: screenW * 0.4 * answered / total,
+                        width: screenW * barSize * answered / total,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             color: COR_02),
@@ -407,7 +411,7 @@ class Funcoes {
                             borderRadius: BorderRadius.circular(100),
                             color: COR_01.withOpacity(0.05)),
                         height: 20,
-                        width: screenW * 0.4,
+                        width: screenW * barSize,
                       ),
                     ],
                   ),
@@ -420,7 +424,10 @@ class Funcoes {
                 children: [
                   SizedBox(
                       width: screenW * 0.3,
-                      child: Text('${Funcoes().appLang('Correctly')} %')),
+                      child: Text(
+                        '${Funcoes().appLang('Correctly')} %',
+                        style: const TextStyle(fontSize: 14, color: COR_01),
+                      )),
                   Stack(
                     children: [
                       Container(
@@ -428,7 +435,7 @@ class Funcoes {
                             borderRadius: BorderRadius.circular(100),
                             color: COR_02),
                         height: 20,
-                        width: screenW * 0.4 * correct / printed,
+                        width: screenW * barSize * correct / printed,
                         child: Center(
                           child: Text(
                             '${(correct / printed * 100).toStringAsFixed(0)}%',
@@ -442,7 +449,7 @@ class Funcoes {
                             borderRadius: BorderRadius.circular(100),
                             color: COR_01.withOpacity(0.05)),
                         height: 20,
-                        width: screenW * 0.4,
+                        width: screenW * barSize,
                       ),
                     ],
                   ),

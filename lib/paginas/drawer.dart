@@ -3,6 +3,7 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
+import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 
 class AJDrawer extends StatelessWidget {
   const AJDrawer({
@@ -84,7 +85,19 @@ class AJDrawer extends StatelessWidget {
               onTap: () {
                 CallApi().launchUrlOut(urlCadastro);
               },
-            )
+            ),
+            Container(height: 1, color: COR_02.withOpacity(0.2)),
+            ListTile(
+              title: Funcoes().progressBar(barSize: 0.15),
+              leading: const Icon(
+                Icons.bar_chart,
+                size: 40,
+                color: COR_02,
+              ),
+              onTap: () {
+                answeredQuestions.clear();
+              },
+            ),
           ],
         ));
   }
