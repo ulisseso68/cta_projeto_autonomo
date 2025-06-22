@@ -26,6 +26,22 @@ class AJDrawer extends StatelessWidget {
                 child: Funcoes().logoWidget(fontSize: 30, opacity: 0.05),
               ),
             ),
+            Container(
+              height: 5,
+              color: redEspana,
+            ),
+            ListTile(
+              title: Funcoes().progressBar(barSize: 0.30),
+              /* leading: const Icon(
+                Icons.bar_chart,
+                size: 40,
+                color: COR_02,
+              ),
+              onTap: () {
+                answeredQuestions.clear();
+              }, */
+            ),
+            Container(height: 1, color: COR_02.withOpacity(0.2)),
             ListTile(
               leading: const Icon(
                 Icons.facebook,
@@ -84,18 +100,6 @@ class AJDrawer extends StatelessWidget {
               ),
               onTap: () {
                 CallApi().launchUrlOut(urlCadastro);
-              },
-            ),
-            Container(height: 1, color: COR_02.withOpacity(0.2)),
-            ListTile(
-              title: Funcoes().progressBar(barSize: 0.15),
-              leading: const Icon(
-                Icons.bar_chart,
-                size: 40,
-                color: COR_02,
-              ),
-              onTap: () {
-                answeredQuestions.clear();
               },
             ),
           ],

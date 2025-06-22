@@ -385,11 +385,11 @@ class Funcoes {
     for (var i = 0; i < ques.length; i++) {
       answeredQuestion aques = Funcoes().findAnsweredQuestion(ques[i].id);
       printed += aques.printed;
-      aques.printed > 0 ? answered++ : null;
-      correct += aques.correct;
+      aques.answered ? answered++ : null;
+      aques.lastCorrect ? correct++ : null;
     }
 
-    return printed > 0
+    return answered / total > 0.1
         ? Column(
             children: [
               Row(
@@ -397,7 +397,7 @@ class Funcoes {
                   SizedBox(
                       width: screenW * 0.3,
                       child: Text(
-                        '${Funcoes().appLang('Answered')} #',
+                        Funcoes().appLang('Answered'),
                         style: const TextStyle(fontSize: 14, color: COR_01),
                       )),
                   Stack(
@@ -411,7 +411,7 @@ class Funcoes {
                             color: COR_02),
                         child: Center(
                           child: Text(
-                            answered.toString(),
+                            '${(answered / (total) * 100).toStringAsFixed(0)}%',
                             style: const TextStyle(
                                 fontSize: 14, color: Colors.white),
                           ),
@@ -436,7 +436,7 @@ class Funcoes {
                   SizedBox(
                       width: screenW * 0.3,
                       child: Text(
-                        '${Funcoes().appLang('Correctly')} %',
+                        Funcoes().appLang('Correctly'),
                         style: const TextStyle(fontSize: 14, color: COR_01),
                       )),
                   Stack(
@@ -446,10 +446,10 @@ class Funcoes {
                             borderRadius: BorderRadius.circular(100),
                             color: COR_02),
                         height: 20,
-                        width: screenW * barSize * correct / printed,
+                        width: screenW * barSize * correct / (answered),
                         child: Center(
                           child: Text(
-                            '${(correct / printed * 100).toStringAsFixed(0)}%',
+                            '${(correct / (answered) * 100).toStringAsFixed(0)}%',
                             style: const TextStyle(
                                 fontSize: 14, color: Colors.white),
                           ),

@@ -9,12 +9,15 @@ class answeredQuestion {
   int printed;
   int correct;
   int incorrect;
+  bool get answered => printed > 0;
+  bool lastCorrect = false;
 
   answeredQuestion.fromJson(Map json)
       : id = json['id'] is int ? json['id'] : 0,
         printed = json['printed'] is int ? json['printed'] : 0,
         correct = json['correct'] is int ? json['correct'] : 0,
-        incorrect = json['incorrect'] is int ? json['incorrect'] : 0;
+        incorrect = json['incorrect'] is int ? json['incorrect'] : 0,
+        lastCorrect = json['lastCorrect'] is bool ? json['lastCorrect'] : false;
 
   toJson() {
     return jsonEncode({
@@ -22,6 +25,7 @@ class answeredQuestion {
       'printed': printed,
       'correct': correct,
       'incorrect': incorrect,
+      'lastCorrect': lastCorrect,
     });
   }
 
@@ -31,10 +35,12 @@ class answeredQuestion {
   registerCorrect() {
     printed++;
     correct++;
+    lastCorrect = true;
   }
 
   registerIncorrect() {
     printed++;
     incorrect++;
+    lastCorrect = false;
   }
 }
