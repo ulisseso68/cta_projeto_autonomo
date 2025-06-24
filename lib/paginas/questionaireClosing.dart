@@ -69,7 +69,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             Funcoes().titleWithIcon(
                 Funcoes.categorySelected,
                 Funcoes().appLang(
-                    'You have finished your training. This are your results'),
+                    'You have finished your training. These are your results'),
                 context,
                 isOpen: true,
                 hasIcon: false),

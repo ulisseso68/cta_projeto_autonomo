@@ -439,7 +439,7 @@ class Funcoes {
                         Funcoes().appLang('Correctly'),
                         style: const TextStyle(fontSize: 14, color: COR_01),
                       )),
-                  Stack(
+                  /* Stack(
                     children: [
                       Container(
                         decoration: BoxDecoration(
@@ -463,6 +463,11 @@ class Funcoes {
                         width: screenW * barSize,
                       ),
                     ],
+                  ), */
+                  appProgressBar(
+                    barSize,
+                    correct / (answered > 0 ? answered : 1),
+                    0,
                   ),
                 ],
               ),
@@ -471,6 +476,56 @@ class Funcoes {
         : const SizedBox(
             height: 0,
           );
+  }
+
+  Widget appProgressBar(double barSize, double progress1, double progress2,
+      {Color color1 = Colors.green,
+      Color color2 = Colors.red,
+      double barHeight = 20}) {
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              color: Colors.grey.withOpacity(0.05)),
+          height: barHeight,
+          width: screenW * barSize,
+        ),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100), color: color2),
+          height: barHeight,
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 10),
+          width: screenW * barSize * (progress1 + progress2),
+          child: (progress2 > 0.1)
+              ? Text(
+                  '${(progress2 * 100).toStringAsFixed(0)}%',
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
+                )
+              : const SizedBox(
+                  width: 0,
+                ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100), color: color1),
+          height: barHeight,
+          width: screenW * barSize * progress1,
+          child: Center(
+            child: (progress1 > 0.1)
+                ? Text(
+                    '${(progress1 * 100).toStringAsFixed(0)}%',
+                    style: const TextStyle(fontSize: 14, color: Colors.white),
+                    textAlign: TextAlign.end,
+                  )
+                : const SizedBox(
+                    width: 0,
+                  ),
+          ),
+        ),
+      ],
+    );
   }
 
   // Used at Home, Questionaire Closing

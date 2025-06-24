@@ -55,4 +55,9 @@ final lang = {
     'Recomendamos que entrenes tu conocimiento en pasos, que están ordenados a continuación. Selecciona el paso que deseas entrenar en este momento.'
   ],
   'This Training': ['This Training', 'Este Treinamento', 'Este Entrenamiento'],
+  'You have finished your training. These are your results': [
+    'You have finished your training. These are your results',
+    'Você terminou seu treinamento. Estes são os seus resultados',
+    'Has terminado tu entrenamiento. Estos son tus resultados'
+  ],
 };

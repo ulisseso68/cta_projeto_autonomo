@@ -372,14 +372,11 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               const SizedBox(
                 height: 10,
               ),
-              LinearProgressIndicator(
-                value: (respostasCorretas) / _preguntasSelecionadas.length,
-                color: COR_02,
-                minHeight: 10,
-                backgroundColor: Colors.grey.withOpacity(0.3),
-                semanticsLabel:
-                    '${((respostasCorretas + respostasErradas) / _preguntasSelecionadas.length * 100).toInt()}%',
-              ),
+              Funcoes().appProgressBar(
+                  1.0,
+                  ((respostasCorretas) / _preguntasSelecionadas.length),
+                  ((respostasErradas) / _preguntasSelecionadas.length),
+                  barHeight: 25),
             ],
           ),
         ),
