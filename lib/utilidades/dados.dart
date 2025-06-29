@@ -12,6 +12,7 @@ int language = 2;
 int respostasCorretas = 0;
 int respostasErradas = 0;
 int numberOfQuestions = 5;
+bool offlineMode = false;
 
 double screenH = 100;
 double screenW = 100;

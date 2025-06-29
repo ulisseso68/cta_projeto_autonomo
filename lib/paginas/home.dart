@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   @override
   initState() {
     _getDatafromServer();
-
     super.initState();
   }
 

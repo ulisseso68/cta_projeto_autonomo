@@ -48,6 +48,27 @@ class AJDrawer extends StatelessWidget {
                 answeredQuestions.clear();
               },
             ),
+            ListTile(
+              leading: offlineMode
+                  ? const Icon(
+                      Icons.wifi_off,
+                      size: 40,
+                      color: redEspana,
+                    )
+                  : const Icon(
+                      Icons.wifi,
+                      size: 40,
+                      color: COR_04,
+                    ),
+              title: Text(
+                offlineMode ? 'Modo Offline Ativado' : 'Modo Online Ativado',
+                textAlign: TextAlign.start,
+                style: const TextStyle(color: COR_01, fontSize: 14),
+              ),
+              onTap: () {
+                answeredQuestions.clear();
+              },
+            ),
             Container(height: 1, color: COR_02.withOpacity(0.2)),
             ListTile(
               leading: const Icon(

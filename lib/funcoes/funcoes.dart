@@ -11,6 +11,7 @@ import 'package:cta_projeto_autonomo/utilidades/languages.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 
 class Funcoes {
   static List atividadesSelecionadas = [];
@@ -91,6 +92,10 @@ class Funcoes {
 
   iniciarPreguntas() async {
     var questionsFromServer = await CallApi().getPublicData('questions/index');
+    if (questionsFromServer == 'error') {
+      questionsFromServer = questions;
+      offlineMode = true;
+    }
     //preguntas = preguntasConfig.map((e) => Question.fromJson(e)).toList();
     preguntas =
         questionsFromServer.map((e) => Question.fromServerJson(e)).toList();
