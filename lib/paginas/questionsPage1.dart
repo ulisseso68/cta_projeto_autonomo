@@ -266,103 +266,12 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                           );
                         })),
                   ),
-            /* Container(
-                    color: Colors.black12,
-                    padding: const EdgeInsets.all(0),
-                    height: altura / 4,
-                    width: largura,
-                    //color: Colors.amber,
-                    child: PageView.builder(
-                        controller: PageController(viewportFraction: 1.0),
-                        itemCount: min(_preguntasSelecionadas.length, 3),
-                        itemBuilder: (_, i) {
-                          return GestureDetector(
-                              onTap: () {
-                                Funcoes.autonomoEscolhido =
-                                    _preguntasSelecionadas[i];
-                                Navigator.pushNamed(context, 'detalheAutonomo');
-                              },
-                              child: SizedBox(
-                                height: altura / 2,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    /* Container(
-                                      color: COR_02,
-                                      width: largura * 0.4,
-                                      height: altura / 3,
-                                      child: _preguntasSelecionadas[i].image(),
-                                    ), */
-                                    Container(
-                                      padding: const EdgeInsets.only(
-                                          left: 5.0, right: 5.0, top: 5.0),
-                                      height: altura / 4,
-                                      width: largura,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            _preguntasSelecionadas[i]["pergunta"],
-                                            maxLines: 4,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                              color: redEspana,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: "Verdana",
-                                            ),
-                                          ),
-                                          /* Text(
-                                            _preguntasSelecionadas[i].atividade,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                              color: Colors.black54,
-                                              fontSize: 16,
-                                              fontFamily: "Verdana",
-                                            ),
-                                          ), */
-                                          const Divider(
-                                            color: Colors.black54,
-                                          ),
-                                          /* Text(
-                                            _preguntasSelecionadas[i]
-                                                .descricaoLimpa(),
-                                            maxLines: 6,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: "Verdana",
-                                              color: Colors.black54,
-                                            ),
-                                          ), */
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ));
-                        }),
-                  ), */
-            /* const Divider(
-              height: 5,
-              color: COR_02,
-            ), */
           ],
         ),
       ),
       persistentFooterButtons: [
-        /* Container(
-          color: COR_02,
-          height: 5,
-        ), */
         Container(
           width: screenW,
-
-          ///color: Colors.yellow.shade100,
           padding:
               const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
           child: Column(

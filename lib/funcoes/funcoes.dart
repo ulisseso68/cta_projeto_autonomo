@@ -253,7 +253,7 @@ class Funcoes {
         title: Text(
           text1,
           style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: foreColor),
+              fontSize: 20, fontWeight: FontWeight.bold, color: foreColor),
         ),
         subtitle: Text(
           text2,
@@ -417,7 +417,8 @@ class Funcoes {
       children: [
         Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100), color: Colors.grey),
+              borderRadius: BorderRadius.circular(100),
+              color: Colors.grey.shade100),
           height: barHeight,
           width: screenW * barSize,
         ),
@@ -428,7 +429,7 @@ class Funcoes {
           alignment: Alignment.centerRight,
           padding: const EdgeInsets.only(right: 10),
           width: screenW * barSize * (progress1 + progress2),
-          child: (progress2 > 0.1)
+          child: (progress2 > 0.15)
               ? Text(
                   '${(progress2 * 100).toStringAsFixed(0)}%',
                   style: const TextStyle(fontSize: 14, color: Colors.white),
@@ -443,7 +444,7 @@ class Funcoes {
           height: barHeight,
           width: screenW * barSize * progress1,
           child: Center(
-            child: (progress1 > 0.1)
+            child: (progress1 > 0.15)
                 ? Text(
                     '${(progress1 * 100).toStringAsFixed(0)}%',
                     style: const TextStyle(fontSize: 14, color: Colors.white),
