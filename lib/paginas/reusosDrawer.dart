@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 class AJDrawer extends StatelessWidget {
   const AJDrawer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

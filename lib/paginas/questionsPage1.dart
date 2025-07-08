@@ -5,7 +5,7 @@ import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsPage1 extends StatefulWidget {
-  const QuestionsPage1({Key? key}) : super(key: key);
+  const QuestionsPage1({super.key});
 
   @override
   State<QuestionsPage1> createState() => _QuestionsPage1();
@@ -30,7 +30,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
     super.initState();
   }
 
-  _getData() async {
+  Future<void> _getData() async {
     _preguntasSelecionadas =
         Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
 
@@ -183,26 +183,32 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                             ),
                             onTap: () => setState(() {
                               setState(() {
-                                if (_respostasLista[indexAnswers]['Correct']) {
-                                  respostasCorretas++;
-                                  Funcoes()
-                                      .findAnsweredQuestion(
-                                          _preguntasSelecionadas[indexPreguntas]
-                                              .id)
-                                      .registerCorrect();
-                                } else {
-                                  respostasErradas++;
-                                  Funcoes()
-                                      .findAnsweredQuestion(
-                                          _preguntasSelecionadas[indexPreguntas]
-                                              .id)
-                                      .registerIncorrect();
-                                  respostaErrada = indexAnswers;
+                                if (!responded) {
+                                  if (_respostasLista[indexAnswers]
+                                      ['Correct']) {
+                                    respostasCorretas++;
+                                    Funcoes()
+                                        .findAnsweredQuestion(
+                                            _preguntasSelecionadas[
+                                                    indexPreguntas]
+                                                .id)
+                                        .registerCorrect();
+                                  } else {
+                                    respostasErradas++;
+                                    Funcoes()
+                                        .findAnsweredQuestion(
+                                            _preguntasSelecionadas[
+                                                    indexPreguntas]
+                                                .id)
+                                        .registerIncorrect();
+                                    respostaErrada = indexAnswers;
+                                  }
+                                  responded = true;
                                 }
-                                responded = true;
                               });
                             }),
-                            /* trailing: (_respostasLista[index]['Correct'] &
+                            trailing: (_respostasLista[indexAnswers]
+                                        ['Correct'] &
                                     responded &
                                     _preguntasSelecionadas[indexPreguntas]
                                         .hasDetails)
@@ -211,14 +217,15 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                       setState(() {});
                                       Navigator.pushNamed(
                                           context, 'learningPage',
-                                          arguments: _respostasLista[index]);
+                                          arguments:
+                                              _respostasLista[indexAnswers]);
                                     },
                                     icon: const Icon(
                                       Icons.info_rounded,
                                       color: Colors.white,
                                     ),
                                   )
-                                : const SizedBox(height: 0, width: 0), */
+                                : const SizedBox(height: 0, width: 0),
                             leading: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -353,7 +360,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           height: 5,
         ), */
         Container(
-          width: screenH,
+          width: screenW,
 
           ///color: Colors.yellow.shade100,
           padding:

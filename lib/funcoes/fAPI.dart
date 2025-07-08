@@ -9,7 +9,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 class CallApi {
   final String _url = API_URL;
 
-  getPublicData(apiUrl) async {
+  Future getPublicData(apiUrl) async {
     try {
       var response = await Dio().get(_url + apiUrl);
 
@@ -23,7 +23,7 @@ class CallApi {
     }
   }
 
-  showAlert(context, msg, actionMsg) {
+  void showAlert(context, msg, actionMsg) {
     final snackBar = SnackBar(
       backgroundColor: COR_02,
       content: msg,

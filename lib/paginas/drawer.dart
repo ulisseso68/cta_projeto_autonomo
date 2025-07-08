@@ -3,16 +3,16 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
-import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 
 class AJDrawer extends StatelessWidget {
   const AJDrawer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
+        width: screenW * 0.75,
         surfaceTintColor: Colors.white,
         shadowColor: Colors.white,
         backgroundColor: Colors.white,
@@ -31,7 +31,7 @@ class AJDrawer extends StatelessWidget {
               color: redEspana,
             ),
             ListTile(
-              title: Funcoes().progressBar(barSize: 0.30),
+              title: Funcoes().progressBar(barSize: 0.4),
             ),
             ListTile(
               leading: const Icon(
@@ -69,6 +69,7 @@ class AJDrawer extends StatelessWidget {
                 answeredQuestions.clear();
               },
             ),
+            // ignore: deprecated_member_use
             Container(height: 1, color: COR_02.withOpacity(0.2)),
             ListTile(
               leading: const Icon(

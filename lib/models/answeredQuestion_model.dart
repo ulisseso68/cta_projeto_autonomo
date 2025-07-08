@@ -19,7 +19,7 @@ class answeredQuestion {
         incorrect = json['incorrect'] is int ? json['incorrect'] : 0,
         lastCorrect = json['lastCorrect'] is bool ? json['lastCorrect'] : false;
 
-  toJson() {
+  String toJson() {
     return jsonEncode({
       'id': id,
       'printed': printed,
@@ -32,13 +32,13 @@ class answeredQuestion {
   answeredQuestion(
       {this.id = 0, this.printed = 0, this.correct = 0, this.incorrect = 0});
 
-  registerCorrect() {
+  void registerCorrect() {
     printed++;
     correct++;
     lastCorrect = true;
   }
 
-  registerIncorrect() {
+  void registerIncorrect() {
     printed++;
     incorrect++;
     lastCorrect = false;

@@ -1,6 +1,5 @@
 // ignore: file_names
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +8,13 @@ import 'package:flutter/material.dart';
 //ignore: camel_case_types
 
 class QuestionareClosing extends StatefulWidget {
-  const QuestionareClosing({Key? key}) : super(key: key);
+  const QuestionareClosing({super.key});
 
   @override
   State<QuestionareClosing> createState() => _QuestionareClosingState();
 }
 
 class _QuestionareClosingState extends State<QuestionareClosing> {
-  final Autonomo autonomo = Funcoes.autonomoEscolhido;
   bool expanded = false;
 
   @override

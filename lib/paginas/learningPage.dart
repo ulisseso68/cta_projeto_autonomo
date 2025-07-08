@@ -1,5 +1,3 @@
-import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +5,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 //ignore: camel_case_types
 
 class LearningPage extends StatefulWidget {
-  const LearningPage({Key? key}) : super(key: key);
+  const LearningPage({super.key});
   // ignore: prefer_typing_uninitialized_variables
 
   @override
@@ -15,7 +13,6 @@ class LearningPage extends StatefulWidget {
 }
 
 class _LearningPageState extends State<LearningPage> {
-  final Autonomo autonomo = Funcoes.autonomoEscolhido;
   bool expanded = false;
   //final String texto = 'Phelipe VI da Espanha';
   //final String fotografia = 'felipevi.png';

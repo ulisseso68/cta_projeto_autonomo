@@ -9,7 +9,7 @@ import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 class Question {
   int id;
   String question;
-  bool hasDetails;
+  //bool hasDetails;
   List answers;
   String category;
   String? description;
@@ -19,14 +19,14 @@ class Question {
       {this.id = 0,
       this.question = '',
       this.answers = const [],
-      this.hasDetails = false,
+      //this.hasDetails = false,
       this.category = ''});
 
   Question.fromJson(Map json)
       : id = json['id'] is int ? json['id'] : -1,
         question =
             json['pergunta'] is String ? json['pergunta'] : 'sin pregunta',
-        hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
+        //hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
         answers = json['respostas'].toList(),
         category = json['tema'] is String ? json['tema'] : 'sin categoria',
         description = json['detalhe'] is String ? json['detalhe'] : '',
@@ -36,12 +36,16 @@ class Question {
       : id = json['id'] is int ? json['id'] : -1,
         question =
             json['question'] is String ? json['question'] : 'sin pregunta',
-        hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
+        //hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
         answers = json['answers'].toList(),
         category =
             json['category'] is String ? json['category'] : 'sin categoria',
         description = json['description'] is String ? json['description'] : '',
         photo = json['photo'] is String ? json['photo'] : '';
+
+  bool get hasDetails {
+    return (description != '');
+  }
 
   answeredQuestion get getAnsQue => Funcoes().findAnsweredQuestion(id);
 }

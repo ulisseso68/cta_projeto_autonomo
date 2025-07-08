@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import 'package:cta_projeto_autonomo/models/question_model.dart';
 
 var indexPreguntas = 0;

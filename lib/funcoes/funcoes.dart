@@ -3,7 +3,6 @@
 import 'dart:convert';
 
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
-import 'package:cta_projeto_autonomo/models/autonomo_model.dart';
 import 'package:cta_projeto_autonomo/models/question_model.dart';
 import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
@@ -15,17 +14,14 @@ import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 
 class Funcoes {
   static List atividadesSelecionadas = [];
-  static List<Autonomo> autonomosSelecionados = <Autonomo>[];
   static List cidadesSelecionadas = [];
   static List cidades = [];
-  static List<Autonomo> autonomos = <Autonomo>[];
   static String categorySelected = '';
   static String atividadeEscolhida = '';
-  static Autonomo autonomoEscolhido = Autonomo();
   static double screenHeight = 800;
   static double screenWidth = 300;
 
-  calcular() {
+  void calcular() {
     //print(autonomos.length);
   }
 
@@ -79,7 +75,7 @@ class Funcoes {
     return [];
   }
 
-  findAnsweredQuestion(int id) {
+  dynamic findAnsweredQuestion(int id) {
     for (var i = 0; i < answeredQuestions.length; i++) {
       if (answeredQuestions[i].id == id) {
         return answeredQuestions[i];
@@ -90,9 +86,9 @@ class Funcoes {
     return newQuestion;
   }
 
-  iniciarPreguntas() async {
+  Future<void> iniciarPreguntas() async {
     var questionsFromServer = await CallApi().getPublicData('questions/index');
-    if (questionsFromServer == 'error') {
+    if (questionsFromServer is String) {
       questionsFromServer = questions;
       offlineMode = true;
     }
@@ -114,7 +110,7 @@ class Funcoes {
     return selQue;
   }
 
-  initializeCatalog() async {
+  Future<void> initializeCatalog() async {
     //catalogConfig = await CallApi().getPublicData('catalog');
 
     await iniciarPreguntas();
@@ -140,25 +136,13 @@ class Funcoes {
 
   // DEPRICATED
 
-  iniciarCidades() async {
+  Future<void> iniciarCidades() async {
     //cidades = await CallApi().getPublicData('cidades');
     cidades = cidadesConfig.toList();
     cidadesSelecionadas.addAll(cidades);
   }
 
-  buscarAutonomos({String cidadeNome = '', String nomeAtividade = ''}) async {
-    Iterable res = await CallApi().getPublicData(
-        'autonomos?cidade__nome=$cidadeNome&nome_atividade=$nomeAtividade');
-
-    autonomos = res.map((e) => Autonomo.fromJson(e)).toList();
-    autonomosSelecionados.addAll(autonomos);
-  }
-
-  adicionarAutonomos(List<Autonomo> novos) {
-    autonomos.addAll(novos);
-  }
-
-  seleciona(String digitado) {
+  List seleciona(String digitado) {
     atividadesSelecionadas.clear();
     for (var ativ in atividades) {
       if (ativ['nome']
@@ -178,7 +162,7 @@ class Funcoes {
     return atividadesSelecionadas;
   }
 
-  selecionaCidade(String digitado) {
+  List selecionaCidade(String digitado) {
     cidadesSelecionadas.clear();
     for (var ativ in cidades) {
       if (ativ['nome']
@@ -196,19 +180,6 @@ class Funcoes {
       }
     }
     return cidadesSelecionadas;
-  }
-
-  filtraAutonomos(String nomeatividade) {
-    Funcoes.autonomosSelecionados.clear();
-    for (var autonomo in Funcoes.autonomos) {
-      if (autonomo.atividade
-          .toString()
-          .toLowerCase()
-          .contains(nomeatividade.toLowerCase())) {
-        autonomosSelecionados.add(autonomo);
-      }
-    }
-    return autonomosSelecionados;
   }
 
   // WIDGETS
@@ -231,7 +202,7 @@ class Funcoes {
           left: 10,
           child: Container(
             height: largura / 4,
-            color: Colors.red.withOpacity(0.8),
+            color: Colors.red,
             width: largura / 3 * 2 * 0.95,
             padding:
                 const EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 20),
@@ -303,7 +274,7 @@ class Funcoes {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Divider(
-          color: COR_02,
+          color: Color.fromRGBO(255, 224, 178, 1),
           thickness: 1,
           height: 10,
         ),
@@ -317,8 +288,9 @@ class Funcoes {
             : Column(
                 children: [
                   progressBar(category: category),
-                  ButtonBar(
+                  OverflowBar(
                     alignment: MainAxisAlignment.start,
+                    spacing: 5,
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -405,31 +377,10 @@ class Funcoes {
                         Funcoes().appLang('Answered'),
                         style: const TextStyle(fontSize: 14, color: COR_01),
                       )),
-                  Stack(
-                    children: [
-                      Container(
-                        //color: COR_04,
-                        height: 20,
-                        width: screenW * barSize * answered / total,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: COR_02),
-                        child: Center(
-                          child: Text(
-                            '${(answered / (total) * 100).toStringAsFixed(0)}%',
-                            style: const TextStyle(
-                                fontSize: 14, color: Colors.white),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: COR_01.withOpacity(0.05)),
-                        height: 20,
-                        width: screenW * barSize,
-                      ),
-                    ],
+                  appProgressBar(
+                    barSize,
+                    answered / total,
+                    0,
                   ),
                 ],
               ),
@@ -444,31 +395,6 @@ class Funcoes {
                         Funcoes().appLang('Correctly'),
                         style: const TextStyle(fontSize: 14, color: COR_01),
                       )),
-                  /* Stack(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: COR_02),
-                        height: 20,
-                        width: screenW * barSize * correct / (answered),
-                        child: Center(
-                          child: Text(
-                            '${(correct / (answered) * 100).toStringAsFixed(0)}%',
-                            style: const TextStyle(
-                                fontSize: 14, color: Colors.white),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: COR_01.withOpacity(0.05)),
-                        height: 20,
-                        width: screenW * barSize,
-                      ),
-                    ],
-                  ), */
                   appProgressBar(
                     barSize,
                     correct / (answered > 0 ? answered : 1),
@@ -491,8 +417,7 @@ class Funcoes {
       children: [
         Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              color: Colors.grey.withOpacity(0.05)),
+              borderRadius: BorderRadius.circular(100), color: Colors.grey),
           height: barHeight,
           width: screenW * barSize,
         ),
@@ -582,7 +507,7 @@ class Funcoes {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(opacity),
+            color: Colors.black,
             spreadRadius: 1,
             blurRadius: 10,
             offset: const Offset(0, 3), // changes position of shadow

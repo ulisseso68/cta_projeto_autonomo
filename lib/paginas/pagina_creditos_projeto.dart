@@ -1,10 +1,9 @@
-import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:flutter/material.dart';
 
 class PaginaCreditoProjeto extends StatefulWidget {
-  const PaginaCreditoProjeto({Key? key}) : super(key: key);
+  const PaginaCreditoProjeto({super.key});
   // ignore: prefer_typing_uninitialized_variables
   @override
   State<PaginaCreditoProjeto> createState() => _PaginaCreditoProjetoState();
@@ -21,7 +20,7 @@ class _PaginaCreditoProjetoState extends State<PaginaCreditoProjeto> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      endDrawer: AJDrawer(),
+      endDrawer: const AJDrawer(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

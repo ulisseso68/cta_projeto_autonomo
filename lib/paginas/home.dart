@@ -5,7 +5,7 @@ import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  _getDatafromServer() async {
+  Future<void> _getDatafromServer() async {
     answeredQuestions = await Funcoes().loadAnsweredQuestionsFromLocal();
     await Funcoes().initializeCatalog();
     _categoriesSelected = uniqueCategories;
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
               isOpen: true),
 
           Divider(
-            color: COR_02.withOpacity(0.2),
+            color: Colors.orange.shade100,
             height: 10,
             indent: 10,
             endIndent: 10,
