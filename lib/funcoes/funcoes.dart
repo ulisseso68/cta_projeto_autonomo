@@ -92,7 +92,6 @@ class Funcoes {
       questionsFromServer = questions;
       offlineMode = true;
     }
-    //preguntas = preguntasConfig.map((e) => Question.fromJson(e)).toList();
     preguntas =
         questionsFromServer.map((e) => Question.fromServerJson(e)).toList();
   }
@@ -237,7 +236,7 @@ class Funcoes {
       double largura, String text1, String text2, Color backgroundColor,
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
     return Container(
-      width: largura * 0.5,
+      width: largura < 600 ? largura * 0.5 : 300,
       padding: const EdgeInsets.all(5),
       height: 95,
       child: ListTile(

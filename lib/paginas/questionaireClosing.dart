@@ -24,36 +24,36 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
 
     return Scaffold(
       bottomSheet: SizedBox(
-        height: altura * 0.25,
+        height: altura * 0.35,
+        width: largura,
         //color: Colors.white,
-        child: SafeArea(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Funcoes().KPIbox(
-                      largura,
-                      '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
-                      Funcoes().appLang('Success Rate'),
-                      COR_02,
-                      icon: Icons.percent),
-                ],
-              ),
-              Row(
-                children: [
-                  Funcoes().KPIbox(largura, '$respostasCorretas',
-                      Funcoes().appLang('Correct Answers'), Colors.grey,
-                      icon: Icons.verified),
-                  Funcoes().KPIbox(
-                      largura,
-                      '${respostasCorretas + respostasErradas}',
-                      Funcoes().appLang('Number of Questions'),
-                      COR_02,
-                      icon: Icons.numbers),
-                ],
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Funcoes().KPIbox(
+                    largura,
+                    '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
+                    Funcoes().appLang('Success Rate'),
+                    COR_02,
+                    icon: Icons.percent),
+              ],
+            ),
+            Row(
+              children: [
+                Funcoes().KPIbox(largura, '$respostasCorretas',
+                    Funcoes().appLang('Correct Answers'), Colors.grey,
+                    icon: Icons.verified),
+                Funcoes().KPIbox(
+                    largura,
+                    '${respostasCorretas + respostasErradas}',
+                    Funcoes().appLang('Number of Questions'),
+                    COR_02,
+                    icon: Icons.numbers),
+              ],
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -71,11 +71,11 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                 context,
                 isOpen: true,
                 hasIcon: false),
-            Stack(children: [
+            Stack(alignment: Alignment.center, children: [
               Container(
-                padding: const EdgeInsets.all(20),
-                width: altura * 0.4,
-                height: altura * 0.4,
+                padding: const EdgeInsets.all(10),
+                width: screenH * 0.35,
+                height: screenH * 0.35,
                 child: CircularProgressIndicator(
                   valueColor: const AlwaysStoppedAnimation<Color>(COR_02),
                   value: (respostasCorretas /
@@ -84,26 +84,26 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                   color: COR_02,
                   semanticsValue:
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
-                  backgroundColor: Colors.grey.withOpacity(0.3),
+                  backgroundColor: Colors.grey.shade200,
                 ),
               ),
               SizedBox(
-                width: altura * 0.4,
-                height: altura * 0.4,
+                width: screenH * 0.35,
+                height: screenH * 0.35,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
                       style: const TextStyle(
-                          fontSize: 100,
+                          fontSize: 80,
                           fontWeight: FontWeight.bold,
                           color: COR_02),
                     ),
                     const Text(
                       '%',
                       style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: COR_02),
                     ),
@@ -115,6 +115,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        elevation: 20,
         onPressed: () {
           Navigator.pushNamed(context, 'homePage');
           //Navigator.pop(context);

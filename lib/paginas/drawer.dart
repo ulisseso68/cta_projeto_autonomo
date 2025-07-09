@@ -31,7 +31,7 @@ class AJDrawer extends StatelessWidget {
               color: redEspana,
             ),
             ListTile(
-              title: Funcoes().progressBar(barSize: 0.4),
+              title: Funcoes().progressBar(barSize: 0.3),
             ),
             ListTile(
               leading: const Icon(
