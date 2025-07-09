@@ -112,7 +112,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                   Container(
                     padding: EdgeInsets.all(screenW * 0.05),
                     child: Text(
-                      (_preguntasSelecionadas.isEmpty)
+                      (_preguntasSelecionadas.isEmpty ||
+                              indexPreguntas >= _preguntasSelecionadas.length)
                           ? 'No hay preguntas para esta selección'
                           : _preguntasSelecionadas[indexPreguntas].question,
                       maxLines: 4,
@@ -277,7 +278,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              /* Text(
                 "${Funcoes().appLang('This training')} \n${Funcoes().appLang('Correct Answers')}: $respostasCorretas \n${Funcoes().appLang('Wrong Answers')}: $respostasErradas",
                 style: const TextStyle(
                   color: COR_02,
@@ -287,7 +288,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               ),
               const SizedBox(
                 height: 10,
-              ),
+              ), */
               Funcoes().appProgressBar(
                   1.0,
                   ((respostasCorretas) / _preguntasSelecionadas.length),
@@ -307,21 +308,19 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     indexPreguntas++;
                     Funcoes().saveAnsweredQuestionsToLocal();
                     if (indexPreguntas >= _preguntasSelecionadas.length) {
-                      Navigator.pushNamed(context, 'questionsClosing',
-                          arguments: {
-                            'respostasCorretas': respostasCorretas,
-                            'respostasErradas': respostasErradas,
-                            'tema': temaPreguntas,
-                          });
+                      indexPreguntas--;
+                      Navigator.pushNamed(context, 'questionsClosing');
+                    } else {
+                      currentQuestion = _preguntasSelecionadas[indexPreguntas];
+                      _respostasLista =
+                          _preguntasSelecionadas[indexPreguntas].answers;
+                      responded = false;
+                      respostaErrada = -1;
                     }
-                    currentQuestion = _preguntasSelecionadas[indexPreguntas];
-                    _respostasLista =
-                        _preguntasSelecionadas[indexPreguntas].answers;
-                    responded = false;
-                    respostaErrada = -1;
                   });
                 },
-                child: const Icon(Icons.arrow_forward),
+                child: const Icon(Icons.arrow_forward_rounded,
+                    color: Colors.white, size: 30),
               )
             : const SizedBox(
                 height: 0,
