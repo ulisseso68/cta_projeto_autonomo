@@ -507,7 +507,7 @@ class Funcoes {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.black,
+            color: Colors.black.withOpacity(opacity),
             spreadRadius: 1,
             blurRadius: 10,
             offset: const Offset(0, 3), // changes position of shadow

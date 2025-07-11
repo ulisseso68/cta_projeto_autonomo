@@ -115,12 +115,22 @@ class _HomePageState extends State<HomePage> {
       String catsel = _categoriesSelected[i];
       int qty = Funcoes().selectQuestions(catsel.toUpperCase()).length;
       listTiles.add(ListTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        tileColor: _isOpen[i] ? Colors.orange.shade100 : null,
         dense: true,
         visualDensity: VisualDensity.compact,
-        title: Text(
-          catsel,
-          textAlign: TextAlign.left,
-          style: const TextStyle(fontSize: 18, color: COR_01),
+        title: GestureDetector(
+          onTap: () => setState(() {
+            extended = false;
+            _isOpen[i] = !_isOpen[i];
+          }),
+          child: Text(
+            catsel,
+            textAlign: TextAlign.left,
+            style: const TextStyle(fontSize: 18, color: COR_01),
+          ),
         ),
         subtitle: Funcoes()
             .questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
@@ -132,8 +142,8 @@ class _HomePageState extends State<HomePage> {
             });
           },
           icon: Icon(
-            _isOpen[i] ? Icons.expand_less : Icons.expand_more,
-            color: COR_01,
+            _isOpen[i] ? Icons.close_rounded : Icons.folder_open_rounded,
+            color: COR_02,
             size: 30,
           ),
         ),
