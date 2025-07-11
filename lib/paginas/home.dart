@@ -22,6 +22,17 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  void collapse(int index) {
+    extended = false;
+    for (int i = 0; i < _isOpen.length; i++) {
+      if (i != index)
+        _isOpen[i] = false;
+      else
+        _isOpen[i] = !_isOpen[i];
+    }
+    setState(() {});
+  }
+
   Future<void> _getDatafromServer() async {
     answeredQuestions = await Funcoes().loadAnsweredQuestionsFromLocal();
     await Funcoes().initializeCatalog();
@@ -123,8 +134,7 @@ class _HomePageState extends State<HomePage> {
         visualDensity: VisualDensity.compact,
         title: GestureDetector(
           onTap: () => setState(() {
-            extended = false;
-            _isOpen[i] = !_isOpen[i];
+            collapse(i);
           }),
           child: Text(
             catsel,
@@ -137,8 +147,7 @@ class _HomePageState extends State<HomePage> {
         leading: IconButton(
           onPressed: () {
             setState(() {
-              extended = false;
-              _isOpen[i] = !_isOpen[i];
+              collapse(i);
             });
           },
           icon: Icon(

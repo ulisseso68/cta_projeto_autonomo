@@ -5,6 +5,9 @@
 
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/models/answeredQuestion_model.dart';
+import 'package:cta_projeto_autonomo/utilidades/dados.dart';
+import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:flutter/material.dart';
 
 class Question {
   int id;
@@ -48,4 +51,17 @@ class Question {
   }
 
   answeredQuestion get getAnsQue => Funcoes().findAnsweredQuestion(id);
+
+  ImageProvider imagem() {
+    if (photo != null && photo!.isNotEmpty) {
+      if (offlineMode) {
+        return AssetImage('img/${id.toString()}.jpeg');
+      } else {
+        return NetworkImage("$APP_URL/storage$photo");
+      }
+      //return NetworkImage("$APP_URL/storage$photo");
+    } else {
+      return const AssetImage('img/ccse1.gif');
+    }
+  }
 }

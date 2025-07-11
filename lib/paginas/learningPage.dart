@@ -64,8 +64,7 @@ class _LearningPageState extends State<LearningPage> {
                     height: altura / 3,
                     width: largura,
                     child: Image(
-                      image: AssetImage(
-                          preguntas[indexPreguntas].photo), //autonomo.foto
+                      image: preguntas[indexPreguntas].imagem(),
                       fit: BoxFit.cover,
                       gaplessPlayback: true,
                     ))),
@@ -75,7 +74,7 @@ class _LearningPageState extends State<LearningPage> {
               title: Text(
                 preguntas[indexPreguntas].description,
                 style: const TextStyle(
-                    fontWeight: FontWeight.normal, fontSize: 20),
+                    fontWeight: FontWeight.normal, fontSize: 15),
               ),
               textColor: Colors.black54,
             ),
