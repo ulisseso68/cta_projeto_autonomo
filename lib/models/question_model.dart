@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 class Question {
   int id;
+  String ccse_id;
   String question;
   //bool hasDetails;
   List answers;
@@ -20,6 +21,7 @@ class Question {
 
   Question(
       {this.id = 0,
+      this.ccse_id = '',
       this.question = '',
       this.answers = const [],
       //this.hasDetails = false,
@@ -27,6 +29,7 @@ class Question {
 
   Question.fromJson(Map json)
       : id = json['id'] is int ? json['id'] : -1,
+        ccse_id = json['ccse_id'] is String ? json['ccse_id'] : '',
         question =
             json['pergunta'] is String ? json['pergunta'] : 'sin pregunta',
         //hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
@@ -37,6 +40,7 @@ class Question {
 
   Question.fromServerJson(Map json)
       : id = json['id'] is int ? json['id'] : -1,
+        ccse_id = json['ccse_id'] is String ? json['ccse_id'] : '',
         question =
             json['question'] is String ? json['question'] : 'sin pregunta',
         //hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
@@ -55,7 +59,7 @@ class Question {
   ImageProvider imagem() {
     if (photo != null && photo!.isNotEmpty) {
       if (offlineMode) {
-        return AssetImage('img/${id.toString()}.jpeg');
+        return AssetImage('img/${ccse_id.toString()}.jpg');
       } else {
         return NetworkImage("$APP_URL/storage$photo");
       }
