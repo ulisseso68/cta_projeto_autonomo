@@ -181,6 +181,32 @@ class Funcoes {
     return cidadesSelecionadas;
   }
 
+  // Statistics
+
+  Map<String, int> statistics() {
+    int total = 0;
+    int answered = 0;
+    int correct = 0;
+    int printed = 0;
+
+    List ques = selectQuestions(categorySelected.toUpperCase());
+    total = ques.length;
+
+    for (var i = 0; i < ques.length; i++) {
+      answeredQuestion aques = findAnsweredQuestion(ques[i].id);
+      printed += aques.printed;
+      aques.answered ? answered++ : null;
+      aques.lastCorrect ? correct++ : null;
+    }
+
+    return {
+      'total': total,
+      'answered': answered,
+      'correct': correct,
+      'printed': printed
+    };
+  }
+
   // WIDGETS
 
   // Used at Home Page
@@ -236,7 +262,7 @@ class Funcoes {
       double largura, String text1, String text2, Color backgroundColor,
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
     return Container(
-      width: largura < 600 ? largura * 0.5 : 300,
+      width: largura * 0.9,
       padding: const EdgeInsets.all(5),
       height: 95,
       child: ListTile(
@@ -244,15 +270,15 @@ class Funcoes {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        trailing: Icon(
+        leading: Icon(
           icon,
-          size: 30,
+          size: 35,
           color: foreColor,
         ),
         title: Text(
           text1,
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: foreColor),
+              fontSize: 25, fontWeight: FontWeight.bold, color: foreColor),
         ),
         subtitle: Text(
           text2,
@@ -285,6 +311,7 @@ class Funcoes {
                   color: COR_02,
                 ))
             : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   progressBar(category: category),
                   OverflowBar(
@@ -353,7 +380,7 @@ class Funcoes {
       int answered = 0,
       int correct = 0,
       int printed = 0,
-      double barSize = 0.4,
+      double barSize = 0.6,
       String category = ''}) {
     List ques = Funcoes().selectQuestions(category.toUpperCase());
     total = ques.length;
@@ -367,37 +394,34 @@ class Funcoes {
 
     return answered / total > 0.1
         ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                      width: screenW * 0.3,
-                      child: Text(
-                        Funcoes().appLang('Answered'),
-                        style: const TextStyle(fontSize: 14, color: COR_01),
-                      )),
+                  Text(
+                    Funcoes().appLang('Answered'),
+                    style: const TextStyle(fontSize: 14, color: COR_01),
+                  ),
                   appProgressBar(
                     barSize,
                     answered / total,
                     0,
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                      width: screenW * 0.3,
-                      child: Text(
-                        Funcoes().appLang('Correctly'),
-                        style: const TextStyle(fontSize: 14, color: COR_01),
-                      )),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    Funcoes().appLang('Correctly'),
+                    style: const TextStyle(fontSize: 14, color: COR_01),
+                  ),
                   appProgressBar(
                     barSize,
                     correct / (answered > 0 ? answered : 1),
                     0,
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                 ],
               ),

@@ -27,6 +27,7 @@ var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
 
 var urlCadastro =
     'https://docs.google.com/forms/d/e/1FAIpQLSdxctAaBWuY1EuSe20_r6jER96zFfXjeRo4VMqesq_aVH0ixA/viewform';
+
 var projetoAJ = {
   'descricao':
       'O projeto AutonoJobs é fruto de um trabalho conjunto entre a área de Tecnologia da DUFRY Brasil e os alunos do CTA - Centro de Treinamento Administrativo. Juntos, este time de profissionais e alunos materializaram uma proposta de negócios com o uso de tecnologia.',

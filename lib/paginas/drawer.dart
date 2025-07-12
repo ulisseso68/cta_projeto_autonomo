@@ -12,7 +12,7 @@ class AJDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        width: screenW * 0.75,
+        width: screenW * 0.8,
         surfaceTintColor: Colors.white,
         shadowColor: Colors.white,
         backgroundColor: Colors.white,
@@ -31,7 +31,12 @@ class AJDrawer extends StatelessWidget {
               color: redEspana,
             ),
             ListTile(
-              title: Funcoes().progressBar(barSize: 0.3),
+              leading: const Icon(
+                Icons.graphic_eq,
+                size: 40,
+                color: COR_02,
+              ),
+              title: Funcoes().progressBar(barSize: 0.5),
             ),
             ListTile(
               leading: const Icon(
@@ -40,12 +45,13 @@ class AJDrawer extends StatelessWidget {
                 color: COR_02,
               ),
               title: const Text(
-                'Zerar o Questionário',
+                'Zero Statistics',
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
                 answeredQuestions.clear();
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -92,8 +98,8 @@ class AJDrawer extends StatelessWidget {
                 size: 40,
                 color: COR_02,
               ),
-              title: const Text(
-                'O Projeto AutonoJobs',
+              title: Text(
+                Funcoes().appLang('Credits and Acknowledgments'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
@@ -107,8 +113,8 @@ class AJDrawer extends StatelessWidget {
                 size: 40,
                 color: COR_02,
               ),
-              title: const Text(
-                'Termos de Uso e Privacidade',
+              title: Text(
+                Funcoes().appLang('User Terms'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),

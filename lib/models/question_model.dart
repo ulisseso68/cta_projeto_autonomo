@@ -35,8 +35,8 @@ class Question {
         //hasDetails = json['hasDetails'] is bool ? json['hasDetails'] : false,
         answers = json['respostas'].toList(),
         category = json['tema'] is String ? json['tema'] : 'sin categoria',
-        description = json['detalhe'] is String ? json['detalhe'] : '',
-        photo = json['fotografia'] is String ? json['fotografia'] : '';
+        description = json['description'] is String ? json['description'] : '',
+        photo = json['photo'] is String ? json['photo'] : '';
 
   Question.fromServerJson(Map json)
       : id = json['id'] is int ? json['id'] : -1,

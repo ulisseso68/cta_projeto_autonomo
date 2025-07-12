@@ -8,6 +8,37 @@ final lang = {
   'Printed': ['was printed', 'voce respondeu', 'tu has respondido'],
   'Correct': ['was correct', 'resposta correta', 'respuesta correcta'],
   'Success Rate': ['Success Rate', 'Taxa de Sucesso', 'Tasa de Éxito'],
+  'Accumulated Success Rate': [
+    'Accumulated Success Rate',
+    'Taxa de Sucesso Acumulada',
+    'Tasa de Éxito Acumulada'
+  ],
+  'Total Questions': [
+    'Total Questions',
+    'Total de Perguntas',
+    'Total de Preguntas'
+  ],
+  'Total Questions Answered': [
+    'Total Questions Answered',
+    'Total de Perguntas Respondidas',
+    'Total de Preguntas Respondidas'
+  ],
+  'Reset Statistics': [
+    'Reset Statistics',
+    'Reiniciar Estatísticas',
+    'Reiniciar Estadísticas'
+  ],
+  'Credits and Acknowledgments': [
+    'Credits and Acknowledgments',
+    'Créditos e Agradecimentos',
+    'Créditos y Reconocimientos'
+  ],
+  'User Terms': ['User Terms', 'Termos de Uso', 'Términos de Uso'],
+  'Privacy Policy': [
+    'Privacy Policy',
+    'Política de Privacidade',
+    'Política de Privacidad'
+  ],
   'Answered': ['Answered', 'Respondido', 'Respondido'],
   'Answered Questions': [
     'Answered Questions',

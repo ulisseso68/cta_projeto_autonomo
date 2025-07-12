@@ -1,5 +1,6 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
+import 'package:cta_projeto_autonomo/paginas/factcard.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -88,10 +89,9 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             ],
           ),
         ),
-
         //shadowColor: Colors.white70.withOpacity(0.0),
       ),
-      endDrawer: const AJDrawer(),
+      endDrawer: AJDrawer(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -108,20 +108,35 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                       context,
                       isOpen: true,
                       hasIcon: false),
-                  const SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.all(screenW * 0.05),
-                    child: Text(
+                  ListTile(
+                    title: Text(
                       (_preguntasSelecionadas.isEmpty ||
                               indexPreguntas >= _preguntasSelecionadas.length)
                           ? 'No hay preguntas para esta selección'
                           : _preguntasSelecionadas[indexPreguntas].question,
-                      maxLines: 4,
+                      //maxLines: 4,
                       style: const TextStyle(
                         color: COR_01,
                         fontSize: 24,
                       ),
                     ),
+                    trailing:
+                        (_preguntasSelecionadas[indexPreguntas].hasDetails)
+                            ? IconButton(
+                                onPressed: () {
+                                  setState(() {});
+                                  Navigator.pushNamed(
+                                    context,
+                                    'learningPage',
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.fact_check_rounded,
+                                  color: COR_02,
+                                  size: 30,
+                                ),
+                              )
+                            : null,
                   ),
                 ],
               ),
@@ -208,25 +223,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                                 }
                               });
                             }),
-                            trailing: (_respostasLista[indexAnswers]
-                                        ['Correct'] &
-                                    responded &
-                                    _preguntasSelecionadas[indexPreguntas]
-                                        .hasDetails)
-                                ? IconButton(
-                                    onPressed: () {
-                                      setState(() {});
-                                      Navigator.pushNamed(
-                                          context, 'learningPage',
-                                          arguments:
-                                              _respostasLista[indexAnswers]);
-                                    },
-                                    icon: const Icon(
-                                      Icons.info_rounded,
-                                      color: Colors.white,
-                                    ),
-                                  )
-                                : const SizedBox(height: 0, width: 0),
+
                             leading: IconButton(
                               onPressed: () {
                                 setState(() {

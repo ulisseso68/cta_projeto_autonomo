@@ -24,35 +24,23 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
 
     return Scaffold(
       bottomSheet: SizedBox(
-        height: altura * 0.35,
+        height: altura * 0.30,
         width: largura,
         //color: Colors.white,
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Funcoes().KPIbox(
-                    largura,
-                    '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
-                    Funcoes().appLang('Success Rate'),
-                    COR_02,
-                    icon: Icons.percent),
-              ],
-            ),
-            Row(
-              children: [
-                Funcoes().KPIbox(largura, '$respostasCorretas',
-                    Funcoes().appLang('Correct Answers'), Colors.grey,
-                    icon: Icons.verified),
-                Funcoes().KPIbox(
-                    largura,
-                    '${respostasCorretas + respostasErradas}',
-                    Funcoes().appLang('Number of Questions'),
-                    COR_02,
-                    icon: Icons.numbers),
-              ],
-            ),
+            Funcoes().KPIbox(
+                largura,
+                '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
+                Funcoes().appLang('Accumulated Success Rate'),
+                COR_02,
+                icon: Icons.percent),
+            Funcoes().KPIbox(
+                largura,
+                '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
+                Funcoes().appLang('Answered Questions'),
+                Colors.grey,
+                icon: Icons.verified),
           ],
         ),
       ),
