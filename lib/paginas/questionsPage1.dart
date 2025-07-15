@@ -1,6 +1,5 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
-import 'package:cta_projeto_autonomo/paginas/factcard.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -64,14 +63,10 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Text(
-                appname,
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontFamily: 'Verdana',
-                    fontWeight: FontWeight.bold),
-              ),
+              Funcoes().logoWidget(
+                fontSize: 25,
+                opacity: 0,
+              ), /* 
               (temaPreguntas != '')
                   ? Text(
                       Funcoes.categorySelected,
@@ -85,7 +80,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                         fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
                       ),
                     )
-                  : Container(),
+                  : Container(), */
             ],
           ),
         ),

@@ -23,22 +23,51 @@ final lang = {
     'Total de Perguntas Respondidas',
     'Total de Preguntas Respondidas'
   ],
-  'Reset Statistics': [
+  ''
+      'Reset Statistics': [
     'Reset Statistics',
     'Reiniciar Estatísticas',
     'Reiniciar Estadísticas'
   ],
+  'Online Mode Activated': [
+    'Online Mode Activated',
+    'Modo Online Ativado',
+    'Modo Online Activado'
+  ],
+  'Offline Mode Activated': [
+    'Offline Mode Activated',
+    'Modo Offline Ativado',
+    'Modo Offline Activado'
+  ],
+  'Select your country:': [
+    'Select your country:',
+    'Selecione seu país:',
+    'Seleccione tu país:'
+  ],
+  'Your Country of Citizenship': [
+    'Your Country of Citizenship',
+    'Seu País de Cidadania',
+    'Tu País de Ciudadanía'
+  ],
+  'Select your language:': [
+    'Select your language:',
+    'Selecione seu idioma:',
+    'Seleccione tu idioma:'
+  ],
+  'Your Language': ['Your Language', 'Seu Idioma', 'Tu Idioma'],
+  'Search': ['Search', 'Pesquisar', 'Buscar'],
   'Credits and Acknowledgments': [
     'Credits and Acknowledgments',
     'Créditos e Agradecimentos',
     'Créditos y Reconocimientos'
   ],
-  'User Terms': ['User Terms', 'Termos de Uso', 'Términos de Uso'],
+  'Terms of Use': ['Terms of use', 'Termos de Uso', 'Términos de Uso'],
   'Privacy Policy': [
     'Privacy Policy',
     'Política de Privacidade',
     'Política de Privacidad'
   ],
+  'Accpted': ['Accepted', 'Aceito', 'Aceptado'],
   'Answered': ['Answered', 'Respondido', 'Respondido'],
   'Answered Questions': [
     'Answered Questions',
@@ -91,4 +120,23 @@ final lang = {
     'Você terminou seu treinamento. Estes são os seus resultados',
     'Has terminado tu entrenamiento. Estos son tus resultados'
   ],
+  'Share your experience': [
+    'Share your experience',
+    'Compartilhe sua experiência',
+    'Comparte tu experiencia'
+  ],
+  'Help us improve the app': [
+    'Help us improve the app',
+    'Ajude-nos a melhorar o aplicativo',
+    'Ayúdanos a mejorar la aplicación'
+  ],
+  'Restart': ['Restart', 'Reiniciar', 'Reiniciar'],
+  'Accepted': ['Accepted', 'Aceito', 'Aceptado'],
+  'Enter your name': [
+    'Enter your name',
+    'Digite seu nome',
+    'Ingresa tu nombre'
+  ],
+  'Device ID': ['Device ID', 'ID do Dispositivo', 'ID del Dispositivo'],
+  'Save': ['Save', 'Salvar', 'Guardar'],
 };

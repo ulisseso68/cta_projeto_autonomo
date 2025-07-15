@@ -57,6 +57,7 @@ class Question {
   answeredQuestion get getAnsQue => Funcoes().findAnsweredQuestion(id);
 
   ImageProvider imagem() {
+    print(this.question);
     if (photo != null && photo!.isNotEmpty) {
       if (offlineMode) {
         return AssetImage('img/${ccse_id.toString()}.jpg');

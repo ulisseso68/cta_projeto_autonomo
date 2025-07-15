@@ -3,6 +3,7 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
+import 'package:confetti/confetti.dart';
 
 //import 'package:flutter/services.dart';
 //ignore: camel_case_types
@@ -16,6 +17,24 @@ class QuestionareClosing extends StatefulWidget {
 
 class _QuestionareClosingState extends State<QuestionareClosing> {
   bool expanded = false;
+
+  ConfettiController confettiController = ConfettiController(
+    duration: const Duration(seconds: 5),
+  );
+
+  @override
+  void dispose() {
+    confettiController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (respostasCorretas / (respostasCorretas + respostasErradas) > 0.70) {
+      confettiController.play();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +52,8 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                 largura,
                 '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
                 Funcoes().appLang('Accumulated Success Rate'),
-                COR_02,
+                Funcoes().semaforo(Funcoes().statistics()['correct']! /
+                    Funcoes().statistics()['answered']!),
                 icon: Icons.percent),
             Funcoes().KPIbox(
                 largura,
@@ -65,11 +85,15 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                 width: screenH * 0.35,
                 height: screenH * 0.35,
                 child: CircularProgressIndicator(
-                  valueColor: const AlwaysStoppedAnimation<Color>(COR_02),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Funcoes().semaforo(respostasCorretas /
+                        (respostasErradas + respostasCorretas)),
+                  ),
                   value: (respostasCorretas /
                       (respostasErradas + respostasCorretas)),
                   strokeWidth: 30,
-                  color: COR_02,
+                  color: Funcoes().semaforo(respostasCorretas /
+                      (respostasErradas + respostasCorretas)),
                   semanticsValue:
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
                   backgroundColor: Colors.grey.shade200,
@@ -83,21 +107,30 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                   children: [
                     Text(
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
-                      style: const TextStyle(
-                          fontSize: 80,
-                          fontWeight: FontWeight.bold,
-                          color: COR_02),
+                      style: TextStyle(
+                        fontSize: 80,
+                        fontWeight: FontWeight.bold,
+                        color: Funcoes().semaforo(respostasCorretas /
+                            (respostasErradas + respostasCorretas)),
+                      ),
                     ),
-                    const Text(
+                    Text(
                       '%',
                       style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: COR_02),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Funcoes().semaforo(respostasCorretas /
+                            (respostasErradas + respostasCorretas)),
+                      ),
                     ),
                   ],
                 ),
               ),
+              ConfettiWidget(
+                  confettiController: confettiController,
+                  blastDirectionality: BlastDirectionality.explosive,
+                  shouldLoop: false,
+                  colors: const [Colors.green, Colors.orange]),
             ]),
           ],
         ),

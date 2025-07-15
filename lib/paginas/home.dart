@@ -25,10 +25,11 @@ class _HomePageState extends State<HomePage> {
   void collapse(int index) {
     extended = false;
     for (int i = 0; i < _isOpen.length; i++) {
-      if (i != index)
+      if (i != index) {
         _isOpen[i] = false;
-      else
+      } else {
         _isOpen[i] = !_isOpen[i];
+      }
     }
     setState(() {});
   }
@@ -74,6 +75,18 @@ class _HomePageState extends State<HomePage> {
             Image.asset(
               'img/ccse1.gif',
               fit: BoxFit.cover,
+            ),
+            Positioned(
+              bottom: 0,
+              right: 10,
+              child: Hero(
+                tag: 'splash_image',
+                child: Image(
+                  width: largura * 0.3,
+                  image: AssetImage('img/CCSEf.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
             Positioned(
               bottom: 0,
@@ -146,17 +159,31 @@ class _HomePageState extends State<HomePage> {
         subtitle: Funcoes()
             .questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
         leading: IconButton(
-          onPressed: () {
-            setState(() {
-              collapse(i);
-            });
-          },
-          icon: Icon(
-            _isOpen[i] ? Icons.close_rounded : Icons.folder_open_rounded,
-            color: COR_02,
-            size: 30,
-          ),
-        ),
+            onPressed: () {
+              setState(() {
+                collapse(i);
+              });
+            },
+            icon: _isOpen[i]
+                ? Icon(
+                    Icons.close_rounded,
+                    color: COR_02,
+                    size: 30,
+                  )
+                : Container(
+                    width: 40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: COR_02,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text((i + 1).toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  )),
       ));
     }
     return Column(

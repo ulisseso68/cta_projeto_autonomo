@@ -1,3 +1,4 @@
+import 'package:cta_projeto_autonomo/models/question_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -24,32 +25,6 @@ class _LearningPageState extends State<LearningPage> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      /* appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              const Text(
-                'AutonoJobs',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Verdana',
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                '${Funcoes.cidadeEscolhida} | ${Funcoes.atividadeEscolhida}',
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
-                ),
-              ),
-            ],
-          ),
-        ),
-        /* shadowColor: Colors.white70.withOpacity(0.0), */
-      ),
-      endDrawer: AJDrawer(), */
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -61,10 +36,10 @@ class _LearningPageState extends State<LearningPage> {
                   setState(() {});
                 },
                 child: SizedBox(
-                    height: altura / 3,
+                    height: (expanded ? altura / 2 : altura / 5),
                     width: largura,
                     child: Image(
-                      image: preguntas[indexPreguntas].imagem(),
+                      image: currentQuestion.imagem(),
                       fit: BoxFit.cover,
                       gaplessPlayback: true,
                     ))),
@@ -72,7 +47,7 @@ class _LearningPageState extends State<LearningPage> {
             ListTile(
               //  leading: Icon(Icons.info, size: 30),
               title: Text(
-                preguntas[indexPreguntas].description,
+                currentQuestion.description.toString(),
                 style: const TextStyle(
                     fontWeight: FontWeight.normal, fontSize: 15),
               ),

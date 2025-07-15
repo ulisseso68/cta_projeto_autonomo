@@ -25,11 +25,76 @@ class Funcoes {
     //print(autonomos.length);
   }
 
+// functions to treat userName
+  void setUserName(String name) {
+    userName = name;
+    setUserNameToStorage(name);
+  }
+
+  Future<void> setUserNameToStorage(String name) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setString('userName', name);
+    userName = name;
+  }
+
+  Future<void> getUserNameFromStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    userName = localStorage.getString('userName') ?? '';
+  }
+
+// functions to treat tcsAccepted
+  void setTcsAccepted(bool value) {
+    tcsAccepted = value;
+    setTcsAcceptedToStorage(value);
+  }
+
+  Future<void> setTcsAcceptedToStorage(bool value) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setBool('tcsAccepted', value);
+    tcsAccepted = value;
+  }
+
+  Future<void> getTcsAcceptedFromStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    tcsAccepted = localStorage.getBool('tcsAccepted') ?? false;
+  }
+
   // functions to treat language settings
   void setLanguage(int lang) {
     language = lang;
     setLanguageToStorage(lang);
   }
+
+  void setCountry(String country, String flag) {
+    citizenship = country;
+    countryFlag = flag;
+    setCountryToStorage(country, flag);
+  }
+
+  Future<void> setCountryToStorage(String country, String flag) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setString('country', country);
+    localStorage.setString('countryFlag', flag);
+    await getCountryFromStorage();
+  }
+
+  Future<void> getCountryFromStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var savedCountry = localStorage.getString('country');
+    var savedCountryFlag = localStorage.getString('countryFlag');
+    if (savedCountry != null) {
+      citizenship = savedCountry;
+    } else {
+      citizenship = ""; // Default value
+    }
+    if (savedCountryFlag != null) {
+      countryFlag = savedCountryFlag;
+    } else {
+      countryFlag = ""; // Default value
+    }
+  }
+
+// functions to treat language settings
 
   Future<void> getLanguageFromStorage() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
@@ -41,9 +106,23 @@ class Funcoes {
     }
   }
 
+  String get languageName {
+    switch (language) {
+      case 0:
+        return 'English';
+      case 1:
+        return 'Português';
+      case 2:
+        return 'Español';
+      default:
+        return 'Unknown';
+    }
+  }
+
   Future<void> setLanguageToStorage(int value) async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     localStorage.setString('language', value.toString());
+    language = value;
     await getLanguageFromStorage();
   }
 
@@ -53,6 +132,13 @@ class Funcoes {
     } else {
       return sentence;
     }
+  }
+
+// functions to treat answered questions
+
+  void clearAnsweredQuestions() {
+    answeredQuestions.clear();
+    saveAnsweredQuestionsToLocal();
   }
 
   Future<void> saveAnsweredQuestionsToLocal() async {
@@ -122,7 +208,7 @@ class Funcoes {
         uniqueCategories.add(preguntas[i].category);
       }
     }
-    uniqueCategories.add('Todos los temas \n( Simulación de Examen CCSE )');
+    uniqueCategories.add('Simulación de Examen CCSE');
     uniqueCategories = uniqueCategories.map((category) {
       return category
           .toString()
@@ -135,11 +221,11 @@ class Funcoes {
 
   // DEPRICATED
 
-  Future<void> iniciarCidades() async {
+  /* Future<void> iniciarCidades() async {
     //cidades = await CallApi().getPublicData('cidades');
     cidades = cidadesConfig.toList();
     cidadesSelecionadas.addAll(cidades);
-  }
+  } */
 
   List seleciona(String digitado) {
     atividadesSelecionadas.clear();
@@ -160,7 +246,7 @@ class Funcoes {
     }
     return atividadesSelecionadas;
   }
-
+/* 
   List selecionaCidade(String digitado) {
     cidadesSelecionadas.clear();
     for (var ativ in cidades) {
@@ -180,7 +266,7 @@ class Funcoes {
     }
     return cidadesSelecionadas;
   }
-
+ */
   // Statistics
 
   Map<String, int> statistics() {
@@ -392,7 +478,7 @@ class Funcoes {
       aques.lastCorrect ? correct++ : null;
     }
 
-    return answered / total > 0.1
+    return answered > 0
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -452,7 +538,7 @@ class Funcoes {
           alignment: Alignment.centerRight,
           padding: const EdgeInsets.only(right: 10),
           width: screenW * barSize * (progress1 + progress2),
-          child: (progress2 > 0.15)
+          child: (progress2 > 0.20)
               ? Text(
                   '${(progress2 * 100).toStringAsFixed(0)}%',
                   style: const TextStyle(fontSize: 14, color: Colors.white),
@@ -467,10 +553,10 @@ class Funcoes {
           height: barHeight,
           width: screenW * barSize * progress1,
           child: Center(
-            child: (progress1 > 0.15)
+            child: (progress1 > 0.20)
                 ? Text(
                     '${(progress1 * 100).toStringAsFixed(0)}%',
-                    style: const TextStyle(fontSize: 14, color: Colors.white),
+                    style: const TextStyle(fontSize: 10, color: Colors.white),
                     textAlign: TextAlign.end,
                   )
                 : const SizedBox(
@@ -538,13 +624,36 @@ class Funcoes {
           ),
         ],
       ),
-      child: Text(
-        appname,
-        style: TextStyle(
-            fontSize: fontSize,
-            color: Colors.white,
-            fontWeight: FontWeight.bold),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "CCSE",
+            style: TextStyle(
+                fontSize: fontSize,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
+          Text(
+            "fácil",
+            style: TextStyle(
+                fontSize: fontSize,
+                fontFamily: 'Bradley Hand',
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
+  }
+
+  Color semaforo(double value) {
+    if (value < 0.6) {
+      return Colors.red;
+    } else if (value < 0.8) {
+      return Colors.orange;
+    } else {
+      return Colors.green;
+    }
   }
 }

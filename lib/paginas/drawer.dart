@@ -3,6 +3,7 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
+import 'package:launch_review/launch_review.dart';
 
 class AJDrawer extends StatelessWidget {
   const AJDrawer({
@@ -19,41 +20,27 @@ class AJDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: screenH / 5,
-              color: COR_02,
-              child: Center(
-                child: Funcoes().logoWidget(fontSize: 30, opacity: 0.05),
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: redEspana,
+              ),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Hero(
+                    tag: 'splash_image_2',
+                    child: Image(
+                      image: AssetImage('img/CCSEf.png'),
+                    ),
+                  ),
+                  Positioned(
+                    top: 0,
+                    child: Funcoes().logoWidget(fontSize: 20, opacity: 0),
+                  ),
+                ],
               ),
             ),
-            Container(
-              height: 5,
-              color: redEspana,
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.graphic_eq,
-                size: 40,
-                color: COR_02,
-              ),
-              title: Funcoes().progressBar(barSize: 0.5),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.start_rounded,
-                size: 40,
-                color: COR_02,
-              ),
-              title: const Text(
-                'Zero Statistics',
-                textAlign: TextAlign.start,
-                style: TextStyle(color: COR_01, fontSize: 14),
-              ),
-              onTap: () {
-                answeredQuestions.clear();
-                Navigator.pop(context);
-              },
-            ),
+
             ListTile(
               leading: offlineMode
                   ? const Icon(
@@ -64,10 +51,12 @@ class AJDrawer extends StatelessWidget {
                   : const Icon(
                       Icons.wifi,
                       size: 40,
-                      color: COR_04,
+                      color: redEspana,
                     ),
               title: Text(
-                offlineMode ? 'Modo Offline Ativado' : 'Modo Online Ativado',
+                offlineMode
+                    ? Funcoes().appLang('Offline Mode Activated')
+                    : Funcoes().appLang('Online Mode Activated'),
                 textAlign: TextAlign.start,
                 style: const TextStyle(color: COR_01, fontSize: 14),
               ),
@@ -75,13 +64,22 @@ class AJDrawer extends StatelessWidget {
                 answeredQuestions.clear();
               },
             ),
+
+            ListTile(
+              leading: const Icon(
+                Icons.graphic_eq,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Funcoes().progressBar(barSize: 0.5),
+            ),
             // ignore: deprecated_member_use
             Container(height: 1, color: COR_02.withOpacity(0.2)),
             ListTile(
               leading: const Icon(
                 Icons.facebook,
                 size: 40,
-                color: COR_02,
+                color: redEspana,
               ),
               title: const Text(
                 'Blog no faceboog',
@@ -94,9 +92,9 @@ class AJDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.info,
+                Icons.star,
                 size: 40,
-                color: COR_02,
+                color: redEspana,
               ),
               title: Text(
                 Funcoes().appLang('Credits and Acknowledgments'),
@@ -109,12 +107,12 @@ class AJDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.privacy_tip,
+                Icons.edit_document,
                 size: 40,
-                color: COR_02,
+                color: redEspana,
               ),
               title: Text(
-                Funcoes().appLang('User Terms'),
+                Funcoes().appLang('Terms of Use'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
@@ -124,17 +122,40 @@ class AJDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.work,
+                Icons.rate_review_rounded,
                 size: 40,
-                color: COR_02,
+                color: redEspana,
               ),
-              title: const Text(
-                'Cadastre-se como Autonomo',
+              title: Text(
+                Funcoes().appLang('Share your experience'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
+              subtitle: Text(
+                Funcoes().appLang('Help us improve the app'),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
               onTap: () {
-                CallApi().launchUrlOut(urlCadastro);
+                LaunchReview.launch(writeReview: false, iOSAppId: "585027354");
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.settings,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Initial Settings'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              subtitle: Text(
+                Funcoes().appLang('Name, Country, Language'),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              onTap: () {
+                Navigator.popUntil(context, ModalRoute.withName('splashPage'));
               },
             ),
           ],
