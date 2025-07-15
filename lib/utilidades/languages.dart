@@ -139,4 +139,25 @@ final lang = {
   ],
   'Device ID': ['Device ID', 'ID do Dispositivo', 'ID del Dispositivo'],
   'Save': ['Save', 'Salvar', 'Guardar'],
+  'Your Name': ['Your Name', 'Seu Nome', 'Tu Nombre'],
+  'Confirm Reset': [
+    'Confirm Reset',
+    'Confirmar Reinicialização',
+    'Confirmar Reinicio'
+  ],
+  'Are you sure you want to reset the statistics?': [
+    'Are you sure you want to reset the statistics?',
+    'Você tem certeza que deseja reiniciar as estatísticas?',
+    '¿Estás seguro de que deseas reiniciar las estadísticas?'
+  ],
+  'Cred_Opening_message': [
+    'We proudly acknowledge the collaboration of our valued partners—advocates of open technologies, Spanish education professionals, and legal experts committed to supporting the citizenship process. Their insight and dedication have been essential in shaping an app that is both accurate and accessible for everyone preparing for the CCSE exam.',
+    'Reconocemos con orgullo la colaboración de nuestros valiosos socios: defensores de las tecnologías abiertas, profesionales de la educación española y expertos legales comprometidos con el apoyo al proceso de ciudadanía. Su conocimiento y dedicación han sido esenciales para dar forma a una aplicación que es tanto precisa como accesible para todos los que se preparan para el examen CCSE.',
+    'Reconhecemos com orgulho a colaboração de nossos valiosos parceiros: defensores de tecnologias abertas, profissionais de educação espanhola e especialistas jurídicos comprometidos em apoiar o processo de cidadania. Seu conhecimento e dedicação foram essenciais para moldar um aplicativo que é preciso e acessível para todos que se preparam para o exame CCSE.'
+  ],
+  'List of partners': [
+    'List of partners',
+    'Lista de parceiros',
+    'Lista de socios'
+  ],
 };

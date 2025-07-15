@@ -105,6 +105,7 @@ class AJDrawer extends StatelessWidget {
                 Navigator.popAndPushNamed(context, 'paginaCreditos');
               },
             ),
+            // Terms of Use
             ListTile(
               leading: const Icon(
                 Icons.edit_document,
@@ -120,6 +121,7 @@ class AJDrawer extends StatelessWidget {
                 Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
               },
             ),
+            // Share your experience
             ListTile(
               leading: const Icon(
                 Icons.rate_review_rounded,
@@ -136,7 +138,7 @@ class AJDrawer extends StatelessWidget {
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
               onTap: () {
-                LaunchReview.launch(writeReview: false, iOSAppId: "585027354");
+                LaunchReview.launch(writeReview: false, iOSAppId: "1635840240");
               },
             ),
             ListTile(
@@ -157,6 +159,23 @@ class AJDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.popUntil(context, ModalRoute.withName('splashPage'));
               },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.device_unknown,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Device ID'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              subtitle: Text(
+                deviceID,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              onTap: () {},
             ),
           ],
         ));

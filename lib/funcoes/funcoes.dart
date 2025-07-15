@@ -208,7 +208,7 @@ class Funcoes {
         uniqueCategories.add(preguntas[i].category);
       }
     }
-    uniqueCategories.add('Simulación de Examen CCSE');
+    uniqueCategories.add('Simulación del Examen');
     uniqueCategories = uniqueCategories.map((category) {
       return category
           .toString()
@@ -612,7 +612,7 @@ class Funcoes {
   // Used at Many Pages
   Widget logoWidget({double fontSize = 40, double opacity = 0.3}) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      //padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         boxShadow: [

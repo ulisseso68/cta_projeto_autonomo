@@ -27,8 +27,8 @@ class _SplashPageState extends State<SplashPage> {
     await Funcoes().getCountryFromStorage();
     await Funcoes().getLanguageFromStorage();
     await Funcoes().getTcsAcceptedFromStorage();
+    await Funcoes().getUserNameFromStorage();
     deviceID = (await _getId()).toString();
-    print(deviceID);
     setState(() {});
   }
 

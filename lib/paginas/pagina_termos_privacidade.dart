@@ -1,6 +1,7 @@
-import 'package:cta_projeto_autonomo/paginas/reusosDrawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:flutter/material.dart';
+import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
+import 'package:cta_projeto_autonomo/utilidades/env.dart';
 
 class PaginaTermosUsoPrivacidade extends StatefulWidget {
   const PaginaTermosUsoPrivacidade({super.key});
@@ -22,58 +23,53 @@ class _PaginaTermosUsoPrivacidadeState
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      endDrawer: const AJDrawer(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        toolbarHeight: 0.08 * screenH,
+        backgroundColor: redEspana,
+        title: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Funcoes().logoWidget(
+                    fontSize: 25,
+                    opacity: 0,
+                  ),
+                  Text(
+                    Funcoes().appLang('Terms of Use'),
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      overflow: TextOverflow.ellipsis,
+                      fontSize: 15,
+                      color: Colors.white,
+                      fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
+                    ),
+                  ),
+                ],
+              ),
+              Image(image: AssetImage('img/CCSEf.png'), width: 70, height: 70)
+            ],
+          ),
+        ),
+        //shadowColor: Colors.white70.withOpacity(0.0),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Stack(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    expanded = !expanded;
-                    setState(() {});
-                  },
-                  child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 500),
-                      height: expanded ? altura / 2 : altura / 4,
-                      width: largura,
-                      child: const Image(
-                        image: AssetImage('img/tncs.png'),
-                        fit: BoxFit.cover,
-                      )),
-                ),
-                Positioned(
-                    top: 40,
-                    left: 10,
-                    child: FloatingActionButton(
-                      mini: true,
-                      heroTag: 'voltaTnCs',
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_ios_new,
-                        color: Colors.white,
-                      ),
-                    )),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: Image(
-                    image: const AssetImage('img/appstore.png'),
-                    fit: BoxFit.cover,
-                    width: largura / 8,
-                    height: largura / 8,
-                  ),
-                ),
-              ],
-            ),
             const Divider(
               thickness: 5.0,
               height: 5.0,
-              color: Colors.green,
+              color: COR_02,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

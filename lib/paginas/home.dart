@@ -130,6 +130,11 @@ class _HomePageState extends State<HomePage> {
           _buildListTile(),
         ]),
       ),
+      bottomSheet: Container(
+        width: largura,
+        height: 40,
+        color: redEspana,
+      ),
     );
   }
 

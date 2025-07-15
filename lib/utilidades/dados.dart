@@ -33,16 +33,6 @@ var urlfacebook = 'https://www.facebook.com/people/AutonoJobs/100083058583832/';
 var urlCadastro =
     'https://docs.google.com/forms/d/e/1FAIpQLSdxctAaBWuY1EuSe20_r6jER96zFfXjeRo4VMqesq_aVH0ixA/viewform';
 
-var projetoAJ = {
-  'descricao':
-      'O projeto AutonoJobs é fruto de um trabalho conjunto entre a área de Tecnologia da DUFRY Brasil e os alunos do CTA - Centro de Treinamento Administrativo. Juntos, este time de profissionais e alunos materializaram uma proposta de negócios com o uso de tecnologia.',
-  'msg2':
-      'Durante o ano de 2023, assistiremos ao processo de melhoria deste negócio, conduzido pelos alunos.',
-  'msg3': 'Estes são os participantes deste projeto',
-  'tnc1':
-      'Esta aplicação é oferecida de forma gratuita aos clientes dos autonomos, com o propósito de facilitar.'
-};
-
 var tncs = [
   {
     'clausula':
@@ -143,33 +133,9 @@ var atividades = [
 ];
 
 var projetoParticipates = [
-  {'nome': 'Aicon Silva', 'cargo': 'Aluno CTA'},
-  {'nome': 'Amanda dos Anjos', 'cargo': 'Aluno CTA'},
-  {'nome': 'Brenda Assis', 'cargo': 'Aluno CTA'},
-  {'nome': 'Eyshila Souza', 'cargo': 'Aluno CTA'},
-  {'nome': 'Henry Oliveira', 'cargo': 'Aluno CTA'},
-  {'nome': 'Jessica da Silva', 'cargo': 'Aluno CTA'},
-  {'nome': 'Kailan Santos', 'cargo': 'Aluno CTA'},
-  {'nome': 'Luis Xavier', 'cargo': 'Aluno CTA'},
-  {'nome': 'Maicon Nascimento', 'cargo': 'Aluno CTA'},
-  {'nome': 'Marcelle Souza', 'cargo': 'Aluno CTA'},
-  {'nome': 'Maria Fernanda', 'cargo': 'Aluno CTA'},
-  {'nome': 'Mateus Fernandes', 'cargo': 'Aluno CTA'},
-  {'nome': 'Nathan Rocha', 'cargo': 'Aluno CTA'},
-  {'nome': 'Nicolle de Souza', 'cargo': 'Aluno CTA'},
-  {'nome': 'Raphael Ferreira', 'cargo': 'Aluno CTA'},
-  {'nome': 'Samuel Ribeiro', 'cargo': 'Aluno CTA'},
-  {'nome': 'Victoria Chagas', 'cargo': 'Aluno CTA'},
-  {'nome': 'Vitória Silva', 'cargo': 'Aluno CTA'},
-  {'nome': 'Walleks Soares', 'cargo': 'Aluno CTA'},
-  {'nome': 'Yasmin Costa', 'cargo': 'Aluno CTA'},
-  {'nome': 'Mirtes Medeiros', 'cargo': 'CTA - Coordenação'},
-  {'nome': 'Neuza Azeredo', 'cargo': 'CTA - Coordenação'},
-  {'nome': 'Fabio Marques', 'cargo': 'Dufry - Time de Tecnologia'},
-  {'nome': 'Flávio Vivacqua', 'cargo': 'Dufry - Time de Tecnologia'},
-  {'nome': 'Henrique Reis', 'cargo': 'Dufry - Time de Tecnologia'},
-  {'nome': 'Jociel Cavalcante', 'cargo': 'Dufry - Time de Tecnologia'},
-  {'nome': 'Luciana Montez', 'cargo': 'Dufry - Time de Tecnologia'},
-  {'nome': 'Ulisses Campos', 'cargo': 'Dufry - Time de Tecnologia'},
-  {'nome': 'Valeria Rezende', 'cargo': 'Dufry - Time de Tecnologia'},
+  {'nome': 'Laravel', 'cargo': 'backend Technology'},
+  {'nome': 'Dart', 'cargo': 'Programming Language'},
+  {'nome': 'Apple App Store', 'cargo': 'App Distribution'},
+  {'nome': 'GitHub', 'cargo': 'Code Repository'},
+  {'nome': 'OpenAI', 'cargo': 'AI Technology'},
 ];
