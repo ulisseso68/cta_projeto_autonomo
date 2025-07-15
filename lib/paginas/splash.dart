@@ -20,19 +20,19 @@ class _SplashPageState extends State<SplashPage> {
   @override
   initState() {
     super.initState();
-    _getDataFromStorage();
+    /*  _getDataFromStorage(); */
   }
 
-  Future<void> _getDataFromStorage() async {
+  /*  Future<void> _getDataFromStorage() async {
     await Funcoes().getCountryFromStorage();
     await Funcoes().getLanguageFromStorage();
     await Funcoes().getTcsAcceptedFromStorage();
     await Funcoes().getUserNameFromStorage();
     deviceID = (await _getId()).toString();
     setState(() {});
-  }
+  } */
 
-  Future<String?> _getId() async {
+  /* Future<String?> _getId() async {
     var deviceInfo = DeviceInfoPlugin();
     try {
       if (Platform.isIOS) {
@@ -46,7 +46,7 @@ class _SplashPageState extends State<SplashPage> {
     } catch (e) {
       return 'test_device_001';
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -294,7 +294,10 @@ class _SplashPageState extends State<SplashPage> {
                           });
                         },
                         decoration: InputDecoration(
-                            hintText: Funcoes().appLang('Name')),
+                          hintText: userName.isEmpty
+                              ? Funcoes().appLang('Your Name')
+                              : userName,
+                        ),
                       ),
                       actions: [
                         TextButton(
@@ -388,7 +391,7 @@ class _SplashPageState extends State<SplashPage> {
         shape: const StadiumBorder(),
         onPressed: () {
           if (tcsAccepted && citizenship.isNotEmpty) {
-            Navigator.pushNamed(context, 'homePage');
+            Navigator.popUntil(context, (ModalRoute.withName('homePage')));
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

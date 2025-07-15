@@ -160,4 +160,10 @@ final lang = {
     'Lista de parceiros',
     'Lista de socios'
   ],
+  'Rating saved successfully': [
+    'Rating saved successfully',
+    'Avaliação salva com sucesso',
+    'Calificación guardada con éxito'
+  ],
+  'Rating': ['Rating', 'Avaliação', 'Calificación'],
 };

@@ -11,6 +11,7 @@ int respostasCorretas = 0;
 int respostasErradas = 0;
 int numberOfQuestions = 5;
 bool offlineMode = false;
+bool loginRegistered = false;
 String citizenship = "";
 String countryFlag = ""; // Default to Spain
 bool tcsAccepted = false;

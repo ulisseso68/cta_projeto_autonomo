@@ -1,8 +1,10 @@
+import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/models/question_model.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 //ignore: camel_case_types
 
 class LearningPage extends StatefulWidget {
@@ -35,7 +37,8 @@ class _LearningPageState extends State<LearningPage> {
                   expanded = !expanded;
                   setState(() {});
                 },
-                child: SizedBox(
+                child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
                     height: (expanded ? altura / 2 : altura / 5),
                     width: largura,
                     child: Image(
@@ -53,6 +56,12 @@ class _LearningPageState extends State<LearningPage> {
               ),
               textColor: Colors.black54,
             ),
+            const Divider(
+                thickness: 1.0,
+                height: 20.0,
+                color: COR_02,
+                indent: 20,
+                endIndent: 20),
             RatingBar(
                 initialRating: 3,
                 unratedColor: COR_02,
@@ -70,7 +79,31 @@ class _LearningPageState extends State<LearningPage> {
                       color: COR_02,
                     )),
                 onRatingUpdate: (value) {
-                  setState(() {});
+                  setState(() {
+                    // create journal entry
+
+                    CallApi().postDataWithHeaders('journals/process', {
+                      'deviceid': deviceID,
+                      'type': 'rating',
+                      'value': value,
+                      'description': currentQuestion.ccse_id
+                    }, {
+                      'Authorization': 'Bearer token'
+                    });
+                    // send rating to API
+                    CallApi().postDataWithHeaders(
+                        'questions/rating',
+                        {'rating': value, 'ccse_id': currentQuestion.ccse_id},
+                        {'Authorization': 'Bearer token'});
+                    // show success message
+                    CallApi().showAlert(
+                        context,
+                        Text(
+                          Funcoes().appLang('Rating saved successfully'),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        'OK');
+                  });
                 }),
           ],
         ),

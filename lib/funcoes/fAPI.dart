@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:dio/dio.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:cta_projeto_autonomo/utilidadeS/dados.dart';
 
 class CallApi {
   final String _url = API_URL;
@@ -21,6 +22,49 @@ class CallApi {
     } catch (e) {
       return "error";
     }
+  }
+
+  Future postData(apiUrl, data) async {
+    try {
+      print(_url + apiUrl);
+      var response = await Dio().post(_url + apiUrl, data: data);
+
+      if (response.statusCode == 200) {
+        return response.data;
+      } else {
+        return "error";
+      }
+    } catch (e) {
+      return "error";
+    }
+  }
+
+  Future postDataWithHeaders(apiUrl, data, headers) async {
+    try {
+      var response = await Dio()
+          .post(_url + apiUrl, data: data, options: Options(headers: headers));
+
+      if (response.statusCode == 200) {
+        return response.data;
+      } else {
+        return "error";
+      }
+    } catch (e) {
+      return "error";
+    }
+  }
+
+  // Execute a Simple Journal Entry
+  Future<void> createJournalEntry(
+      {String description = '', String type = 'journal', value = 0.0}) async {
+    postDataWithHeaders('journals/process', {
+      'deviceid': deviceID,
+      'type': type,
+      'value': value,
+      'description': description
+    }, {
+      'Authorization': 'Bearer token'
+    });
   }
 
   void showAlert(context, msg, actionMsg) {
@@ -59,7 +103,6 @@ class CallApi {
         var androidDeviceInfo = await deviceInfo.androidInfo;
         return androidDeviceInfo.id; // unique ID on Android
       }
-
       return 'test_device_001';
     } catch (e) {
       return 'test_device_001';

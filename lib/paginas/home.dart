@@ -3,6 +3,9 @@ import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'dart:io';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,8 +22,6 @@ class _HomePageState extends State<HomePage> {
   @override
   initState() {
     super.initState();
-    Funcoes().getTcsAcceptedFromStorage();
-
     _getDatafromServer();
     super.initState();
   }
@@ -38,15 +39,47 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _getDatafromServer() async {
+    await Funcoes().getCountryFromStorage();
+    await Funcoes().getLanguageFromStorage();
     await Funcoes().getTcsAcceptedFromStorage();
+    await Funcoes().getUserNameFromStorage();
+
+    deviceID = (await _getId()).toString();
+
+    if (!loginRegistered) {
+      CallApi().postDataWithHeaders(
+          'journals/process',
+          {'deviceid': deviceID, 'type': 'access', 'value': 0},
+          {'Authorization': 'Bearer token'});
+      loginRegistered = true;
+    }
+
+    // redirect to splash page if TCS not accepted
     if (!tcsAccepted) {
       Navigator.pushNamed(context, 'splashPage');
     }
+    // Load unique categories from the questions
     answeredQuestions = await Funcoes().loadAnsweredQuestionsFromLocal();
     await Funcoes().initializeCatalog();
     _categoriesSelected = uniqueCategories;
     _isOpen = List.generate(_categoriesSelected.length, (index) => false);
     setState(() {});
+  }
+
+  Future<String?> _getId() async {
+    var deviceInfo = DeviceInfoPlugin();
+    try {
+      if (Platform.isIOS) {
+        var iosDeviceInfo = await deviceInfo.iosInfo;
+        return iosDeviceInfo.identifierForVendor; // unique ID on iOS
+      } else if (Platform.isAndroid) {
+        var androidDeviceInfo = await deviceInfo.androidInfo;
+        return androidDeviceInfo.id; // unique ID on Android
+      }
+      return 'test_device_001';
+    } catch (e) {
+      return 'test_device_001';
+    }
   }
 
   @override
