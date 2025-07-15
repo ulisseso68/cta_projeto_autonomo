@@ -4,7 +4,9 @@ import 'package:cta_projeto_autonomo/paginas/questionaireClosing.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
 import 'package:cta_projeto_autonomo/paginas/splash.dart';
+import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 //import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'paginas/questionsPage1.dart';
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
         'termosUsoPrivacidade': (context) => const PaginaTermosUsoPrivacidade(),
         'splashPage': (context) => const SplashPage(),
       },
-      initialRoute: 'splashPage',
+      initialRoute: 'homePage',
     );
   }
 }

@@ -18,6 +18,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   initState() {
+    super.initState();
+    Funcoes().getTcsAcceptedFromStorage();
+
     _getDatafromServer();
     super.initState();
   }
@@ -35,6 +38,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _getDatafromServer() async {
+    await Funcoes().getTcsAcceptedFromStorage();
+    if (!tcsAccepted) {
+      Navigator.pushNamed(context, 'splashPage');
+    }
     answeredQuestions = await Funcoes().loadAnsweredQuestionsFromLocal();
     await Funcoes().initializeCatalog();
     _categoriesSelected = uniqueCategories;

@@ -141,6 +141,7 @@ class AJDrawer extends StatelessWidget {
                 LaunchReview.launch(writeReview: false, iOSAppId: "1635840240");
               },
             ),
+            // Settings
             ListTile(
               leading: const Icon(
                 Icons.settings,
@@ -157,7 +158,8 @@ class AJDrawer extends StatelessWidget {
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
               onTap: () {
-                Navigator.popUntil(context, ModalRoute.withName('splashPage'));
+                //Navigator.popUntil(context, ModalRoute.withName('splashPage'));
+                Navigator.pushNamed(context, 'splashPage');
               },
             ),
             ListTile(
