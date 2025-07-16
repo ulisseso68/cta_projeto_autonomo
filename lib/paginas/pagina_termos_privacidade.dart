@@ -87,17 +87,6 @@ class _PaginaTermosUsoPrivacidadeState
   List<ListTile> buildTiles() {
     List<ListTile> tiles = [];
     final tncs = DocumentContent().getSessionsbyLanguage(language.toString());
-    tiles.add(
-      const ListTile(
-        title: Text(
-          'Termos de Uso e Privacidade',
-          maxLines: 2,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20),
-        ),
-        textColor: Colors.black54,
-      ),
-    );
 
     for (var element in tncs) {
       tiles.add(

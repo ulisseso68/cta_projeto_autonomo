@@ -168,6 +168,13 @@ class _HomePageState extends State<HomePage> {
             thickness: 1,
           ),
           _buildListTile(),
+          Divider(
+            thickness: 10,
+            height: 30,
+            indent: 10,
+            endIndent: 10,
+            color: COR_02,
+          ),
         ]),
       ),
       bottomSheet: Container(
