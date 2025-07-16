@@ -58,7 +58,7 @@ class CallApi {
   Future<void> createJournalEntry(
       {String description = '', String type = 'journal', value = 0.0}) async {
     postDataWithHeaders('journals/process', {
-      'deviceid': deviceID,
+      'deviceid': await getId(),
       'type': type,
       'value': value,
       'description': description

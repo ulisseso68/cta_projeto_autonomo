@@ -1,3 +1,4 @@
+import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
@@ -123,6 +124,13 @@ class _SplashPageState extends State<SplashPage> {
               onPressed: () {
                 setState(() {
                   tcsAccepted = !tcsAccepted;
+                  if (tcsAccepted) {
+                    CallApi().createJournalEntry(
+                        type: 'terms', value: 1, description: 'user accepted');
+                  } else {
+                    CallApi().createJournalEntry(
+                        type: 'terms', value: 0, description: 'user rejected');
+                  }
                   Funcoes().setTcsAcceptedToStorage(tcsAccepted);
                 });
               },

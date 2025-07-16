@@ -2,6 +2,7 @@ import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:cta_projeto_autonomo/utilidades/policy.dart';
 
 class PaginaTermosUsoPrivacidade extends StatefulWidget {
   const PaginaTermosUsoPrivacidade({super.key});
@@ -85,6 +86,7 @@ class _PaginaTermosUsoPrivacidadeState
 
   List<ListTile> buildTiles() {
     List<ListTile> tiles = [];
+    final tncs = DocumentContent().getSessionsbyLanguage(language.toString());
     tiles.add(
       const ListTile(
         title: Text(
@@ -102,11 +104,16 @@ class _PaginaTermosUsoPrivacidadeState
         ListTile(
           dense: true,
           visualDensity: VisualDensity.compact,
-          leading: const Icon(Icons.comment),
+          //leading: const Icon(Icons.comment),
           title: Text(
-            element['clausula'].toString(),
+            element['title'].toString(),
             style: const TextStyle(
-                fontSize: 14, color: Colors.black54, fontFamily: 'Verdana'),
+                fontSize: 14, color: COR_02, fontFamily: 'Verdana'),
+          ),
+          subtitle: Text(
+            element['content'].toString(),
+            style: const TextStyle(
+                fontSize: 14, color: Colors.grey, fontFamily: 'Verdana'),
           ),
         ),
       );
