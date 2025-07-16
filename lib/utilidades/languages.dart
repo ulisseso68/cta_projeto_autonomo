@@ -166,4 +166,36 @@ final lang = {
     'Calificación guardada con éxito'
   ],
   'Rating': ['Rating', 'Avaliação', 'Calificación'],
+  'Language of the App': [
+    'Language of the App',
+    'Idioma do App',
+    'Idioma de la App'
+  ],
+  'msg_config': [
+    'These are few configurations that will help you to use the app better',
+    'Estas são algumas configurações que ajudarão você a usar o aplicativo melhor',
+    'Estas son algunas configuraciones que te ayudarán a usar mejor la aplicación'
+  ],
+  'CCSE Facil news': [
+    'CCSE Facil news',
+    'Notícias do CCSE Facil',
+    'Novedades de CCSE Facil'
+  ],
+  'If you have any questions, complaints or suggestions': [
+    'If you have any questions, complaints or suggestions',
+    'Se você tiver alguma dúvida, reclamação ou sugestão',
+    'Si tienes alguna pregunta, queja o sugerencia'
+  ],
+  'Configurations': ['Configurations', 'Configurações', 'Configuraciones'],
+  'Name, Country, Language': [
+    'Name, Country, Language',
+    'Nome, País, Idioma',
+    'Nombre, País, Idioma'
+  ],
+  'Send email to Support': [
+    'Send email to Support',
+    'Enviar email para Suporte',
+    'Enviar correo electrónico al soporte'
+  ],
+  'In Progress': ['In Progress', 'Em Progresso', 'En Progreso'],
 };

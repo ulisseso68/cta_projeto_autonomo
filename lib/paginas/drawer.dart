@@ -24,19 +24,18 @@ class AJDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: redEspana,
               ),
-              child: Stack(
-                fit: StackFit.expand,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Hero(
-                    tag: 'splash_image_2',
+                    tag: 'splash_image',
                     child: Image(
+                      width: screenW * 0.15,
                       image: AssetImage('img/CCSEf.png'),
+                      fit: BoxFit.fill,
                     ),
                   ),
-                  Positioned(
-                    top: 0,
-                    child: Funcoes().logoWidget(fontSize: 20, opacity: 0),
-                  ),
+                  Funcoes().logoWidget(fontSize: 35, opacity: 0),
                 ],
               ),
             ),
@@ -73,16 +72,15 @@ class AJDrawer extends StatelessWidget {
               ),
               title: Funcoes().progressBar(barSize: 0.5),
             ),
-            // ignore: deprecated_member_use
-            Container(height: 1, color: COR_02.withOpacity(0.2)),
+            // News do CCSE facil
             ListTile(
               leading: const Icon(
-                Icons.facebook,
+                Icons.notifications_active,
                 size: 40,
                 color: redEspana,
               ),
-              title: const Text(
-                'Blog no faceboog',
+              title: Text(
+                Funcoes().appLang('CCSE Facil news'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
@@ -90,6 +88,7 @@ class AJDrawer extends StatelessWidget {
                 CallApi().launchUrlOut(urlfacebook);
               },
             ),
+            // Credits and Acknowledgments
             ListTile(
               leading: const Icon(
                 Icons.star,
@@ -149,7 +148,7 @@ class AJDrawer extends StatelessWidget {
                 color: redEspana,
               ),
               title: Text(
-                Funcoes().appLang('Initial Settings'),
+                Funcoes().appLang('Configurations'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
@@ -162,6 +161,7 @@ class AJDrawer extends StatelessWidget {
                 Navigator.pushNamed(context, 'splashPage');
               },
             ),
+            // Device ID
             ListTile(
               leading: const Icon(
                 Icons.device_unknown,
@@ -178,6 +178,27 @@ class AJDrawer extends StatelessWidget {
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
               onTap: () {},
+            ),
+            // Send email to Support
+            ListTile(
+              leading: const Icon(
+                Icons.email,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Send email to Support'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              subtitle: Text(
+                Funcoes().appLang(
+                    'If you have any questions, complaints or suggestions'),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              onTap: () {
+                CallApi().launchUrlOut(urlfacebook);
+              },
             ),
           ],
         ));

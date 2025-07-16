@@ -570,7 +570,9 @@ class Funcoes {
 
   // Used at Home, Questionaire Closing
   Widget titleWithIcon(String title, String subTitle, BuildContext context,
-      {bool isOpen = false, bool hasIcon = true}) {
+      {bool isOpen = false,
+      bool hasIcon = true,
+      IconData icon = Icons.question_answer_rounded}) {
     return ListTile(
       dense: true,
       visualDensity: VisualDensity.compact,
@@ -610,7 +612,10 @@ class Funcoes {
   }
 
   // Used at Many Pages
-  Widget logoWidget({double fontSize = 40, double opacity = 0.3}) {
+  Widget logoWidget(
+      {double fontSize = 40,
+      double opacity = 0.3,
+      Color letterColor = Colors.white}) {
     return Container(
       //padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -631,7 +636,7 @@ class Funcoes {
             "CCSE",
             style: TextStyle(
                 fontSize: fontSize,
-                color: Colors.white,
+                color: letterColor,
                 fontWeight: FontWeight.bold),
           ),
           Text(
@@ -639,7 +644,7 @@ class Funcoes {
             style: TextStyle(
                 fontSize: fontSize,
                 fontFamily: 'Bradley Hand',
-                color: Colors.white,
+                color: letterColor,
                 fontWeight: FontWeight.bold),
           ),
         ],

@@ -2,6 +2,7 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
+import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   // ignore: prefer_final_fields
   List _categoriesSelected = [];
   List<bool> _isOpen = [];
-  bool extended = true;
+  bool extended = false;
 
   @override
   initState() {
@@ -63,6 +64,7 @@ class _HomePageState extends State<HomePage> {
     await Funcoes().initializeCatalog();
     _categoriesSelected = uniqueCategories;
     _isOpen = List.generate(_categoriesSelected.length, (index) => false);
+    extended = answeredQuestions.isEmpty;
     setState(() {});
   }
 
@@ -91,42 +93,29 @@ class _HomePageState extends State<HomePage> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      drawer: const AJDrawer(),
+      endDrawer: const AJDrawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         toolbarHeight: (extended) ? altura / 3 : altura / 6,
-        title: Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            color: Colors.white,
-            icon: Icon(extended ? Icons.zoom_out : Icons.zoom_in),
-            iconSize: 40,
-            onPressed: () {
-              extended = !extended;
-              setState(() {});
-              // Implement search functionality here
-            },
-          ),
-        ],
+        title: Row(
+          children: [
+            Hero(
+              tag: 'splash_image',
+              child: Image(
+                width: largura * 0.15,
+                image: AssetImage('img/CCSEf.png'),
+                fit: BoxFit.fill,
+              ),
+            ),
+            Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
+          ],
+        ),
         flexibleSpace: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
               'img/ccse1.gif',
               fit: BoxFit.cover,
-            ),
-            Positioned(
-              bottom: 0,
-              right: 10,
-              child: Hero(
-                tag: 'splash_image',
-                child: Image(
-                  width: largura * 0.3,
-                  image: AssetImage('img/CCSEf.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
             ),
             Positioned(
               bottom: 0,
@@ -156,12 +145,33 @@ class _HomePageState extends State<HomePage> {
           ),
 
           //Training Trail
-          Funcoes().titleWithIcon(Funcoes().appLang("Training Trail"),
-              Funcoes().appLang("Training Trail Description"), context,
-              isOpen: true),
+
+          ListTile(
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            title: Text(
+              Funcoes().appLang('Training Trail'),
+              style: const TextStyle(
+                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+            ),
+            subtitle: (extended)
+                ? Text(
+                    Funcoes().appLang("Training Trail Description"),
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  )
+                : Funcoes().progressBar(barSize: 0.7),
+            leading: IconButton(
+              color: COR_02,
+              icon: const Icon(Icons.route_rounded, color: COR_02, size: 30),
+              onPressed: () {
+                extended = !extended;
+                setState(() {});
+              },
+            ),
+          ),
 
           Divider(
-            color: Colors.orange.shade100,
+            color: COR_02,
             height: 10,
             indent: 10,
             endIndent: 10,
@@ -169,12 +179,14 @@ class _HomePageState extends State<HomePage> {
           ),
           _buildListTile(),
           Divider(
-            thickness: 10,
-            height: 30,
+            thickness: 3,
+            height: 50,
             indent: 10,
             endIndent: 10,
             color: COR_02,
           ),
+          Funcoes()
+              .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey),
         ]),
       ),
       bottomSheet: Container(

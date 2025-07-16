@@ -15,6 +15,7 @@ bool loginRegistered = false;
 String citizenship = "";
 String countryFlag = ""; // Default to Spain
 bool tcsAccepted = false;
+bool getName = false;
 String userName = '';
 String deviceID = '';
 

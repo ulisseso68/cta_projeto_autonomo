@@ -56,6 +56,7 @@ class _SplashPageState extends State<SplashPage> {
 
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
+    bool openDetails = true;
 
     return Scaffold(
       appBar: AppBar(
@@ -104,7 +105,34 @@ class _SplashPageState extends State<SplashPage> {
             height: 10,
             color: redEspana,
           ),
-
+          // Config
+          ListTile(
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            title: Text(
+              Funcoes().appLang('Configurations'),
+              style: const TextStyle(
+                  fontSize: 20,
+                  color: redEspana,
+                  fontWeight: FontWeight.normal),
+            ),
+            subtitle: Text(
+              Funcoes().appLang('msg_config'),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            leading: IconButton(
+              icon: const Icon(Icons.settings, color: redEspana, size: 30),
+              onPressed: () {
+                openDetails = !openDetails;
+                setState(() {});
+              },
+            ),
+          ),
+          Divider(
+            color: redEspana,
+            height: 1,
+            thickness: 1,
+          ),
           // Terms and Conditions
           ListTile(
             dense: true,
@@ -112,7 +140,7 @@ class _SplashPageState extends State<SplashPage> {
             title: Text(
               Funcoes().appLang('Terms of Use'),
               style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+                  fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
             ),
             subtitle: Text(
               !tcsAccepted
@@ -155,7 +183,7 @@ class _SplashPageState extends State<SplashPage> {
                   ? Funcoes().appLang('Select your country:')
                   : citizenship,
               style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+                  fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
             ),
             subtitle: citizenship != ""
                 ? Text(
@@ -217,7 +245,11 @@ class _SplashPageState extends State<SplashPage> {
             title: Text(
               Funcoes().languageName,
               style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+                  fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
+            ),
+            subtitle: Text(
+              Funcoes().appLang('Language of the App'),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             trailing:
                 const Icon(Icons.language_rounded, color: COR_01, size: 30),
@@ -272,127 +304,141 @@ class _SplashPageState extends State<SplashPage> {
             ),
           ),
           // User Name
-          ListTile(
-            dense: true,
-            visualDensity: VisualDensity.compact,
-            title: Text(
-              userName == "" ? Funcoes().appLang('Enter your name') : userName,
-              style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(
-              Funcoes().appLang('Your Name'),
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            trailing: const Icon(Icons.person, color: COR_01, size: 30),
-            leading: IconButton(
-              icon: const Icon(Icons.edit, color: COR_02, size: 30),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text(Funcoes().appLang('Enter your name'),
-                          style: const TextStyle(fontSize: 20, color: COR_02)),
-                      content: TextField(
-                        onChanged: (value) {
-                          userName = value;
-                          setState(() {
-                            Funcoes().setUserName(userName);
-                          });
-                        },
-                        decoration: InputDecoration(
-                          hintText: userName.isEmpty
-                              ? Funcoes().appLang('Your Name')
-                              : userName,
-                        ),
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Container(
-                            //color: COR_02,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: COR_02),
-                            child: Text(Funcoes().appLang('Save'),
+          (getName)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    userName == ""
+                        ? Funcoes().appLang('Enter your name')
+                        : userName,
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_02,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    Funcoes().appLang('Your Name'),
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  trailing: const Icon(Icons.person, color: COR_01, size: 30),
+                  leading: IconButton(
+                    icon: const Icon(Icons.edit, color: COR_02, size: 30),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(Funcoes().appLang('Enter your name'),
                                 style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-          ),
+                                    fontSize: 20, color: COR_02)),
+                            content: TextField(
+                              onChanged: (value) {
+                                userName = value;
+                                setState(() {
+                                  Funcoes().setUserName(userName);
+                                });
+                              },
+                              decoration: InputDecoration(
+                                hintText: userName.isEmpty
+                                    ? Funcoes().appLang('Your Name')
+                                    : userName,
+                              ),
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Container(
+                                  //color: COR_02,
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: COR_02),
+                                  child: Text(Funcoes().appLang('Save'),
+                                      style: const TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                )
+              : Container(),
           // Zero Statistics
-          ListTile(
-            dense: true,
-            visualDensity: VisualDensity.compact,
-            title: Text(
-              Funcoes().appLang('Zero Statistics'),
-              style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(
-              Funcoes().appLang('reset statistics'),
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            trailing:
-                const Icon(Icons.trending_up_rounded, color: COR_01, size: 30),
-            leading: IconButton(
-              icon: Icon(Icons.restart_alt_rounded, color: COR_02, size: 30),
-              onPressed: () => showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text(Funcoes().appLang('Confirm Reset'),
-                        style: const TextStyle(fontSize: 20, color: COR_02)),
-                    content: Text(
-                      Funcoes().appLang(
-                          'Are you sure you want to reset the statistics?'),
-                      style: const TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          Funcoes().clearAnsweredQuestions();
-                          setState(() {});
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: COR_02),
-                          child: Text(Funcoes().appLang('Reset'),
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(Funcoes().appLang('Cancel'),
+          (answeredQuestions.isNotEmpty)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    Funcoes().appLang('Zero Statistics'),
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_02,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    Funcoes().appLang('reset statistics'),
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  trailing: const Icon(Icons.trending_up_rounded,
+                      color: COR_01, size: 30),
+                  leading: IconButton(
+                    icon: Icon(Icons.restart_alt_rounded,
+                        color: COR_02, size: 30),
+                    onPressed: () => showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(Funcoes().appLang('Confirm Reset'),
+                              style:
+                                  const TextStyle(fontSize: 20, color: COR_02)),
+                          content: Text(
+                            Funcoes().appLang(
+                                'Are you sure you want to reset the statistics?'),
                             style: const TextStyle(
-                                fontSize: 18, color: Colors.grey)),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ),
-          ),
+                                fontSize: 16, color: Colors.grey),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Funcoes().clearAnsweredQuestions();
+                                setState(() {});
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: COR_02),
+                                child: Text(Funcoes().appLang('Reset'),
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(Funcoes().appLang('Cancel'),
+                                  style: const TextStyle(
+                                      fontSize: 18, color: Colors.grey)),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                )
+              : Container(),
         ]),
       ),
       floatingActionButton: FloatingActionButton(
