@@ -235,6 +235,10 @@ class _SplashPageState extends State<SplashPage> {
                     ),
                     onSelect: (Country country) {
                       Funcoes().setCountry(country.name, country.flagEmoji);
+                      CallApi().createJournalEntry(
+                          type: 'citizenship',
+                          value: 1,
+                          description: country.name);
                       setState(() {});
                     });
               },
@@ -479,7 +483,7 @@ class _SplashPageState extends State<SplashPage> {
               : Container(),
         ]),
       ),
-      floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),
         onPressed: () {
           if (tcsAccepted && citizenship.isNotEmpty) {
@@ -500,7 +504,7 @@ class _SplashPageState extends State<SplashPage> {
         },
         backgroundColor: COR_02,
         child: const Icon(Icons.arrow_forward),
-      ),
+      ), */
     );
   }
 }

@@ -57,14 +57,12 @@ class Question {
   answeredQuestion get getAnsQue => Funcoes().findAnsweredQuestion(id);
 
   ImageProvider imagem() {
-    print(this.question);
     if (photo != null && photo!.isNotEmpty) {
       if (offlineMode) {
         return AssetImage('img/${ccse_id.toString()}.jpg');
       } else {
-        return NetworkImage("$APP_URL/storage$photo");
+        return NetworkImage("$APP_URL/img$photo");
       }
-      //return NetworkImage("$APP_URL/storage$photo");
     } else {
       return const AssetImage('img/ccse1.gif');
     }

@@ -16,13 +16,10 @@ class LearningPage extends StatefulWidget {
 }
 
 class _LearningPageState extends State<LearningPage> {
-  bool expanded = false;
-  //final String texto = 'Phelipe VI da Espanha';
-  //final String fotografia = 'felipevi.png';
+  bool expanded = true;
 
   @override
   Widget build(BuildContext context) {
-    //var textController;
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
 
@@ -37,22 +34,31 @@ class _LearningPageState extends State<LearningPage> {
                   expanded = !expanded;
                   setState(() {});
                 },
-                child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
+                child: Stack(children: [
+                  Container(
+                    alignment: Alignment.center,
                     height: (expanded ? altura / 2 : altura / 5),
-                    width: largura,
-                    child: Image(
-                      image: currentQuestion.imagem(),
-                      fit: BoxFit.cover,
-                      gaplessPlayback: true,
-                    ))),
+                    child: CircularProgressIndicator(
+                      color: COR_02,
+                    ),
+                  ),
+                  AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      height: (expanded ? altura / 2 : altura / 5),
+                      width: largura,
+                      child: Image(
+                        image: currentQuestion.imagem(),
+                        fit: BoxFit.cover,
+                        gaplessPlayback: true,
+                      )),
+                ])),
             const Divider(thickness: 5.0, height: 5.0, color: COR_02),
             ListTile(
               //  leading: Icon(Icons.info, size: 30),
               title: Text(
                 currentQuestion.description.toString(),
                 style: const TextStyle(
-                    fontWeight: FontWeight.normal, fontSize: 15),
+                    fontWeight: FontWeight.normal, fontSize: 18),
               ),
               textColor: Colors.black54,
             ),
