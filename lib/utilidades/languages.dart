@@ -54,6 +54,11 @@ final lang = {
     'Selecione seu idioma:',
     'Seleccione tu idioma:'
   ],
+  'Available Languages': [
+    'Available Languages',
+    'Idiomas Disponíveis',
+    'Idiomas Disponibles'
+  ],
   'Your Language': ['Your Language', 'Seu Idioma', 'Tu Idioma'],
   'Search': ['Search', 'Pesquisar', 'Buscar'],
   'Credits and Acknowledgments': [
@@ -198,4 +203,7 @@ final lang = {
     'Enviar correo electrónico al soporte'
   ],
   'In Progress': ['In Progress', 'Em Progresso', 'En Progreso'],
+  ' English': ['English', 'Inglês', 'Inglés'],
+  ' Portuguese': ['Portuguese', 'Português', 'Portugués'],
+  ' Spanish': ['Spanish', 'Espanhol', 'Español'],
 };

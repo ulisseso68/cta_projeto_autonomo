@@ -133,6 +133,7 @@ class _SplashPageState extends State<SplashPage> {
             height: 1,
             thickness: 1,
           ),
+
           // Terms and Conditions
           ListTile(
             dense: true,
@@ -174,6 +175,7 @@ class _SplashPageState extends State<SplashPage> {
               },
             ),
           ),
+
           // Citizenship Selection
           ListTile(
             dense: true,
@@ -238,71 +240,7 @@ class _SplashPageState extends State<SplashPage> {
               },
             ),
           ),
-          // Language Selection
-          ListTile(
-            dense: true,
-            visualDensity: VisualDensity.compact,
-            title: Text(
-              Funcoes().languageName,
-              style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
-            ),
-            subtitle: Text(
-              Funcoes().appLang('Language of the App'),
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            trailing:
-                const Icon(Icons.language_rounded, color: COR_01, size: 30),
-            leading: IconButton(
-              icon: citizenship == ""
-                  ? Icon(Icons.arrow_forward_ios, color: COR_02, size: 30)
-                  : Icon(Icons.change_circle_rounded, color: COR_02, size: 30),
-              onPressed: () {
-                showCountryPicker(
-                    context: context,
-                    countryFilter: const ['ES', 'US', 'BR', 'PT'],
-                    countryListTheme: CountryListThemeData(
-                      flagSize: 30,
-                      backgroundColor: Colors.white,
-                      textStyle: TextStyle(fontSize: 16, color: Colors.grey),
-                      bottomSheetHeight:
-                          altura / 2, // Optional. Country list modal height
-                      //Optional. Sets the border radius for the bottomsheet.
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0),
-                      ),
-                      //Optional. Styles the search field.
-                      inputDecoration: InputDecoration(
-                        labelText: Funcoes().appLang('Search Languages'),
-                        hintText: Funcoes().appLang('Start typing to search'),
-                        prefixIcon: const Icon(Icons.search),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: COR_02,
-                          ),
-                        ),
-                      ),
-                    ),
-                    onSelect: (Country country) {
-                      switch (country.countryCode) {
-                        case 'ES':
-                          Funcoes().setLanguageToStorage(2);
-                          break;
-                        case 'BR':
-                          Funcoes().setLanguageToStorage(1);
-                          break;
-                        case 'PT':
-                          Funcoes().setLanguageToStorage(1);
-                          break;
-                        default:
-                          Funcoes().setLanguageToStorage(0);
-                      }
-                      setState(() {});
-                    });
-              },
-            ),
-          ),
+
           // User Name
           (getName)
               ? ListTile(
@@ -371,6 +309,106 @@ class _SplashPageState extends State<SplashPage> {
                   ),
                 )
               : Container(),
+
+          // Language Selection
+          ListTile(
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            title: Text(
+              Funcoes().languageName,
+              style: const TextStyle(
+                  fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
+            ),
+            subtitle: Text(
+              Funcoes().appLang('Language of the App'),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            trailing:
+                const Icon(Icons.language_rounded, color: COR_01, size: 30),
+            leading: IconButton(
+              icon: const Icon(Icons.change_circle_rounded,
+                  color: COR_02, size: 30),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text(
+                        Funcoes().appLang('Available Languages'),
+                        style: const TextStyle(fontSize: 20, color: COR_02),
+                        textAlign: TextAlign.center,
+                      ),
+                      content: SizedBox(
+                        height: altura * 0.20,
+                        child: Column(
+                          children: [
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: COR_02,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              onPressed: () {
+                                Funcoes().setLanguage(0);
+                                Navigator.pop(context);
+                                setState(() {});
+                              },
+                              child: SizedBox(
+                                width: largura * 0.8,
+                                child: Text(Funcoes().appLang('English'),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16)),
+                              ),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: COR_02,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              onPressed: () {
+                                Funcoes().setLanguage(1);
+                                Navigator.pop(context);
+                                setState(() {});
+                              },
+                              child: SizedBox(
+                                width: largura * 0.8,
+                                child: Text(Funcoes().appLang('Portuguese'),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16)),
+                              ),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: COR_02,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              onPressed: () {
+                                Funcoes().setLanguage(2);
+                                Navigator.pop(context);
+                                setState(() {});
+                              },
+                              child: SizedBox(
+                                width: largura * 0.8,
+                                child: Text(Funcoes().appLang('Spanish'),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+
           // Zero Statistics
           (answeredQuestions.isNotEmpty)
               ? ListTile(

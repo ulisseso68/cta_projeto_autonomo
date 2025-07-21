@@ -28,7 +28,7 @@ class AJDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Hero(
-                    tag: 'splash_image',
+                    tag: 'splash_image_drawer',
                     child: Image(
                       width: screenW * 0.15,
                       image: AssetImage('img/CCSEf.png'),
