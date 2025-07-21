@@ -164,7 +164,7 @@ class AJDrawer extends StatelessWidget {
             // Device ID
             ListTile(
               leading: const Icon(
-                Icons.device_unknown,
+                Icons.perm_identity_rounded,
                 size: 40,
                 color: redEspana,
               ),
@@ -175,7 +175,7 @@ class AJDrawer extends StatelessWidget {
               ),
               subtitle: Text(
                 deviceID,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: const TextStyle(fontSize: 10, color: Colors.grey),
               ),
               onTap: () {},
             ),
