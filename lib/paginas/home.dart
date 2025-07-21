@@ -1,8 +1,8 @@
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
-import 'package:cta_projeto_autonomo/paginas/drawer.dart';
-import 'package:cta_projeto_autonomo/utilidades/questions.dart';
+import 'package:cta_projeto_autonomo/paginas/drawer.dart'; /* 
+import 'package:cta_projeto_autonomo/utilidades/questions.dart'; */
 import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   List _categoriesSelected = [];
   List<bool> _isOpen = [];
   bool extended = false;
+  bool totalStatistics = false;
 
   @override
   initState() {
@@ -28,7 +29,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void collapse(int index) {
+    if (_isOpen[index]) {
+      extended = false;
+      totalStatistics = true;
+    } else {
+      totalStatistics = false;
+    }
     extended = false;
+    totalStatistics = true;
     for (int i = 0; i < _isOpen.length; i++) {
       if (i != index) {
         _isOpen[i] = false;
@@ -154,7 +162,7 @@ class _HomePageState extends State<HomePage> {
               style: const TextStyle(
                   fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
             ),
-            subtitle: (extended)
+            subtitle: (totalStatistics)
                 ? Text(
                     Funcoes().appLang("Training Trail Description"),
                     style: const TextStyle(fontSize: 16, color: Colors.grey),
@@ -164,7 +172,11 @@ class _HomePageState extends State<HomePage> {
               color: COR_02,
               icon: const Icon(Icons.route_rounded, color: COR_02, size: 30),
               onPressed: () {
-                extended = !extended;
+                totalStatistics = !totalStatistics;
+                if (extended) {
+                  _isOpen = List.generate(
+                      _categoriesSelected.length, (index) => false);
+                }
                 setState(() {});
               },
             ),
