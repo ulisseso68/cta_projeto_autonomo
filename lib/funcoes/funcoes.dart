@@ -177,6 +177,8 @@ class Funcoes {
     if (questionsFromServer is String) {
       questionsFromServer = questions;
       offlineMode = true;
+    } else {
+      offlineMode = false;
     }
     preguntas =
         questionsFromServer.map((e) => Question.fromServerJson(e)).toList();
@@ -399,11 +401,11 @@ class Funcoes {
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  progressBar(category: category),
                   OverflowBar(
                     alignment: MainAxisAlignment.start,
                     spacing: 5,
                     children: [
+                      /* Icon(Icons.navigate_next_rounded, color: COR_02), */
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -454,6 +456,15 @@ class Funcoes {
                       ),
                     ],
                   ),
+                  /* SizedBox(
+                    width: screenW * 0.6,
+                    child: Divider(
+                      color: Colors.white,
+                      height: 10,
+                      thickness: 1,
+                    ),
+                  ),
+                  progressBar(category: category), */
                 ],
               ),
       ],
@@ -461,6 +472,55 @@ class Funcoes {
   }
 
   // Used at the HOME page and DRAWER
+
+  Widget progressRings(
+      {int total = 0,
+      int answered = 0,
+      int correct = 0,
+      int printed = 0,
+      double barSize = 0.6,
+      String category = ''}) {
+    List ques = Funcoes().selectQuestions(category.toUpperCase());
+    total = ques.length;
+
+    for (var i = 0; i < ques.length; i++) {
+      answeredQuestion aques = Funcoes().findAnsweredQuestion(ques[i].id);
+      printed += aques.printed;
+      aques.answered ? answered++ : null;
+      aques.lastCorrect ? correct++ : null;
+    }
+
+    return answered > 0
+        ? Stack(
+            alignment: Alignment.center,
+            children: [
+              CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Funcoes().semaforo(correct / (answered > 0 ? answered : 1)),
+                  ),
+                  value: correct / (answered > 0 ? answered : 1),
+                  strokeWidth: 5,
+                  strokeAlign: 4,
+                  trackGap: 1,
+                  /* color: Colors.grey, */
+                  semanticsValue:
+                      '${(correct / (answered > 0 ? answered : 1) * 100).toInt()}%',
+                  backgroundColor: Colors.transparent),
+              CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+                  value: answered / total,
+                  strokeWidth: 5,
+                  strokeAlign: 1,
+                  /* color: Funcoes().semaforo(answered / total), */
+                  semanticsValue: '${(answered / total * 100).toInt()}%',
+                  backgroundColor: Colors.transparent),
+            ],
+          )
+        : const SizedBox(
+            height: 0,
+          );
+  }
+
   Widget progressBar(
       {int total = 0,
       int answered = 0,
@@ -482,34 +542,27 @@ class Funcoes {
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    Funcoes().appLang('Answered'),
-                    style: const TextStyle(fontSize: 14, color: COR_01),
-                  ),
-                  appProgressBar(
-                    barSize,
-                    answered / total,
-                    0,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    Funcoes().appLang('Correctly'),
-                    style: const TextStyle(fontSize: 14, color: COR_01),
-                  ),
-                  appProgressBar(
-                    barSize,
-                    correct / (answered > 0 ? answered : 1),
-                    0,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                ],
+              Text(
+                Funcoes().appLang('Answered'),
+                style: const TextStyle(fontSize: 14, color: COR_01),
+              ),
+              appProgressBar(barSize, answered / total, 0, color1: Colors.grey),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                Funcoes().appLang('Correctly'),
+                style: const TextStyle(fontSize: 14, color: COR_01),
+              ),
+              appProgressBar(
+                barSize,
+                correct / (answered > 0 ? answered : 1),
+                0,
+                color1:
+                    Funcoes().semaforo(correct / (answered > 0 ? answered : 1)),
+              ),
+              const SizedBox(
+                height: 5,
               ),
             ],
           )

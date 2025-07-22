@@ -450,9 +450,11 @@ class _SplashPageState extends State<SplashPage> {
                           actions: [
                             TextButton(
                               onPressed: () {
-                                Funcoes().clearAnsweredQuestions();
-                                setState(() {});
-                                Navigator.of(context).pop();
+                                setState(() {
+                                  Funcoes().clearAnsweredQuestions();
+                                  Navigator.popUntil(
+                                      context, (route) => route.isFirst);
+                                });
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(5),

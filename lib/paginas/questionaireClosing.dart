@@ -138,8 +138,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
       floatingActionButton: FloatingActionButton(
         elevation: 20,
         onPressed: () {
-          Navigator.pushNamed(context, 'homePage');
-          //Navigator.pop(context);
+          Navigator.popUntil(context, (route) => route.isFirst);
           setState(() {});
         },
         backgroundColor: COR_02,

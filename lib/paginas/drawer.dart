@@ -27,6 +27,7 @@ class AJDrawer extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Funcoes().logoWidget(fontSize: 35, opacity: 0),
                   Hero(
                     tag: 'splash_image_drawer',
                     child: Image(
@@ -35,7 +36,6 @@ class AJDrawer extends StatelessWidget {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  Funcoes().logoWidget(fontSize: 35, opacity: 0),
                 ],
               ),
             ),
@@ -50,7 +50,7 @@ class AJDrawer extends StatelessWidget {
                   : const Icon(
                       Icons.wifi,
                       size: 40,
-                      color: redEspana,
+                      color: COR_04,
                     ),
               title: Text(
                 offlineMode
@@ -59,18 +59,32 @@ class AJDrawer extends StatelessWidget {
                 textAlign: TextAlign.start,
                 style: const TextStyle(color: COR_01, fontSize: 14),
               ),
-              onTap: () {
-                answeredQuestions.clear();
+              onTap: () async {
+                /* answeredQuestions.clear(); */
+                await Funcoes().iniciarPreguntas();
+                Navigator.pop(context);
               },
             ),
 
-            ListTile(
-              leading: const Icon(
-                Icons.graphic_eq,
-                size: 40,
-                color: redEspana,
-              ),
-              title: Funcoes().progressBar(barSize: 0.5),
+            (answeredQuestions.isEmpty)
+                ? SizedBox(
+                    height: 0,
+                    width: 0,
+                  )
+                : ListTile(
+                    leading: const Icon(
+                      Icons.graphic_eq,
+                      size: 40,
+                      color: redEspana,
+                    ),
+                    title: Funcoes().progressBar(barSize: 0.5),
+                  ),
+            Divider(
+              color: redEspana,
+              height: 1,
+              indent: 10,
+              endIndent: 10,
+              thickness: 1,
             ),
             // News do CCSE facil
             ListTile(
@@ -85,7 +99,7 @@ class AJDrawer extends StatelessWidget {
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
-                CallApi().launchUrlOut(urlfacebook);
+                CallApi().launchUrlOut('https://app.ccsefacil.es/');
               },
             ),
             // Credits and Acknowledgments
@@ -121,7 +135,7 @@ class AJDrawer extends StatelessWidget {
               },
             ),
             // Share your experience
-            ListTile(
+            /* ListTile(
               leading: const Icon(
                 Icons.rate_review_rounded,
                 size: 40,
@@ -139,7 +153,7 @@ class AJDrawer extends StatelessWidget {
               onTap: () {
                 LaunchReview.launch(writeReview: false, iOSAppId: "1635840240");
               },
-            ),
+            ), */
             // Settings
             ListTile(
               leading: const Icon(
@@ -162,7 +176,7 @@ class AJDrawer extends StatelessWidget {
               },
             ),
             // Device ID
-            ListTile(
+            /* ListTile(
               leading: const Icon(
                 Icons.perm_identity_rounded,
                 size: 40,
@@ -178,7 +192,7 @@ class AJDrawer extends StatelessWidget {
                 style: const TextStyle(fontSize: 10, color: Colors.grey),
               ),
               onTap: () {},
-            ),
+            ), */
             // Send email to Support
             ListTile(
               leading: const Icon(
@@ -187,7 +201,7 @@ class AJDrawer extends StatelessWidget {
                 color: redEspana,
               ),
               title: Text(
-                Funcoes().appLang('Send email to Support'),
+                Funcoes().appLang('Support'),
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),

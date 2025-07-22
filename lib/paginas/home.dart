@@ -101,12 +101,13 @@ class _HomePageState extends State<HomePage> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      endDrawer: const AJDrawer(),
+      drawer: const AJDrawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         toolbarHeight: (extended) ? altura / 3 : altura / 6,
         title: Row(
           children: [
+            Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
             Hero(
               tag: 'splash_image',
               child: Image(
@@ -115,7 +116,6 @@ class _HomePageState extends State<HomePage> {
                 fit: BoxFit.fill,
               ),
             ),
-            Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
           ],
         ),
         flexibleSpace: Stack(
@@ -155,32 +155,40 @@ class _HomePageState extends State<HomePage> {
           //Training Trail
 
           ListTile(
-            dense: true,
-            visualDensity: VisualDensity.compact,
-            title: Text(
-              Funcoes().appLang('Training Trail'),
-              style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
-            ),
-            subtitle: (totalStatistics)
-                ? Text(
-                    Funcoes().appLang("Training Trail Description"),
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
-                  )
-                : Funcoes().progressBar(barSize: 0.7),
-            leading: IconButton(
-              color: COR_02,
-              icon: const Icon(Icons.route_rounded, color: COR_02, size: 30),
-              onPressed: () {
-                totalStatistics = !totalStatistics;
-                if (extended) {
-                  _isOpen = List.generate(
-                      _categoriesSelected.length, (index) => false);
-                }
-                setState(() {});
-              },
-            ),
-          ),
+              dense: true,
+              visualDensity: VisualDensity.compact,
+              title: Text(
+                Funcoes().appLang('Training Trail'),
+                style: const TextStyle(
+                    fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+              ),
+              subtitle: (totalStatistics)
+                  ? Text(
+                      Funcoes().appLang("Training Trail Description"),
+                      style: const TextStyle(fontSize: 15, color: Colors.grey),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Funcoes().progressBar(barSize: 0.7),
+                    ),
+              trailing: (!totalStatistics)
+                  ? Funcoes().progressRings()
+                  : SizedBox(
+                      width: 0,
+                      height: 0,
+                    ),
+              leading: IconButton(
+                color: COR_02,
+                icon: const Icon(Icons.route_rounded, color: COR_02, size: 30),
+                onPressed: () {
+                  totalStatistics = !totalStatistics;
+                  if (extended) {
+                    _isOpen = List.generate(
+                        _categoriesSelected.length, (index) => false);
+                  }
+                  setState(() {});
+                },
+              )),
 
           Divider(
             color: COR_02,
@@ -234,32 +242,38 @@ class _HomePageState extends State<HomePage> {
         ),
         subtitle: Funcoes()
             .questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
-        leading: IconButton(
-            onPressed: () {
-              setState(() {
-                collapse(i);
-              });
-            },
-            icon: _isOpen[i]
-                ? Icon(
-                    Icons.close_rounded,
-                    color: COR_02,
-                    size: 30,
-                  )
-                : Container(
-                    width: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: COR_02,
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: Text((i + 1).toString(),
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        )),
-                  )),
+        leading: Stack(
+          alignment: Alignment.center,
+          children: [
+            Funcoes().progressRings(category: catsel),
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    collapse(i);
+                  });
+                },
+                icon: _isOpen[i]
+                    ? Icon(
+                        Icons.close_rounded,
+                        color: Colors.grey,
+                        size: 30,
+                      )
+                    : Container(
+                        width: 30,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: COR_02,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: Text((i + 1).toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      )),
+          ],
+        ),
       ));
     }
     return Column(

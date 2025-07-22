@@ -57,32 +57,21 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
 
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white, size: 40),
         backgroundColor: COR_02,
-        title: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Funcoes().logoWidget(
-                fontSize: 25,
-                opacity: 0,
-              ), /* 
-              (temaPreguntas != '')
-                  ? Text(
-                      Funcoes.categorySelected,
-                      maxLines: 1,
-                      textAlign: TextAlign.end,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        overflow: TextOverflow.ellipsis,
-                        fontSize: 13,
-                        color: Colors.white,
-                        fontFamily: 'Verdana', /* fontWeight: FontWeight.bold */
-                      ),
-                    )
-                  : Container(), */
-            ],
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Funcoes().logoWidget(fontSize: 35, opacity: 0),
+            Hero(
+              tag: 'splash_image',
+              child: Image(
+                width: largura * 0.15,
+                image: AssetImage('img/CCSEf.png'),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ],
         ),
         //shadowColor: Colors.white70.withOpacity(0.0),
       ),
