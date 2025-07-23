@@ -40,33 +40,7 @@ class AJDrawer extends StatelessWidget {
               ),
             ),
 
-            ListTile(
-              leading: offlineMode
-                  ? const Icon(
-                      Icons.wifi_off,
-                      size: 40,
-                      color: redEspana,
-                    )
-                  : const Icon(
-                      Icons.wifi,
-                      size: 40,
-                      color: COR_04,
-                    ),
-              title: Text(
-                offlineMode
-                    ? Funcoes().appLang('Offline Mode Activated')
-                    : Funcoes().appLang('Online Mode Activated'),
-                textAlign: TextAlign.start,
-                style: const TextStyle(color: COR_01, fontSize: 14),
-              ),
-              onTap: () async {
-                /* answeredQuestions.clear(); */
-                await Funcoes().iniciarPreguntas();
-                Navigator.pop(context);
-              },
-            ),
-
-            (answeredQuestions.isEmpty)
+            (!Funcoes().existsAnyAnsweredQuestion())
                 ? SizedBox(
                     height: 0,
                     width: 0,
@@ -77,33 +51,27 @@ class AJDrawer extends StatelessWidget {
                       size: 40,
                       color: redEspana,
                     ),
-                    title: Funcoes().progressBar(barSize: 0.5),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Funcoes().progressBar(barSize: 0.4),
+                        Funcoes().progressRings()
+                      ],
+                    ),
                   ),
             Divider(
-              color: redEspana,
+              color: (Funcoes().existsAnyAnsweredQuestion())
+                  ? redEspana
+                  : Colors.transparent,
               height: 1,
               indent: 10,
               endIndent: 10,
               thickness: 1,
             ),
-            // News do CCSE facil
-            ListTile(
-              leading: const Icon(
-                Icons.notifications_active,
-                size: 40,
-                color: redEspana,
-              ),
-              title: Text(
-                Funcoes().appLang('CCSE Facil news'),
-                textAlign: TextAlign.start,
-                style: TextStyle(color: COR_01, fontSize: 14),
-              ),
-              onTap: () {
-                CallApi().launchUrlOut('https://app.ccsefacil.es/');
-              },
-            ),
+
             // Credits and Acknowledgments
-            ListTile(
+            /* ListTile(
               leading: const Icon(
                 Icons.star,
                 size: 40,
@@ -117,23 +85,8 @@ class AJDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.popAndPushNamed(context, 'paginaCreditos');
               },
-            ),
-            // Terms of Use
-            ListTile(
-              leading: const Icon(
-                Icons.edit_document,
-                size: 40,
-                color: redEspana,
-              ),
-              title: Text(
-                Funcoes().appLang('Terms of Use'),
-                textAlign: TextAlign.start,
-                style: TextStyle(color: COR_01, fontSize: 14),
-              ),
-              onTap: () {
-                Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
-              },
-            ),
+            ), */
+
             // Share your experience
             /* ListTile(
               leading: const Icon(
@@ -166,13 +119,29 @@ class AJDrawer extends StatelessWidget {
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
-              subtitle: Text(
+              /* subtitle: Text(
                 Funcoes().appLang('Name, Country, Language'),
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
-              ),
+              ), */
               onTap: () {
                 //Navigator.popUntil(context, ModalRoute.withName('splashPage'));
-                Navigator.pushNamed(context, 'splashPage');
+                Navigator.popAndPushNamed(context, 'splashPage');
+              },
+            ),
+            // Terms of Use
+            ListTile(
+              leading: const Icon(
+                Icons.edit_document,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Terms of Use'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              onTap: () {
+                Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
               },
             ),
             // Device ID
@@ -205,13 +174,55 @@ class AJDrawer extends StatelessWidget {
                 textAlign: TextAlign.start,
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
-              subtitle: Text(
+              /* subtitle: Text(
                 Funcoes().appLang(
                     'If you have any questions, complaints or suggestions'),
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ), */
+              onTap: () {
+                CallApi().launchUrlOut("mailto::soporte@ccsefacil.es");
+              },
+            ),
+            // News do CCSE facil
+            ListTile(
+              leading: const Icon(
+                Icons.notifications_active,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('CCSE Fácil news'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
-                CallApi().launchUrlOut(urlfacebook);
+                CallApi().launchUrlOut('https://app.ccsefacil.es/');
+              },
+            ),
+            // Offline Mode
+            ListTile(
+              leading: offlineMode
+                  ? const Icon(
+                      Icons.wifi_off,
+                      size: 40,
+                      color: redEspana,
+                    )
+                  : const Icon(
+                      Icons.wifi,
+                      size: 40,
+                      color: COR_04,
+                    ),
+              title: Text(
+                offlineMode
+                    ? Funcoes().appLang('Offline Mode Activated')
+                    : Funcoes().appLang('Online Mode Activated'),
+                textAlign: TextAlign.start,
+                style: const TextStyle(color: COR_01, fontSize: 14),
+              ),
+              onTap: () async {
+                /* answeredQuestions.clear(); */
+                await Funcoes().iniciarPreguntas();
+                Navigator.pop(context);
               },
             ),
           ],

@@ -101,6 +101,13 @@ class _HomePageState extends State<HomePage> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      onDrawerChanged: (isClosed) => setState(() {
+        if (answeredQuestions.isEmpty) {
+          extended = true;
+          totalStatistics = true;
+        }
+        setState(() {});
+      }),
       drawer: const AJDrawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
@@ -154,7 +161,17 @@ class _HomePageState extends State<HomePage> {
 
           //Training Trail
 
-          ListTile(
+          GestureDetector(
+            onTap: () {
+              // Handle tap
+              totalStatistics = !totalStatistics;
+              if (extended) {
+                _isOpen =
+                    List.generate(_categoriesSelected.length, (index) => false);
+              }
+              setState(() {});
+            },
+            child: ListTile(
               dense: true,
               visualDensity: VisualDensity.compact,
               title: Text(
@@ -167,28 +184,16 @@ class _HomePageState extends State<HomePage> {
                       Funcoes().appLang("Training Trail Description"),
                       style: const TextStyle(fontSize: 15, color: Colors.grey),
                     )
-                  : Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Funcoes().progressBar(barSize: 0.7),
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Funcoes().progressBar(barSize: 0.7),
+                        Funcoes().progressRings()
+                      ],
                     ),
-              trailing: (!totalStatistics)
-                  ? Funcoes().progressRings()
-                  : SizedBox(
-                      width: 0,
-                      height: 0,
-                    ),
-              leading: IconButton(
-                color: COR_02,
-                icon: const Icon(Icons.route_rounded, color: COR_02, size: 30),
-                onPressed: () {
-                  totalStatistics = !totalStatistics;
-                  if (extended) {
-                    _isOpen = List.generate(
-                        _categoriesSelected.length, (index) => false);
-                  }
-                  setState(() {});
-                },
-              )),
+            ),
+          ),
 
           Divider(
             color: COR_02,

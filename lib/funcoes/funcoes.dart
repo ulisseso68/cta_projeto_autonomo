@@ -137,7 +137,11 @@ class Funcoes {
 // functions to treat answered questions
 
   void clearAnsweredQuestions() {
+    print(answeredQuestions.length);
+
+    print('Clearing answered questions');
     answeredQuestions.clear();
+    print(answeredQuestions.length);
     saveAnsweredQuestionsToLocal();
   }
 
@@ -148,6 +152,12 @@ class Funcoes {
     List<String> questionsJson =
         answeredQuestions.map((q) => q.toJson().toString()).toList();
     await prefs.setStringList('answeredQuestions', questionsJson);
+  }
+
+  Future<void> deleteAnsweredQuestions() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('answeredQuestions');
+    answeredQuestions.clear();
   }
 
   Future<List<answeredQuestion>> loadAnsweredQuestionsFromLocal() async {
@@ -521,6 +531,19 @@ class Funcoes {
           );
   }
 
+  bool existsAnyAnsweredQuestion() {
+    for (var i = 0; i < answeredQuestions.length; i++) {
+      if (answeredQuestions[i].printed > 0) {
+        print('true');
+        print(answeredQuestions.length);
+        return true;
+      }
+    }
+    print('false');
+    print(answeredQuestions.length);
+    return false;
+  }
+
   Widget progressBar(
       {int total = 0,
       int answered = 0,
@@ -550,16 +573,16 @@ class Funcoes {
               const SizedBox(
                 height: 5,
               ),
-              Text(
-                Funcoes().appLang('Correctly'),
-                style: const TextStyle(fontSize: 14, color: COR_01),
-              ),
               appProgressBar(
                 barSize,
                 correct / (answered > 0 ? answered : 1),
                 0,
                 color1:
                     Funcoes().semaforo(correct / (answered > 0 ? answered : 1)),
+              ),
+              Text(
+                Funcoes().appLang('Correctly'),
+                style: const TextStyle(fontSize: 14, color: COR_01),
               ),
               const SizedBox(
                 height: 5,
