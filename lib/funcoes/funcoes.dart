@@ -416,7 +416,7 @@ class Funcoes {
                     spacing: 5,
                     children: [
                       /* Icon(Icons.navigate_next_rounded, color: COR_02), */
-                      ElevatedButton(
+                      /* ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(100),
@@ -431,7 +431,7 @@ class Funcoes {
                         child: Text(Funcoes().appLang("10"),
                             style: const TextStyle(
                                 fontSize: 15, color: Colors.white)),
-                      ),
+                      ), */
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -479,13 +479,24 @@ class Funcoes {
                             numberOfQuestions = -1;
                             Navigator.pushNamed(context, 'questionsPage1');
                           },
-                          child: Text(
-                              Funcoes()
-                                  .wronglyAnsweredQuestions(category)
-                                  .length
-                                  .toString(),
-                              style: const TextStyle(
-                                  fontSize: 15, color: Colors.white)),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.error_outline_rounded,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                              Text(
+                                  Funcoes()
+                                      .wronglyAnsweredQuestions(category)
+                                      .length
+                                      .toString(),
+                                  style: const TextStyle(
+                                      fontSize: 15, color: Colors.white)),
+                            ],
+                          ),
                         ),
                     ],
                   ),
@@ -509,13 +520,15 @@ class Funcoes {
     if (categoryQuestions.isEmpty) {
       return [];
     }
-    categoryQuestions = categoryQuestions.map((e) => e.getAnsQue).toList();
 
-    categoryQuestions = categoryQuestions
-        .where((element) => element.answered && !element.lastCorrect)
-        .toList();
-
-    return categoryQuestions;
+    List wronglyAnswered = categoryQuestions.where((test) {
+      answeredQuestion aques = findAnsweredQuestion(test.id);
+      return aques.answered && !aques.lastCorrect;
+    }).toList();
+    if (wronglyAnswered.isEmpty) {
+      return [];
+    }
+    return wronglyAnswered;
   }
   // Used at the HOME page and DRAWER
 

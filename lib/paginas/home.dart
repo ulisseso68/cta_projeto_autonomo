@@ -260,8 +260,8 @@ class _HomePageState extends State<HomePage> {
             style: const TextStyle(fontSize: 18, color: COR_01),
           ),
         ),
-        subtitle: Funcoes()
-            .questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
+        subtitle:
+            questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
         leading: Stack(
           alignment: Alignment.center,
           children: [
@@ -298,6 +298,133 @@ class _HomePageState extends State<HomePage> {
     }
     return Column(
       children: listTiles,
+    );
+  }
+
+  Widget questionaryOptions(
+      bool isOpen, String title, String category, BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(
+          color: Color.fromRGBO(255, 224, 178, 1),
+          thickness: 1,
+          height: 10,
+        ),
+        !isOpen
+            ? Text("$title ${Funcoes().appLang("Questions")}",
+                textAlign: TextAlign.start,
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: COR_02,
+                ))
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  OverflowBar(
+                    alignment: MainAxisAlignment.start,
+                    spacing: 5,
+                    children: [
+                      /* Icon(Icons.navigate_next_rounded, color: COR_02), */
+                      /* ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          backgroundColor: COR_02,
+                        ),
+                        onPressed: () {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 10;
+                          Navigator.pushNamed(context, 'questionsPage1');
+                        },
+                        child: Text(Funcoes().appLang("10"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
+                      ), */
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          backgroundColor: COR_02,
+                        ),
+                        onPressed: () async {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 25;
+                          await Navigator.pushNamed(context, 'questionsPage1')
+                              .then((value) {
+                            // This callback is executed when returning from the questions page
+                            setState(() {});
+                          });
+                        },
+                        child: Text(Funcoes().appLang("25"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          backgroundColor: COR_02,
+                        ),
+                        onPressed: () async {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 1000;
+                          await Navigator.pushNamed(context, 'questionsPage1')
+                              .then((value) {
+                            // This callback is executed when returning from the questions page
+                            setState(() {});
+                          });
+                        },
+                        child: Text(Funcoes().appLang("All"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
+                      ),
+                      if (Funcoes()
+                          .wronglyAnsweredQuestions(category)
+                          .isNotEmpty)
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            backgroundColor: redEspana,
+                          ),
+                          onPressed: () async {
+                            Funcoes.categorySelected = category;
+                            numberOfQuestions = -1;
+                            await Navigator.pushNamed(context, 'questionsPage1')
+                                .then((value) {
+                              // This callback is executed when returning from the questions page
+                              setState(() {});
+                            });
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.error_outline_rounded,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                              Text(
+                                  Funcoes()
+                                      .wronglyAnsweredQuestions(category)
+                                      .length
+                                      .toString(),
+                                  style: const TextStyle(
+                                      fontSize: 15, color: Colors.white)),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+      ],
     );
   }
 }

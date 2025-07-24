@@ -34,18 +34,13 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   Future<void> _getData() async {
     if (numberOfQuestions > 0) {
       _preguntasSelecionadas =
-          Funcoes().selectQuestions(Funcoes.categorySelected);
+          Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
+      _preguntasSelecionadas =
+          _preguntasSelecionadas.take(numberOfQuestions).toList();
     } else {
       _preguntasSelecionadas =
           Funcoes().wronglyAnsweredQuestions(Funcoes.categorySelected);
       numberOfQuestions = _preguntasSelecionadas.length;
-    }
-    _preguntasSelecionadas =
-        Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
-
-    if (numberOfQuestions > 0) {
-      _preguntasSelecionadas =
-          _preguntasSelecionadas.take(numberOfQuestions).toList();
     }
 
     currentQuestion = _preguntasSelecionadas[indexPreguntas];
