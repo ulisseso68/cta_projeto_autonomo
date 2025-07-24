@@ -32,6 +32,14 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   }
 
   Future<void> _getData() async {
+    if (numberOfQuestions > 0) {
+      _preguntasSelecionadas =
+          Funcoes().selectQuestions(Funcoes.categorySelected);
+    } else {
+      _preguntasSelecionadas =
+          Funcoes().wronglyAnsweredQuestions(Funcoes.categorySelected);
+      numberOfQuestions = _preguntasSelecionadas.length;
+    }
     _preguntasSelecionadas =
         Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
 

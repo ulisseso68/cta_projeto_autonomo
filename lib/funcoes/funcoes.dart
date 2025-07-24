@@ -464,6 +464,29 @@ class Funcoes {
                             style: const TextStyle(
                                 fontSize: 15, color: Colors.white)),
                       ),
+                      if (Funcoes()
+                          .wronglyAnsweredQuestions(category)
+                          .isNotEmpty)
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            backgroundColor: redEspana,
+                          ),
+                          onPressed: () {
+                            Funcoes.categorySelected = category;
+                            numberOfQuestions = -1;
+                            Navigator.pushNamed(context, 'questionsPage1');
+                          },
+                          child: Text(
+                              Funcoes()
+                                  .wronglyAnsweredQuestions(category)
+                                  .length
+                                  .toString(),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.white)),
+                        ),
                     ],
                   ),
                   /* SizedBox(
@@ -481,6 +504,19 @@ class Funcoes {
     );
   }
 
+  List wronglyAnsweredQuestions(String category) {
+    List categoryQuestions = selectQuestions(category.toUpperCase());
+    if (categoryQuestions.isEmpty) {
+      return [];
+    }
+    categoryQuestions = categoryQuestions.map((e) => e.getAnsQue).toList();
+
+    categoryQuestions = categoryQuestions
+        .where((element) => element.answered && !element.lastCorrect)
+        .toList();
+
+    return categoryQuestions;
+  }
   // Used at the HOME page and DRAWER
 
   Widget progressRings(
