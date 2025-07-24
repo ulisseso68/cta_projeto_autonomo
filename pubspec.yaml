@@ -45,6 +45,7 @@ dependencies:
   confetti: ^0.8.0
   country_picker: ^2.0.27
   launch_review: ^3.0.0
+  flutter_email_sender: ^7.0.0
 
 dev_dependencies:
   flutter_test:

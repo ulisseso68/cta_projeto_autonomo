@@ -179,8 +179,11 @@ class AJDrawer extends StatelessWidget {
                     'If you have any questions, complaints or suggestions'),
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ), */
-              onTap: () {
-                CallApi().launchUrlOut("mailto::soporte@ccsefacil.es");
+              onTap: () async {
+                String body = Funcoes().appLang(
+                    'If you have any questions, complaints or suggestions');
+                await CallApi().sendEmail('CCSE Fácil - Support', body);
+                Navigator.pop(context);
               },
             ),
             // News do CCSE facil

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,9 +7,20 @@ import 'package:dio/dio.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:cta_projeto_autonomo/utilidadeS/dados.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class CallApi {
   final String _url = API_URL;
+
+  Future<void> sendEmail(String subject, String body) async {
+    final Email email = Email(
+      body: deviceID + '\n\n' + body,
+      subject: subject,
+      recipients: ['support@ccsefacil.es'],
+    );
+
+    await FlutterEmailSender.send(email);
+  }
 
   Future getPublicData(apiUrl) async {
     try {

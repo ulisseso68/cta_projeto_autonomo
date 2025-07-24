@@ -534,13 +534,9 @@ class Funcoes {
   bool existsAnyAnsweredQuestion() {
     for (var i = 0; i < answeredQuestions.length; i++) {
       if (answeredQuestions[i].printed > 0) {
-        print('true');
-        print(answeredQuestions.length);
         return true;
       }
     }
-    print('false');
-    print(answeredQuestions.length);
     return false;
   }
 

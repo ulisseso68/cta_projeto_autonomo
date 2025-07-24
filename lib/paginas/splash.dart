@@ -110,14 +110,15 @@ class _SplashPageState extends State<SplashPage> {
             dense: true,
             visualDensity: VisualDensity.compact,
             title: Text(
-              Funcoes().appLang('Configurations'),
+              Funcoes()
+                  .appLang((tcsAccepted) ? 'Configurations' : 'Terms of use'),
               style: const TextStyle(
                   fontSize: 20,
                   color: redEspana,
                   fontWeight: FontWeight.normal),
             ),
             subtitle: Text(
-              Funcoes().appLang('msg_config'),
+              Funcoes().appLang((tcsAccepted) ? 'msg_config' : 'msg_terms'),
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             leading: IconButton(
@@ -135,46 +136,55 @@ class _SplashPageState extends State<SplashPage> {
           ),
 
           // Terms and Conditions
-          ListTile(
-            dense: true,
-            visualDensity: VisualDensity.compact,
-            title: Text(
-              Funcoes().appLang('Terms of Use'),
-              style: const TextStyle(
-                  fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
-            ),
-            subtitle: Text(
-              !tcsAccepted
-                  ? Funcoes().appLang('Accept the terms to continue')
-                  : Funcoes().appLang('Accepted'),
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            leading: IconButton(
-              onPressed: () {
-                setState(() {
-                  tcsAccepted = !tcsAccepted;
-                  if (tcsAccepted) {
-                    CallApi().createJournalEntry(
-                        type: 'terms', value: 1, description: 'user accepted');
-                  } else {
-                    CallApi().createJournalEntry(
-                        type: 'terms', value: 0, description: 'user rejected');
-                  }
-                  Funcoes().setTcsAcceptedToStorage(tcsAccepted);
-                });
-              },
-              icon: tcsAccepted
-                  ? const Icon(Icons.check_circle, color: COR_02, size: 30)
-                  : const Icon(Icons.check_circle_outline,
-                      color: COR_02, size: 30),
-            ),
-            trailing: IconButton(
-              icon: const Icon(Icons.read_more, color: COR_01, size: 30),
-              onPressed: () {
-                Navigator.pushNamed(context, 'termosUsoPrivacidade');
-              },
-            ),
-          ),
+          (!tcsAccepted)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    Funcoes().appLang('Terms of Use'),
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_02,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    !tcsAccepted
+                        ? Funcoes().appLang('Accept the terms to continue')
+                        : Funcoes().appLang('Accepted'),
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  leading: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        tcsAccepted = !tcsAccepted;
+                        if (tcsAccepted) {
+                          CallApi().createJournalEntry(
+                              type: 'terms',
+                              value: 1,
+                              description: 'user accepted');
+                        } else {
+                          CallApi().createJournalEntry(
+                              type: 'terms',
+                              value: 0,
+                              description: 'user rejected');
+                        }
+                        Funcoes().setTcsAcceptedToStorage(tcsAccepted);
+                      });
+                    },
+                    icon: tcsAccepted
+                        ? const Icon(Icons.check_circle,
+                            color: COR_02, size: 30)
+                        : const Icon(Icons.check_circle_outline,
+                            color: COR_02, size: 30),
+                  ),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.read_more, color: COR_01, size: 30),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'termosUsoPrivacidade');
+                    },
+                  ),
+                )
+              : Container(),
 
           // Citizenship Selection
           ListTile(
@@ -414,7 +424,7 @@ class _SplashPageState extends State<SplashPage> {
           ),
 
           // Zero Statistics
-          (answeredQuestions.isNotEmpty)
+          (Funcoes().existsAnyAnsweredQuestion())
               ? ListTile(
                   dense: true,
                   visualDensity: VisualDensity.compact,

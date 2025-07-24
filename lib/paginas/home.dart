@@ -29,14 +29,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   void collapse(int index) {
-    if (_isOpen[index]) {
-      extended = false;
+    if (answeredQuestions.isEmpty) {
       totalStatistics = true;
     } else {
       totalStatistics = false;
     }
-    extended = false;
-    totalStatistics = true;
+    if (_isOpen[index]) {
+      extended = false;
+    } else {
+      totalStatistics = true;
+    }
+
     for (int i = 0; i < _isOpen.length; i++) {
       if (i != index) {
         _isOpen[i] = false;
@@ -144,75 +147,87 @@ class _HomePageState extends State<HomePage> {
         ),
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          //Cabeçalho com imagem, Logo e Slogan
+      body: RefreshIndicator(
+        color: COR_02,
+        displacement: 50,
+        backgroundColor: redEspana.withOpacity(0.5),
+        onRefresh: () {
+          return _getDatafromServer();
+        },
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            //Cabeçalho com imagem, Logo e Slogan
 
-          //area de busca
-          Container(
-            width: largura,
-            height: 10,
-            color: COR_02,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-
-          //Training Trail
-
-          GestureDetector(
-            onTap: () {
-              // Handle tap
-              totalStatistics = !totalStatistics;
-              if (extended) {
-                _isOpen =
-                    List.generate(_categoriesSelected.length, (index) => false);
-              }
-              setState(() {});
-            },
-            child: ListTile(
-              dense: true,
-              visualDensity: VisualDensity.compact,
-              title: Text(
-                Funcoes().appLang('Training Trail'),
-                style: const TextStyle(
-                    fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
-              ),
-              subtitle: (totalStatistics)
-                  ? Text(
-                      Funcoes().appLang("Training Trail Description"),
-                      style: const TextStyle(fontSize: 15, color: Colors.grey),
-                    )
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Funcoes().progressBar(barSize: 0.7),
-                        Funcoes().progressRings()
-                      ],
-                    ),
+            //area de busca
+            Container(
+              width: largura,
+              height: 10,
+              color: COR_02,
             ),
-          ),
+            const SizedBox(
+              height: 10,
+            ),
 
-          Divider(
-            color: COR_02,
-            height: 10,
-            indent: 10,
-            endIndent: 10,
-            thickness: 1,
-          ),
-          _buildListTile(),
-          Divider(
-            thickness: 3,
-            height: 50,
-            indent: 10,
-            endIndent: 10,
-            color: COR_02,
-          ),
-          Funcoes()
-              .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey),
-        ]),
+            //Training Trail
+
+            GestureDetector(
+              onTap: () {
+                // Handle tap
+                totalStatistics = !totalStatistics;
+                if (extended) {
+                  _isOpen = List.generate(
+                      _categoriesSelected.length, (index) => false);
+                }
+                setState(() {});
+              },
+              child: ListTile(
+                dense: true,
+                visualDensity: VisualDensity.compact,
+                title: Text(
+                  Funcoes().appLang('Training Trail'),
+                  style: const TextStyle(
+                      fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
+                ),
+                subtitle: Container(
+                  padding: const EdgeInsets.all(1.0),
+                  child: (totalStatistics)
+                      ? Text(
+                          Funcoes().appLang("Training Trail Description"),
+                          style:
+                              const TextStyle(fontSize: 15, color: Colors.grey),
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Funcoes().progressBar(barSize: 0.7),
+                            Funcoes().progressRings()
+                          ],
+                        ),
+                ),
+              ),
+            ),
+
+            Divider(
+              color: COR_02,
+              height: 10,
+              indent: 10,
+              endIndent: 10,
+              thickness: 1,
+            ),
+            _buildListTile(),
+            Divider(
+              thickness: 3,
+              height: 50,
+              indent: 10,
+              endIndent: 10,
+              color: COR_02,
+            ),
+            Funcoes()
+                .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey),
+          ]),
+        ),
       ),
       bottomSheet: Container(
         width: largura,

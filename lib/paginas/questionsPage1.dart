@@ -19,6 +19,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   int respostaErrada = -1;
   int printed = 0;
   int answeredCorrect = 0;
+  bool beat = false;
 
   @override
   initState() {
@@ -106,19 +107,43 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     ),
                     trailing:
                         (_preguntasSelecionadas[indexPreguntas].hasDetails)
-                            ? IconButton(
-                                onPressed: () {
-                                  setState(() {});
-                                  Navigator.pushNamed(
-                                    context,
-                                    'learningPage',
-                                  );
-                                },
-                                icon: const Icon(
-                                  Icons.fact_check_rounded,
-                                  color: COR_02,
-                                  size: 30,
-                                ),
+                            ? Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  AnimatedContainer(
+                                    onEnd: () {
+                                      setState(() {
+                                        beat = !beat;
+                                      });
+                                    },
+                                    duration: const Duration(milliseconds: 300),
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: COR_02.withOpacity(0.3),
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onHover: (value) {
+                                      setState(() {
+                                        beat = value;
+                                      });
+                                    },
+                                    onPressed: () {
+                                      setState(() {});
+                                      Navigator.pushNamed(
+                                        context,
+                                        'learningPage',
+                                      );
+                                    },
+                                    icon: const Icon(
+                                      Icons.fact_check_rounded,
+                                      color: COR_02,
+                                      size: 30,
+                                    ),
+                                  ),
+                                ],
                               )
                             : null,
                   ),

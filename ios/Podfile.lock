@@ -2,14 +2,12 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_email_sender (0.0.1):
+    - Flutter
   - flutter_launch (0.0.1):
     - Flutter
-  - JNKeychain (0.1.4)
   - launch_review (0.0.1):
     - Flutter
-  - mobile_device_identifier (0.0.1):
-    - Flutter
-    - JNKeychain
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -19,27 +17,23 @@ PODS:
 DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
+  - flutter_email_sender (from `.symlinks/plugins/flutter_email_sender/ios`)
   - flutter_launch (from `.symlinks/plugins/flutter_launch/ios`)
   - launch_review (from `.symlinks/plugins/launch_review/ios`)
-  - mobile_device_identifier (from `.symlinks/plugins/mobile_device_identifier/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
-
-SPEC REPOS:
-  trunk:
-    - JNKeychain
 
 EXTERNAL SOURCES:
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
+  flutter_email_sender:
+    :path: ".symlinks/plugins/flutter_email_sender/ios"
   flutter_launch:
     :path: ".symlinks/plugins/flutter_launch/ios"
   launch_review:
     :path: ".symlinks/plugins/launch_review/ios"
-  mobile_device_identifier:
-    :path: ".symlinks/plugins/mobile_device_identifier/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   url_launcher_ios:
@@ -48,10 +42,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   device_info_plus: bf2e3232933866d73fe290f2942f2156cdd10342
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_email_sender: e03bdda7637bcd3539bfe718fddd980e9508efaa
   flutter_launch: c6b9eef5e64766bc5a737e43b68674950ab9c699
-  JNKeychain: fb6cc9ec95959ba46cd95d0ee6f7a05e41da9f42
   launch_review: 75d5a956ba8eaa493e9c9d4bf4c05e505e8d5ed0
-  mobile_device_identifier: 34f80c8985bb1506880c2ae10cb24cfb9918f1a7
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 

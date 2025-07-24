@@ -177,31 +177,32 @@ final lang = {
     'Idioma de la App'
   ],
   'msg_config': [
-    'These are few configurations that will help you to use the app better',
-    'Estas são algumas configurações que ajudarão você a usar o aplicativo melhor',
-    'Estas son algunas configuraciones que te ayudarán a usar mejor la aplicación'
+    'Configure your app to improve your experience',
+    'Configure seu aplicativo para melhorar sua experiência',
+    'Configura tu aplicación para mejorar tu experiencia'
   ],
-  'CCSE Facil news': [
-    'CCSE Facil news',
-    'Notícias do CCSE Facil',
-    'Novedades de CCSE Facil'
+  'msg_terms': [
+    'Accept the terms of use to use the app',
+    'Aceite os termos de uso para usar o aplicativo',
+    'Acepta los términos de uso para utilizar la aplicación'
+  ],
+  'CCSE Fácil news': [
+    'CCSE Fácil news',
+    'Notícias do CCSE Fácil',
+    'Novedades de CCSE Fácil'
   ],
   'If you have any questions, complaints or suggestions': [
     'If you have any questions, complaints or suggestions',
     'Se você tiver alguma dúvida, reclamação ou sugestão',
     'Si tienes alguna pregunta, queja o sugerencia'
   ],
-  'Configurations': ['Configurations', 'Configurações', 'Configuraciones'],
+  'Configurations': ['Set up', 'Configurações', 'Configuraciones'],
   'Name, Country, Language': [
     'Name, Country, Language',
     'Nome, País, Idioma',
     'Nombre, País, Idioma'
   ],
-  'Send email to Support': [
-    'Send email to Support',
-    'Enviar email para Suporte',
-    'Enviar correo electrónico al soporte'
-  ],
+  'Support': ['Support', 'Suporte', 'Soporte'],
   'In Progress': ['In Progress', 'Em Progresso', 'En Progreso'],
   ' English': ['English', 'Inglês', 'Inglés'],
   ' Portuguese': ['Portuguese', 'Português', 'Portugués'],
