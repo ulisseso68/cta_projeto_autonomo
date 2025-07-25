@@ -57,7 +57,7 @@ class DocumentContent {
             {
               "title": "9. Contact Information",
               "content":
-                  "If you have any questions about these Terms, please contact us at: Email: [Insert Contact Email], Website: [Insert URL if applicable]"
+                  "If you have any questions about these Terms, please contact us at: Email: soporte@ccsefacil.es, Website: https://app.ccsefacil.es"
             }
           ]
         },
@@ -107,7 +107,7 @@ class DocumentContent {
             {
               "title": "9. Información de Contacto",
               "content":
-                  "Si tienes preguntas sobre estos términos, contáctanos: Correo electrónico: [Insertar Email], Sitio web: [Insertar URL]"
+                  "Si tienes preguntas sobre estos términos, contáctanos: Correo electrónico: soporte@ccsefacil.es, Sitio web: https://app.ccsefacil.es"
             }
           ]
         },
@@ -157,7 +157,7 @@ class DocumentContent {
             {
               "title": "9. Informações de Contato",
               "content":
-                  "Em caso de dúvidas sobre estes termos, entre em contato: Email: [Inserir Email], Site: [Inserir URL]"
+                  "Em caso de dúvidas sobre estes termos, entre em contato: Email: soporte@ccsefacil.es, Site: https://app.ccsefacil.es"
             }
           ]
         }

@@ -3,6 +3,7 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:launch_review/launch_review.dart';
 
@@ -235,9 +236,21 @@ class AJDrawer extends StatelessWidget {
                 style: const TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () async {
-                /* answeredQuestions.clear(); */
-                await Funcoes().iniciarPreguntas();
-                Navigator.pop(context);
+                await Funcoes().iniciarPreguntas().then(
+                  // Initialize questions
+                  (value) {
+                    CallApi().showAlert(
+                        context,
+                        Text(
+                          Funcoes().appLang((offlineMode)
+                              ? 'Aplication is not connected to servers'
+                              : 'Connection to servers established'),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        '');
+                    Navigator.pop(context);
+                  },
+                );
               },
             ),
           ],

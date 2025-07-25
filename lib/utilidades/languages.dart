@@ -13,6 +13,16 @@ final lang = {
     'Taxa de Sucesso Acumulada',
     'Tasa de Éxito Acumulada'
   ],
+  'Application is not connected to servers': [
+    'Application is not connected to servers',
+    'Aplicativo não está conectado aos servidores',
+    'La aplicación no está conectada a los servidores'
+  ],
+  'Connection to servers established': [
+    'Connection to servers established',
+    'Conexão com os servidores estabelecida',
+    'Conexión con los servidores establecida'
+  ],
   'Total Questions': [
     'Total Questions',
     'Total de Perguntas',

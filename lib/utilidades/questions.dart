@@ -3865,7 +3865,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5001",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfQui\u00e9n hace el DNI?",
     "answers": [
       {"answer": "La Polic\u00eda Nacional.", "Correct": true},
@@ -3882,7 +3882,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5002",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es el documento que certifica el lugar de residencia del titular?",
     "answers": [
@@ -3900,7 +3900,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5003",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Para hacer el DNI debes acudir a\u2026",
     "answers": [
       {"answer": "una comisar\u00eda de polic\u00eda.", "Correct": true},
@@ -3917,7 +3917,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5004",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es la edad m\u00ednima para conducir un coche en Espa\u00f1a?",
     "answers": [
@@ -3935,7 +3935,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5005",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "El carn\u00e9 de conducir se hace en\u2026",
     "answers": [
       {
@@ -3955,7 +3955,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5006",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Para sacar el carn\u00e9 de conducir hay que aprobar\u2026",
     "answers": [
       {"answer": "un examen te\u00f3rico.", "Correct": false},
@@ -3975,7 +3975,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5007",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfD\u00f3nde se tramita el libro de familia?",
     "answers": [
       {"answer": "En el Registro Civil.", "Correct": true},
@@ -3992,7 +3992,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5008",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estos canales de televisi\u00f3n es auton\u00f3mico?",
     "answers": [
@@ -4010,7 +4010,7 @@ var questions = [
     "created_at": "2025-07-25T15:54:59.000000Z",
     "updated_at": "2025-07-25T15:54:59.000000Z",
     "ccse_id": "5009",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfCu\u00e1nto dura el permiso de maternidad o paternidad?",
     "answers": [
       {"answer": "12 semanas.", "Correct": false},
@@ -4027,7 +4027,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5010",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es la tasa m\u00e1xima de alcohol en sangre permitida a los conductores, en gramos por litro (g\/l)?",
     "answers": [
@@ -4045,7 +4045,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5011",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Las viviendas de protecci\u00f3n oficial\u2026",
     "answers": [
       {"answer": "tienen un precio limitado.", "Correct": true},
@@ -4062,7 +4062,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5012",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfQu\u00e9 comunidad aut\u00f3noma es conocida por la calidad de su aceite de oliva?",
     "answers": [
@@ -4080,7 +4080,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5013",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfC\u00f3mo se llama la revisi\u00f3n que deben pasar obligatoriamente los coches?",
     "answers": [
@@ -4104,7 +4104,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5014",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "El aperitivo que acompa\u00f1a a la bebida en bares y restaurantes se llama...",
     "answers": [
@@ -4122,7 +4122,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5015",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfD\u00f3nde se tramita la tarjeta sanitaria?",
     "answers": [
       {"answer": "En la comisar\u00eda de polic\u00eda.", "Correct": false},
@@ -4139,7 +4139,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5016",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfCon cu\u00e1ntos hijos una familia es numerosa?",
     "answers": [
       {"answer": "Con 1 hijo.", "Correct": false},
@@ -4156,7 +4156,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5017",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "En Espa\u00f1a est\u00e1 permitido el matrimonio\u2026",
     "answers": [
       {"answer": "solo entre personas del mismo sexo.", "Correct": false},
@@ -4173,7 +4173,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5018",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Los propietarios de perros deben registrarlos en\u2026",
     "answers": [
       {"answer": "el Ministerio de Justicia.", "Correct": false},
@@ -4190,7 +4190,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5019",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Los principales ingredientes de la tortilla espa\u00f1ola son huevos y\u2026",
     "answers": [
@@ -4208,7 +4208,7 @@ var questions = [
     "created_at": "2025-07-25T15:56:46.000000Z",
     "updated_at": "2025-07-25T15:56:46.000000Z",
     "ccse_id": "5020",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfQui\u00e9n es un cocinero famoso dentro y fuera de Espa\u00f1a?",
     "answers": [
@@ -4226,7 +4226,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:12.000000Z",
     "updated_at": "2025-07-25T15:58:12.000000Z",
     "ccse_id": "5021",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estos canales de televisi\u00f3n es p\u00fablico?",
     "answers": [
@@ -4244,7 +4244,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:12.000000Z",
     "updated_at": "2025-07-25T15:58:12.000000Z",
     "ccse_id": "5022",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "En una comunidad de vecinos, una de las normas es\u2026",
     "answers": [
       {"answer": "abrir la puerta al cartero.", "Correct": false},
@@ -4261,7 +4261,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:12.000000Z",
     "updated_at": "2025-07-25T15:58:12.000000Z",
     "ccse_id": "5023",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "La sangr\u00eda es una bebida compuesta por refrescos, vino y\u2026",
     "answers": [
@@ -4279,7 +4279,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:12.000000Z",
     "updated_at": "2025-07-25T15:58:12.000000Z",
     "ccse_id": "5024",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "La sidra es una bebida t\u00edpica de\u2026",
     "answers": [
       {"answer": "Asturias.", "Correct": true},
@@ -4296,7 +4296,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:12.000000Z",
     "updated_at": "2025-07-25T15:58:12.000000Z",
     "ccse_id": "5025",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Los espa\u00f1oles tienen dos apellidos, el primero es\u2026",
     "answers": [
       {"answer": "obligatoriamente el de la madre.", "Correct": false},
@@ -4313,7 +4313,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:12.000000Z",
     "updated_at": "2025-07-25T15:58:12.000000Z",
     "ccse_id": "5026",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "La Fiesta Nacional de Espa\u00f1a es el\u2026",
     "answers": [
       {"answer": "6 de diciembre.", "Correct": false},
@@ -4330,7 +4330,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:13.000000Z",
     "updated_at": "2025-07-25T15:58:13.000000Z",
     "ccse_id": "5027",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es el horario habitual de los hipermercados y centros comerciales?",
     "answers": [
@@ -4348,7 +4348,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:13.000000Z",
     "updated_at": "2025-07-25T15:58:13.000000Z",
     "ccse_id": "5028",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfD\u00f3nde se hace el pasaporte?",
     "answers": [
       {"answer": "En el registro civil.", "Correct": false},
@@ -4365,7 +4365,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:13.000000Z",
     "updated_at": "2025-07-25T15:58:13.000000Z",
     "ccse_id": "5029",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "El Ministerio de Igualdad es el encargado de luchar contra la violencia de g\u00e9nero y la\u2026",
     "answers": [
@@ -4383,7 +4383,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:13.000000Z",
     "updated_at": "2025-07-25T15:58:13.000000Z",
     "ccse_id": "5030",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estas regiones es conocida por sus vinos con denominaci\u00f3n de origen?",
     "answers": [
@@ -4401,7 +4401,7 @@ var questions = [
     "created_at": "2025-07-25T15:58:13.000000Z",
     "updated_at": "2025-07-25T15:58:13.000000Z",
     "ccse_id": "5031",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "El DNI se hace\u2026",
     "answers": [
       {"answer": "por internet.", "Correct": false},
@@ -4418,7 +4418,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5032",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "El horario de Canarias, con respecto a la Pen\u00ednsula, es de\u2026",
     "answers": [
@@ -4436,7 +4436,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5033",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Para acceder a la Universidad se debe superar una prueba de evaluaci\u00f3n llamada\u2026",
     "answers": [
@@ -4454,7 +4454,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5034",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estos productos necesita importar Espa\u00f1a de otros pa\u00edses?",
     "answers": [
@@ -4472,7 +4472,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5035",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfQu\u00e9 tipo de impuestos tienen que pagar los ciudadanos en Espa\u00f1a?",
     "answers": [
@@ -4490,7 +4490,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5036",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Los adultos sin Bachillerato pueden estudiar en la Universidad haciendo una prueba especial a partir de los\u2026",
     "answers": [
@@ -4508,7 +4508,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5037",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfD\u00f3nde puede encontrarse la siguiente norma \u00abDejar salir antes de entrar\u00bb?",
     "answers": [
@@ -4526,7 +4526,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5038",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "El Bachillerato en Espa\u00f1a\u2026",
     "answers": [
       {"answer": "es obligatorio.", "Correct": false},
@@ -4546,7 +4546,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5039",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "El Impuesto sobre el Valor A\u00f1adido (IVA) forma parte de los\u2026",
     "answers": [
@@ -4564,7 +4564,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5040",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfQu\u00e9 n\u00famero reciben los trabajadores al comenzar su primer empleo?",
     "answers": [
@@ -4582,7 +4582,7 @@ var questions = [
     "created_at": "2025-07-25T16:00:15.000000Z",
     "updated_at": "2025-07-25T16:00:15.000000Z",
     "ccse_id": "5041",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Los colegios p\u00fablicos\u2026",
     "answers": [
       {"answer": "pueden decidir su n\u00famero de plazas.", "Correct": false},
@@ -4602,7 +4602,7 @@ var questions = [
     "created_at": "2025-07-25T16:01:55.000000Z",
     "updated_at": "2025-07-25T16:01:55.000000Z",
     "ccse_id": "5046",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estos productos exporta Espa\u00f1a m\u00e1s que importa?",
     "answers": [
@@ -4620,7 +4620,7 @@ var questions = [
     "created_at": "2025-07-25T16:01:55.000000Z",
     "updated_at": "2025-07-25T16:01:55.000000Z",
     "ccse_id": "5047",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Una persona mayor de 18 a\u00f1os puede obtener el t\u00edtulo de Graduado en Educaci\u00f3n Secundaria Obligatoria en\u2026",
     "answers": [
@@ -4641,7 +4641,7 @@ var questions = [
     "created_at": "2025-07-25T16:01:55.000000Z",
     "updated_at": "2025-07-25T16:01:55.000000Z",
     "ccse_id": "5048",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "La formaci\u00f3n profesional\u2026",
     "answers": [
       {"answer": "es para mayores de 25 a\u00f1os.", "Correct": false},
@@ -4658,7 +4658,7 @@ var questions = [
     "created_at": "2025-07-25T16:01:55.000000Z",
     "updated_at": "2025-07-25T16:01:55.000000Z",
     "ccse_id": "5049",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfAd\u00f3nde vamos para ver al m\u00e9dico de familia o al pediatra?",
     "answers": [
@@ -4676,7 +4676,7 @@ var questions = [
     "created_at": "2025-07-25T16:01:55.000000Z",
     "updated_at": "2025-07-25T16:01:55.000000Z",
     "ccse_id": "5050",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfPara cu\u00e1ntos a\u00f1os vale la tarjeta sanitaria europea?",
     "answers": [
@@ -4694,7 +4694,7 @@ var questions = [
     "created_at": "2025-07-25T16:01:55.000000Z",
     "updated_at": "2025-07-25T16:01:55.000000Z",
     "ccse_id": "5051",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfA qu\u00e9 hora se cena normalmente en Espa\u00f1a?",
     "answers": [
       {"answer": "A las 18 h.", "Correct": false},
@@ -4711,7 +4711,7 @@ var questions = [
     "created_at": "2025-07-25T16:03:07.000000Z",
     "updated_at": "2025-07-25T16:03:07.000000Z",
     "ccse_id": "5042",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estos puertos es uno de los principales de Espa\u00f1a?",
     "answers": [
@@ -4729,7 +4729,7 @@ var questions = [
     "created_at": "2025-07-25T16:03:07.000000Z",
     "updated_at": "2025-07-25T16:03:07.000000Z",
     "ccse_id": "5043",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Un colegio concertado es un colegio privado que\u2026",
     "answers": [
       {"answer": "recibe dinero de la Administraci\u00f3n.", "Correct": true},
@@ -4746,7 +4746,7 @@ var questions = [
     "created_at": "2025-07-25T16:03:07.000000Z",
     "updated_at": "2025-07-25T16:03:07.000000Z",
     "ccse_id": "5044",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Espa\u00f1a exporta productos principalmente a pa\u00edses\u2026",
     "answers": [
@@ -4764,7 +4764,7 @@ var questions = [
     "created_at": "2025-07-25T16:03:07.000000Z",
     "updated_at": "2025-07-25T16:03:07.000000Z",
     "ccse_id": "5045",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Las bibliotecas p\u00fablicas son gratuitas para\u2026",
     "answers": [
       {"answer": "todos.", "Correct": true},
@@ -4781,7 +4781,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5052",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es el n\u00famero de tel\u00e9fono \u00fanico para cualquier emergencia?",
     "answers": [
@@ -4799,7 +4799,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5053",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfCu\u00e1l es un peri\u00f3dico deportivo?",
     "answers": [
       {"answer": "ABC.", "Correct": false},
@@ -4816,7 +4816,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5054",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfD\u00f3nde se venden sellos y tabaco?",
     "answers": [
       {"answer": "En el quiosco.", "Correct": false},
@@ -4833,7 +4833,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5055",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfC\u00f3mo se llama el tren espa\u00f1ol de alta velocidad?",
     "answers": [
@@ -4851,7 +4851,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5056",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "La organizaci\u00f3n que trabaja para conseguir la integraci\u00f3n de las personas con discapacidad visual es\u2026",
     "answers": [
@@ -4869,7 +4869,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5057",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "El Camino de Santiago es\u2026",
     "answers": [
       {"answer": "Patrimonio de la Humanidad.", "Correct": true},
@@ -4886,7 +4886,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5058",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es el canal de televisi\u00f3n estatal que transmite noticias de actualidad nacional e internacional continuamente?",
     "answers": [
@@ -4904,7 +4904,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5059",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "El tel\u00e9fono gratuito para las v\u00edctimas de violencia de g\u00e9nero es el\u2026",
     "answers": [
@@ -4922,7 +4922,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5060",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "En Espa\u00f1a, la red de trenes puede ser de larga distancia, de media distancia y\u2026",
     "answers": [
@@ -4940,7 +4940,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5061",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfQu\u00e9 est\u00e1 prohibido hacer en la puerta de un hospital o colegio?",
     "answers": [
@@ -4958,7 +4958,7 @@ var questions = [
     "created_at": "2025-07-25T16:04:14.000000Z",
     "updated_at": "2025-07-25T16:04:14.000000Z",
     "ccse_id": "5062",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Cuando compramos 250 gramos de un alimento estamos comprando\u2026",
     "answers": [
@@ -4976,7 +4976,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5063",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Si compramos una botella de agua de 750 ml, compramos una botella de\u2026",
     "answers": [
@@ -4994,7 +4994,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5064",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfD\u00f3nde se compran las medicinas con receta?",
     "answers": [
       {"answer": "En el hospital.", "Correct": false},
@@ -5011,7 +5011,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5065",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estas tres recomendaciones podemos encontrar en un parque?",
     "answers": [
@@ -5032,7 +5032,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5066",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de las siguientes cosas es obligatoria para el propietario de un coche en Espa\u00f1a?",
     "answers": [
@@ -5050,7 +5050,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5067",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "El aeropuerto Adolfo Su\u00e1rez est\u00e1 en\u2026",
     "answers": [
       {"answer": "Barcelona.", "Correct": false},
@@ -5067,7 +5067,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5068",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "En un coche es obligatorio el uso del cintur\u00f3n de seguridad...",
     "answers": [
@@ -5085,7 +5085,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5069",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfCu\u00e1l es el l\u00edmite de velocidad en autopista?",
     "answers": [
       {"answer": "90 km\/h.", "Correct": false},
@@ -5102,7 +5102,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5070",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Ceder el asiento a las personas con movilidad reducida es una norma que encontramos indicada en\u2026",
     "answers": [
@@ -5120,7 +5120,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5071",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfEn qu\u00e9 caso se retira el permiso de conducir?",
     "answers": [
       {"answer": "Por accidente grave.", "Correct": false},
@@ -5137,7 +5137,7 @@ var questions = [
     "created_at": "2025-07-25T16:05:24.000000Z",
     "updated_at": "2025-07-25T16:05:24.000000Z",
     "ccse_id": "5072",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfQu\u00e9 significa Renfe?",
     "answers": [
       {"answer": "Red Nacional de Fondos Europeos.", "Correct": false},
@@ -5157,7 +5157,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5073",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Los espa\u00f1oles necesitan el pasaporte para viajar a\u2026",
     "answers": [
       {"answer": "Italia.", "Correct": false},
@@ -5174,7 +5174,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5074",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es la edad m\u00ednima para trabajar en Espa\u00f1a?",
     "answers": [
@@ -5192,7 +5192,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5075",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es el sector de mayor peso en la econom\u00eda espa\u00f1ola?",
     "answers": [
@@ -5210,7 +5210,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5076",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Espa\u00f1a es innovadora en el sector de\u2026",
     "answers": [
       {"answer": "la ingenier\u00eda aeroespacial.", "Correct": false},
@@ -5227,7 +5227,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5077",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfC\u00f3mo se llama la ley laboral m\u00e1s importante de Espa\u00f1a?",
     "answers": [
@@ -5248,7 +5248,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5078",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1les de estos establecimientos est\u00e1 abierto 24 horas si es necesario?",
     "answers": [
@@ -5266,7 +5266,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5079",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "La educaci\u00f3n infantil en Espa\u00f1a\u2026",
     "answers": [
       {"answer": "es obligatoria.", "Correct": false},
@@ -5283,7 +5283,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5080",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "\u00bfCu\u00e1ndo empieza el calendario escolar?",
     "answers": [
       {"answer": "En agosto.", "Correct": false},
@@ -5300,7 +5300,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5081",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question": "Las Escuelas Oficiales de Idiomas\u2026",
     "answers": [
       {"answer": "son centros de ense\u00f1anza privada.", "Correct": false},
@@ -5317,7 +5317,7 @@ var questions = [
     "created_at": "2025-07-25T16:06:42.000000Z",
     "updated_at": "2025-07-25T16:06:42.000000Z",
     "ccse_id": "5082",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l es el documento que recoge los a\u00f1os de cotizaci\u00f3n a la Seguridad Social?",
     "answers": [
@@ -5335,7 +5335,7 @@ var questions = [
     "created_at": "2025-07-25T16:07:10.000000Z",
     "updated_at": "2025-07-25T16:07:10.000000Z",
     "ccse_id": "5083",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "Los convenios colectivos de una empresa son los que se firman con los representantes de los trabajadores sobre\u2026",
     "answers": [
@@ -5353,7 +5353,7 @@ var questions = [
     "created_at": "2025-07-25T16:07:10.000000Z",
     "updated_at": "2025-07-25T16:07:10.000000Z",
     "ccse_id": "5084",
-    "category": "ASPECTOS SOCIOECON\u00d3MICOS Y CULTURALES DE ESPA\u00d1A",
+    "category": "SOCIEDAD ESPA\u00d1A",
     "question":
         "\u00bfCu\u00e1l de estas comunidades aut\u00f3nomas tiene el PIB por habitante m\u00e1s alto?",
     "answers": [

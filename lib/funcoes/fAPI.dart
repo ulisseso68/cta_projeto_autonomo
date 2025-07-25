@@ -81,7 +81,9 @@ class CallApi {
 
   void showAlert(context, msg, actionMsg) {
     final snackBar = SnackBar(
-      backgroundColor: COR_02,
+      backgroundColor: redEspana,
+      closeIconColor: Colors.white,
+      duration: const Duration(seconds: 3),
       content: msg,
       action: SnackBarAction(
         label: actionMsg,
