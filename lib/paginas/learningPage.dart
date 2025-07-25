@@ -115,11 +115,12 @@ class _LearningPageState extends State<LearningPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        shape: const StadiumBorder(),
+        backgroundColor: COR_02,
         onPressed: () {
           Navigator.pop(context);
         },
-        backgroundColor: COR_02,
-        child: const Icon(Icons.arrow_back),
+        child: const Icon(Icons.arrow_back, color: Colors.white, size: 30),
       ),
     );
   }

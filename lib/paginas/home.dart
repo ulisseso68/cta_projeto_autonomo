@@ -29,17 +29,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   void collapse(int index) {
-    if (answeredQuestions.isEmpty) {
+    if (Funcoes().existsAnyAnsweredQuestion()) {
       totalStatistics = true;
-    } else {
-      totalStatistics = false;
-    }
-    if (_isOpen[index]) {
       extended = false;
     } else {
-      totalStatistics = true;
+      totalStatistics = false;
+      extended = true;
     }
-
     for (int i = 0; i < _isOpen.length; i++) {
       if (i != index) {
         _isOpen[i] = false;
@@ -75,7 +71,19 @@ class _HomePageState extends State<HomePage> {
     await Funcoes().initializeCatalog();
     _categoriesSelected = uniqueCategories;
     _isOpen = List.generate(_categoriesSelected.length, (index) => false);
-    extended = answeredQuestions.isEmpty;
+    extended = !Funcoes().existsAnyAnsweredQuestion();
+    totalStatistics = !extended;
+    setState(() {});
+  }
+
+  void updateStatus() {
+    if (Funcoes().existsAnyAnsweredQuestion()) {
+      totalStatistics = true;
+      extended = false;
+    } else {
+      totalStatistics = false;
+      extended = true;
+    }
     setState(() {});
   }
 
@@ -104,13 +112,7 @@ class _HomePageState extends State<HomePage> {
     final double largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      onDrawerChanged: (isClosed) => setState(() {
-        if (answeredQuestions.isEmpty) {
-          extended = true;
-          totalStatistics = true;
-        }
-        setState(() {});
-      }),
+      onDrawerChanged: (isClosed) => updateStatus(),
       drawer: const AJDrawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
@@ -170,28 +172,31 @@ class _HomePageState extends State<HomePage> {
             ),
 
             //Training Trail
-
             GestureDetector(
               onTap: () {
                 // Handle tap
                 totalStatistics = !totalStatistics;
+                extended = !totalStatistics;
+                /* 
                 if (extended) {
                   _isOpen = List.generate(
                       _categoriesSelected.length, (index) => false);
-                }
+                } */
                 setState(() {});
               },
               child: ListTile(
                 dense: true,
                 visualDensity: VisualDensity.compact,
                 title: Text(
-                  Funcoes().appLang('Training Trail'),
+                  (!totalStatistics)
+                      ? Funcoes().appLang('Training Trail')
+                      : Funcoes().appLang('How you are progressing'),
                   style: const TextStyle(
                       fontSize: 20, color: COR_02, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Container(
                   padding: const EdgeInsets.all(1.0),
-                  child: (totalStatistics)
+                  child: (!totalStatistics)
                       ? Text(
                           Funcoes().appLang("Training Trail Description"),
                           style:
@@ -274,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 icon: _isOpen[i]
                     ? Icon(
-                        Icons.close_rounded,
+                        Icons.minimize_outlined,
                         color: Colors.grey,
                         size: 30,
                       )
@@ -326,22 +331,6 @@ class _HomePageState extends State<HomePage> {
                     spacing: 5,
                     children: [
                       /* Icon(Icons.navigate_next_rounded, color: COR_02), */
-                      /* ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          backgroundColor: COR_02,
-                        ),
-                        onPressed: () {
-                          Funcoes.categorySelected = category;
-                          numberOfQuestions = 10;
-                          Navigator.pushNamed(context, 'questionsPage1');
-                        },
-                        child: Text(Funcoes().appLang("10"),
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.white)),
-                      ), */
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -354,8 +343,8 @@ class _HomePageState extends State<HomePage> {
                           numberOfQuestions = 25;
                           await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
-                            // This callback is executed when returning from the questions page
-                            setState(() {});
+                            //This callback is executed when returning from the questions page
+                            updateStatus();
                           });
                         },
                         child: Text(Funcoes().appLang("25"),
@@ -375,7 +364,7 @@ class _HomePageState extends State<HomePage> {
                           await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
                             // This callback is executed when returning from the questions page
-                            setState(() {});
+                            updateStatus();
                           });
                         },
                         child: Text(Funcoes().appLang("All"),
@@ -398,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                             await Navigator.pushNamed(context, 'questionsPage1')
                                 .then((value) {
                               // This callback is executed when returning from the questions page
-                              setState(() {});
+                              updateStatus();
                             });
                           },
                           child: Row(

@@ -16,7 +16,7 @@ class CallApi {
     final Email email = Email(
       body: deviceID + '\n\n' + body,
       subject: subject,
-      recipients: ['support@ccsefacil.es'],
+      recipients: ['soporte@ccsefacil.es'],
     );
 
     await FlutterEmailSender.send(email);

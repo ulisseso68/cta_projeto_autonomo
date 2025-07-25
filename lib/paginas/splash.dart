@@ -494,7 +494,7 @@ class _SplashPageState extends State<SplashPage> {
               : Container(),
         ]),
       ),
-      /* floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),
         onPressed: () {
           if (tcsAccepted && citizenship.isNotEmpty) {
@@ -514,8 +514,8 @@ class _SplashPageState extends State<SplashPage> {
           Navigator.pushNamed(context, 'homePage');
         },
         backgroundColor: COR_02,
-        child: const Icon(Icons.arrow_forward),
-      ), */
+        child: const Icon(Icons.arrow_forward, color: Colors.white, size: 30),
+      ),
     );
   }
 }

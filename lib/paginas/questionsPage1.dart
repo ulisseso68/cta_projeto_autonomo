@@ -311,6 +311,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
         margin: const EdgeInsets.only(bottom: 10),
         child: (responded)
             ? FloatingActionButton(
+                shape: const StadiumBorder(),
                 backgroundColor: COR_02,
                 onPressed: () {
                   setState(() {

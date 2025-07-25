@@ -1,5 +1,6 @@
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
+import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class AJDrawer extends StatelessWidget {
               ),
             ),
 
+            // Summary of progress
             (!Funcoes().existsAnyAnsweredQuestion())
                 ? SizedBox(
                     height: 0,
@@ -107,6 +109,7 @@ class AJDrawer extends StatelessWidget {
                 LaunchReview.launch(writeReview: false, iOSAppId: "1635840240");
               },
             ), */
+
             // Settings
             ListTile(
               leading: const Icon(
@@ -123,11 +126,15 @@ class AJDrawer extends StatelessWidget {
                 Funcoes().appLang('Name, Country, Language'),
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ), */
-              onTap: () {
+              onTap: () async {
                 //Navigator.popUntil(context, ModalRoute.withName('splashPage'));
-                Navigator.popAndPushNamed(context, 'splashPage');
+                await Navigator.pushNamed(context, 'splashPage').then((value) {
+                  // This callback is executed when returning from the splash page
+                  Navigator.pop(context);
+                });
               },
             ),
+
             // Terms of Use
             ListTile(
               leading: const Icon(
@@ -144,24 +151,27 @@ class AJDrawer extends StatelessWidget {
                 Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
               },
             ),
-            // Device ID
-            /* ListTile(
-              leading: const Icon(
-                Icons.perm_identity_rounded,
-                size: 40,
-                color: redEspana,
+
+            //Device ID in Developer Mode
+            if (developerMode)
+              ListTile(
+                leading: const Icon(
+                  Icons.perm_identity_rounded,
+                  size: 40,
+                  color: redEspana,
+                ),
+                title: Text(
+                  Funcoes().appLang('Device ID'),
+                  textAlign: TextAlign.start,
+                  style: TextStyle(color: COR_01, fontSize: 14),
+                ),
+                subtitle: Text(
+                  deviceID,
+                  style: const TextStyle(fontSize: 10, color: Colors.grey),
+                ),
+                onTap: () {},
               ),
-              title: Text(
-                Funcoes().appLang('Device ID'),
-                textAlign: TextAlign.start,
-                style: TextStyle(color: COR_01, fontSize: 14),
-              ),
-              subtitle: Text(
-                deviceID,
-                style: const TextStyle(fontSize: 10, color: Colors.grey),
-              ),
-              onTap: () {},
-            ), */
+
             // Send email to Support
             ListTile(
               leading: const Icon(
@@ -186,6 +196,7 @@ class AJDrawer extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+
             // News do CCSE facil
             ListTile(
               leading: const Icon(
@@ -202,6 +213,7 @@ class AJDrawer extends StatelessWidget {
                 CallApi().launchUrlOut('https://app.ccsefacil.es/');
               },
             ),
+
             // Offline Mode
             ListTile(
               leading: offlineMode
