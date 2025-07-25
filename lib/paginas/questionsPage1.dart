@@ -200,7 +200,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                             title: Text(
                               _respostasLista[indexAnswers]['answer'],
                               textAlign: TextAlign.left,
-                              maxLines: 4,
+                              /* maxLines: 4, */
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontSize: 22,
