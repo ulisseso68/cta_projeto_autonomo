@@ -244,10 +244,22 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildListTile() {
     List<Widget> listTiles = [];
+    String testCat = 'Simulación Del Examen';
 
     for (int i = 0; i < _categoriesSelected.length; i++) {
       String catsel = _categoriesSelected[i];
       int qty = Funcoes().selectQuestions(catsel.toUpperCase()).length;
+      if (catsel == testCat) {
+        listTiles.add(
+          Divider(
+            color: redEspana,
+            height: 10,
+            indent: 10,
+            endIndent: 10,
+            thickness: 1,
+          ),
+        );
+      } // Skip the test category
       listTiles.add(ListTile(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -262,7 +274,8 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             catsel,
             textAlign: TextAlign.left,
-            style: const TextStyle(fontSize: 18, color: COR_01),
+            style: TextStyle(
+                fontSize: 18, color: (catsel == testCat) ? redEspana : COR_01),
           ),
         ),
         subtitle:
@@ -301,6 +314,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ));
     }
+
     return Column(
       children: listTiles,
     );
@@ -308,6 +322,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget questionaryOptions(
       bool isOpen, String title, String category, BuildContext context) {
+    String testCat = 'Simulación Del Examen';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -317,7 +332,10 @@ class _HomePageState extends State<HomePage> {
           height: 10,
         ),
         !isOpen
-            ? Text("$title ${Funcoes().appLang("Questions")}",
+            ? Text(
+                (category == testCat)
+                    ? "25 ${Funcoes().appLang("questions from all categories.")}"
+                    : "$title ${Funcoes().appLang("Questions")}",
                 textAlign: TextAlign.start,
                 style: const TextStyle(
                   fontSize: 15,
@@ -331,12 +349,34 @@ class _HomePageState extends State<HomePage> {
                     spacing: 5,
                     children: [
                       /* Icon(Icons.navigate_next_rounded, color: COR_02), */
+                      if (category != testCat)
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            backgroundColor: COR_02,
+                          ),
+                          onPressed: () async {
+                            Funcoes.categorySelected = category;
+                            numberOfQuestions = 15;
+                            await Navigator.pushNamed(context, 'questionsPage1')
+                                .then((value) {
+                              //This callback is executed when returning from the questions page
+                              updateStatus();
+                            });
+                          },
+                          child: Text(Funcoes().appLang("15"),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.white)),
+                        ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(100),
                           ),
-                          backgroundColor: COR_02,
+                          backgroundColor:
+                              (category != testCat) ? COR_02 : redEspana,
                         ),
                         onPressed: () async {
                           Funcoes.categorySelected = category;
@@ -347,33 +387,41 @@ class _HomePageState extends State<HomePage> {
                             updateStatus();
                           });
                         },
-                        child: Text(Funcoes().appLang("25"),
+                        child: Text(
+                            (category != testCat)
+                                ? Funcoes().appLang("25")
+                                : Funcoes().appLang("Take the test"),
                             style: const TextStyle(
                                 fontSize: 15, color: Colors.white)),
                       ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
+                      //All questions button
+                      if (category != testCat)
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            backgroundColor: COR_02,
                           ),
-                          backgroundColor: COR_02,
+                          onPressed: () async {
+                            Funcoes.categorySelected = category;
+                            numberOfQuestions = 1000;
+                            await Navigator.pushNamed(context, 'questionsPage1')
+                                .then((value) {
+                              // This callback is executed when returning from the questions page
+                              updateStatus();
+                            });
+                          },
+                          child: Text(Funcoes().appLang("All"),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.white)),
                         ),
-                        onPressed: () async {
-                          Funcoes.categorySelected = category;
-                          numberOfQuestions = 1000;
-                          await Navigator.pushNamed(context, 'questionsPage1')
-                              .then((value) {
-                            // This callback is executed when returning from the questions page
-                            updateStatus();
-                          });
-                        },
-                        child: Text(Funcoes().appLang("All"),
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.white)),
-                      ),
-                      if (Funcoes()
-                          .wronglyAnsweredQuestions(category)
-                          .isNotEmpty)
+
+                      //Wrongly answered questions button
+                      if (category != testCat &&
+                          Funcoes()
+                              .wronglyAnsweredQuestions(category)
+                              .isNotEmpty)
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(

@@ -219,7 +219,16 @@ class _SplashPageState extends State<SplashPage> {
                     exclude: [
                       'ES', // Spain
                     ],
-                    favorite: const ['BR', 'PT', 'US'],
+                    favorite: const [
+                      'US',
+                      'CO',
+                      'MA',
+                      'AR',
+                      'MX',
+                      'PE',
+                      'BR',
+                      'PT',
+                    ], // Brazil, Portugal, USA, Morocco
                     countryListTheme: CountryListThemeData(
                       flagSize: 25,
                       backgroundColor: Colors.white,
@@ -244,6 +253,7 @@ class _SplashPageState extends State<SplashPage> {
                       ),
                     ),
                     onSelect: (Country country) {
+                      print(country.toString());
                       Funcoes().setCountry(country.name, country.flagEmoji);
                       CallApi().createJournalEntry(
                           type: 'citizenship',
@@ -353,12 +363,13 @@ class _SplashPageState extends State<SplashPage> {
                         textAlign: TextAlign.center,
                       ),
                       content: SizedBox(
-                        height: altura * 0.20,
+                        height: altura * 0.25,
                         child: Column(
                           children: [
                             TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: COR_02,
+                                backgroundColor:
+                                    (language == 0) ? COR_04 : COR_02,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -377,7 +388,8 @@ class _SplashPageState extends State<SplashPage> {
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: COR_02,
+                                backgroundColor:
+                                    (language == 1) ? COR_04 : COR_02,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -396,7 +408,8 @@ class _SplashPageState extends State<SplashPage> {
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: COR_02,
+                                backgroundColor:
+                                    (language == 2) ? COR_04 : COR_02,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),
@@ -409,6 +422,26 @@ class _SplashPageState extends State<SplashPage> {
                               child: SizedBox(
                                 width: largura * 0.8,
                                 child: Text(Funcoes().appLang('Spanish'),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16)),
+                              ),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor:
+                                    (language == 3) ? COR_04 : COR_02,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              onPressed: () {
+                                Funcoes().setLanguage(3);
+                                Navigator.pop(context);
+                                setState(() {});
+                              },
+                              child: SizedBox(
+                                width: largura * 0.8,
+                                child: Text(Funcoes().appLang('Marroquí'),
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16)),
                               ),

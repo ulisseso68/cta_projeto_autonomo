@@ -87,12 +87,13 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             // Container with the question
             Container(
               width: largura,
+              //color: COR_02.withOpacity(0.1),
               padding: const EdgeInsets.only(top: 10),
               child: Column(
                 children: [
                   Funcoes().titleWithIcon(
                       "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
-                      "${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} \n${Funcoes().appLang("Correct Answers")}: ${currentQuestion.getAnsQue.correct}",
+                      "${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} \n${Funcoes().appLang("Correctly")}: ${currentQuestion.getAnsQue.correct}\n${Funcoes().appLang("CCSE id")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}",
                       context,
                       isOpen: true,
                       hasIcon: false),
@@ -179,8 +180,11 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                   )
                 : Container(
                     padding: EdgeInsets.all(screenW * 0.05),
-                    height: altura * 0.40,
+                    margin: EdgeInsets.only(
+                        left: screenW * 0.05, right: screenW * 0.05),
+                    height: altura * 0.6,
                     width: largura - 20,
+                    //color: COR_02.withOpacity(0.1),
                     child: ListView.builder(
                         itemCount: _respostasLista.length,
                         itemBuilder: ((context, indexAnswers) {
@@ -279,15 +283,19 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           ],
         ),
       ),
-      persistentFooterButtons: [
-        Container(
-          width: screenW,
-          padding:
-              const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              /* Text(
+      bottomSheet: BottomSheet(
+        onClosing: () {},
+        builder: (context) {
+          return Container(
+            height: screenH * 0.10,
+            color: COR_02,
+            width: screenW,
+            padding:
+                const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /* Text(
                 "${Funcoes().appLang('This training')} \n${Funcoes().appLang('Correct Answers')}: $respostasCorretas \n${Funcoes().appLang('Wrong Answers')}: $respostasErradas",
                 style: const TextStyle(
                   color: COR_02,
@@ -298,15 +306,16 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               const SizedBox(
                 height: 10,
               ), */
-              Funcoes().appProgressBar(
-                  1.0,
-                  ((respostasCorretas) / _preguntasSelecionadas.length),
-                  ((respostasErradas) / _preguntasSelecionadas.length),
-                  barHeight: 25),
-            ],
-          ),
-        ),
-      ],
+                Funcoes().appProgressBar(
+                    1.0,
+                    ((respostasCorretas) / _preguntasSelecionadas.length),
+                    ((respostasErradas) / _preguntasSelecionadas.length),
+                    barHeight: 25),
+              ],
+            ),
+          );
+        },
+      ),
       floatingActionButton: Container(
         margin: const EdgeInsets.only(bottom: 10),
         child: (responded)

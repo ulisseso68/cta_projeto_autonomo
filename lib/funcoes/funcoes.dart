@@ -111,9 +111,11 @@ class Funcoes {
       case 0:
         return 'English';
       case 1:
-        return 'Português';
+        return 'Portuguese';
       case 2:
-        return 'Español';
+        return 'Spanish';
+      case 3:
+        return 'Moroccan Arabic';
       default:
         return 'Unknown';
     }
@@ -128,7 +130,10 @@ class Funcoes {
 
   String appLang(String sentence) {
     if (lang.containsKey(sentence)) {
-      return lang[sentence]![language];
+      if (lang[sentence]!.length > language) {
+        return lang[sentence]![language];
+      }
+      return sentence; // if the language is not available
     } else {
       return sentence;
     }
