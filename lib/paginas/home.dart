@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
@@ -68,7 +70,7 @@ class _HomePageState extends State<HomePage> {
     }
     // Load unique categories from the questions
     answeredQuestions = await Funcoes().loadAnsweredQuestionsFromLocal();
-    await Funcoes().initializeCatalog();
+    await Funcoes().iniciarPreguntas();
     _categoriesSelected = uniqueCategories;
     _isOpen = List.generate(_categoriesSelected.length, (index) => false);
     extended = !Funcoes().existsAnyAnsweredQuestion();
@@ -244,12 +246,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildListTile() {
     List<Widget> listTiles = [];
-    String testCat = 'Simulación Del Examen';
 
     for (int i = 0; i < _categoriesSelected.length; i++) {
       String catsel = _categoriesSelected[i];
-      int qty = Funcoes().selectQuestions(catsel.toUpperCase()).length;
-      if (catsel == testCat) {
+      int qty = Funcoes().selectQuestions(catsel).length;
+      if (catsel == examCat) {
         listTiles.add(
           Divider(
             color: redEspana,
@@ -272,10 +273,12 @@ class _HomePageState extends State<HomePage> {
             collapse(i);
           }),
           child: Text(
-            catsel,
+            Funcoes().shortCat(catsel),
             textAlign: TextAlign.left,
             style: TextStyle(
-                fontSize: 18, color: (catsel == testCat) ? redEspana : COR_01),
+                fontSize: 17, color: (catsel == examCat) ? redEspana : COR_01),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         subtitle:
@@ -322,7 +325,6 @@ class _HomePageState extends State<HomePage> {
 
   Widget questionaryOptions(
       bool isOpen, String title, String category, BuildContext context) {
-    String testCat = 'Simulación Del Examen';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -333,7 +335,7 @@ class _HomePageState extends State<HomePage> {
         ),
         !isOpen
             ? Text(
-                (category == testCat)
+                (category == examCat)
                     ? "25 ${Funcoes().appLang("questions from all categories.")}"
                     : "$title ${Funcoes().appLang("Questions")}",
                 textAlign: TextAlign.start,
@@ -349,7 +351,7 @@ class _HomePageState extends State<HomePage> {
                     spacing: 5,
                     children: [
                       /* Icon(Icons.navigate_next_rounded, color: COR_02), */
-                      if (category != testCat)
+                      if (category != examCat)
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -376,7 +378,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(100),
                           ),
                           backgroundColor:
-                              (category != testCat) ? COR_02 : redEspana,
+                              (category != examCat) ? COR_02 : redEspana,
                         ),
                         onPressed: () async {
                           Funcoes.categorySelected = category;
@@ -388,14 +390,14 @@ class _HomePageState extends State<HomePage> {
                           });
                         },
                         child: Text(
-                            (category != testCat)
+                            (category != examCat)
                                 ? Funcoes().appLang("25")
                                 : Funcoes().appLang("Take the test"),
                             style: const TextStyle(
                                 fontSize: 15, color: Colors.white)),
                       ),
                       //All questions button
-                      if (category != testCat)
+                      if (category != examCat)
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -418,7 +420,7 @@ class _HomePageState extends State<HomePage> {
                         ),
 
                       //Wrongly answered questions button
-                      if (category != testCat &&
+                      if (category != examCat &&
                           Funcoes()
                               .wronglyAnsweredQuestions(category)
                               .isNotEmpty)

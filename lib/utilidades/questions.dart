@@ -2,9 +2,9 @@ var questions = [
   {
     "id": 56,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:57.000000Z",
     "ccse_id": "1001",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Espa\u00f1a es\u2026",
     "answers": [
       {"answer": "una monarqu\u00eda parlamentaria", "Correct": true},
@@ -20,9 +20,9 @@ var questions = [
   {
     "id": 57,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:57.000000Z",
     "ccse_id": "1002",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "La ley fundamental de Espa\u00f1a se llama\u2026",
     "answers": [
       {"answer": "Constituci\u00f3n", "Correct": true},
@@ -38,9 +38,9 @@ var questions = [
   {
     "id": 58,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:57.000000Z",
     "ccse_id": "1003",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Seg\u00fan la Constituci\u00f3n espa\u00f1ola, la soberan\u00eda nacional reside en\u2026",
     "answers": [
@@ -57,9 +57,9 @@ var questions = [
   {
     "id": 59,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:57.000000Z",
     "ccse_id": "1004",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El Instituto de las Mujeres es\u2026",
     "answers": [
       {"answer": "una instituci\u00f3n europea", "Correct": false},
@@ -75,9 +75,9 @@ var questions = [
   {
     "id": 60,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:57.000000Z",
     "ccse_id": "1005",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfCu\u00e1ntas religiones oficiales hay en Espa\u00f1a?",
     "answers": [
       {"answer": "Ninguna", "Correct": true},
@@ -92,9 +92,9 @@ var questions = [
   {
     "id": 61,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1006",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El castellano o espa\u00f1ol es lengua oficial\u2026",
     "answers": [
       {"answer": "en toda Espa\u00f1a", "Correct": true},
@@ -109,9 +109,9 @@ var questions = [
   {
     "id": 62,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1007",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de estas fuerzas de seguridad es de \u00e1mbito auton\u00f3mico?",
     "answers": [
@@ -127,9 +127,9 @@ var questions = [
   {
     "id": 63,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1008",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 fuerza de seguridad est\u00e1 en toda Espa\u00f1a?",
     "answers": [
@@ -145,9 +145,9 @@ var questions = [
   {
     "id": 64,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1009",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "En la Constituci\u00f3n se establece la separaci\u00f3n de poderes: el poder ejecutivo, el legislativo y el\u2026",
     "answers": [
@@ -163,9 +163,9 @@ var questions = [
   {
     "id": 65,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1010",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "La bandera de Espa\u00f1a debe utilizarse\u2026",
     "answers": [
       {"answer": "solo los d\u00edas de fiesta oficial", "Correct": false},
@@ -180,9 +180,9 @@ var questions = [
   {
     "id": 66,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2001",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question": "La mayor\u00eda de edad en Espa\u00f1a es a los 16 a\u00f1os.",
     "answers": [
       {"answer": "Verdadero", "Correct": false},
@@ -196,9 +196,9 @@ var questions = [
   {
     "id": 67,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2002",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los espa\u00f1oles que obtienen la nacionalidad por residencia deben esperar tres a\u00f1os para poder votar en las elecciones.",
     "answers": [
@@ -213,9 +213,9 @@ var questions = [
   {
     "id": 68,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2003",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los j\u00f3venes tienen derecho a participar libremente en el desarrollo pol\u00edtico del pa\u00eds.",
     "answers": [
@@ -230,9 +230,9 @@ var questions = [
   {
     "id": 69,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2004",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "El funcionamiento de los partidos pol\u00edticos tiene que ser democr\u00e1tico.",
     "answers": [
@@ -247,9 +247,9 @@ var questions = [
   {
     "id": 70,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2005",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Se puede obligar a alguien a decir cu\u00e1les son sus ideas pol\u00edticas o religiosas.",
     "answers": [
@@ -264,9 +264,9 @@ var questions = [
   {
     "id": 71,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2006",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Se puede limitar a una persona el derecho a entrar y salir libremente de Espa\u00f1a por motivos ideol\u00f3gicos.",
     "answers": [
@@ -281,9 +281,9 @@ var questions = [
   {
     "id": 72,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2007",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La Educaci\u00f3n Primaria (de 6 a 12 a\u00f1os) es gratuita y obligatoria.",
     "answers": [
@@ -298,9 +298,9 @@ var questions = [
   {
     "id": 73,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2008",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La Constituci\u00f3n garantiza el derecho de los espa\u00f1oles a una vivienda digna.",
     "answers": [
@@ -315,9 +315,9 @@ var questions = [
   {
     "id": 74,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2009",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "En Espa\u00f1a la polic\u00eda puede entrar en cualquier casa sin resoluci\u00f3n judicial en cualquier momento.",
     "answers": [
@@ -332,9 +332,9 @@ var questions = [
   {
     "id": 75,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2010",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Se garantiza el secreto de las comunicaciones de los espa\u00f1oles, salvo resoluci\u00f3n judicial.",
     "answers": [
@@ -349,10 +349,9 @@ var questions = [
   {
     "id": 76,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3001",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "\u00bfD\u00f3nde est\u00e1n C\u00e1ceres y Badajoz?",
     "answers": [
       {"answer": "En el Principado de Asturias", "Correct": false},
@@ -367,10 +366,9 @@ var questions = [
   {
     "id": 77,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3002",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "\u00bfCu\u00e1l es la capital del Principado de Asturias?",
     "answers": [
       {"answer": "Avil\u00e9s", "Correct": false},
@@ -385,10 +383,9 @@ var questions = [
   {
     "id": 78,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3003",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "\u00bfD\u00f3nde est\u00e1n las islas Baleares?",
     "answers": [
       {"answer": "En el mar Cant\u00e1brico", "Correct": false},
@@ -403,10 +400,9 @@ var questions = [
   {
     "id": 79,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3004",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfC\u00f3mo se llama la extensa llanura situada en el centro de la pen\u00ednsula ib\u00e9rica?",
     "answers": [
@@ -422,10 +418,9 @@ var questions = [
   {
     "id": 80,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3005",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfCu\u00e1l es la monta\u00f1a m\u00e1s alta de la pen\u00ednsula ib\u00e9rica?",
     "answers": [
@@ -441,10 +436,9 @@ var questions = [
   {
     "id": 81,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3006",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfEn qu\u00e9 comunidad aut\u00f3noma est\u00e1n Guadalajara y Cuenca?",
     "answers": [
@@ -460,10 +454,9 @@ var questions = [
   {
     "id": 82,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3007",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfDe qu\u00e9 comunidad aut\u00f3noma es capital M\u00e9rida?",
     "answers": [
@@ -479,10 +472,9 @@ var questions = [
   {
     "id": 83,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3008",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "\u00bfD\u00f3nde est\u00e1 Almer\u00eda?",
     "answers": [
       {"answer": "En Andaluc\u00eda", "Correct": true},
@@ -497,10 +489,9 @@ var questions = [
   {
     "id": 84,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3009",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "La capital de la Comunidad Aut\u00f3noma de Galicia es\u2026",
     "answers": [
       {"answer": "A Coru\u00f1a", "Correct": false},
@@ -515,10 +506,9 @@ var questions = [
   {
     "id": 85,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3010",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "\u00bfCu\u00e1l de estos climas es propio de Espa\u00f1a?",
     "answers": [
       {"answer": "Polar", "Correct": false},
@@ -533,10 +523,9 @@ var questions = [
   {
     "id": 86,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3011",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "\u00bfD\u00f3nde est\u00e1 el monte Aneto?",
     "answers": [
       {"answer": "En los Pirineos", "Correct": true},
@@ -551,10 +540,9 @@ var questions = [
   {
     "id": 87,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "3012",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "Tarragona est\u00e1 en\u2026",
     "answers": [
       {"answer": "Catalu\u00f1a", "Correct": true},
@@ -569,9 +557,9 @@ var questions = [
   {
     "id": 88,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1020",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Las instalaciones culturales y deportivas p\u00fablicas son competencia del\u2026",
     "answers": [
@@ -591,9 +579,9 @@ var questions = [
   {
     "id": 89,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1019",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llama la ley m\u00e1s importante de cada comunidad aut\u00f3noma?",
     "answers": [
@@ -609,9 +597,9 @@ var questions = [
   {
     "id": 90,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:24:59.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1021",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n dirige la administraci\u00f3n militar de Espa\u00f1a?",
     "answers": [
@@ -627,9 +615,9 @@ var questions = [
   {
     "id": 91,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1015",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n modera el funcionamiento de las instituciones espa\u00f1olas?",
     "answers": [
@@ -648,9 +636,9 @@ var questions = [
   {
     "id": 92,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1016",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llama la c\u00e1mara de representaci\u00f3n territorial en Espa\u00f1a?",
     "answers": [
@@ -666,9 +654,9 @@ var questions = [
   {
     "id": 93,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1017",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntas ciudades aut\u00f3nomas hay en Espa\u00f1a?",
     "answers": [
@@ -684,9 +672,9 @@ var questions = [
   {
     "id": 94,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1018",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfC\u00f3mo se aprob\u00f3 la Constituci\u00f3n?",
     "answers": [
       {"answer": "Por ley", "Correct": false},
@@ -701,9 +689,9 @@ var questions = [
   {
     "id": 95,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1011",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQui\u00e9n fue el primer rey de Espa\u00f1a?",
     "answers": [
       {"answer": "Fernando VII", "Correct": false},
@@ -718,9 +706,9 @@ var questions = [
   {
     "id": 96,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1012",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "La gesti\u00f3n de la sanidad es competencia de\u2026",
     "answers": [
       {"answer": "el Estado", "Correct": false},
@@ -735,9 +723,9 @@ var questions = [
   {
     "id": 97,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1013",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n fue el primer presidente del Gobierno de Espa\u00f1a en democracia?",
     "answers": [
@@ -753,9 +741,9 @@ var questions = [
   {
     "id": 98,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1014",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de estos organismos se encarga de interpretar la Constituci\u00f3n?",
     "answers": [
@@ -771,9 +759,9 @@ var questions = [
   {
     "id": 99,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1055",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "El Gobierno est\u00e1 formado por el presidente, uno o m\u00e1s vicepresidentes y los\u2026",
     "answers": [
@@ -789,9 +777,9 @@ var questions = [
   {
     "id": 100,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1056",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQui\u00e9n puede reinar en Espa\u00f1a?",
     "answers": [
       {"answer": "Solo los hombres", "Correct": false},
@@ -806,9 +794,9 @@ var questions = [
   {
     "id": 101,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1057",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El Tribunal de Cuentas depende de\u2026",
     "answers": [
       {"answer": "la Presidencia del Gobierno", "Correct": false},
@@ -823,9 +811,9 @@ var questions = [
   {
     "id": 102,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1058",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n es la tercera autoridad del Estado, despu\u00e9s del rey y el presidente del Gobierno?",
     "answers": [
@@ -841,9 +829,9 @@ var questions = [
   {
     "id": 103,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1059",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 lengua cooficial se habla en las islas Baleares?",
     "answers": [
@@ -859,9 +847,9 @@ var questions = [
   {
     "id": 104,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:09:57.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1060",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La Constituci\u00f3n defiende valores tales como la libertad, la igualdad, el pluralismo pol\u00edtico y\u2026",
     "answers": [
@@ -877,9 +865,9 @@ var questions = [
   {
     "id": 105,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:45:51.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1061",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntos kil\u00f3metros cuadrados tiene Espa\u00f1a, m\u00e1s o menos?",
     "answers": [
@@ -895,9 +883,9 @@ var questions = [
   {
     "id": 106,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:45:51.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1062",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfCu\u00e1ntos millones de habitantes tiene Espa\u00f1a?",
     "answers": [
       {"answer": "35 millones", "Correct": false},
@@ -912,9 +900,9 @@ var questions = [
   {
     "id": 107,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:48:02.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1063",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de estos es un \u00f3rgano consultivo del Gobierno de Espa\u00f1a?",
     "answers": [
@@ -930,9 +918,9 @@ var questions = [
   {
     "id": 108,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:48:02.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1064",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n dirige la pol\u00edtica interior y exterior de Espa\u00f1a?",
     "answers": [
@@ -948,9 +936,9 @@ var questions = [
   {
     "id": 109,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:48:02.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1065",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El Defensor del Pueblo depende de\u2026",
     "answers": [
       {"answer": "el Consejo de Ministros", "Correct": false},
@@ -965,9 +953,9 @@ var questions = [
   {
     "id": 110,
     "created_at": "2025-07-25T13:09:57.000000Z",
-    "updated_at": "2025-07-25T13:48:02.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1066",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "El Instituto Etxepare tiene como misi\u00f3n la difusi\u00f3n del\u2026",
     "answers": [
@@ -983,9 +971,9 @@ var questions = [
   {
     "id": 111,
     "created_at": "2025-07-25T13:24:59.000000Z",
-    "updated_at": "2025-07-25T13:24:59.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1022",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 hay en las islas Baleares, en vez de diputaciones?",
     "answers": [
@@ -1001,9 +989,9 @@ var questions = [
   {
     "id": 112,
     "created_at": "2025-07-25T13:24:59.000000Z",
-    "updated_at": "2025-07-25T13:24:59.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1023",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQu\u00e9 ciudad tiene m\u00e1s habitantes?",
     "answers": [
       {"answer": "Sevilla.", "Correct": false},
@@ -1018,9 +1006,9 @@ var questions = [
   {
     "id": 113,
     "created_at": "2025-07-25T13:24:59.000000Z",
-    "updated_at": "2025-07-25T13:24:59.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1024",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Las Cortes Generales representan\u2026",
     "answers": [
       {"answer": "al pueblo espa\u00f1ol.", "Correct": true},
@@ -1035,9 +1023,9 @@ var questions = [
   {
     "id": 114,
     "created_at": "2025-07-25T13:24:59.000000Z",
-    "updated_at": "2025-07-25T13:24:59.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1025",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "El Congreso de los Diputados y el Senado constituyen el poder\u2026",
     "answers": [
@@ -1053,9 +1041,9 @@ var questions = [
   {
     "id": 115,
     "created_at": "2025-07-25T13:38:06.000000Z",
-    "updated_at": "2025-07-25T13:38:06.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1027",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntas comunidades aut\u00f3nomas hay en Espa\u00f1a?",
     "answers": [
@@ -1071,26 +1059,27 @@ var questions = [
   {
     "id": 116,
     "created_at": "2025-07-25T13:38:06.000000Z",
-    "updated_at": "2025-07-25T13:38:06.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1028",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Los colores de la bandera espa\u00f1ola son\u2026",
     "answers": [
       {"answer": "blanco y rojo", "Correct": false},
       {"answer": "rojo y amarillo", "Correct": true},
       {"answer": "amarillo y blanco", "Correct": false}
     ],
-    "photo": null,
-    "description": null,
+    "photo": "questions\/1028.gif",
+    "description":
+        "La bandera de Espa\u00f1a, conocida como la \"rojigualda\", tiene sus or\u00edgenes en la necesidad de diferenciaci\u00f3n en alta mar durante el reinado de Carlos III. El rojo y el amarillo fueron seleccionados por su alta visibilidad, especialmente en el contexto naval. El rojo se eligi\u00f3 porque era un color f\u00e1cil de te\u00f1ir, mientras que el amarillo se destacaba bien en el agua. La bandera actual, con sus franjas horizontales roja y amarilla (de doble ancho), surgi\u00f3 de un concurso para un nuevo pabell\u00f3n naval.",
     "rating": 5,
     "reviews_count": 1
   },
   {
     "id": 117,
     "created_at": "2025-07-25T13:38:06.000000Z",
-    "updated_at": "2025-07-25T13:38:06.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1029",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfD\u00f3nde est\u00e1 la sede del Gobierno de Espa\u00f1a?",
     "answers": [
@@ -1106,9 +1095,9 @@ var questions = [
   {
     "id": 118,
     "created_at": "2025-07-25T13:38:06.000000Z",
-    "updated_at": "2025-07-25T13:38:06.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1030",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La bandera azul con 12 estrellas amarillas en c\u00edrculo es la bandera de\u2026",
     "answers": [
@@ -1116,17 +1105,18 @@ var questions = [
       {"answer": "El Parlamento Europeo", "Correct": false},
       {"answer": "la Comisi\u00f3n de Europa", "Correct": false}
     ],
-    "photo": null,
-    "description": null,
+    "photo": "\/questions\/1030.jpg",
+    "description":
+        "La bandera de la Uni\u00f3n Europea es azul con un c\u00edrculo de doce estrellas doradas. El c\u00edrculo de estrellas simboliza la unidad, la solidaridad y la armon\u00eda entre los pa\u00edses europeos. El n\u00famero doce no est\u00e1 relacionado con el n\u00famero de estados miembros, sino que es un s\u00edmbolo tradicional de perfecci\u00f3n y plenitud, seg\u00fan la Uni\u00f3n Europea.",
     "rating": 5,
     "reviews_count": 1
   },
   {
     "id": 119,
     "created_at": "2025-07-25T13:38:06.000000Z",
-    "updated_at": "2025-07-25T13:38:06.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1031",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "En las elecciones municipales se vota a\u2026",
     "answers": [
       {"answer": "alcaldes y concejales", "Correct": true},
@@ -1141,9 +1131,9 @@ var questions = [
   {
     "id": 120,
     "created_at": "2025-07-25T13:38:06.000000Z",
-    "updated_at": "2025-07-25T13:38:06.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1032",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQu\u00e9 lengua es oficial en el Pa\u00eds Vasco?",
     "answers": [
       {"answer": "El bable", "Correct": false},
@@ -1158,9 +1148,9 @@ var questions = [
   {
     "id": 121,
     "created_at": "2025-07-25T13:39:39.000000Z",
-    "updated_at": "2025-07-25T13:39:39.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1033",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Todos los espa\u00f1oles tienen el deber de conocer la lengua\u2026",
     "answers": [
@@ -1176,9 +1166,9 @@ var questions = [
   {
     "id": 122,
     "created_at": "2025-07-25T13:39:39.000000Z",
-    "updated_at": "2025-07-25T13:39:39.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1034",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "El aran\u00e9s es una lengua cooficial que se habla en un peque\u00f1o territorio de\u2026",
     "answers": [
@@ -1194,9 +1184,9 @@ var questions = [
   {
     "id": 123,
     "created_at": "2025-07-25T13:39:39.000000Z",
-    "updated_at": "2025-07-25T13:39:39.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1035",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Las instituciones de una comunidad aut\u00f3noma son: la asamblea legislativa, el consejo de gobierno y\u2026",
     "answers": [
@@ -1212,9 +1202,9 @@ var questions = [
   {
     "id": 124,
     "created_at": "2025-07-25T13:39:39.000000Z",
-    "updated_at": "2025-07-25T13:39:39.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1036",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de estas opciones es una lengua cooficial en alguna comunidad aut\u00f3noma?",
     "answers": [
@@ -1230,9 +1220,9 @@ var questions = [
   {
     "id": 125,
     "created_at": "2025-07-25T13:39:39.000000Z",
-    "updated_at": "2025-07-25T13:39:39.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1037",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 instituci\u00f3n tiene como fin la promoci\u00f3n de la ense\u00f1anza de la lengua espa\u00f1ola y la difusi\u00f3n de la cultura en espa\u00f1ol?",
     "answers": [
@@ -1251,9 +1241,9 @@ var questions = [
   {
     "id": 126,
     "created_at": "2025-07-25T13:39:39.000000Z",
-    "updated_at": "2025-07-25T13:39:39.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1038",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de los siguientes organismos trabaja para conseguir la normalizaci\u00f3n ling\u00fc\u00edstica?",
     "answers": [
@@ -1269,9 +1259,9 @@ var questions = [
   {
     "id": 127,
     "created_at": "2025-07-25T13:41:04.000000Z",
-    "updated_at": "2025-07-25T13:41:04.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1039",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfD\u00f3nde vive el presidente del Gobierno?",
     "answers": [
       {"answer": "En el Palacio Real", "Correct": false},
@@ -1286,9 +1276,9 @@ var questions = [
   {
     "id": 128,
     "created_at": "2025-07-25T13:41:04.000000Z",
-    "updated_at": "2025-07-25T13:41:04.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1040",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de los siguientes cuerpos forma parte de las Fuerzas Armadas de Espa\u00f1a?",
     "answers": [
@@ -1304,9 +1294,9 @@ var questions = [
   {
     "id": 129,
     "created_at": "2025-07-25T13:41:04.000000Z",
-    "updated_at": "2025-07-25T13:41:04.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1041",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQui\u00e9nes forman parte del Gobierno?",
     "answers": [
       {"answer": "Los ministros", "Correct": true},
@@ -1321,9 +1311,9 @@ var questions = [
   {
     "id": 130,
     "created_at": "2025-07-25T13:41:04.000000Z",
-    "updated_at": "2025-07-25T13:41:04.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1042",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Espa\u00f1a es un\u2026",
     "answers": [
       {
@@ -1341,9 +1331,9 @@ var questions = [
   {
     "id": 131,
     "created_at": "2025-07-25T13:41:04.000000Z",
-    "updated_at": "2025-07-25T13:41:04.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1043",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de las siguientes siglas corresponde a un partido pol\u00edtico?",
     "answers": [
@@ -1359,9 +1349,9 @@ var questions = [
   {
     "id": 132,
     "created_at": "2025-07-25T13:41:04.000000Z",
-    "updated_at": "2025-07-25T13:41:04.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1044",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 t\u00edtulo tiene la futura reina, hija del rey?",
     "answers": [
@@ -1377,9 +1367,9 @@ var questions = [
   {
     "id": 133,
     "created_at": "2025-07-25T13:42:40.000000Z",
-    "updated_at": "2025-07-25T13:42:40.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1045",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCon qu\u00e9 rey se restaura la democracia en Espa\u00f1a despu\u00e9s del r\u00e9gimen de Franco?",
     "answers": [
@@ -1395,9 +1385,9 @@ var questions = [
   {
     "id": 134,
     "created_at": "2025-07-25T13:42:40.000000Z",
-    "updated_at": "2025-07-25T13:42:40.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1046",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfEn qu\u00e9 a\u00f1o se aprob\u00f3 la Constituci\u00f3n espa\u00f1ola?",
     "answers": [
@@ -1413,9 +1403,9 @@ var questions = [
   {
     "id": 135,
     "created_at": "2025-07-25T13:42:40.000000Z",
-    "updated_at": "2025-07-25T13:42:40.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1047",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntas comunidades aut\u00f3nomas tienen su propia bandera?",
     "answers": [
@@ -1431,9 +1421,9 @@ var questions = [
   {
     "id": 136,
     "created_at": "2025-07-25T13:42:40.000000Z",
-    "updated_at": "2025-07-25T13:42:40.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1048",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 organismo oficial atiende las quejas de los ciudadanos por el mal funcionamiento de las administraciones?",
     "answers": [
@@ -1449,9 +1439,9 @@ var questions = [
   {
     "id": 137,
     "created_at": "2025-07-25T13:42:40.000000Z",
-    "updated_at": "2025-07-25T13:42:40.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1049",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntas firmas, como m\u00ednimo, deben recoger los ciudadanos para poder presentar una proposici\u00f3n de ley?",
     "answers": [
@@ -1467,9 +1457,9 @@ var questions = [
   {
     "id": 138,
     "created_at": "2025-07-25T13:42:40.000000Z",
-    "updated_at": "2025-07-25T13:42:40.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1050",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfA cu\u00e1l de estas organizaciones internacionales pertenece Espa\u00f1a?",
     "answers": [
@@ -1491,9 +1481,9 @@ var questions = [
   {
     "id": 139,
     "created_at": "2025-07-25T13:43:42.000000Z",
-    "updated_at": "2025-07-25T13:43:42.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1051",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "En la organizaci\u00f3n de la Administraci\u00f3n se distinguen tres niveles: central, auton\u00f3mica y\u2026",
     "answers": [
@@ -1509,9 +1499,9 @@ var questions = [
   {
     "id": 140,
     "created_at": "2025-07-25T13:43:42.000000Z",
-    "updated_at": "2025-07-25T13:43:42.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1052",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El poder legislativo corresponde...",
     "answers": [
       {"answer": "al presidente y los ministros", "Correct": false},
@@ -1526,9 +1516,9 @@ var questions = [
   {
     "id": 141,
     "created_at": "2025-07-25T13:43:42.000000Z",
-    "updated_at": "2025-07-25T13:43:42.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1053",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfD\u00f3nde vive el rey?",
     "answers": [
       {"answer": "En el Palacio de la Moneda", "Correct": false},
@@ -1543,9 +1533,9 @@ var questions = [
   {
     "id": 142,
     "created_at": "2025-07-25T13:43:42.000000Z",
-    "updated_at": "2025-07-25T13:43:42.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1054",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El nombre oficial del parlamento espa\u00f1ol es\u2026",
     "answers": [
       {"answer": "Cortes Generales", "Correct": true},
@@ -1560,9 +1550,9 @@ var questions = [
   {
     "id": 143,
     "created_at": "2025-07-25T13:48:02.000000Z",
-    "updated_at": "2025-07-25T13:48:02.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1067",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La Comunidad Iberoamericana de Naciones est\u00e1 formada por\u2026",
     "answers": [
@@ -1581,9 +1571,9 @@ var questions = [
   {
     "id": 144,
     "created_at": "2025-07-25T13:48:02.000000Z",
-    "updated_at": "2025-07-25T13:48:02.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1068",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La Secretar\u00eda Xeral de Pol\u00edtica Ling\u00fc\u00edstica difunde y promociona la lengua y la cultura\u2026",
     "answers": [
@@ -1599,9 +1589,9 @@ var questions = [
   {
     "id": 145,
     "created_at": "2025-07-25T13:49:11.000000Z",
-    "updated_at": "2025-07-25T13:49:11.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1069",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfC\u00f3mo se llama el rey de Espa\u00f1a?",
     "answers": [
       {"answer": "Juan Carlos I", "Correct": false},
@@ -1616,9 +1606,9 @@ var questions = [
   {
     "id": 146,
     "created_at": "2025-07-25T13:49:11.000000Z",
-    "updated_at": "2025-07-25T13:49:11.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1070",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llama el \u00f3rgano de gobierno de los jueces y magistrados?",
     "answers": [
@@ -1634,9 +1624,9 @@ var questions = [
   {
     "id": 147,
     "created_at": "2025-07-25T13:49:11.000000Z",
-    "updated_at": "2025-07-25T13:49:11.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1071",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n aprueba los presupuestos generales del Estado?",
     "answers": [
@@ -1652,9 +1642,9 @@ var questions = [
   {
     "id": 148,
     "created_at": "2025-07-25T13:49:11.000000Z",
-    "updated_at": "2025-07-25T13:49:11.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1072",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "La Constituci\u00f3n espa\u00f1ola es\u2026",
     "answers": [
       {"answer": "la ley fundamental", "Correct": true},
@@ -1669,9 +1659,9 @@ var questions = [
   {
     "id": 149,
     "created_at": "2025-07-25T13:49:11.000000Z",
-    "updated_at": "2025-07-25T13:49:11.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1073",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Las Cortes Generales est\u00e1n compuestas por el Senado y\u2026",
     "answers": [
@@ -1687,9 +1677,9 @@ var questions = [
   {
     "id": 150,
     "created_at": "2025-07-25T13:49:11.000000Z",
-    "updated_at": "2025-07-25T13:49:11.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1074",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQui\u00e9n elabora las leyes?",
     "answers": [
       {"answer": "El poder ejecutivo", "Correct": false},
@@ -1704,9 +1694,9 @@ var questions = [
   {
     "id": 151,
     "created_at": "2025-07-25T13:50:18.000000Z",
-    "updated_at": "2025-07-25T13:50:18.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1075",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La defensa de la integridad territorial de Espa\u00f1a corresponde a\u2026",
     "answers": [
@@ -1729,9 +1719,9 @@ var questions = [
   {
     "id": 152,
     "created_at": "2025-07-25T13:50:18.000000Z",
-    "updated_at": "2025-07-25T13:50:18.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1076",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "El Ej\u00e9rcito espa\u00f1ol participa desde 1989 en misiones de paz de la\u2026",
     "answers": [
@@ -1750,9 +1740,9 @@ var questions = [
   {
     "id": 153,
     "created_at": "2025-07-25T13:50:18.000000Z",
-    "updated_at": "2025-07-25T13:50:18.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1077",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n vigila puertos y aeropuertos, fronteras y costas?",
     "answers": [
@@ -1768,9 +1758,9 @@ var questions = [
   {
     "id": 154,
     "created_at": "2025-07-25T13:50:18.000000Z",
-    "updated_at": "2025-07-25T13:50:18.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1078",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n hace el control de pasaportes en las fronteras de Espa\u00f1a?",
     "answers": [
@@ -1786,9 +1776,9 @@ var questions = [
   {
     "id": 155,
     "created_at": "2025-07-25T13:50:18.000000Z",
-    "updated_at": "2025-07-25T13:50:18.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1079",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n controla la circulaci\u00f3n de coches en las ciudades?",
     "answers": [
@@ -1804,9 +1794,9 @@ var questions = [
   {
     "id": 156,
     "created_at": "2025-07-25T13:50:18.000000Z",
-    "updated_at": "2025-07-25T13:50:18.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1080",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llama la polic\u00eda auton\u00f3mica de Catalu\u00f1a?",
     "answers": [
@@ -1822,9 +1812,9 @@ var questions = [
   {
     "id": 157,
     "created_at": "2025-07-25T13:51:22.000000Z",
-    "updated_at": "2025-07-25T13:51:22.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1081",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llama la polic\u00eda auton\u00f3mica del Pa\u00eds Vasco?",
     "answers": [
@@ -1840,9 +1830,9 @@ var questions = [
   {
     "id": 158,
     "created_at": "2025-07-25T13:51:22.000000Z",
-    "updated_at": "2025-07-25T13:51:22.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1082",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfDesde qu\u00e9 a\u00f1o es rey Felipe VI?",
     "answers": [
       {"answer": "Desde 1975", "Correct": false},
@@ -1857,9 +1847,9 @@ var questions = [
   {
     "id": 159,
     "created_at": "2025-07-25T13:51:22.000000Z",
-    "updated_at": "2025-07-25T13:51:22.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1083",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n regula el tr\u00e1fico en los pueblos y ciudades?",
     "answers": [
@@ -1875,9 +1865,9 @@ var questions = [
   {
     "id": 160,
     "created_at": "2025-07-25T13:51:22.000000Z",
-    "updated_at": "2025-07-25T13:51:22.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1084",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n puede presentar una queja al Defensor del Pueblo?",
     "answers": [
@@ -1899,9 +1889,9 @@ var questions = [
   {
     "id": 161,
     "created_at": "2025-07-25T13:51:22.000000Z",
-    "updated_at": "2025-07-25T13:51:22.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1085",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "En Espa\u00f1a el voto en las elecciones es\u2026",
     "answers": [
       {"answer": "un derecho", "Correct": true},
@@ -1916,9 +1906,9 @@ var questions = [
   {
     "id": 162,
     "created_at": "2025-07-25T13:51:22.000000Z",
-    "updated_at": "2025-07-25T13:51:22.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1086",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfQui\u00e9n vigila el tr\u00e1fico en las carreteras?",
     "answers": [
       {"answer": "La Guardia Civil", "Correct": true},
@@ -1933,9 +1923,9 @@ var questions = [
   {
     "id": 163,
     "created_at": "2025-07-25T13:52:29.000000Z",
-    "updated_at": "2025-07-25T13:52:29.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1087",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 organismo se encarga de recaudar los impuestos?",
     "answers": [
@@ -1951,9 +1941,9 @@ var questions = [
   {
     "id": 164,
     "created_at": "2025-07-25T13:52:29.000000Z",
-    "updated_at": "2025-07-25T13:52:29.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1088",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfD\u00f3nde se publican las leyes nacionales?",
     "answers": [
       {
@@ -1976,9 +1966,9 @@ var questions = [
   {
     "id": 165,
     "created_at": "2025-07-25T13:52:29.000000Z",
-    "updated_at": "2025-07-25T13:52:29.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1089",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llaman los \u00f3rganos de gobierno que solo existen en Canarias?",
     "answers": [
@@ -1994,9 +1984,9 @@ var questions = [
   {
     "id": 166,
     "created_at": "2025-07-25T13:52:29.000000Z",
-    "updated_at": "2025-07-25T13:52:29.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1090",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfD\u00f3nde se difunde toda la informaci\u00f3n sobre novedades e iniciativas de la Administraci\u00f3n electr\u00f3nica?",
     "answers": [
@@ -2022,9 +2012,9 @@ var questions = [
   {
     "id": 167,
     "created_at": "2025-07-25T13:52:29.000000Z",
-    "updated_at": "2025-07-25T13:52:29.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1091",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l es el n\u00famero de tel\u00e9fono de informaci\u00f3n de la Administraci\u00f3n General del Estado?",
     "answers": [
@@ -2040,9 +2030,9 @@ var questions = [
   {
     "id": 168,
     "created_at": "2025-07-25T13:52:29.000000Z",
-    "updated_at": "2025-07-25T13:52:29.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1092",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Espa\u00f1a est\u00e1 organizada en\u2026",
     "answers": [
       {"answer": "cantones", "Correct": false},
@@ -2057,9 +2047,9 @@ var questions = [
   {
     "id": 169,
     "created_at": "2025-07-25T13:53:24.000000Z",
-    "updated_at": "2025-07-25T13:53:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1093",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntos partidos pol\u00edticos hay en Espa\u00f1a?",
     "answers": [
@@ -2075,9 +2065,9 @@ var questions = [
   {
     "id": 170,
     "created_at": "2025-07-25T13:53:24.000000Z",
-    "updated_at": "2025-07-25T13:53:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1094",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfD\u00f3nde tiene lugar la investidura del presidente del Gobierno?",
     "answers": [
@@ -2093,9 +2083,9 @@ var questions = [
   {
     "id": 171,
     "created_at": "2025-07-25T13:53:24.000000Z",
-    "updated_at": "2025-07-25T13:53:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1095",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n tiene el mando supremo de las Fuerzas Armadas?",
     "answers": [
@@ -2111,9 +2101,9 @@ var questions = [
   {
     "id": 172,
     "created_at": "2025-07-25T13:53:24.000000Z",
-    "updated_at": "2025-07-25T13:53:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1096",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n es el representante del Estado en una comunidad aut\u00f3noma?",
     "answers": [
@@ -2135,9 +2125,9 @@ var questions = [
   {
     "id": 173,
     "created_at": "2025-07-25T13:53:24.000000Z",
-    "updated_at": "2025-07-25T13:53:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1097",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfCu\u00e1ntas provincias hay en Espa\u00f1a?",
     "answers": [
       {"answer": "45", "Correct": false},
@@ -2152,9 +2142,9 @@ var questions = [
   {
     "id": 174,
     "created_at": "2025-07-25T13:53:24.000000Z",
-    "updated_at": "2025-07-25T13:53:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1098",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La ense\u00f1anza de las lenguas cooficiales es competencia\u2026",
     "answers": [
@@ -2170,9 +2160,9 @@ var questions = [
   {
     "id": 175,
     "created_at": "2025-07-25T13:54:12.000000Z",
-    "updated_at": "2025-07-25T13:54:12.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1099",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El poder ejecutivo corresponde\u2026",
     "answers": [
       {"answer": "al Gobierno del Estado", "Correct": true},
@@ -2187,9 +2177,9 @@ var questions = [
   {
     "id": 176,
     "created_at": "2025-07-25T13:54:12.000000Z",
-    "updated_at": "2025-07-25T13:54:12.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1100",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntas c\u00e1maras hay en el Parlamento espa\u00f1ol?",
     "answers": [
@@ -2205,9 +2195,9 @@ var questions = [
   {
     "id": 177,
     "created_at": "2025-07-25T13:54:12.000000Z",
-    "updated_at": "2025-07-25T13:54:12.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1101",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "El suministro de agua y el alumbrado de las ciudades es competencia de \u2026",
     "answers": [
@@ -2226,9 +2216,9 @@ var questions = [
   {
     "id": 178,
     "created_at": "2025-07-25T13:54:12.000000Z",
-    "updated_at": "2025-07-25T13:54:12.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1102",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "En materias como nacionalidad, inmigraci\u00f3n, emigraci\u00f3n o extranjer\u00eda solo tiene competencia\u2026",
     "answers": [
@@ -2244,9 +2234,9 @@ var questions = [
   {
     "id": 179,
     "created_at": "2025-07-25T13:54:12.000000Z",
-    "updated_at": "2025-07-25T13:54:12.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1103",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntas mujeres han sido presidentas de Gobierno en Espa\u00f1a?",
     "answers": [
@@ -2262,9 +2252,9 @@ var questions = [
   {
     "id": 180,
     "created_at": "2025-07-25T13:54:12.000000Z",
-    "updated_at": "2025-07-25T13:54:12.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1104",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Las relaciones internacionales son competencia de\u2026",
     "answers": [
       {"answer": "el Estado", "Correct": true},
@@ -2279,9 +2269,9 @@ var questions = [
   {
     "id": 181,
     "created_at": "2025-07-25T13:55:07.000000Z",
-    "updated_at": "2025-07-25T13:55:07.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1105",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El Ayuntamiento est\u00e1 formado por el alcalde y\u2026",
     "answers": [
       {"answer": "los concejales", "Correct": true},
@@ -2296,9 +2286,9 @@ var questions = [
   {
     "id": 182,
     "created_at": "2025-07-25T13:55:07.000000Z",
-    "updated_at": "2025-07-25T13:55:07.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1106",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9nes forman el gobierno de las comunidades aut\u00f3nomas?",
     "answers": [
@@ -2314,9 +2304,9 @@ var questions = [
   {
     "id": 183,
     "created_at": "2025-07-25T13:55:07.000000Z",
-    "updated_at": "2025-07-25T13:55:07.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1107",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l es el \u00f3rgano de gobierno en los municipios?",
     "answers": [
@@ -2332,9 +2322,9 @@ var questions = [
   {
     "id": 184,
     "created_at": "2025-07-25T13:55:07.000000Z",
-    "updated_at": "2025-07-25T13:55:07.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1108",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llaman los \u00f3rganos de gobierno de las provincias espa\u00f1olas?",
     "answers": [
@@ -2350,9 +2340,9 @@ var questions = [
   {
     "id": 185,
     "created_at": "2025-07-25T13:55:07.000000Z",
-    "updated_at": "2025-07-25T13:55:07.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1109",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l es el \u00f3rgano superior del poder ejecutivo?",
     "answers": [
@@ -2368,9 +2358,9 @@ var questions = [
   {
     "id": 186,
     "created_at": "2025-07-25T13:55:07.000000Z",
-    "updated_at": "2025-07-25T13:55:07.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1110",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "El idioma espa\u00f1ol tambi\u00e9n se llama\u2026",
     "answers": [
       {"answer": "aragon\u00e9s", "Correct": false},
@@ -2385,9 +2375,9 @@ var questions = [
   {
     "id": 187,
     "created_at": "2025-07-25T15:10:24.000000Z",
-    "updated_at": "2025-07-25T15:10:24.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1111",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfA qui\u00e9nes se elige en las elecciones al Parlamento Europeo?",
     "answers": [
@@ -2403,9 +2393,9 @@ var questions = [
   {
     "id": 188,
     "created_at": "2025-07-25T15:10:36.000000Z",
-    "updated_at": "2025-07-25T15:10:36.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1112",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "Los espa\u00f1oles pueden votar a partir de los\u2026",
     "answers": [
       {"answer": "16 a\u00f1os", "Correct": false},
@@ -2420,9 +2410,9 @@ var questions = [
   {
     "id": 189,
     "created_at": "2025-07-25T15:10:36.000000Z",
-    "updated_at": "2025-07-25T15:10:36.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1113",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Algunos ciudadanos extranjeros pueden votar en las elecciones\u2026",
     "answers": [
@@ -2438,9 +2428,9 @@ var questions = [
   {
     "id": 190,
     "created_at": "2025-07-25T15:10:36.000000Z",
-    "updated_at": "2025-07-25T15:10:36.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1114",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQui\u00e9n controla la gesti\u00f3n financiera del Estado?",
     "answers": [
@@ -2456,9 +2446,9 @@ var questions = [
   {
     "id": 191,
     "created_at": "2025-07-25T15:10:36.000000Z",
-    "updated_at": "2025-07-25T15:10:36.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1115",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question": "\u00bfA qui\u00e9nes se elige en las elecciones generales?",
     "answers": [
       {"answer": "A los senadores y diputados", "Correct": true},
@@ -2473,9 +2463,9 @@ var questions = [
   {
     "id": 192,
     "created_at": "2025-07-25T15:10:36.000000Z",
-    "updated_at": "2025-07-25T15:10:36.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1116",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1ntos miembros tiene el Congreso de los Diputados?",
     "answers": [
@@ -2491,9 +2481,9 @@ var questions = [
   {
     "id": 193,
     "created_at": "2025-07-25T15:10:51.000000Z",
-    "updated_at": "2025-07-25T15:10:51.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1117",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "Los municipios y provincias forman parte de la Administraci\u00f3n\u2026",
     "answers": [
@@ -2509,9 +2499,9 @@ var questions = [
   {
     "id": 194,
     "created_at": "2025-07-25T15:10:51.000000Z",
-    "updated_at": "2025-07-25T15:10:51.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1118",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "La comunidad aut\u00f3noma m\u00e1s poblada de Espa\u00f1a es\u2026",
     "answers": [
@@ -2527,9 +2517,9 @@ var questions = [
   {
     "id": 195,
     "created_at": "2025-07-25T15:10:51.000000Z",
-    "updated_at": "2025-07-25T15:10:51.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1119",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfC\u00f3mo se llama la organizaci\u00f3n que defiende los intereses de los trabajadores?",
     "answers": [
@@ -2545,9 +2535,9 @@ var questions = [
   {
     "id": 196,
     "created_at": "2025-07-25T15:10:51.000000Z",
-    "updated_at": "2025-07-25T15:10:51.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "1120",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfCu\u00e1l de las siguientes personalidades ha sido presidente del Gobierno de Espa\u00f1a?",
     "answers": [
@@ -2563,9 +2553,9 @@ var questions = [
   {
     "id": 197,
     "created_at": "2025-07-25T15:12:38.000000Z",
-    "updated_at": "2025-07-25T15:12:38.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2011",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Todos los espa\u00f1oles, ya sean mayores o menores de edad, tienen derecho a votar en las elecciones.",
     "answers": [
@@ -2580,9 +2570,9 @@ var questions = [
   {
     "id": 198,
     "created_at": "2025-07-25T15:12:38.000000Z",
-    "updated_at": "2025-07-25T15:12:38.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2012",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los profesores pueden ense\u00f1ar con libertad, dentro de los l\u00edmites de la Constituci\u00f3n.",
     "answers": [
@@ -2597,9 +2587,9 @@ var questions = [
   {
     "id": 199,
     "created_at": "2025-07-25T15:12:38.000000Z",
-    "updated_at": "2025-07-25T15:12:38.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2013",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La Constituci\u00f3n reconoce \u00fanicamente los derechos fundamentales de los espa\u00f1oles.",
     "answers": [
@@ -2614,9 +2604,9 @@ var questions = [
   {
     "id": 200,
     "created_at": "2025-07-25T15:12:38.000000Z",
-    "updated_at": "2025-07-25T15:12:38.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2014",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question": "En Espa\u00f1a existe la pena de muerte.",
     "answers": [
       {"answer": "Verdadero", "Correct": false},
@@ -2630,9 +2620,9 @@ var questions = [
   {
     "id": 201,
     "created_at": "2025-07-25T15:12:38.000000Z",
-    "updated_at": "2025-07-25T15:12:38.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2015",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La ley limita el acceso de terceras personas a datos de car\u00e1cter personal.",
     "answers": [
@@ -2647,9 +2637,9 @@ var questions = [
   {
     "id": 202,
     "created_at": "2025-07-25T15:13:09.000000Z",
-    "updated_at": "2025-07-25T15:13:09.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2016",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La libertad de prensa est\u00e1 limitada por el respeto al honor de las personas.",
     "answers": [
@@ -2664,9 +2654,9 @@ var questions = [
   {
     "id": 203,
     "created_at": "2025-07-25T15:13:09.000000Z",
-    "updated_at": "2025-07-25T15:13:09.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2017",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "En Espa\u00f1a las causas de separaci\u00f3n y divorcio est\u00e1n reguladas por la ley.",
     "answers": [
@@ -2681,9 +2671,9 @@ var questions = [
   {
     "id": 204,
     "created_at": "2025-07-25T15:13:09.000000Z",
-    "updated_at": "2025-07-25T15:13:09.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2018",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Todos los espa\u00f1oles pagan la misma cantidad de impuestos.",
     "answers": [
@@ -2698,9 +2688,9 @@ var questions = [
   {
     "id": 205,
     "created_at": "2025-07-25T15:13:09.000000Z",
-    "updated_at": "2025-07-25T15:13:09.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2019",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "En Espa\u00f1a los hombres y las mujeres tienen los mismos derechos.",
     "answers": [
@@ -2715,9 +2705,9 @@ var questions = [
   {
     "id": 206,
     "created_at": "2025-07-25T15:13:09.000000Z",
-    "updated_at": "2025-07-25T15:13:09.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2020",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La ense\u00f1anza obligatoria consta de dos etapas: Educaci\u00f3n Primaria y Educaci\u00f3n Secundaria Obligatoria.",
     "answers": [
@@ -2732,9 +2722,9 @@ var questions = [
   {
     "id": 207,
     "created_at": "2025-07-25T15:13:35.000000Z",
-    "updated_at": "2025-07-25T15:13:35.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2021",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question": "En Espa\u00f1a hay una religi\u00f3n oficial.",
     "answers": [
       {"answer": "Verdadero", "Correct": false},
@@ -2748,9 +2738,9 @@ var questions = [
   {
     "id": 208,
     "created_at": "2025-07-25T15:13:35.000000Z",
-    "updated_at": "2025-07-25T15:13:35.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2022",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question": "La atenci\u00f3n sanitaria p\u00fablica es gratuita.",
     "answers": [
       {"answer": "Verdadero", "Correct": true},
@@ -2764,9 +2754,9 @@ var questions = [
   {
     "id": 209,
     "created_at": "2025-07-25T15:13:35.000000Z",
-    "updated_at": "2025-07-25T15:13:35.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2023",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los poderes p\u00fablicos deben promover la educaci\u00f3n f\u00edsica y el deporte.",
     "answers": [
@@ -2781,9 +2771,9 @@ var questions = [
   {
     "id": 210,
     "created_at": "2025-07-25T15:13:35.000000Z",
-    "updated_at": "2025-07-25T15:13:35.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2024",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "En Espa\u00f1a est\u00e1 reconocido el derecho de asociaci\u00f3n.",
     "answers": [
@@ -2798,9 +2788,9 @@ var questions = [
   {
     "id": 211,
     "created_at": "2025-07-25T15:13:35.000000Z",
-    "updated_at": "2025-07-25T15:13:35.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2025",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "En caso de huelga, es obligatorio por ley mantener unos servicios m\u00ednimos.",
     "answers": [
@@ -2815,9 +2805,9 @@ var questions = [
   {
     "id": 212,
     "created_at": "2025-07-25T15:14:46.000000Z",
-    "updated_at": "2025-07-25T15:14:46.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2026",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question": "Los trabajadores tienen derecho a hacer huelga.",
     "answers": [
       {"answer": "Verdadero", "Correct": true},
@@ -2831,9 +2821,9 @@ var questions = [
   {
     "id": 213,
     "created_at": "2025-07-25T15:14:46.000000Z",
-    "updated_at": "2025-07-25T15:14:46.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2027",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La libertad ideol\u00f3gica est\u00e1 garantizada solo en parte del territorio nacional.",
     "answers": [
@@ -2848,9 +2838,9 @@ var questions = [
   {
     "id": 214,
     "created_at": "2025-07-25T15:14:46.000000Z",
-    "updated_at": "2025-07-25T15:14:46.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2028",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Todos los ciudadanos tienen acceso al sistema de Seguridad Social p\u00fablico, excepto si est\u00e1n desempleados.",
     "answers": [
@@ -2865,9 +2855,9 @@ var questions = [
   {
     "id": 215,
     "created_at": "2025-07-25T15:14:46.000000Z",
-    "updated_at": "2025-07-25T15:14:46.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2029",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Todos tienen derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona, as\u00ed como el deber de conservarlo.",
     "answers": [
@@ -2882,9 +2872,9 @@ var questions = [
   {
     "id": 216,
     "created_at": "2025-07-25T15:14:46.000000Z",
-    "updated_at": "2025-07-25T15:14:46.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2030",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question": "Todo el mundo tiene derecho a expresar su opini\u00f3n.",
     "answers": [
       {"answer": "Verdadero", "Correct": true},
@@ -2898,9 +2888,9 @@ var questions = [
   {
     "id": 217,
     "created_at": "2025-07-25T15:15:28.000000Z",
-    "updated_at": "2025-07-25T15:15:28.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2031",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La edad m\u00ednima para casarse en Espa\u00f1a es de 12 a\u00f1os.",
     "answers": [
@@ -2915,9 +2905,9 @@ var questions = [
   {
     "id": 218,
     "created_at": "2025-07-25T15:15:28.000000Z",
-    "updated_at": "2025-07-25T15:15:28.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2032",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "La Ley proh\u00edbe la discriminaci\u00f3n por cualquier circunstancia personal o social.",
     "answers": [
@@ -2932,9 +2922,9 @@ var questions = [
   {
     "id": 219,
     "created_at": "2025-07-25T15:15:28.000000Z",
-    "updated_at": "2025-07-25T15:15:28.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2033",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los poderes p\u00fablicos garantizan la defensa de los consumidores.",
     "answers": [
@@ -2949,9 +2939,9 @@ var questions = [
   {
     "id": 220,
     "created_at": "2025-07-25T15:15:28.000000Z",
-    "updated_at": "2025-07-25T15:15:28.000000Z",
+    "updated_at": "2025-07-29T18:35:58.000000Z",
     "ccse_id": "2034",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los jueces administran la justicia en Espa\u00f1a seg\u00fan las indicaciones del Gobierno.",
     "answers": [
@@ -2966,9 +2956,9 @@ var questions = [
   {
     "id": 221,
     "created_at": "2025-07-25T15:15:28.000000Z",
-    "updated_at": "2025-07-25T15:15:28.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "2035",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "Los espa\u00f1oles deben ayudar en los casos de cat\u00e1strofe o calamidad p\u00fablica.",
     "answers": [
@@ -2983,9 +2973,9 @@ var questions = [
   {
     "id": 222,
     "created_at": "2025-07-25T15:15:45.000000Z",
-    "updated_at": "2025-07-25T15:15:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "2036",
-    "category": "DERECHOS Y DEBERES FUNDAMENTALES",
+    "category": "Tarea 2",
     "question":
         "En Espa\u00f1a los ciudadanos pueden elegir en qu\u00e9 ciudad quieren vivir.",
     "answers": [
@@ -3000,10 +2990,9 @@ var questions = [
   {
     "id": 223,
     "created_at": "2025-07-25T15:17:29.000000Z",
-    "updated_at": "2025-07-25T15:17:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3013",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "Espa\u00f1a se divide en\u2026",
     "answers": [
       {"answer": "departamentos y regiones", "Correct": false},
@@ -3018,10 +3007,9 @@ var questions = [
   {
     "id": 224,
     "created_at": "2025-07-25T15:17:29.000000Z",
-    "updated_at": "2025-07-25T15:17:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3014",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfCu\u00e1l de estas comunidades aut\u00f3nomas tiene solo una provincia?",
     "answers": [
@@ -3037,10 +3025,9 @@ var questions = [
   {
     "id": 225,
     "created_at": "2025-07-25T15:17:29.000000Z",
-    "updated_at": "2025-07-25T15:17:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3015",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "En el norte de \u00c1frica est\u00e1n Ceuta y\u2026",
     "answers": [
       {"answer": "Almer\u00eda", "Correct": false},
@@ -3055,10 +3042,9 @@ var questions = [
   {
     "id": 226,
     "created_at": "2025-07-25T15:18:01.000000Z",
-    "updated_at": "2025-07-25T15:18:01.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3016",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfCu\u00e1l de estas comunidades aut\u00f3nomas tiene m\u00e1s de una provincia?",
     "answers": [
@@ -3074,10 +3060,9 @@ var questions = [
   {
     "id": 227,
     "created_at": "2025-07-25T15:18:01.000000Z",
-    "updated_at": "2025-07-25T15:18:01.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3017",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfCu\u00e1l de estos r\u00edos desemboca en el oc\u00e9ano Atl\u00e1ntico?",
     "answers": [
@@ -3093,10 +3078,9 @@ var questions = [
   {
     "id": 228,
     "created_at": "2025-07-25T15:18:01.000000Z",
-    "updated_at": "2025-07-25T15:18:01.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3018",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfCu\u00e1l de estas provincias forma parte de la Comunidad de Castilla-Le\u00f3n?",
     "answers": [
@@ -3112,10 +3096,9 @@ var questions = [
   {
     "id": 229,
     "created_at": "2025-07-25T15:18:01.000000Z",
-    "updated_at": "2025-07-25T15:18:01.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3019",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "Las temperaturas suaves con abundantes lluvias son propias del clima\u2026",
     "answers": [
@@ -3131,10 +3114,9 @@ var questions = [
   {
     "id": 230,
     "created_at": "2025-07-25T15:18:01.000000Z",
-    "updated_at": "2025-07-25T15:18:01.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3020",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "Canarias tiene un clima\u2026",
     "answers": [
       {"answer": "mediterr\u00e1neo", "Correct": false},
@@ -3149,10 +3131,9 @@ var questions = [
   {
     "id": 231,
     "created_at": "2025-07-25T15:41:29.000000Z",
-    "updated_at": "2025-07-25T15:41:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3021",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "El principal r\u00edo que desemboca en el mar Mediterr\u00e1neo es el\u2026",
     "answers": [
@@ -3168,10 +3149,9 @@ var questions = [
   {
     "id": 232,
     "created_at": "2025-07-25T15:41:29.000000Z",
-    "updated_at": "2025-07-25T15:41:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3022",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "Espa\u00f1a est\u00e1 entre los pa\u00edses de Europa m\u00e1s\u2026",
     "answers": [
@@ -3187,10 +3167,9 @@ var questions = [
   {
     "id": 233,
     "created_at": "2025-07-25T15:41:29.000000Z",
-    "updated_at": "2025-07-25T15:41:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3023",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question":
         "\u00bfEn qu\u00e9 provincia est\u00e1 el parque nacional de Monfrag\u00fce?",
     "answers": [
@@ -3206,10 +3185,9 @@ var questions = [
   {
     "id": 234,
     "created_at": "2025-07-25T15:41:29.000000Z",
-    "updated_at": "2025-07-25T15:41:29.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "3024",
-    "category":
-        "ORGANIZACI\u00d3N TERRITORIAL DE ESPA\u00d1A. GEOGRAF\u00cdA F\u00cdSICA Y POL\u00cdTICA",
+    "category": "Tarea 3",
     "question": "Los Picos de Europa est\u00e1n en\u2026",
     "answers": [
       {"answer": "Andaluc\u00eda", "Correct": false},
@@ -3224,9 +3202,9 @@ var questions = [
   {
     "id": 235,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4001",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "Los personajes principales de la novela el Quijote son don Quijote y\u2026",
     "answers": [
@@ -3242,9 +3220,9 @@ var questions = [
   {
     "id": 236,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4002",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfCu\u00e1l de las siguientes mujeres es una cient\u00edfica espa\u00f1ola reconocida mundialmente?",
     "answers": [
@@ -3260,9 +3238,9 @@ var questions = [
   {
     "id": 237,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4003",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfC\u00f3mo se llama, en literatura, a los siglos XVI y XVII?",
     "answers": [
@@ -3278,9 +3256,9 @@ var questions = [
   {
     "id": 238,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4004",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "Mar\u00eda Zambrano, Mar\u00eda Teresa Le\u00f3n y Rosa Chacel son\u2026",
     "answers": [
@@ -3296,9 +3274,9 @@ var questions = [
   {
     "id": 239,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4005",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "\u00bfQu\u00e9 m\u00fasico compuso El amor brujo?",
     "answers": [
       {"answer": "Manuel de Falla.", "Correct": true},
@@ -3313,9 +3291,9 @@ var questions = [
   {
     "id": 240,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4006",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "\u00bfQu\u00e9 dulce es t\u00edpico de las navidades?",
     "answers": [
       {"answer": "El flan.", "Correct": false},
@@ -3330,9 +3308,9 @@ var questions = [
   {
     "id": 241,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4007",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfQu\u00e9 instrumento musical es t\u00edpico del folclore espa\u00f1ol?",
     "answers": [
@@ -3348,9 +3326,9 @@ var questions = [
   {
     "id": 242,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4008",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "Isabel Coixet es una\u2026",
     "answers": [
       {"answer": "cantante pop.", "Correct": false},
@@ -3365,9 +3343,9 @@ var questions = [
   {
     "id": 243,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4009",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "Una de las cantantes espa\u00f1olas m\u00e1s famosas actualmente es...",
     "answers": [
@@ -3383,9 +3361,9 @@ var questions = [
   {
     "id": 244,
     "created_at": "2025-07-25T15:48:23.000000Z",
-    "updated_at": "2025-07-25T15:48:23.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4010",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfEn qu\u00e9 ciudad de Espa\u00f1a hay una mezquita que es Patrimonio de la Humanidad?",
     "answers": [
@@ -3401,9 +3379,9 @@ var questions = [
   {
     "id": 245,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4011",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfEn qu\u00e9 ciudad de Espa\u00f1a se encuentra La Alhambra, que es Patrimonio de la Humanidad?",
     "answers": [
@@ -3419,9 +3397,9 @@ var questions = [
   {
     "id": 246,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4012",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfD\u00f3nde est\u00e1 La Sagrada Familia, el monumento de Gaud\u00ed?",
     "answers": [
@@ -3437,9 +3415,9 @@ var questions = [
   {
     "id": 247,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4013",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "Pablo Picasso fue un famoso\u2026",
     "answers": [
       {"answer": "pintor.", "Correct": true},
@@ -3454,9 +3432,9 @@ var questions = [
   {
     "id": 248,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4014",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfC\u00f3mo se llama la mayor instituci\u00f3n p\u00fablica dedicada a la investigaci\u00f3n en Espa\u00f1a?",
     "answers": [
@@ -3476,9 +3454,9 @@ var questions = [
   {
     "id": 249,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4015",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "Paco de Luc\u00eda fue un famoso\u2026.",
     "answers": [
       {"answer": "cient\u00edfico.", "Correct": false},
@@ -3493,9 +3471,9 @@ var questions = [
   {
     "id": 250,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4016",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfCu\u00e1l de estas manifestaciones folcl\u00f3ricas es patrimonio cultural inmaterial de la humanidad?",
     "answers": [
@@ -3511,9 +3489,9 @@ var questions = [
   {
     "id": 251,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4017",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfCu\u00e1l es la moneda com\u00fan en muchos pa\u00edses de la Uni\u00f3n Europea?",
     "answers": [
@@ -3529,9 +3507,9 @@ var questions = [
   {
     "id": 252,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4018",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "La fiesta de la Tomatina se celebra en\u2026",
     "answers": [
       {"answer": "M\u00e9rida.", "Correct": false},
@@ -3546,9 +3524,9 @@ var questions = [
   {
     "id": 253,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4019",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "La Feria del Libro se celebra en toda Espa\u00f1a, normalmente, en\u2026",
     "answers": [
@@ -3564,9 +3542,9 @@ var questions = [
   {
     "id": 254,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4020",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "La Liga y la Copa del Rey son competiciones de\u2026",
     "answers": [
       {"answer": "nataci\u00f3n.", "Correct": false},
@@ -3581,9 +3559,9 @@ var questions = [
   {
     "id": 255,
     "created_at": "2025-07-25T15:49:52.000000Z",
-    "updated_at": "2025-07-25T15:49:52.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4021",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "\u00bfQui\u00e9n ha recibido el premio Nobel de Literatura?",
     "answers": [
       {"answer": "Mar\u00eda Zambrano.", "Correct": false},
@@ -3598,9 +3576,9 @@ var questions = [
   {
     "id": 256,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4022",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "Las chirigotas de C\u00e1diz son t\u00edpicas de\u2026",
     "answers": [
       {"answer": "la Semana Santa.", "Correct": false},
@@ -3615,9 +3593,9 @@ var questions = [
   {
     "id": 257,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4023",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "Teresa Perales y Daniel Molina son...",
     "answers": [
       {"answer": "campeones paraol\u00edmpicos.", "Correct": true},
@@ -3632,9 +3610,9 @@ var questions = [
   {
     "id": 258,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4024",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfQu\u00e9 toman los espa\u00f1oles la noche del 31 de diciembre para celebrar el cambio de a\u00f1o?",
     "answers": [
@@ -3650,9 +3628,9 @@ var questions = [
   {
     "id": 259,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4025",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "\u00bfD\u00f3nde est\u00e1 al Museo del Prado?",
     "answers": [
       {"answer": "En Madrid.", "Correct": true},
@@ -3667,9 +3645,9 @@ var questions = [
   {
     "id": 260,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4026",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "\u00bfD\u00f3nde se celebra un famoso festival de cine?",
     "answers": [
       {"answer": "En San Sebasti\u00e1n.", "Correct": true},
@@ -3684,9 +3662,9 @@ var questions = [
   {
     "id": 261,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4027",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfQu\u00e9 escritora espa\u00f1ola escribe en otra lengua oficial de Espa\u00f1a?",
     "answers": [
@@ -3702,9 +3680,9 @@ var questions = [
   {
     "id": 262,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4028",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfQu\u00e9 tres culturas convivieron en la Espa\u00f1a medieval?",
     "answers": [
@@ -3723,9 +3701,9 @@ var questions = [
   {
     "id": 263,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4029",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "El 6 de diciembre se celebra en Espa\u00f1a\u2026",
     "answers": [
       {"answer": "el D\u00eda de la Constituci\u00f3n.", "Correct": true},
@@ -3740,9 +3718,9 @@ var questions = [
   {
     "id": 264,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4030",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfD\u00f3nde se encuentran la Cueva de Altamira que son Patrimonio Mundial de UNESCO?",
     "answers": [
@@ -3758,9 +3736,9 @@ var questions = [
   {
     "id": 265,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4031",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "La Transici\u00f3n espa\u00f1ola a la democracia comienza en...",
     "answers": [
@@ -3776,9 +3754,9 @@ var questions = [
   {
     "id": 266,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4032",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "El Premio Cervantes se da a\u2026",
     "answers": [
       {"answer": "actores.", "Correct": false},
@@ -3793,9 +3771,9 @@ var questions = [
   {
     "id": 267,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4033",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "Los Premios Goya est\u00e1n relacionados con\u2026",
     "answers": [
       {"answer": "el cine.", "Correct": true},
@@ -3810,9 +3788,9 @@ var questions = [
   {
     "id": 268,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4034",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfQu\u00e9 premios promueven en Espa\u00f1a valores cient\u00edficos, culturales y human\u00edsticos?",
     "answers": [
@@ -3828,9 +3806,9 @@ var questions = [
   {
     "id": 269,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4035",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question":
         "\u00bfCu\u00e1ndo fueron los Juegos Ol\u00edmpicos de Barcelona?",
     "answers": [
@@ -3846,9 +3824,9 @@ var questions = [
   {
     "id": 270,
     "created_at": "2025-07-25T15:50:45.000000Z",
-    "updated_at": "2025-07-25T15:50:45.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "4036",
-    "category": "CULTURA E HISTORIA DE ESPA\u00d1A",
+    "category": "Tarea 4",
     "question": "El escritor Miguel de Cervantes naci\u00f3 en\u2026",
     "answers": [
       {"answer": "La Mancha.", "Correct": false},
@@ -3863,9 +3841,9 @@ var questions = [
   {
     "id": 271,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5001",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfQui\u00e9n hace el DNI?",
     "answers": [
       {"answer": "La Polic\u00eda Nacional.", "Correct": true},
@@ -3880,9 +3858,9 @@ var questions = [
   {
     "id": 272,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5002",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es el documento que certifica el lugar de residencia del titular?",
     "answers": [
@@ -3898,9 +3876,9 @@ var questions = [
   {
     "id": 273,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5003",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Para hacer el DNI debes acudir a\u2026",
     "answers": [
       {"answer": "una comisar\u00eda de polic\u00eda.", "Correct": true},
@@ -3915,9 +3893,9 @@ var questions = [
   {
     "id": 274,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5004",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es la edad m\u00ednima para conducir un coche en Espa\u00f1a?",
     "answers": [
@@ -3933,9 +3911,9 @@ var questions = [
   {
     "id": 275,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5005",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "El carn\u00e9 de conducir se hace en\u2026",
     "answers": [
       {
@@ -3953,9 +3931,9 @@ var questions = [
   {
     "id": 276,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5006",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Para sacar el carn\u00e9 de conducir hay que aprobar\u2026",
     "answers": [
       {"answer": "un examen te\u00f3rico.", "Correct": false},
@@ -3973,9 +3951,9 @@ var questions = [
   {
     "id": 277,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5007",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfD\u00f3nde se tramita el libro de familia?",
     "answers": [
       {"answer": "En el Registro Civil.", "Correct": true},
@@ -3990,9 +3968,9 @@ var questions = [
   {
     "id": 278,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5008",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estos canales de televisi\u00f3n es auton\u00f3mico?",
     "answers": [
@@ -4008,9 +3986,9 @@ var questions = [
   {
     "id": 279,
     "created_at": "2025-07-25T15:54:59.000000Z",
-    "updated_at": "2025-07-25T15:54:59.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5009",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfCu\u00e1nto dura el permiso de maternidad o paternidad?",
     "answers": [
       {"answer": "12 semanas.", "Correct": false},
@@ -4025,9 +4003,9 @@ var questions = [
   {
     "id": 280,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5010",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es la tasa m\u00e1xima de alcohol en sangre permitida a los conductores, en gramos por litro (g\/l)?",
     "answers": [
@@ -4043,9 +4021,9 @@ var questions = [
   {
     "id": 281,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5011",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Las viviendas de protecci\u00f3n oficial\u2026",
     "answers": [
       {"answer": "tienen un precio limitado.", "Correct": true},
@@ -4060,9 +4038,9 @@ var questions = [
   {
     "id": 282,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5012",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfQu\u00e9 comunidad aut\u00f3noma es conocida por la calidad de su aceite de oliva?",
     "answers": [
@@ -4078,9 +4056,9 @@ var questions = [
   {
     "id": 283,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5013",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfC\u00f3mo se llama la revisi\u00f3n que deben pasar obligatoriamente los coches?",
     "answers": [
@@ -4102,9 +4080,9 @@ var questions = [
   {
     "id": 284,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5014",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "El aperitivo que acompa\u00f1a a la bebida en bares y restaurantes se llama...",
     "answers": [
@@ -4120,9 +4098,9 @@ var questions = [
   {
     "id": 285,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5015",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfD\u00f3nde se tramita la tarjeta sanitaria?",
     "answers": [
       {"answer": "En la comisar\u00eda de polic\u00eda.", "Correct": false},
@@ -4137,9 +4115,9 @@ var questions = [
   {
     "id": 286,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5016",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfCon cu\u00e1ntos hijos una familia es numerosa?",
     "answers": [
       {"answer": "Con 1 hijo.", "Correct": false},
@@ -4154,9 +4132,9 @@ var questions = [
   {
     "id": 287,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5017",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "En Espa\u00f1a est\u00e1 permitido el matrimonio\u2026",
     "answers": [
       {"answer": "solo entre personas del mismo sexo.", "Correct": false},
@@ -4171,9 +4149,9 @@ var questions = [
   {
     "id": 288,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5018",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Los propietarios de perros deben registrarlos en\u2026",
     "answers": [
       {"answer": "el Ministerio de Justicia.", "Correct": false},
@@ -4188,9 +4166,9 @@ var questions = [
   {
     "id": 289,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5019",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Los principales ingredientes de la tortilla espa\u00f1ola son huevos y\u2026",
     "answers": [
@@ -4206,9 +4184,9 @@ var questions = [
   {
     "id": 290,
     "created_at": "2025-07-25T15:56:46.000000Z",
-    "updated_at": "2025-07-25T15:56:46.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5020",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfQui\u00e9n es un cocinero famoso dentro y fuera de Espa\u00f1a?",
     "answers": [
@@ -4224,9 +4202,9 @@ var questions = [
   {
     "id": 291,
     "created_at": "2025-07-25T15:58:12.000000Z",
-    "updated_at": "2025-07-25T15:58:12.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5021",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estos canales de televisi\u00f3n es p\u00fablico?",
     "answers": [
@@ -4242,9 +4220,9 @@ var questions = [
   {
     "id": 292,
     "created_at": "2025-07-25T15:58:12.000000Z",
-    "updated_at": "2025-07-25T15:58:12.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5022",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "En una comunidad de vecinos, una de las normas es\u2026",
     "answers": [
       {"answer": "abrir la puerta al cartero.", "Correct": false},
@@ -4259,9 +4237,9 @@ var questions = [
   {
     "id": 293,
     "created_at": "2025-07-25T15:58:12.000000Z",
-    "updated_at": "2025-07-25T15:58:12.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5023",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "La sangr\u00eda es una bebida compuesta por refrescos, vino y\u2026",
     "answers": [
@@ -4277,9 +4255,9 @@ var questions = [
   {
     "id": 294,
     "created_at": "2025-07-25T15:58:12.000000Z",
-    "updated_at": "2025-07-25T15:58:12.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5024",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "La sidra es una bebida t\u00edpica de\u2026",
     "answers": [
       {"answer": "Asturias.", "Correct": true},
@@ -4294,9 +4272,9 @@ var questions = [
   {
     "id": 295,
     "created_at": "2025-07-25T15:58:12.000000Z",
-    "updated_at": "2025-07-25T15:58:12.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5025",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Los espa\u00f1oles tienen dos apellidos, el primero es\u2026",
     "answers": [
       {"answer": "obligatoriamente el de la madre.", "Correct": false},
@@ -4311,9 +4289,9 @@ var questions = [
   {
     "id": 296,
     "created_at": "2025-07-25T15:58:12.000000Z",
-    "updated_at": "2025-07-25T15:58:12.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5026",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "La Fiesta Nacional de Espa\u00f1a es el\u2026",
     "answers": [
       {"answer": "6 de diciembre.", "Correct": false},
@@ -4328,9 +4306,9 @@ var questions = [
   {
     "id": 297,
     "created_at": "2025-07-25T15:58:13.000000Z",
-    "updated_at": "2025-07-25T15:58:13.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5027",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es el horario habitual de los hipermercados y centros comerciales?",
     "answers": [
@@ -4346,9 +4324,9 @@ var questions = [
   {
     "id": 298,
     "created_at": "2025-07-25T15:58:13.000000Z",
-    "updated_at": "2025-07-25T15:58:13.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5028",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfD\u00f3nde se hace el pasaporte?",
     "answers": [
       {"answer": "En el registro civil.", "Correct": false},
@@ -4363,9 +4341,9 @@ var questions = [
   {
     "id": 299,
     "created_at": "2025-07-25T15:58:13.000000Z",
-    "updated_at": "2025-07-25T15:58:13.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5029",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "El Ministerio de Igualdad es el encargado de luchar contra la violencia de g\u00e9nero y la\u2026",
     "answers": [
@@ -4381,9 +4359,9 @@ var questions = [
   {
     "id": 300,
     "created_at": "2025-07-25T15:58:13.000000Z",
-    "updated_at": "2025-07-25T15:58:13.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5030",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estas regiones es conocida por sus vinos con denominaci\u00f3n de origen?",
     "answers": [
@@ -4399,9 +4377,9 @@ var questions = [
   {
     "id": 301,
     "created_at": "2025-07-25T15:58:13.000000Z",
-    "updated_at": "2025-07-25T15:58:13.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5031",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "El DNI se hace\u2026",
     "answers": [
       {"answer": "por internet.", "Correct": false},
@@ -4416,9 +4394,9 @@ var questions = [
   {
     "id": 302,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5032",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "El horario de Canarias, con respecto a la Pen\u00ednsula, es de\u2026",
     "answers": [
@@ -4434,9 +4412,9 @@ var questions = [
   {
     "id": 303,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5033",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Para acceder a la Universidad se debe superar una prueba de evaluaci\u00f3n llamada\u2026",
     "answers": [
@@ -4452,9 +4430,9 @@ var questions = [
   {
     "id": 304,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5034",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estos productos necesita importar Espa\u00f1a de otros pa\u00edses?",
     "answers": [
@@ -4470,9 +4448,9 @@ var questions = [
   {
     "id": 305,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5035",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfQu\u00e9 tipo de impuestos tienen que pagar los ciudadanos en Espa\u00f1a?",
     "answers": [
@@ -4488,9 +4466,9 @@ var questions = [
   {
     "id": 306,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5036",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Los adultos sin Bachillerato pueden estudiar en la Universidad haciendo una prueba especial a partir de los\u2026",
     "answers": [
@@ -4506,9 +4484,9 @@ var questions = [
   {
     "id": 307,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5037",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfD\u00f3nde puede encontrarse la siguiente norma \u00abDejar salir antes de entrar\u00bb?",
     "answers": [
@@ -4524,9 +4502,9 @@ var questions = [
   {
     "id": 308,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5038",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "El Bachillerato en Espa\u00f1a\u2026",
     "answers": [
       {"answer": "es obligatorio.", "Correct": false},
@@ -4544,9 +4522,9 @@ var questions = [
   {
     "id": 309,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5039",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "El Impuesto sobre el Valor A\u00f1adido (IVA) forma parte de los\u2026",
     "answers": [
@@ -4562,9 +4540,9 @@ var questions = [
   {
     "id": 310,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5040",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfQu\u00e9 n\u00famero reciben los trabajadores al comenzar su primer empleo?",
     "answers": [
@@ -4580,9 +4558,9 @@ var questions = [
   {
     "id": 311,
     "created_at": "2025-07-25T16:00:15.000000Z",
-    "updated_at": "2025-07-25T16:00:15.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5041",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Los colegios p\u00fablicos\u2026",
     "answers": [
       {"answer": "pueden decidir su n\u00famero de plazas.", "Correct": false},
@@ -4600,9 +4578,9 @@ var questions = [
   {
     "id": 312,
     "created_at": "2025-07-25T16:01:55.000000Z",
-    "updated_at": "2025-07-25T16:01:55.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5046",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estos productos exporta Espa\u00f1a m\u00e1s que importa?",
     "answers": [
@@ -4618,9 +4596,9 @@ var questions = [
   {
     "id": 313,
     "created_at": "2025-07-25T16:01:55.000000Z",
-    "updated_at": "2025-07-25T16:01:55.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5047",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Una persona mayor de 18 a\u00f1os puede obtener el t\u00edtulo de Graduado en Educaci\u00f3n Secundaria Obligatoria en\u2026",
     "answers": [
@@ -4639,9 +4617,9 @@ var questions = [
   {
     "id": 314,
     "created_at": "2025-07-25T16:01:55.000000Z",
-    "updated_at": "2025-07-25T16:01:55.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5048",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "La formaci\u00f3n profesional\u2026",
     "answers": [
       {"answer": "es para mayores de 25 a\u00f1os.", "Correct": false},
@@ -4656,9 +4634,9 @@ var questions = [
   {
     "id": 315,
     "created_at": "2025-07-25T16:01:55.000000Z",
-    "updated_at": "2025-07-25T16:01:55.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5049",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfAd\u00f3nde vamos para ver al m\u00e9dico de familia o al pediatra?",
     "answers": [
@@ -4674,9 +4652,9 @@ var questions = [
   {
     "id": 316,
     "created_at": "2025-07-25T16:01:55.000000Z",
-    "updated_at": "2025-07-25T16:01:55.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5050",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfPara cu\u00e1ntos a\u00f1os vale la tarjeta sanitaria europea?",
     "answers": [
@@ -4692,9 +4670,9 @@ var questions = [
   {
     "id": 317,
     "created_at": "2025-07-25T16:01:55.000000Z",
-    "updated_at": "2025-07-25T16:01:55.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5051",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfA qu\u00e9 hora se cena normalmente en Espa\u00f1a?",
     "answers": [
       {"answer": "A las 18 h.", "Correct": false},
@@ -4709,9 +4687,9 @@ var questions = [
   {
     "id": 318,
     "created_at": "2025-07-25T16:03:07.000000Z",
-    "updated_at": "2025-07-25T16:03:07.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5042",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estos puertos es uno de los principales de Espa\u00f1a?",
     "answers": [
@@ -4727,9 +4705,9 @@ var questions = [
   {
     "id": 319,
     "created_at": "2025-07-25T16:03:07.000000Z",
-    "updated_at": "2025-07-25T16:03:07.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5043",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Un colegio concertado es un colegio privado que\u2026",
     "answers": [
       {"answer": "recibe dinero de la Administraci\u00f3n.", "Correct": true},
@@ -4744,9 +4722,9 @@ var questions = [
   {
     "id": 320,
     "created_at": "2025-07-25T16:03:07.000000Z",
-    "updated_at": "2025-07-25T16:03:07.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5044",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Espa\u00f1a exporta productos principalmente a pa\u00edses\u2026",
     "answers": [
@@ -4762,9 +4740,9 @@ var questions = [
   {
     "id": 321,
     "created_at": "2025-07-25T16:03:07.000000Z",
-    "updated_at": "2025-07-25T16:03:07.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5045",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Las bibliotecas p\u00fablicas son gratuitas para\u2026",
     "answers": [
       {"answer": "todos.", "Correct": true},
@@ -4779,9 +4757,9 @@ var questions = [
   {
     "id": 322,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5052",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es el n\u00famero de tel\u00e9fono \u00fanico para cualquier emergencia?",
     "answers": [
@@ -4797,9 +4775,9 @@ var questions = [
   {
     "id": 323,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5053",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfCu\u00e1l es un peri\u00f3dico deportivo?",
     "answers": [
       {"answer": "ABC.", "Correct": false},
@@ -4814,9 +4792,9 @@ var questions = [
   {
     "id": 324,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5054",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfD\u00f3nde se venden sellos y tabaco?",
     "answers": [
       {"answer": "En el quiosco.", "Correct": false},
@@ -4831,9 +4809,9 @@ var questions = [
   {
     "id": 325,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5055",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfC\u00f3mo se llama el tren espa\u00f1ol de alta velocidad?",
     "answers": [
@@ -4849,9 +4827,9 @@ var questions = [
   {
     "id": 326,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5056",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "La organizaci\u00f3n que trabaja para conseguir la integraci\u00f3n de las personas con discapacidad visual es\u2026",
     "answers": [
@@ -4867,9 +4845,9 @@ var questions = [
   {
     "id": 327,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5057",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "El Camino de Santiago es\u2026",
     "answers": [
       {"answer": "Patrimonio de la Humanidad.", "Correct": true},
@@ -4884,9 +4862,9 @@ var questions = [
   {
     "id": 328,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5058",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es el canal de televisi\u00f3n estatal que transmite noticias de actualidad nacional e internacional continuamente?",
     "answers": [
@@ -4902,9 +4880,9 @@ var questions = [
   {
     "id": 329,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5059",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "El tel\u00e9fono gratuito para las v\u00edctimas de violencia de g\u00e9nero es el\u2026",
     "answers": [
@@ -4920,9 +4898,9 @@ var questions = [
   {
     "id": 330,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5060",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "En Espa\u00f1a, la red de trenes puede ser de larga distancia, de media distancia y\u2026",
     "answers": [
@@ -4938,9 +4916,9 @@ var questions = [
   {
     "id": 331,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5061",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfQu\u00e9 est\u00e1 prohibido hacer en la puerta de un hospital o colegio?",
     "answers": [
@@ -4956,9 +4934,9 @@ var questions = [
   {
     "id": 332,
     "created_at": "2025-07-25T16:04:14.000000Z",
-    "updated_at": "2025-07-25T16:04:14.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5062",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Cuando compramos 250 gramos de un alimento estamos comprando\u2026",
     "answers": [
@@ -4974,9 +4952,9 @@ var questions = [
   {
     "id": 333,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5063",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Si compramos una botella de agua de 750 ml, compramos una botella de\u2026",
     "answers": [
@@ -4992,9 +4970,9 @@ var questions = [
   {
     "id": 334,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5064",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfD\u00f3nde se compran las medicinas con receta?",
     "answers": [
       {"answer": "En el hospital.", "Correct": false},
@@ -5009,9 +4987,9 @@ var questions = [
   {
     "id": 335,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5065",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estas tres recomendaciones podemos encontrar en un parque?",
     "answers": [
@@ -5022,17 +5000,18 @@ var questions = [
       },
       {"answer": "Respetar las normas sobre equipaje.", "Correct": false}
     ],
-    "photo": null,
-    "description": null,
+    "photo": "\/questions\/5065.jpg",
+    "description":
+        "La tierra compactada por caminar, estar de pie o pisadas fuertes puede causar diversos problemas al c\u00e9sped nuevo, desde mal drenaje, crecimiento d\u00e9bil e incluso susceptibilidad a enfermedades . De igual manera, el movimiento excesivo del c\u00e9sped nuevo puede provocar que se mueva o que se formen bultos y huecos, creando un c\u00e9sped poco atractivo e irregular.",
     "rating": 5,
     "reviews_count": 1
   },
   {
     "id": 336,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5066",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de las siguientes cosas es obligatoria para el propietario de un coche en Espa\u00f1a?",
     "answers": [
@@ -5048,9 +5027,9 @@ var questions = [
   {
     "id": 337,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5067",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "El aeropuerto Adolfo Su\u00e1rez est\u00e1 en\u2026",
     "answers": [
       {"answer": "Barcelona.", "Correct": false},
@@ -5065,9 +5044,9 @@ var questions = [
   {
     "id": 338,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5068",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "En un coche es obligatorio el uso del cintur\u00f3n de seguridad...",
     "answers": [
@@ -5083,9 +5062,9 @@ var questions = [
   {
     "id": 339,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5069",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfCu\u00e1l es el l\u00edmite de velocidad en autopista?",
     "answers": [
       {"answer": "90 km\/h.", "Correct": false},
@@ -5100,9 +5079,9 @@ var questions = [
   {
     "id": 340,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5070",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Ceder el asiento a las personas con movilidad reducida es una norma que encontramos indicada en\u2026",
     "answers": [
@@ -5118,9 +5097,9 @@ var questions = [
   {
     "id": 341,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5071",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfEn qu\u00e9 caso se retira el permiso de conducir?",
     "answers": [
       {"answer": "Por accidente grave.", "Correct": false},
@@ -5135,9 +5114,9 @@ var questions = [
   {
     "id": 342,
     "created_at": "2025-07-25T16:05:24.000000Z",
-    "updated_at": "2025-07-25T16:05:24.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5072",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfQu\u00e9 significa Renfe?",
     "answers": [
       {"answer": "Red Nacional de Fondos Europeos.", "Correct": false},
@@ -5155,9 +5134,9 @@ var questions = [
   {
     "id": 343,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5073",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Los espa\u00f1oles necesitan el pasaporte para viajar a\u2026",
     "answers": [
       {"answer": "Italia.", "Correct": false},
@@ -5172,9 +5151,9 @@ var questions = [
   {
     "id": 344,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5074",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es la edad m\u00ednima para trabajar en Espa\u00f1a?",
     "answers": [
@@ -5190,9 +5169,9 @@ var questions = [
   {
     "id": 345,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5075",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es el sector de mayor peso en la econom\u00eda espa\u00f1ola?",
     "answers": [
@@ -5208,9 +5187,9 @@ var questions = [
   {
     "id": 346,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5076",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Espa\u00f1a es innovadora en el sector de\u2026",
     "answers": [
       {"answer": "la ingenier\u00eda aeroespacial.", "Correct": false},
@@ -5225,9 +5204,9 @@ var questions = [
   {
     "id": 347,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5077",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfC\u00f3mo se llama la ley laboral m\u00e1s importante de Espa\u00f1a?",
     "answers": [
@@ -5246,9 +5225,9 @@ var questions = [
   {
     "id": 348,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5078",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1les de estos establecimientos est\u00e1 abierto 24 horas si es necesario?",
     "answers": [
@@ -5264,9 +5243,9 @@ var questions = [
   {
     "id": 349,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5079",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "La educaci\u00f3n infantil en Espa\u00f1a\u2026",
     "answers": [
       {"answer": "es obligatoria.", "Correct": false},
@@ -5281,9 +5260,9 @@ var questions = [
   {
     "id": 350,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5080",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "\u00bfCu\u00e1ndo empieza el calendario escolar?",
     "answers": [
       {"answer": "En agosto.", "Correct": false},
@@ -5298,9 +5277,9 @@ var questions = [
   {
     "id": 351,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5081",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question": "Las Escuelas Oficiales de Idiomas\u2026",
     "answers": [
       {"answer": "son centros de ense\u00f1anza privada.", "Correct": false},
@@ -5315,9 +5294,9 @@ var questions = [
   {
     "id": 352,
     "created_at": "2025-07-25T16:06:42.000000Z",
-    "updated_at": "2025-07-25T16:06:42.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5082",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l es el documento que recoge los a\u00f1os de cotizaci\u00f3n a la Seguridad Social?",
     "answers": [
@@ -5333,9 +5312,9 @@ var questions = [
   {
     "id": 353,
     "created_at": "2025-07-25T16:07:10.000000Z",
-    "updated_at": "2025-07-25T16:07:10.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5083",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "Los convenios colectivos de una empresa son los que se firman con los representantes de los trabajadores sobre\u2026",
     "answers": [
@@ -5351,9 +5330,9 @@ var questions = [
   {
     "id": 354,
     "created_at": "2025-07-25T16:07:10.000000Z",
-    "updated_at": "2025-07-25T16:07:10.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "5084",
-    "category": "SOCIEDAD ESPA\u00d1A",
+    "category": "Tarea 5",
     "question":
         "\u00bfCu\u00e1l de estas comunidades aut\u00f3nomas tiene el PIB por habitante m\u00e1s alto?",
     "answers": [
@@ -5369,9 +5348,9 @@ var questions = [
   {
     "id": 355,
     "created_at": "2025-07-25T16:28:49.000000Z",
-    "updated_at": "2025-07-25T16:28:49.000000Z",
+    "updated_at": "2025-07-29T18:35:59.000000Z",
     "ccse_id": "1026",
-    "category": "GOBIERNO, LEGISLACI\u00d3N Y PARTICIPACI\u00d3N CIUDADANA",
+    "category": "Tarea 1",
     "question":
         "\u00bfQu\u00e9 ley dicta el Gobierno en casos de especial urgencia?",
     "answers": [

@@ -1,6 +1,7 @@
 //
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/models/question_model.dart';
@@ -142,11 +143,7 @@ class Funcoes {
 // functions to treat answered questions
 
   void clearAnsweredQuestions() {
-    print(answeredQuestions.length);
-
-    print('Clearing answered questions');
     answeredQuestions.clear();
-    print(answeredQuestions.length);
     saveAnsweredQuestionsToLocal();
   }
 
@@ -202,9 +199,10 @@ class Funcoes {
   List selectQuestions(String categoryChosen) {
     List selQue = [];
     selQue = preguntas
-        .where((element) => element.category == categoryChosen)
+        .where((element) =>
+            element.category.toString().toLowerCase() ==
+            categoryChosen.toLowerCase())
         .toList();
-
     if (selQue.isEmpty) {
       selQue = preguntas;
     }
@@ -212,30 +210,27 @@ class Funcoes {
     return selQue;
   }
 
-  Future<void> initializeCatalog() async {
-    //catalogConfig = await CallApi().getPublicData('catalog');
+  List selectQuestionsForExam() {
+    List selQue = [];
+    List tempQue = [];
 
-    await iniciarPreguntas();
-    uniqueCategories.clear();
-
-    for (var i = 0; i < preguntas.length; i++) {
-      if (!uniqueCategories
-          .toString()
-          .contains(preguntas[i].category.toString())) {
-        uniqueCategories.add(preguntas[i].category);
+    for (var i = 0; i < uniqueCategories.length; i++) {
+      var category = uniqueCategories[i];
+      if (category != examCat) {
+        tempQue =
+            preguntas.where((element) => element.category == category).toList();
+        tempQue.shuffle();
+        if (ccseExam[category] is int) {
+          selQue.addAll(tempQue.take(ccseExam[category]!));
+          //print('selected ${ccseExam[category]} questions from $category');
+        } else {
+          selQue.addAll(
+              tempQue.take(5)); // Default to 5 questions if not specified
+        }
       }
     }
-    uniqueCategories.add('Simulación del Examen');
-    uniqueCategories = uniqueCategories.map((category) {
-      return category
-          .toString()
-          .split(' ')
-          .map(
-              (word) => word[0].toUpperCase() + word.substring(1).toLowerCase())
-          .join(' ');
-    }).toList();
+    return selQue;
   }
-
   // DEPRICATED
 
   /* Future<void> iniciarCidades() async {
@@ -263,27 +258,7 @@ class Funcoes {
     }
     return atividadesSelecionadas;
   }
-/* 
-  List selecionaCidade(String digitado) {
-    cidadesSelecionadas.clear();
-    for (var ativ in cidades) {
-      if (ativ['nome']
-          .toString()
-          .toLowerCase()
-          .contains(digitado.toLowerCase())) {
-        cidadesSelecionadas.add(ativ);
-      }
-    }
-    if (cidadesSelecionadas.isEmpty) {
-      if (digitado == '') {
-        return cidades;
-      } else {
-        cidadesSelecionadas.add({'id': 0, 'nome': 'Cidade Inexistente'});
-      }
-    }
-    return cidadesSelecionadas;
-  }
- */
+
   // Statistics
 
   Map<String, int> statistics() {
@@ -308,6 +283,14 @@ class Funcoes {
       'correct': correct,
       'printed': printed
     };
+  }
+
+  String shortCat(String tarea) {
+    if (shortCatMap.containsKey(tarea)) {
+      return shortCatMap[tarea] ?? '';
+    } else {
+      return tarea;
+    }
   }
 
   // WIDGETS

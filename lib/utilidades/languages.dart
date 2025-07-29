@@ -12,6 +12,18 @@ final lang = {
     'preguntas de todas las categorías.',
     'أسئلة من جميع الفئات.'
   ],
+  'You have finished your exam: You PASSED it.': [
+    'You have finished your exam: You PASSED it.',
+    'Você terminou seu exame: Você foi APROVADO.',
+    'Has terminado tu examen: APTO.',
+    'لقد أنهيت امتحانك: لقد نجحت فيه.'
+  ],
+  'You have finished your exam: You FAILED it.': [
+    'You have finished your exam: You FAILED it.',
+    'Você terminou seu exame: Você não foi APROVADO.',
+    'Has terminado tu examen: NO has aprobado.',
+    'لقد أنهيت امتحانك: لم تنجح فيه.'
+  ],
   'Take the test': [
     'Take the test',
     'Fazer o teste',

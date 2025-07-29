@@ -17,6 +17,7 @@ class QuestionareClosing extends StatefulWidget {
 
 class _QuestionareClosingState extends State<QuestionareClosing> {
   bool expanded = false;
+  bool passed = false;
 
   ConfettiController confettiController = ConfettiController(
     duration: const Duration(seconds: 5),
@@ -33,6 +34,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
     super.initState();
     if (respostasCorretas / (respostasCorretas + respostasErradas) > 0.60) {
       confettiController.play();
+      passed = true;
     }
   }
 
@@ -55,12 +57,13 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                 Funcoes().semaforo(Funcoes().statistics()['correct']! /
                     Funcoes().statistics()['answered']!),
                 icon: Icons.percent),
-            Funcoes().KPIbox(
-                largura,
-                '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
-                Funcoes().appLang('Answered Questions'),
-                Colors.grey,
-                icon: Icons.verified),
+            if (Funcoes.categorySelected != examCat)
+              Funcoes().KPIbox(
+                  largura,
+                  '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
+                  Funcoes().appLang('Answered Questions'),
+                  Colors.grey,
+                  icon: Icons.verified),
           ],
         ),
       ),
@@ -73,12 +76,16 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
               height: altura * 0.08,
             ),
             Funcoes().titleWithIcon(
-                Funcoes.categorySelected,
-                Funcoes().appLang(
-                    'You have finished your training. These are your results'),
+                Funcoes().shortCat(Funcoes.categorySelected),
+                Funcoes().appLang((Funcoes.categorySelected == examCat)
+                    ? 'You have finished your exam: You ${passed ? 'PASSED' : 'FAILED'} it.'
+                    : 'You have finished your training. These are your results'),
                 context,
                 isOpen: true,
                 hasIcon: false),
+            SizedBox(
+              height: altura * 0.02,
+            ),
             Stack(alignment: Alignment.center, children: [
               Container(
                 padding: const EdgeInsets.all(10),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
@@ -32,15 +34,20 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   }
 
   Future<void> _getData() async {
-    if (numberOfQuestions > 0) {
-      _preguntasSelecionadas =
-          Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
-      _preguntasSelecionadas =
-          _preguntasSelecionadas.take(numberOfQuestions).toList();
+    if (Funcoes.categorySelected == examCat) {
+      _preguntasSelecionadas.clear();
+      _preguntasSelecionadas = Funcoes().selectQuestionsForExam();
     } else {
-      _preguntasSelecionadas =
-          Funcoes().wronglyAnsweredQuestions(Funcoes.categorySelected);
-      numberOfQuestions = _preguntasSelecionadas.length;
+      if (numberOfQuestions > 0) {
+        _preguntasSelecionadas =
+            Funcoes().selectQuestions(Funcoes.categorySelected.toUpperCase());
+        _preguntasSelecionadas =
+            _preguntasSelecionadas.take(numberOfQuestions).toList();
+      } else {
+        _preguntasSelecionadas =
+            Funcoes().wronglyAnsweredQuestions(Funcoes.categorySelected);
+        numberOfQuestions = _preguntasSelecionadas.length;
+      }
     }
 
     currentQuestion = _preguntasSelecionadas[indexPreguntas];
@@ -93,7 +100,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                 children: [
                   Funcoes().titleWithIcon(
                       "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
-                      "${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} \n${Funcoes().appLang("Correctly")}: ${currentQuestion.getAnsQue.correct}\n${Funcoes().appLang("CCSE id")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}",
+                      "${Funcoes().appLang("CCSE id")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}\n${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} \n${Funcoes().appLang("Correctly")}: ${currentQuestion.getAnsQue.correct}",
                       context,
                       isOpen: true,
                       hasIcon: false),

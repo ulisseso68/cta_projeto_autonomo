@@ -2,7 +2,14 @@ import 'package:cta_projeto_autonomo/models/question_model.dart';
 
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
-List uniqueCategories = [];
+List uniqueCategories = [
+  'Tarea 1',
+  'Tarea 2',
+  'Tarea 3',
+  'Tarea 4',
+  'Tarea 5',
+  'Simulación Del Examen'
+];
 List preguntas = [];
 Question currentQuestion = Question();
 List answeredQuestions = [];
@@ -19,6 +26,7 @@ bool tcsAccepted = false;
 bool getName = false;
 String userName = '';
 String deviceID = '';
+String examCat = 'Simulación Del Examen';
 
 double screenH = 100;
 double screenW = 100;
@@ -142,3 +150,38 @@ var projetoParticipates = [
   {'nome': 'GitHub', 'cargo': 'Code Repository'},
   {'nome': 'OpenAI', 'cargo': 'AI Technology'},
 ];
+
+Map<String, int> ccseExam = {
+  "Tarea 1": 10,
+  "Tarea 2": 3,
+  "Tarea 3": 2,
+  "Tarea 4": 3,
+  "Tarea 5": 7
+};
+
+Map<String, String> shortCatMap = {
+  'Tarea 1': 'Gobierno y Legislación',
+  'Tarea 2': 'Derechos y Deberes Fundamentales',
+  'Tarea 3': 'Geografía Física y Política',
+  'Tarea 4': 'Cultura e Historia de España',
+  'Tarea 5': 'Sociedad Española',
+  'Simulación Del Examen': 'Examen Simulado',
+};
+
+Map<String, String> traducionCatToTarea = {
+  'GOBIERNO, LEGISLACIÓN Y PARTICIPACIÓN CIUDADANA': 'Tarea 1',
+  'DERECHOS Y DEBERES FUNDAMENTALES': 'Tarea 2',
+  'ORGANIZACIÓN TERRITORIAL DE ESPAÑA. GEOGRAFÍA FÍSICA Y POLÍTICA': 'Tarea 3',
+  'CULTURA E HISTORIA DE ESPAÑA': 'Tarea 4',
+  'SOCIEDAD ESPAÑOLA': 'Tarea 5',
+  'SIMULACIÓN DEL EXAMEN': 'Examen Simulado',
+};
+
+Map<String, String> traducionTareaToCat = {
+  'Tarea 1': 'GOBIERNO, LEGISLACIÓN Y PARTICIPACIÓN CIUDADANA',
+  'Tarea 2': 'DERECHOS Y DEBERES FUNDAMENTALES',
+  'Tarea 3': 'ORGANIZACIÓN TERRITORIAL DE ESPAÑA. GEOGRAFÍA FÍSICA Y POLÍTICA',
+  'Tarea 4': 'CULTURA E HISTORIA DE ESPAÑA',
+  'Tarea 5': 'SOCIEDAD ESPAÑOLA',
+  'Examen Simulado': 'SIMULACIÓN DEL EXAMEN',
+};
