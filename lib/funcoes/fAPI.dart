@@ -86,6 +86,7 @@ class CallApi {
       duration: const Duration(seconds: 3),
       content: msg,
       action: SnackBarAction(
+        textColor: Colors.white,
         label: actionMsg,
         onPressed: () {},
       ),

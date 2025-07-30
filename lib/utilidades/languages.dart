@@ -12,23 +12,33 @@ final lang = {
     'preguntas de todas las categorías.',
     'أسئلة من جميع الفئات.'
   ],
-  'You have finished your exam: You PASSED it.': [
-    'You have finished your exam: You PASSED it.',
-    'Você terminou seu exame: Você foi APROVADO.',
-    'Has terminado tu examen: APTO.',
-    'لقد أنهيت امتحانك: لقد نجحت فيه.'
+  'Practice': ['Practice', 'Pratique', 'Pratique', 'مارس'],
+  'You have finished your exam:': [
+    'You have finished your exam:',
+    'Você terminou seu exame:',
+    'Has terminado tu examen:',
+    'لقد أنهيت امتحانك:'
   ],
-  'You have finished your exam: You FAILED it.': [
-    'You have finished your exam: You FAILED it.',
-    'Você terminou seu exame: Você não foi APROVADO.',
-    'Has terminado tu examen: NO has aprobado.',
-    'لقد أنهيت امتحانك: لم تنجح فيه.'
+  'PASSED': ['PASSED', 'APTO', 'APTO', 'مقبول'],
+  'CONGRATULATIONS': ['CONGRATULATIONS', 'PARABÉNS', 'ENHORABUENA', 'تهانينا'],
+  'PRACTICE MORE': [
+    'PRACTICE MORE',
+    'PRATIQUE MAIS',
+    'PRATIQUE MÁS',
+    'مارس أكثر'
   ],
+  'FAILED': ['FAILED', 'INAPTO', 'INAPTO', 'غير مقبول'],
   'Take the test': [
     'Take the test',
     'Fazer o teste',
     'Hacer el examen',
     'قم بإجراء الاختبار'
+  ],
+  'Time is up!': [
+    'Time is up!',
+    'O tempo acabou!',
+    '¡Se acabó el tiempo!',
+    'انتهى الوقت!'
   ],
   'Printed': [
     'was printed already',

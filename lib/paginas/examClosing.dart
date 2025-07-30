@@ -8,14 +8,14 @@ import 'package:confetti/confetti.dart';
 //import 'package:flutter/services.dart';
 //ignore: camel_case_types
 
-class QuestionareClosing extends StatefulWidget {
-  const QuestionareClosing({super.key});
+class ExamClosing extends StatefulWidget {
+  const ExamClosing({super.key});
 
   @override
-  State<QuestionareClosing> createState() => _QuestionareClosingState();
+  State<ExamClosing> createState() => _ExamClosingState();
 }
 
-class _QuestionareClosingState extends State<QuestionareClosing> {
+class _ExamClosingState extends State<ExamClosing> {
   bool expanded = false;
   bool passed = false;
 
@@ -32,7 +32,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   @override
   void initState() {
     super.initState();
-    if (respostasCorretas / (respostasCorretas + respostasErradas) > 0.60) {
+    if (respostasCorretas / (respostasCorretas + respostasErradas) >= 0.60) {
       confettiController.play();
       passed = true;
     }
@@ -45,25 +45,22 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
 
     return Scaffold(
       bottomSheet: SizedBox(
-        height: altura * 0.30,
+        height: altura * 0.20,
         width: largura,
         //color: Colors.white,
         child: Column(
           children: [
             Funcoes().KPIbox(
                 largura,
-                '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
-                Funcoes().appLang('Accumulated Success Rate'),
-                Funcoes().semaforo(Funcoes().statistics()['correct']! /
-                    Funcoes().statistics()['answered']!),
-                icon: Icons.percent),
-            if (Funcoes.categorySelected != examCat)
-              Funcoes().KPIbox(
-                  largura,
-                  '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
-                  Funcoes().appLang('Answered Questions'),
-                  Colors.grey,
-                  icon: Icons.verified),
+                Funcoes()
+                    .appLang((respostasCorretas >= 15) ? 'PASSED' : 'FAILED'),
+                Funcoes().appLang((respostasCorretas >= 15)
+                    ? 'CONGRATULATIONS'
+                    : 'PRACTICE MORE'),
+                (respostasCorretas >= 15) ? COR_04 : redEspana,
+                icon: (respostasCorretas >= 15)
+                    ? Icons.thumb_up
+                    : Icons.thumb_down),
           ],
         ),
       ),
@@ -75,16 +72,34 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             SizedBox(
               height: altura * 0.08,
             ),
-            Funcoes().titleWithIcon(
-                Funcoes().shortCat(Funcoes.categorySelected),
-                Funcoes().appLang((Funcoes.categorySelected == examCat)
-                    ? 'You have finished your exam: You ${passed ? 'PASSED' : 'FAILED'} it.'
-                    : 'You have finished your training. These are your results'),
-                context,
-                isOpen: true,
-                hasIcon: false),
+            ListTile(
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    Funcoes().shortCat(examCat),
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontFamily: 'Verdana',
+                        fontWeight: FontWeight.bold,
+                        color: (respostasCorretas >= 15) ? COR_04 : redEspana),
+                  ),
+                  Divider(
+                    color: (respostasCorretas >= 15) ? COR_04 : redEspana,
+                    thickness: 1,
+                  ),
+                ],
+              ),
+              subtitle: Text(
+                Funcoes().appLang('You have finished your exam:'),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: (respostasCorretas >= 15) ? COR_04 : redEspana,
+                ),
+              ),
+            ),
             SizedBox(
-              height: altura * 0.02,
+              height: altura * 0.1,
             ),
             Stack(alignment: Alignment.center, children: [
               Container(
@@ -115,11 +130,10 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                     Text(
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
                       style: TextStyle(
-                        fontSize: 80,
-                        fontWeight: FontWeight.bold,
-                        color: Funcoes().semaforo(respostasCorretas /
-                            (respostasErradas + respostasCorretas)),
-                      ),
+                          fontSize: 80,
+                          fontWeight: FontWeight.bold,
+                          color:
+                              (respostasCorretas >= 15) ? COR_04 : redEspana),
                     ),
                     Text(
                       '%',

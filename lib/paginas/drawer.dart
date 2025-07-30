@@ -50,7 +50,7 @@ class AJDrawer extends StatelessWidget {
                   )
                 : ListTile(
                     leading: const Icon(
-                      Icons.graphic_eq,
+                      Icons.trending_up,
                       size: 40,
                       color: redEspana,
                     ),
@@ -58,7 +58,7 @@ class AJDrawer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Funcoes().progressBar(barSize: 0.4),
+                        Funcoes().progressBar(barSize: 0.35),
                         Funcoes().progressRings()
                       ],
                     ),
@@ -226,7 +226,7 @@ class AJDrawer extends StatelessWidget {
                   : const Icon(
                       Icons.wifi,
                       size: 40,
-                      color: COR_04,
+                      color: redEspana,
                     ),
               title: Text(
                 offlineMode

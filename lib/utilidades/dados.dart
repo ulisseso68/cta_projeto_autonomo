@@ -27,6 +27,7 @@ bool getName = false;
 String userName = '';
 String deviceID = '';
 String examCat = 'Simulación Del Examen';
+int respostaDada = 0;
 
 double screenH = 100;
 double screenW = 100;

@@ -223,13 +223,15 @@ class _HomePageState extends State<HomePage> {
               endIndent: 10,
               thickness: 1,
             ),
+            //List of categories
             _buildListTile(),
+
             Divider(
-              thickness: 3,
-              height: 50,
+              thickness: 1,
+              height: 10,
               indent: 10,
               endIndent: 10,
-              color: COR_02,
+              color: redEspana,
             ),
             Funcoes()
                 .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey),
@@ -337,7 +339,7 @@ class _HomePageState extends State<HomePage> {
             ? Text(
                 (category == examCat)
                     ? "25 ${Funcoes().appLang("questions from all categories.")}"
-                    : "$title ${Funcoes().appLang("Questions")}",
+                    : "${Funcoes().appLang('Practice')} $title ${Funcoes().appLang("Questions")}",
                 textAlign: TextAlign.start,
                 style: const TextStyle(
                   fontSize: 15,
@@ -351,7 +353,7 @@ class _HomePageState extends State<HomePage> {
                     spacing: 5,
                     children: [
                       /* Icon(Icons.navigate_next_rounded, color: COR_02), */
-                      if (category != examCat)
+                      /* if (category != examCat)
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -371,7 +373,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(Funcoes().appLang("15"),
                               style: const TextStyle(
                                   fontSize: 15, color: Colors.white)),
-                        ),
+                        ), */
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -383,7 +385,11 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () async {
                           Funcoes.categorySelected = category;
                           numberOfQuestions = 25;
-                          await Navigator.pushNamed(context, 'questionsPage1')
+                          await Navigator.pushNamed(
+                                  context,
+                                  (category != examCat)
+                                      ? 'questionsPage1'
+                                      : 'questionsExam')
                               .then((value) {
                             //This callback is executed when returning from the questions page
                             updateStatus();

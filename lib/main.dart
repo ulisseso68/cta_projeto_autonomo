@@ -1,8 +1,10 @@
+import 'package:cta_projeto_autonomo/paginas/examClosing.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_creditos_projeto.dart';
 import 'package:cta_projeto_autonomo/paginas/learningPage.dart';
 import 'package:cta_projeto_autonomo/paginas/questionaireClosing.dart';
 import 'package:cta_projeto_autonomo/paginas/home.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
+import 'package:cta_projeto_autonomo/paginas/questionsExam.dart';
 import 'package:cta_projeto_autonomo/paginas/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -44,11 +46,13 @@ class MyApp extends StatelessWidget {
       routes: {
         'homePage': ((context) => const HomePage()),
         'questionsPage1': ((context) => const QuestionsPage1()),
+        'questionsExam': ((context) => const QuestionsExam()),
         'questionsClosing': ((context) => const QuestionareClosing()),
         'learningPage': ((context) => const LearningPage()),
         'paginaCreditos': (context) => const PaginaCreditoProjeto(),
         'termosUsoPrivacidade': (context) => const PaginaTermosUsoPrivacidade(),
         'splashPage': (context) => const SplashPage(),
+        'examClosing': (context) => const ExamClosing(),
       },
       initialRoute: 'homePage',
     );
