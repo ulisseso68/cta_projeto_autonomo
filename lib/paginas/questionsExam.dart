@@ -158,124 +158,16 @@ class _QuestionsExam extends State<QuestionsExam> {
             ),
 
             // Container with the answers
-            (indexPreguntas.isNaN)
-                ? SizedBox(
-                    height: altura / 4,
-                    child: const Center(
-                      child: Text(
-                        'No hay preguntas para esta selección',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: COR_01,
-                          fontSize: 20,
-                          fontFamily: "Verdana",
-                        ),
-                      ),
-                    ),
-                  )
-                : Container(
-                    padding: EdgeInsets.all(screenW * 0.05),
-                    margin: EdgeInsets.only(
-                        left: screenW * 0.05, right: screenW * 0.05),
-                    height: altura * 0.8,
-                    width: largura - 20,
+            Container(
+              padding: EdgeInsets.all(screenW * 0.05),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _buildAnswersTiles(_respostasLista),
+              ),
+            ),
 
-                    //color: COR_02.withOpacity(0.1),
-                    child: ListView.builder(
-                        itemCount: _respostasLista.length,
-                        itemBuilder: ((context, indexAnswers) {
-                          return ListTile(
-                            visualDensity: VisualDensity.comfortable,
-                            dense: true,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            tileColor:
-                                (responded && respostaDada == indexAnswers)
-                                    ? Colors.grey
-                                    : (indexAnswers % 2 == 0)
-                                        ? Colors.grey.shade200
-                                        : Colors.white,
-                            title: Text(
-                              _respostasLista[indexAnswers]['answer'],
-                              textAlign: TextAlign.left,
-                              maxLines: 6,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  color: (respostaDada == indexAnswers &&
-                                          responded)
-                                      ? Colors.white
-                                      : COR_01,
-                                  fontFamily: 'Verdana'),
-                            ),
-                            onTap: () => setState(() {
-                              setState(() {
-                                if (!responded) {
-                                  respostaDada = indexAnswers;
-                                  if (_respostasLista[indexAnswers]
-                                      ['Correct']) {
-                                    respostasCorretas++;
-                                    Funcoes()
-                                        .findAnsweredQuestion(
-                                            _preguntasSelecionadas[
-                                                    indexPreguntas]
-                                                .id)
-                                        .registerCorrect();
-                                  } else {
-                                    respostasErradas++;
-                                    Funcoes()
-                                        .findAnsweredQuestion(
-                                            _preguntasSelecionadas[
-                                                    indexPreguntas]
-                                                .id)
-                                        .registerIncorrect();
-                                    respostaErrada = indexAnswers;
-                                  }
-                                  responded = true;
-                                }
-                              });
-                            }),
-                            leading: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  setState(() {
-                                    if (!responded) {
-                                      responded = true;
-                                      respostaDada = indexAnswers;
-                                      if (_respostasLista[indexAnswers]
-                                          ["Correct"]) {
-                                        respostasCorretas++;
-                                        // Register the answer as correct
-                                        currentQuestion.getAnsQue
-                                            .registerCorrect();
-                                      } else {
-                                        respostasErradas++;
-                                        // Register the answer as incorrect
-                                        currentQuestion.getAnsQue
-                                            .registerIncorrect();
-                                        respostaErrada = indexAnswers;
-                                      }
-                                    }
-                                  });
-                                });
-                              },
-                              icon: Icon(
-                                (responded && respostaDada == indexAnswers)
-                                    ? Icons.check_circle
-                                    : Icons.radio_button_unchecked,
-                                color:
-                                    (respostaDada == indexAnswers && responded)
-                                        ? Colors.white
-                                        : COR_01,
-                                size: 20,
-                              ),
-                            ),
-                          );
-                        })),
-                  ),
-
-            Divider(
+            /* Divider(
               thickness: 3,
               height: 50,
               indent: 10,
@@ -283,7 +175,7 @@ class _QuestionsExam extends State<QuestionsExam> {
               color: COR_02,
             ),
             Funcoes()
-                .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey),
+                .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey), */
           ],
         ),
       ),
@@ -343,6 +235,94 @@ class _QuestionsExam extends State<QuestionsExam> {
               ),
       ),
     );
+  }
+
+  List<Widget> _buildAnswersTiles(List answers) {
+    List<Widget> tiles = [];
+
+    for (var iRep = 0; iRep < answers.length; iRep++) {
+      var answer = answers[iRep];
+      tiles.add(
+        ListTile(
+          visualDensity: VisualDensity.comfortable,
+          dense: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          tileColor: (responded && respostaDada == iRep)
+              ? Colors.grey
+              : ((iRep % 2 == 0) ? Colors.grey.shade300 : Colors.white),
+          title: Text(
+            answer['answer'],
+            textAlign: TextAlign.left,
+            maxLines: 6,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontSize: 22,
+                color:
+                    (responded && respostaDada == iRep) ? Colors.white : COR_01,
+                fontFamily: 'Verdana'),
+          ),
+          onTap: () => setState(() {
+            setState(() {
+              if (!responded) {
+                if (answer['Correct']) {
+                  respostasCorretas++;
+                  Funcoes()
+                      .findAnsweredQuestion(
+                          _preguntasSelecionadas[indexPreguntas].id)
+                      .registerCorrect();
+                } else {
+                  respostasErradas++;
+                  respostaErrada = iRep;
+                  Funcoes()
+                      .findAnsweredQuestion(
+                          _preguntasSelecionadas[indexPreguntas].id)
+                      .registerIncorrect();
+                }
+                responded = true;
+                respostaDada = iRep;
+              }
+            });
+          }),
+          leading: IconButton(
+            onPressed: () {
+              setState(() {
+                setState(() {
+                  if (!responded) {
+                    responded = true;
+                    respostaDada = iRep;
+                    if (answer["Correct"]) {
+                      respostasCorretas++;
+                      // Register the answer as correct
+                      currentQuestion.getAnsQue.registerCorrect();
+                    } else {
+                      respostasErradas++;
+                      respostaErrada = iRep;
+                      // Register the answer as incorrect
+                      currentQuestion.getAnsQue.registerIncorrect();
+                    }
+                  }
+                });
+              });
+            },
+            icon: Icon(
+              (responded && respostaDada == iRep)
+                  ? Icons.check_circle
+                  : Icons.radio_button_unchecked,
+              color: COR_01,
+              size: 20,
+            ),
+          ),
+        ),
+      );
+      tiles.add(
+        const SizedBox(
+          height: 5,
+        ),
+      );
+    }
+    return tiles;
   }
 
   String clockFormat(int seconds) {
