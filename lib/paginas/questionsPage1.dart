@@ -19,6 +19,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   List _respostasLista = [];
   bool responded = false;
   int respostaErrada = -1;
+  int iResp = 0;
   int printed = 0;
   int answeredCorrect = 0;
   bool beat = false;
@@ -169,124 +170,15 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                   EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
             ),
 
+            Container(
+              padding: EdgeInsets.all(screenW * 0.05),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _buildAnswersTiles(_respostasLista),
+              ),
+            ),
             // Container with the answers
-            (indexPreguntas.isNaN)
-                ? SizedBox(
-                    height: altura / 4,
-                    child: const Center(
-                      child: Text(
-                        'No hay preguntas para esta selección',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: COR_01,
-                          fontSize: 20,
-                          fontFamily: "Verdana",
-                        ),
-                      ),
-                    ),
-                  )
-                : Container(
-                    padding: EdgeInsets.all(screenW * 0.05),
-                    margin: EdgeInsets.only(
-                        left: screenW * 0.05, right: screenW * 0.05),
-                    height: altura * 0.6,
-                    width: largura - 20,
-                    //color: COR_02.withOpacity(0.1),
-                    child: ListView.builder(
-                        itemCount: _respostasLista.length,
-                        itemBuilder: ((context, indexAnswers) {
-                          return ListTile(
-                            //VisualDensity.comfortable,
-                            //dense: true,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            tileColor: (responded)
-                                ? (_respostasLista[indexAnswers]['Correct'])
-                                    ? Colors.green.shade300
-                                    : Colors.grey.shade50
-                                : (indexAnswers % 2 == 0)
-                                    ? Colors.grey.shade200
-                                    : Colors.white,
-                            title: Text(
-                              _respostasLista[indexAnswers]['answer'],
-                              textAlign: TextAlign.left,
-                              maxLines: 6,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  color: (respostaErrada == indexAnswers)
-                                      ? Colors.red
-                                      : COR_01,
-                                  fontFamily: 'Verdana'),
-                            ),
-                            onTap: () => setState(() {
-                              setState(() {
-                                if (!responded) {
-                                  if (_respostasLista[indexAnswers]
-                                      ['Correct']) {
-                                    respostasCorretas++;
-                                    Funcoes()
-                                        .findAnsweredQuestion(
-                                            _preguntasSelecionadas[
-                                                    indexPreguntas]
-                                                .id)
-                                        .registerCorrect();
-                                  } else {
-                                    respostasErradas++;
-                                    Funcoes()
-                                        .findAnsweredQuestion(
-                                            _preguntasSelecionadas[
-                                                    indexPreguntas]
-                                                .id)
-                                        .registerIncorrect();
-                                    respostaErrada = indexAnswers;
-                                  }
-                                  responded = true;
-                                }
-                              });
-                            }),
-
-                            leading: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  setState(() {
-                                    if (!responded) {
-                                      responded = true;
-                                      if (_respostasLista[indexAnswers]
-                                          ["Correct"]) {
-                                        respostasCorretas++;
-                                        // Register the answer as correct
-                                        currentQuestion.getAnsQue
-                                            .registerCorrect();
-                                      } else {
-                                        respostasErradas++;
-                                        // Register the answer as incorrect
-                                        currentQuestion.getAnsQue
-                                            .registerIncorrect();
-                                        respostaErrada = indexAnswers;
-                                      }
-                                    }
-                                  });
-                                });
-                              },
-                              icon: Icon(
-                                (responded &
-                                        _respostasLista[indexAnswers]
-                                            ['Correct'])
-                                    ? Icons.check_circle
-                                    : (respostaErrada == indexAnswers)
-                                        ? Icons.cancel
-                                        : Icons.radio_button_unchecked,
-                                color: (respostaErrada == indexAnswers)
-                                    ? Colors.red
-                                    : COR_01,
-                                size: 20,
-                              ),
-                            ),
-                          );
-                        })),
-                  ),
           ],
         ),
       ),
@@ -302,17 +194,6 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /* Text(
-                "${Funcoes().appLang('This training')} \n${Funcoes().appLang('Correct Answers')}: $respostasCorretas \n${Funcoes().appLang('Wrong Answers')}: $respostasErradas",
-                style: const TextStyle(
-                  color: COR_02,
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ), */
                 Funcoes().appProgressBar(
                     1.0,
                     ((respostasCorretas) / _preguntasSelecionadas.length),
@@ -354,5 +235,96 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               ),
       ),
     );
+  }
+
+  List<Widget> _buildAnswersTiles(List answers) {
+    List<Widget> tiles = [];
+
+    for (var iRep = 0; iRep < answers.length; iRep++) {
+      var answer = answers[iRep];
+      tiles.add(
+        ListTile(
+          visualDensity: VisualDensity.comfortable,
+          dense: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          tileColor: (responded)
+              ? (answer['Correct'])
+                  ? Colors.green.shade300
+                  : Colors.grey.shade50
+              : ((iRep % 2 == 0) ? Colors.grey.shade300 : Colors.white),
+          title: Text(
+            answer['answer'],
+            textAlign: TextAlign.left,
+            maxLines: 6,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontSize: 22,
+                color: (respostaErrada == iRep) ? Colors.red : COR_01,
+                fontFamily: 'Verdana'),
+          ),
+          onTap: () => setState(() {
+            setState(() {
+              if (!responded) {
+                if (answer['Correct']) {
+                  respostasCorretas++;
+                  Funcoes()
+                      .findAnsweredQuestion(
+                          _preguntasSelecionadas[indexPreguntas].id)
+                      .registerCorrect();
+                } else {
+                  respostasErradas++;
+                  respostaErrada = iRep;
+
+                  Funcoes()
+                      .findAnsweredQuestion(
+                          _preguntasSelecionadas[indexPreguntas].id)
+                      .registerIncorrect();
+                  print("Resposta errada: $respostaErrada");
+                }
+                responded = true;
+              }
+            });
+          }),
+          leading: IconButton(
+            onPressed: () {
+              setState(() {
+                setState(() {
+                  if (!responded) {
+                    responded = true;
+                    if (answer["Correct"]) {
+                      respostasCorretas++;
+                      // Register the answer as correct
+                      currentQuestion.getAnsQue.registerCorrect();
+                    } else {
+                      respostasErradas++;
+                      respostaErrada = iRep;
+                      // Register the answer as incorrect
+                      currentQuestion.getAnsQue.registerIncorrect();
+                    }
+                  }
+                });
+              });
+            },
+            icon: Icon(
+              (responded & answer['Correct'])
+                  ? Icons.check_circle
+                  : (respostaErrada == iRep)
+                      ? Icons.cancel
+                      : Icons.radio_button_unchecked,
+              color: (respostaErrada == iRep) ? Colors.red : COR_01,
+              size: 20,
+            ),
+          ),
+        ),
+      );
+      tiles.add(
+        const SizedBox(
+          height: 5,
+        ),
+      );
+    }
+    return tiles;
   }
 }

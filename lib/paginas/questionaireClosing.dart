@@ -32,7 +32,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   @override
   void initState() {
     super.initState();
-    if (respostasCorretas / (respostasCorretas + respostasErradas) > 0.60) {
+    if (respostasCorretas / (respostasCorretas + respostasErradas) >= 0.60) {
       confettiController.play();
       passed = true;
     }
