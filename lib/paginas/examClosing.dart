@@ -42,6 +42,7 @@ class _ExamClosingState extends State<ExamClosing> {
   Widget build(BuildContext context) {
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
+    final Color resultColor = (respostasCorretas >= 15) ? COR_04 : redEspana;
 
     return Scaffold(
       bottomSheet: SizedBox(
@@ -107,15 +108,11 @@ class _ExamClosingState extends State<ExamClosing> {
                 width: screenH * 0.35,
                 height: screenH * 0.35,
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    Funcoes().semaforo(respostasCorretas /
-                        (respostasErradas + respostasCorretas)),
-                  ),
+                  valueColor: AlwaysStoppedAnimation<Color>(resultColor),
                   value: (respostasCorretas /
                       (respostasErradas + respostasCorretas)),
                   strokeWidth: 30,
-                  color: Funcoes().semaforo(respostasCorretas /
-                      (respostasErradas + respostasCorretas)),
+                  color: resultColor,
                   semanticsValue:
                       '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
                   backgroundColor: Colors.grey.shade200,
