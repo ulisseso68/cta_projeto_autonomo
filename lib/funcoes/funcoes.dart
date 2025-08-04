@@ -1,7 +1,7 @@
 //
 
 import 'dart:convert';
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:cta_projeto_autonomo/models/question_model.dart';
@@ -230,33 +230,6 @@ class Funcoes {
       }
     }
     return selQue;
-  }
-  // DEPRICATED
-
-  /* Future<void> iniciarCidades() async {
-    //cidades = await CallApi().getPublicData('cidades');
-    cidades = cidadesConfig.toList();
-    cidadesSelecionadas.addAll(cidades);
-  } */
-
-  List seleciona(String digitado) {
-    atividadesSelecionadas.clear();
-    for (var ativ in atividades) {
-      if (ativ['nome']
-          .toString()
-          .toLowerCase()
-          .contains(digitado.toLowerCase())) {
-        atividadesSelecionadas.add(ativ);
-      }
-    }
-    if (atividadesSelecionadas.isEmpty) {
-      if (digitado == '') {
-        return atividades;
-      } else {
-        atividadesSelecionadas.add({'id': 0, 'nome': 'Categoria Inexistente'});
-      }
-    }
-    return atividadesSelecionadas;
   }
 
   // Statistics
