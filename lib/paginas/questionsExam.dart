@@ -167,14 +167,14 @@ class _QuestionsExam extends State<QuestionsExam> {
               ),
             ),
 
-            /* Divider(
-              thickness: 3,
-              height: 50,
+            Divider(
+              thickness: 5,
+              height: screenH / 10,
               indent: 10,
               endIndent: 10,
               color: COR_02,
             ),
-            Funcoes()
+            /* Funcoes()
                 .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey), */
           ],
         ),

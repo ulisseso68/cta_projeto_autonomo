@@ -214,11 +214,12 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               ),
             ),
 
-            Container(
+            Divider(
+              thickness: 5,
+              height: screenH / 10,
+              indent: 10,
+              endIndent: 10,
               color: COR_02,
-              height: 5,
-              margin:
-                  EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
             ),
             // Container with the answers
           ],
