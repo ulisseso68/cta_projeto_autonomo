@@ -5,6 +5,7 @@ import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
+import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 
 class QuestionsPage1 extends StatefulWidget {
   const QuestionsPage1({super.key});
@@ -17,12 +18,18 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   // ignore: prefer_final_fields
   List _preguntasSelecionadas = [];
   List _respostasLista = [];
+  List _translatedAnswers = [];
+  String translatedQuestion = '';
   bool responded = false;
   int respostaErrada = -1;
   int iResp = 0;
   int printed = 0;
   int answeredCorrect = 0;
   bool beat = false;
+  bool translate = false;
+  bool otherLanguage = (language != 2) ? true : false;
+  var translation;
+  bool translationAvailable = false;
 
   @override
   initState() {
@@ -55,7 +62,33 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
     printed = currentQuestion.getAnsQue.printed;
     answeredCorrect = currentQuestion.getAnsQue.correct;
     _respostasLista = _preguntasSelecionadas[indexPreguntas].answers;
+
+    await _Translate();
+
     setState(() {});
+  }
+
+  Future<void> _Translate() async {
+    translationAvailable = false;
+    if (otherLanguage) {
+      translation =
+          await CallApi().postDataWithHeaders('questions/translation', {
+        'deviceid': deviceID,
+        'ccse_id': currentQuestion.ccse_id,
+        'target_language': Funcoes().languageName
+      }, {
+        'Authorization': 'Bearer token'
+      });
+
+      if (translation != null && translation['success'] == true) {
+        translatedQuestion = translation['translated_question'] ?? '';
+        _translatedAnswers = [];
+        for (var ans in translation['translated_answers']) {
+          _translatedAnswers.add(ans ?? '');
+        }
+        translationAvailable = true;
+      }
+    }
   }
 
   @override
@@ -110,10 +143,12 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                       (_preguntasSelecionadas.isEmpty ||
                               indexPreguntas >= _preguntasSelecionadas.length)
                           ? 'No hay preguntas para esta selección'
-                          : _preguntasSelecionadas[indexPreguntas].question,
+                          : (translate)
+                              ? translatedQuestion
+                              : _preguntasSelecionadas[indexPreguntas].question,
                       //maxLines: 4,
-                      style: const TextStyle(
-                        color: COR_01,
+                      style: TextStyle(
+                        color: (!translate) ? COR_01 : COR_04.shade800,
                         fontSize: 24,
                       ),
                     ),
@@ -221,18 +256,31 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                       currentQuestion = _preguntasSelecionadas[indexPreguntas];
                       _respostasLista =
                           _preguntasSelecionadas[indexPreguntas].answers;
+                      _Translate().then((_) {
+                        setState(() {});
+                      });
                       responded = false;
                       respostaErrada = -1;
+                      translate = false;
                     }
                   });
                 },
                 child: const Icon(Icons.arrow_forward_rounded,
                     color: Colors.white, size: 30),
               )
-            : const SizedBox(
-                height: 0,
-                width: 0,
-              ),
+            : (otherLanguage && translationAvailable)
+                ? FloatingActionButton(
+                    onPressed: () {
+                      setState(() {
+                        translate = !translate;
+                      });
+                    },
+                    shape: const StadiumBorder(),
+                    backgroundColor: COR_04.shade800,
+                    child: const Icon(Icons.translate_rounded,
+                        color: Colors.white, size: 30),
+                  )
+                : null,
       ),
     );
   }
@@ -242,6 +290,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
 
     for (var iRep = 0; iRep < answers.length; iRep++) {
       var answer = answers[iRep];
+
       tiles.add(
         ListTile(
           visualDensity: VisualDensity.comfortable,
@@ -255,13 +304,17 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                   : Colors.grey.shade50
               : ((iRep % 2 == 0) ? Colors.grey.shade300 : Colors.white),
           title: Text(
-            answer['answer'],
+            (translate) ? _translatedAnswers[iRep] : answer['answer'],
             textAlign: TextAlign.left,
             maxLines: 6,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 fontSize: 22,
-                color: (respostaErrada == iRep) ? Colors.red : COR_01,
+                color: (respostaErrada == iRep)
+                    ? Colors.red
+                    : (!translate)
+                        ? COR_01
+                        : COR_04.shade800,
                 fontFamily: 'Verdana'),
           ),
           onTap: () => setState(() {
@@ -281,7 +334,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                       .findAnsweredQuestion(
                           _preguntasSelecionadas[indexPreguntas].id)
                       .registerIncorrect();
-                  print("Resposta errada: $respostaErrada");
+                  //print("Resposta errada: $respostaErrada");
                 }
                 responded = true;
               }

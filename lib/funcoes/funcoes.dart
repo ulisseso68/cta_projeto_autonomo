@@ -116,7 +116,7 @@ class Funcoes {
       case 2:
         return 'Spanish';
       case 3:
-        return 'Moroccan Arabic';
+        return 'Morroquí  Arabic';
       default:
         return 'Unknown';
     }
