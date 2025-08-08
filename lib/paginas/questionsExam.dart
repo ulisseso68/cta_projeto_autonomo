@@ -97,6 +97,60 @@ class _QuestionsExam extends State<QuestionsExam> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new,
+              color: Colors.white, size: 30),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text(Funcoes().appLang('Exit Exam?'),
+                      style: TextStyle(
+                          color: COR_02,
+                          fontFamily: 'Verdana',
+                          fontWeight: FontWeight.bold)),
+                  content: Text(
+                    Funcoes()
+                        .appLang('Are you sure you want to exit the exam?'),
+                    style: TextStyle(
+                        color: COR_01, fontFamily: 'Verdana', fontSize: 15),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: COR_02,
+                      ),
+                      child: Text(Funcoes().appLang('Cancel'),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Verdana')),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: COR_02,
+                      ),
+                      child: Text(Funcoes().appLang('Yes'),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Verdana')),
+                      onPressed: () {
+                        clock.cancel();
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        ),
+
         automaticallyImplyLeading: false,
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         backgroundColor: COR_02,
@@ -172,7 +226,7 @@ class _QuestionsExam extends State<QuestionsExam> {
               height: screenH / 10,
               indent: 10,
               endIndent: 10,
-              color: COR_02,
+              color: Colors.white,
             ),
             /* Funcoes()
                 .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey), */
@@ -251,7 +305,7 @@ class _QuestionsExam extends State<QuestionsExam> {
           ),
           tileColor: (responded && respostaDada == iRep)
               ? Colors.grey
-              : ((iRep % 2 == 0) ? Colors.grey.shade300 : Colors.white),
+              : ((iRep % 2 == 0) ? Colors.grey.shade100 : Colors.white),
           title: Text(
             answer['answer'],
             textAlign: TextAlign.left,

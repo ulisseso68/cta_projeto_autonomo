@@ -6,6 +6,20 @@
 
 // Listing of messages
 final lang = {
+  'Exit Exam?': [
+    'Exit Exam?',
+    'Sair do Exame?',
+    '¿Salir del Examen?',
+    'هل تريد الخروج من الامتحان؟'
+  ],
+  'Are you sure you want to exit the exam?': [
+    'Are you sure you want to exit the exam?',
+    'Tem certeza de que deseja sair do exame?',
+    '¿Está seguro de que desea salir del examen?',
+    'هل أنت متأكد أنك تريد الخروج من الامتحان؟'
+  ],
+  'Yes': ['Yes', 'Sim', 'Sí', 'نعم'],
+  'Cancel': ['Cancel', 'Cancelar', 'Cancelar', 'إلغاء'],
   'questions from all categories.': [
     'questions from all categories.',
     'perguntas de todas as categorias.',

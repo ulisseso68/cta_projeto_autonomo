@@ -219,7 +219,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               height: screenH / 10,
               indent: 10,
               endIndent: 10,
-              color: COR_02,
+              color: Colors.white,
             ),
             // Container with the answers
           ],
