@@ -134,7 +134,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                 children: [
                   Funcoes().titleWithIcon(
                       "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
-                      "${Funcoes().appLang("CCSE id")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}\n${Funcoes().appLang("Printed")}: ${currentQuestion.getAnsQue.printed} \n${Funcoes().appLang("Correctly")}: ${currentQuestion.getAnsQue.correct}",
+                      "${Funcoes().appLang("CCSE ID")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}",
                       context,
                       isOpen: true,
                       hasIcon: false),
@@ -212,6 +212,13 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: _buildAnswersTiles(_respostasLista),
               ),
+            ),
+
+            Container(
+              color: COR_02,
+              height: 5,
+              margin:
+                  EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
             ),
             // Container with the answers
           ],
@@ -301,8 +308,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           tileColor: (responded)
               ? (answer['Correct'])
                   ? Colors.green.shade300
-                  : Colors.grey.shade50
-              : ((iRep % 2 == 0) ? Colors.grey.shade300 : Colors.white),
+                  : Colors.grey.shade100
+              : ((iRep % 2 == 0) ? Colors.grey.shade100 : Colors.white),
           title: Text(
             (translate) ? _translatedAnswers[iRep] : answer['answer'],
             textAlign: TextAlign.left,

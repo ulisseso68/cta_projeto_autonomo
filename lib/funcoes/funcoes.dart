@@ -110,13 +110,13 @@ class Funcoes {
   String get languageName {
     switch (language) {
       case 0:
-        return 'English';
+        return 'english';
       case 1:
-        return 'Portuguese';
+        return 'portuguese';
       case 2:
-        return 'Spanish';
+        return 'spanish';
       case 3:
-        return 'Morroquí  Arabic';
+        return 'marroquí arabic';
       default:
         return 'Unknown';
     }
