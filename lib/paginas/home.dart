@@ -215,7 +215,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
             Divider(
               color: COR_02,
               height: 10,

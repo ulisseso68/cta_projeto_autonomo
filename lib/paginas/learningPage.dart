@@ -17,6 +17,7 @@ class LearningPage extends StatefulWidget {
 
 class _LearningPageState extends State<LearningPage> {
   bool expanded = true;
+  bool translateDescription = false;
 
   @override
   Widget build(BuildContext context) {
@@ -51,38 +52,61 @@ class _LearningPageState extends State<LearningPage> {
                         fit: BoxFit.cover,
                         gaplessPlayback: true,
                       )),
+                  (translatedDescription != "")
+                      ? Positioned(
+                          bottom: 8,
+                          right: 8,
+                          child: FloatingActionButton(
+                              heroTag: 'translate_button',
+                              shape: const StadiumBorder(),
+                              backgroundColor: COR_04,
+                              onPressed: () {
+                                translateDescription = !translateDescription;
+                                setState(() {});
+                              },
+                              child: Icon(Icons.translate_rounded,
+                                  color: Colors.white, size: 30)))
+                      : Container(),
                 ])),
-            const Divider(thickness: 5.0, height: 5.0, color: COR_02),
+            Divider(
+                thickness: 5.0,
+                height: 5.0,
+                color: (translateDescription) ? COR_04 : COR_01),
             ListTile(
               //  leading: Icon(Icons.info, size: 30),
               title: Text(
-                currentQuestion.description.toString(),
-                style: const TextStyle(
-                    fontWeight: FontWeight.normal, fontSize: 18),
+                (translateDescription)
+                    ? translatedDescription
+                    : currentQuestion.description.toString(),
+                style: TextStyle(
+                    color: (translateDescription) ? COR_04 : COR_01,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18),
               ),
               textColor: Colors.black54,
             ),
-            const Divider(
+            Divider(
                 thickness: 1.0,
                 height: 20.0,
-                color: COR_02,
+                color: (translateDescription) ? COR_04 : COR_01,
                 indent: 20,
                 endIndent: 20),
             RatingBar(
                 initialRating: 3,
-                unratedColor: COR_02,
+                unratedColor: (translateDescription) ? COR_04 : COR_01,
                 direction: Axis.horizontal,
                 allowHalfRating: true,
                 itemCount: 5,
                 ratingWidget: RatingWidget(
-                    full: const Icon(Icons.star, color: COR_02),
-                    half: const Icon(
+                    full: Icon(Icons.star,
+                        color: (translateDescription) ? COR_04 : COR_01),
+                    half: Icon(
                       Icons.star_half,
-                      color: COR_02,
+                      color: (translateDescription) ? COR_04 : COR_01,
                     ),
-                    empty: const Icon(
+                    empty: Icon(
                       Icons.star_outline,
-                      color: COR_02,
+                      color: (translateDescription) ? COR_04 : COR_01,
                     )),
                 onRatingUpdate: (value) {
                   setState(() {
@@ -111,10 +135,17 @@ class _LearningPageState extends State<LearningPage> {
                         'OK');
                   });
                 }),
+            Divider(
+                thickness: 1.0,
+                height: altura / 10,
+                color: Colors.white,
+                indent: 20,
+                endIndent: 20),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'back_button',
         shape: const StadiumBorder(),
         backgroundColor: COR_02,
         onPressed: () {

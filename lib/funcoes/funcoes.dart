@@ -260,7 +260,7 @@ class Funcoes {
 
   String shortCat(String tarea) {
     if (shortCatMap.containsKey(tarea)) {
-      return shortCatMap[tarea] ?? '';
+      return appLang(shortCatMap[tarea] ?? '');
     } else {
       return tarea;
     }

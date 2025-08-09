@@ -1,5 +1,5 @@
 name: cta_projeto_autonomo
-description: A new Flutter project.
+description: Application to help getting approved at the CCSE exam.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -44,8 +44,8 @@ dependencies:
   shared_preferences: ^2.2.2
   confetti: ^0.8.0
   country_picker: ^2.0.27
-  launch_review: ^3.0.0
   flutter_email_sender: ^7.0.0
+  in_app_review: ^2.0.10
 
 dev_dependencies:
   flutter_test:

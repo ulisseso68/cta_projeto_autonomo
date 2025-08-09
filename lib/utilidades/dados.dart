@@ -28,6 +28,9 @@ String userName = '';
 String deviceID = '';
 String examCat = 'Simulación Del Examen';
 int respostaDada = 0;
+String translatedDescription = "";
+bool translationAvailable = false;
+bool otherLanguage = (language != 2) ? true : false;
 
 double screenH = 100;
 double screenW = 100;
@@ -76,7 +79,7 @@ var tncs = [
   {'nome': 'Sociedad Española', 'estado': 'PR'},
 ]; */
 
-var preguntasConfig = [
+/* var preguntasConfig = [
   {
     'id': 1,
     'pergunta': '¿Cuál es el nombre del rey actual de España?',
@@ -132,7 +135,7 @@ var preguntasConfig = [
     'fotografia':
         'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Catalonia_location_map.svg/800px-Catalonia_location_map.svg.png'
   },
-];
+]; */
 var atividades = [
   {'nome': 'Cabeleireiro', 'id': 1},
   {'nome': 'Manicure', 'id': 2},
@@ -161,12 +164,12 @@ Map<String, int> ccseExam = {
 };
 
 Map<String, String> shortCatMap = {
-  'Tarea 1': 'Gobierno y Legislación',
-  'Tarea 2': 'Derechos y Deberes Fundamentales',
-  'Tarea 3': 'Geografía Física y Política',
-  'Tarea 4': 'Cultura e Historia de España',
-  'Tarea 5': 'Sociedad Española',
-  'Simulación Del Examen': 'Examen Simulado',
+  'Tarea 1': 'Govern and Legislation',
+  'Tarea 2': 'Rights and Fundamental Duties',
+  'Tarea 3': 'Physical and Political Geography',
+  'Tarea 4': 'Culture and History of Spain',
+  'Tarea 5': 'Spanish Society',
+  'Simulación Del Examen': 'Simulated Exam',
 };
 
 Map<String, String> traducionCatToTarea = {

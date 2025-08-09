@@ -6,6 +6,42 @@
 
 // Listing of messages
 final lang = {
+  "Govern and Legislation": [
+    "Governa and Legislation",
+    "Governo e Legislação",
+    "Gobierno y Legislación",
+    "الحكومة والتشريع"
+  ],
+  "Rights and Fundamental Duties": [
+    "Rights and Fundamental Duties",
+    "Direitos e Deveres Fundamentais",
+    "Derechos y Deberes Fundamentales",
+    "الحقوق والواجبات الأساسية"
+  ],
+  "Physical and Political Geography": [
+    "Physical and Political Geography",
+    "Geografia Física e Política",
+    "Geografía Física y Política",
+    "الجغرافيا الفيزيائية والسياسية"
+  ],
+  "Culture and History of Spain": [
+    "Culture and History of Spain",
+    "Cultura e História da Espanha",
+    "Cultura e Historia de España",
+    "ثقافة وتاريخ إسبانيا"
+  ],
+  "Spanish Society": [
+    "Spanish Society",
+    "Sociedade Espanhola",
+    "Sociedad Española",
+    "المجتمع الإسباني"
+  ],
+  "Simulated Exam": [
+    "Simulated Exam",
+    "Exame Simulado",
+    "Examen Simulado",
+    "الامتحان التجريبي"
+  ],
   'Exit Exam?': [
     'Exit Exam?',
     'Sair do Exame?',

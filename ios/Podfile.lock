@@ -6,7 +6,7 @@ PODS:
     - Flutter
   - flutter_launch (0.0.1):
     - Flutter
-  - launch_review (0.0.1):
+  - in_app_review (2.0.0):
     - Flutter
   - shared_preferences_foundation (0.0.1):
     - Flutter
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_email_sender (from `.symlinks/plugins/flutter_email_sender/ios`)
   - flutter_launch (from `.symlinks/plugins/flutter_launch/ios`)
-  - launch_review (from `.symlinks/plugins/launch_review/ios`)
+  - in_app_review (from `.symlinks/plugins/in_app_review/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
@@ -32,8 +32,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_email_sender/ios"
   flutter_launch:
     :path: ".symlinks/plugins/flutter_launch/ios"
-  launch_review:
-    :path: ".symlinks/plugins/launch_review/ios"
+  in_app_review:
+    :path: ".symlinks/plugins/in_app_review/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   url_launcher_ios:
@@ -44,7 +44,7 @@ SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_email_sender: e03bdda7637bcd3539bfe718fddd980e9508efaa
   flutter_launch: c6b9eef5e64766bc5a737e43b68674950ab9c699
-  launch_review: 75d5a956ba8eaa493e9c9d4bf4c05e505e8d5ed0
+  in_app_review: a31b5257259646ea78e0e35fc914979b0031d011
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 

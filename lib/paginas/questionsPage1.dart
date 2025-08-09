@@ -27,12 +27,13 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   int answeredCorrect = 0;
   bool beat = false;
   bool translate = false;
-  bool otherLanguage = (language != 2) ? true : false;
   var translation;
-  bool translationAvailable = false;
 
   @override
   initState() {
+    otherLanguage = (language != 2) ? true : false;
+    translationAvailable = false;
+    translatedDescription = "";
     indexPreguntas = 0;
     respostasCorretas = 0;
     respostasErradas = 0;
@@ -70,6 +71,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
 
   Future<void> _Translate() async {
     translationAvailable = false;
+    translatedDescription = "";
     if (otherLanguage) {
       translation =
           await CallApi().postDataWithHeaders('questions/translation', {
@@ -86,6 +88,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
         for (var ans in translation['translated_answers']) {
           _translatedAnswers.add(ans ?? '');
         }
+        translatedDescription = translation['translated_description'] ?? '';
         translationAvailable = true;
       }
     }
@@ -154,44 +157,18 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                     ),
                     trailing:
                         (_preguntasSelecionadas[indexPreguntas].hasDetails)
-                            ? Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  AnimatedContainer(
-                                    onEnd: () {
-                                      setState(() {
-                                        beat = !beat;
-                                      });
-                                    },
-                                    duration: const Duration(milliseconds: 300),
-                                    width: 50,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      color: COR_02.withOpacity(0.3),
-                                      shape: BoxShape.circle,
-                                    ),
-                                  ),
-                                  IconButton(
-                                    onHover: (value) {
-                                      setState(() {
-                                        beat = value;
-                                      });
-                                    },
-                                    onPressed: () {
-                                      setState(() {});
-                                      Navigator.pushNamed(
-                                        context,
-                                        'learningPage',
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.fact_check_rounded,
-                                      color: COR_02,
-                                      size: 30,
-                                    ),
-                                  ),
-                                ],
-                              )
+                            ? IconButton(
+                                icon: Icon(
+                                  Icons.tips_and_updates,
+                                  size: 40,
+                                  color: (translate) ? COR_04.shade800 : COR_02,
+                                ),
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    'learningPage',
+                                  );
+                                })
                             : null,
                   ),
                 ],
@@ -199,7 +176,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
             ),
 
             Container(
-              color: COR_02,
+              color: (!translate) ? COR_02 : COR_04.shade800,
               height: 5,
               margin:
                   EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
@@ -278,6 +255,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               )
             : (otherLanguage && translationAvailable)
                 ? FloatingActionButton(
+                    heroTag: 'translate_button',
                     onPressed: () {
                       setState(() {
                         translate = !translate;

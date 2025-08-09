@@ -5,7 +5,7 @@ import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 import 'package:flutter/material.dart';
-import 'package:launch_review/launch_review.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 class AJDrawer extends StatelessWidget {
   const AJDrawer({
@@ -91,25 +91,6 @@ class AJDrawer extends StatelessWidget {
             ), */
 
             // Share your experience
-            /* ListTile(
-              leading: const Icon(
-                Icons.rate_review_rounded,
-                size: 40,
-                color: redEspana,
-              ),
-              title: Text(
-                Funcoes().appLang('Share your experience'),
-                textAlign: TextAlign.start,
-                style: TextStyle(color: COR_01, fontSize: 14),
-              ),
-              subtitle: Text(
-                Funcoes().appLang('Help us improve the app'),
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
-              ),
-              onTap: () {
-                LaunchReview.launch(writeReview: false, iOSAppId: "1635840240");
-              },
-            ), */
 
             // Settings
             ListTile(
@@ -253,6 +234,35 @@ class AJDrawer extends StatelessWidget {
                 );
               },
             ),
+            /* ListTile(
+              leading: const Icon(
+                Icons.rate_review_rounded,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Share your experience'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              subtitle: Text(
+                Funcoes().appLang('Help us improve the app'),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              onTap: () async {
+                if (await inAppReview.isAvailable()) {
+                  inAppReview.requestReview();
+                } else {
+                  CallApi().showAlert(
+                      context,
+                      Text(
+                        Funcoes().appLang('Review not available at the moment'),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      '');
+                }
+              },
+            ), */
           ],
         ));
   }
