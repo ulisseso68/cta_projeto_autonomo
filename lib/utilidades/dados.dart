@@ -3,12 +3,12 @@ import 'package:cta_projeto_autonomo/models/question_model.dart';
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
 List uniqueCategories = [
+  'Simulación Del Examen',
   'Tarea 1',
   'Tarea 2',
   'Tarea 3',
   'Tarea 4',
   'Tarea 5',
-  'Simulación Del Examen'
 ];
 List preguntas = [];
 Question currentQuestion = Question();

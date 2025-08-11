@@ -150,7 +150,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           setState(() {});
         },
         backgroundColor: COR_02,
-        child: const Icon(Icons.home_filled, color: Colors.white, size: 30),
+        child: const Icon(Icons.home_filled, color: Colors.white, size: 40),
       ),
     );
   }

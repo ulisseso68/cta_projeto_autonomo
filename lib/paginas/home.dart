@@ -115,9 +115,12 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       onDrawerChanged: (isClosed) => updateStatus(),
-      drawer: const AJDrawer(),
+      endDrawer: const AJDrawer(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white, size: 40),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+          size: 40,
+        ),
         toolbarHeight: (extended) ? altura / 3 : altura / 6,
         title: Row(
           children: [
@@ -242,26 +245,37 @@ class _HomePageState extends State<HomePage> {
         height: 40,
         color: redEspana,
       ),
+      /* floatingActionButton: FloatingActionButton(
+        shape: const StadiumBorder(),
+        elevation: 20,
+        onPressed: () {
+          Navigator.pushNamed(context, 'questionsExam');
+        },
+        backgroundColor: redEspana,
+        child: const Icon(Icons.thumbs_up_down_rounded,
+            color: Colors.white, size: 40),
+      ), */
     );
   }
 
   Widget _buildListTile() {
     List<Widget> listTiles = [];
 
+    listTiles.add(
+      ListTile(
+        dense: true,
+        visualDensity: VisualDensity.compact,
+        title: Text(Funcoes().appLang('Try the CCSE Exam'),
+            style: const TextStyle(
+                fontSize: 20, color: redEspana, fontWeight: FontWeight.bold)),
+      ),
+    );
+
     for (int i = 0; i < _categoriesSelected.length; i++) {
       String catsel = _categoriesSelected[i];
       int qty = Funcoes().selectQuestions(catsel).length;
-      if (catsel == examCat) {
-        listTiles.add(
-          Divider(
-            color: redEspana,
-            height: 10,
-            indent: 10,
-            endIndent: 10,
-            thickness: 1,
-          ),
-        );
-      } // Skip the test category
+
+      // Skip the test category
       listTiles.add(ListTile(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -276,47 +290,101 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             Funcoes().shortCat(catsel),
             textAlign: TextAlign.left,
-            style: TextStyle(
-                fontSize: 17, color: (catsel == examCat) ? redEspana : COR_01),
+            style:
+                TextStyle(fontSize: 17, color: (i == 0) ? redEspana : COR_01),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
         ),
         subtitle:
             questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
-        leading: Stack(
-          alignment: Alignment.center,
-          children: [
-            Funcoes().progressRings(category: catsel),
-            IconButton(
-                onPressed: () {
+        leading: (i != 0)
+            ? Stack(
+                alignment: Alignment.center,
+                children: [
+                  Funcoes().progressRings(category: catsel),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          collapse(i);
+                        });
+                      },
+                      icon: _isOpen[i]
+                          ? Icon(
+                              (catsel == examCat)
+                                  ? Icons.edit_document
+                                  : Icons.auto_stories,
+                              color: Colors.grey,
+                              size: 20,
+                            )
+                          : Container(
+                              width: 30,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: (i > 0) ? COR_02 : Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: (i > 0)
+                                  ? Text((i).toString(),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ))
+                                  : Icon(
+                                      Icons.verified,
+                                      color: redEspana,
+                                      size: 20,
+                                    ),
+                            )),
+                ],
+              )
+            : GestureDetector(
+                onTap: () {
                   setState(() {
                     collapse(i);
-                  });
+                  }); // Handle tap
                 },
-                icon: _isOpen[i]
-                    ? Icon(
-                        Icons.minimize_outlined,
-                        color: Colors.grey,
-                        size: 30,
-                      )
-                    : Container(
-                        width: 30,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: COR_02,
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: Text((i + 1).toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      )),
-          ],
-        ),
+                child: Container(
+                  width: screenW / 10,
+                  height: screenW / 10,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: redEspana,
+                  ),
+                  child: Icon(
+                    Icons.edit_note,
+                    color: Colors.white,
+                    size: 40,
+                  ),
+                ),
+              ),
       ));
+
+      if (catsel == examCat) {
+        listTiles.add(
+          Divider(
+            color: COR_02,
+            height: 10,
+            indent: 10,
+            endIndent: 10,
+            thickness: 1,
+          ),
+        );
+        listTiles.add(
+          ListTile(
+            dense: true,
+            visualDensity: VisualDensity.compact,
+            title: Text(Funcoes().appLang('Practice'),
+                style: const TextStyle(
+                    fontSize: 20, color: COR_02, fontWeight: FontWeight.bold)),
+            subtitle: Text(
+                Funcoes().appLang(
+                    'You can chose how many questions to practice, and will have: Immediate validation of your response, knowledge cards to help you memorize, and translation to your language if you want.'),
+                style: TextStyle(fontSize: 12, color: Colors.grey)),
+          ),
+        );
+      }
     }
 
     return Column(
@@ -329,8 +397,10 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(
-          color: Color.fromRGBO(255, 224, 178, 1),
+        Divider(
+          color: (category == examCat)
+              ? redEspana
+              : Color.fromRGBO(255, 224, 178, 1),
           thickness: 1,
           height: 10,
         ),
@@ -340,13 +410,21 @@ class _HomePageState extends State<HomePage> {
                     ? "25 ${Funcoes().appLang("questions from all categories.")}"
                     : "${Funcoes().appLang('Practice')} $title ${Funcoes().appLang("Questions")}",
                 textAlign: TextAlign.start,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 15,
-                  color: COR_02,
+                  color: (category == examCat) ? redEspana : COR_02,
                 ))
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  (category == examCat)
+                      ? Text(
+                          Funcoes().appLang(
+                              'The CCSE exam includes 25 questions extracted from the 300 exercises of the CCSE learning manual. You will have 45 minutes to complete it, and needs to respond correctly to at least 15 questions to pass.'),
+                          style:
+                              TextStyle(fontSize: 15, color: Colors.grey[600]),
+                        )
+                      : Container(),
                   OverflowBar(
                     alignment: MainAxisAlignment.start,
                     spacing: 5,

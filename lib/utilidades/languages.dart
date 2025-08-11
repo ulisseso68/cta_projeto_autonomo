@@ -6,8 +6,40 @@
 
 // Listing of messages
 final lang = {
+  'CCSE Manual': ['CCSE Manual', 'Manual CCSE', 'Manual CCSE', 'دليل CCSE'],
+  'Try the CCSE Exam': [
+    'Try the CCSE Exam',
+    'Tente o Exame CCSE',
+    'Intenta el Examen CCSE',
+    'جرب امتحان CCSE'
+  ],
+  'Reset statistics': [
+    'Reset Statistics',
+    "Redefinir Estatísticas",
+    "Restablecer Estadísticas",
+    "إعادة تعيين الإحصائيات"
+  ],
+  'Re-start the statistics': [
+    'Reiniciar Estatísticas',
+    'Reiniciar Estadísticas',
+    'إعادة تشغيل الإحصائيات'
+  ],
+  "The CCSE exam includes 25 questions extracted from the 300 exercises of the CCSE learning manual. You will have 45 minutes to complete it, and needs to respond correctly to at least 15 questions to pass.":
+      [
+    "The CCSE exam includes 25 questions extracted from the 300 exercises of the CCSE learning manual. You will have 45 minutes to complete it, and needs to respond correctly to at least 15 questions to pass.",
+    "O exame CCSE inclui 25 perguntas extraídas das 300 que fazem parte do manual de aprendizagem CCSE. Você terá 45 minutos para completá-lo e precisa responder corretamente a pelo menos 15 perguntas para ser aprovado.",
+    "El examen CCSE incluye 25 preguntas extraídas de las 300 que hay en el manual de aprendizaje CCSE. Tendrá 45 minutos para completarlo y necesita responder correctamente al menos 15 preguntas para aprobar.",
+    "يشمل امتحان CCSE 25 سؤالًا مستخرجًا من دليل التعلم CCSE. سيكون لديك 45 دقيقة لإكماله ، ويجب أن تجيب بشكل صحيح على 15 سؤالًا على الأقل للنجاح."
+  ],
+  'You can chose how many questions to practice, and will have: Immediate validation of your response, knowledge cards to help you memorize, and translation to your language if you want.':
+      [
+    "You can chose how many questions to practice, and will have: Immediate validation of your response, knowledge cards to help you memorize, and translation to your language if you want.",
+    "Você pode escolher quantas perguntas praticar e terá: Validação imediata de sua resposta, cartões de conhecimento para ajudá-lo a memorizar e tradução para seu idioma, se desejar.",
+    "Puedes elegir cuántas preguntas practicar y tendrás: Validación inmediata de tu respuesta, tarjetas de conocimiento para ayudarte a memorizar y traducción a tu idioma si lo deseas.",
+    "يمكنك اختيار عدد الأسئلة التي ترغب في ممارستها ، وستحصل على: التحقق الفوري من إجابتك ، وبطاقات المعرفة لمساعدتك على الحفظ ، والترجمة إلى لغتك إذا كنت ترغب في ذلك."
+  ],
   "Govern and Legislation": [
-    "Governa and Legislation",
+    "Govern and Legislation",
     "Governo e Legislação",
     "Gobierno y Legislación",
     "الحكومة والتشريع"

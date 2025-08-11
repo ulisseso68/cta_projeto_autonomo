@@ -323,7 +323,7 @@ class Funcoes {
     return Container(
       width: largura * 0.9,
       padding: const EdgeInsets.all(5),
-      height: 95,
+      height: screenH * 0.12,
       child: ListTile(
         tileColor: backgroundColor,
         shape: RoundedRectangleBorder(
@@ -341,6 +341,8 @@ class Funcoes {
         ),
         subtitle: Text(
           text2,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
               fontSize: 15, fontWeight: FontWeight.bold, color: foreColor),
         ),

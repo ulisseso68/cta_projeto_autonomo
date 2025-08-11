@@ -348,7 +348,7 @@ class _SplashPageState extends State<SplashPage> {
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             trailing:
-                const Icon(Icons.language_rounded, color: COR_01, size: 30),
+                const Icon(Icons.translate_rounded, color: COR_01, size: 30),
             leading: IconButton(
               icon: const Icon(Icons.change_circle_rounded,
                   color: COR_02, size: 30),
@@ -462,14 +462,14 @@ class _SplashPageState extends State<SplashPage> {
                   dense: true,
                   visualDensity: VisualDensity.compact,
                   title: Text(
-                    Funcoes().appLang('Zero Statistics'),
+                    Funcoes().appLang('Reset statistics'),
                     style: const TextStyle(
                         fontSize: 20,
                         color: COR_02,
                         fontWeight: FontWeight.normal),
                   ),
                   subtitle: Text(
-                    Funcoes().appLang('reset statistics'),
+                    Funcoes().appLang('Re-start the statistics'),
                     style: const TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                   trailing: const Icon(Icons.trending_up_rounded,

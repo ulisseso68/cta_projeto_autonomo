@@ -196,6 +196,24 @@ class AJDrawer extends StatelessWidget {
               },
             ),
 
+            // News Instituto Cervantes
+            ListTile(
+              leading: const Icon(
+                Icons.edit_note,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('CCSE Manual'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              onTap: () {
+                CallApi().launchUrlOut(
+                    'https://app.ccsefacil.es/img/Manual%20CCSE.pdf');
+              },
+            ),
+
             // Offline Mode
             ListTile(
               leading: offlineMode
