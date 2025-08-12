@@ -64,7 +64,7 @@ class Question {
         return NetworkImage("$APP_URL/img$photo");
       }
     } else {
-      return const AssetImage('img/ccse1.gif');
+      return const AssetImage('img/ccse1.jpg');
     }
   }
 }

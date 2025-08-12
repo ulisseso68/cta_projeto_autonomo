@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       onDrawerChanged: (isClosed) => updateStatus(),
-      endDrawer: const AJDrawer(),
+      drawer: const AJDrawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'img/ccse1.gif',
+              'img/ccse1.jpg',
               fit: BoxFit.cover,
             ),
             Positioned(

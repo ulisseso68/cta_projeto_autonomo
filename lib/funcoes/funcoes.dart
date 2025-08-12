@@ -277,7 +277,7 @@ class Funcoes {
             height: altura / 2,
             width: largura,
             child: const Image(
-              image: AssetImage('img/ccse1.gif'),
+              image: AssetImage('img/ccse1.jpg'),
               fit: BoxFit.cover,
               gaplessPlayback: true,
             )),

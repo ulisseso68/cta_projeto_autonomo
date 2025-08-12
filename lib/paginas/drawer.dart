@@ -5,7 +5,6 @@ import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 import 'package:flutter/material.dart';
-import 'package:in_app_review/in_app_review.dart';
 
 class AJDrawer extends StatelessWidget {
   const AJDrawer({

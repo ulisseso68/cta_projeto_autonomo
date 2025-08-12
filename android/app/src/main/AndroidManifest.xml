@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.autonojobs.cta_projeto_autonomo">
+    package="com.ccsefacil.app2">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="cta_projeto_autonomo"
