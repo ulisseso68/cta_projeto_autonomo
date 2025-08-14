@@ -185,13 +185,17 @@ class Funcoes {
   }
 
   Future<void> iniciarPreguntas() async {
+    print('Iniciando preguntas... 2');
+
     var questionsFromServer = await CallApi().getPublicData('questions/index');
+
     if (questionsFromServer is String) {
       questionsFromServer = questions;
       offlineMode = true;
     } else {
       offlineMode = false;
     }
+    print(offlineMode);
     preguntas =
         questionsFromServer.map((e) => Question.fromServerJson(e)).toList();
   }

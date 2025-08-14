@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,9 +22,14 @@ class CallApi {
   }
 
   Future getPublicData(apiUrl) async {
-    try {
-      var response = await Dio().get(_url + apiUrl);
+    final dio = Dio(BaseOptions(
+      connectTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 10),
+    ));
 
+    try {
+      print('Fetching public data from: $_url$apiUrl');
+      var response = await dio.get(_url + apiUrl);
       if (response.statusCode == 200) {
         return response.data;
       } else {
