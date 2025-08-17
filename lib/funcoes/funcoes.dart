@@ -400,7 +400,7 @@ class Funcoes {
       children: [
         //total answers
         CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.grey.shade200),
             value: 1,
             strokeWidth: 8,
             strokeAlign: 2,

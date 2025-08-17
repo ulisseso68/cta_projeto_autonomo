@@ -134,14 +134,14 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: [
             Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
-            Hero(
+            /* Hero(
               tag: 'splash_image',
               child: Image(
                 width: largura * 0.15,
                 image: AssetImage('img/CCSEf.png'),
                 fit: BoxFit.fill,
               ),
-            ),
+            ), */
           ],
         ),
         flexibleSpace: Stack(
@@ -157,6 +157,36 @@ class _HomePageState extends State<HomePage> {
                 width: largura,
                 height: 5,
                 color: COR_02,
+              ),
+            ),
+            Positioned(
+              right: screenW * 0.05 / 2,
+              bottom: 20,
+              width: screenW * 0.20,
+              height: 50,
+              child: GestureDetector(
+                onTap: () async {
+                  // Handle language change
+                  uxToChangeLanguage(context, altura, largura);
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: COR_02,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(
+                        Icons.translate_rounded,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      Funcoes().languageFlag(language.toString(), size: 25),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
@@ -197,8 +227,8 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       child: Container(
-                        width: largura * 0.6,
                         height: altura / 12,
+                        width: largura * 0.95,
                         decoration: BoxDecoration(
                           border: Border.all(color: colorCCSE, width: 2),
                           borderRadius: BorderRadius.circular(20),
@@ -241,47 +271,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    // Container for the language button
-                    GestureDetector(
-                      onTap: () async {
-                        // Handle language change
-                        uxToChangeLanguage(context, altura, largura);
-                      },
-                      child: Container(
-                        width: largura * 0.32,
-                        height: altura / 12,
-                        decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.grey.shade400, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade400,
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                              offset: const Offset(
-                                  0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Icon(
-                                  Icons.translate_rounded,
-                                  color: Colors.white,
-                                  size: 40,
-                                ),
-                                Funcoes().languageFlag(language.toString()),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                   ],
                 ),
 
@@ -301,11 +290,12 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                       fontSize: 20,
                       color: COR_02,
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   trailing: FloatingActionButton(
                       backgroundColor: COR_02,
+                      heroTag: 'btnInfo',
                       onPressed: () {
                         setState(() {
                           practiceTileDetailed = !practiceTileDetailed;
@@ -375,7 +365,7 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: catTileColor,
+              color: Colors.white,
               spreadRadius: 1,
               blurRadius: 5,
               offset: const Offset(0, 3), // changes position of shadow
@@ -386,8 +376,7 @@ class _HomePageState extends State<HomePage> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor:
-                _isOpen[i] ? Colors.orange.shade100 : Colors.grey.shade100,
+            tileColor: catTileColor,
             dense: true,
             visualDensity: VisualDensity.compact,
             title: GestureDetector(
@@ -416,7 +405,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     icon: Icon(
                       Icons.auto_stories,
-                      color: Colors.white,
+                      color: COR_02,
                       size: 20,
                     )),
               ],
@@ -432,7 +421,8 @@ class _HomePageState extends State<HomePage> {
 
   //build the expanded view of each tile
   Widget questionaryOptions(
-      bool isOpen, String title, String category, BuildContext context) {
+      bool isOpen, String title, String category, BuildContext context,
+      {Color mainColor = COR_01}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -449,7 +439,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.white,
+                  color: mainColor,
                 ))
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

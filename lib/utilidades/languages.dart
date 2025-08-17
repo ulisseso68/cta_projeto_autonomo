@@ -7,11 +7,23 @@
 // Listing of messages
 final lang = {
   'Progress': ['Progress', 'Progresso', 'Progreso', 'التقدم'],
+  'Click to learn more about how you have to take the exam.': [
+    'Click to learn more about how you have to take the exam.',
+    'Clique para saber mais sobre como você deve fazer o exame.',
+    'Haga clic para obtener más información sobre cómo debe realizar el examen.',
+    'انقر لمعرفة المزيد حول كيفية إجراء الامتحان.'
+  ],
+  'Start Exam': [
+    'Start Exam',
+    'Iniciar Exame',
+    'Iniciar Examen',
+    'بدء الامتحان'
+  ],
   'Study by Category': [
     'Study by Category',
-    'Estudar por Categoria',
-    'Estudiar por Categoría',
-    'الدراسة حسب الفئة'
+    'Estudar por Tema',
+    'Estudiar por Tema',
+    'الدراسة حسب الموضوع'
   ],
   'CCSE - Simulated Exam': [
     'CCSE - Simulated Exam',

@@ -25,6 +25,7 @@ class _QuestionsExam extends State<QuestionsExam> {
   int answeredCorrect = 0;
   bool beat = false;
   bool examPresented = false;
+  bool showExamInfo = false;
   var counter = 45 * 60;
   late Timer clock;
 
@@ -272,10 +273,61 @@ class _QuestionsExam extends State<QuestionsExam> {
                     height: 5.0,
                     color: COR_02,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: buildTiles(),
+                  (showExamInfo == false)
+                      ? Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListTile(
+                            dense: true,
+                            visualDensity: VisualDensity.compact,
+                            title: Text(
+                              Funcoes().appLang(
+                                  'Click to learn more about how you have to take the exam.'),
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: COR_02,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            trailing: FloatingActionButton(
+                                backgroundColor: COR_02,
+                                heroTag: 'btnInfo',
+                                onPressed: () {
+                                  setState(() {
+                                    showExamInfo = !showExamInfo;
+                                  });
+                                },
+                                child: Icon(
+                                  color: Colors.white,
+                                  (!showExamInfo)
+                                      ? Icons.info_outline_rounded
+                                      : Icons.expand_less_rounded,
+                                )),
+                          ),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: buildTiles(),
+                          ),
+                        ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: COR_02b,
+                      padding: const EdgeInsets.all(15),
+                    ),
+                    onPressed: () {
+                      examPresented = true;
+                      counter = 45 * 60;
+                      setState(() {});
+                    },
+                    child: Text(
+                      Funcoes().appLang('Start Exam'),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Verdana',
+                      ),
                     ),
                   ),
                 ],
@@ -475,6 +527,7 @@ class _QuestionsExam extends State<QuestionsExam> {
         ),
       );
     }
+
     return tiles;
   }
 }
