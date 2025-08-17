@@ -26,6 +26,7 @@ bool tcsAccepted = false;
 bool getName = false;
 String userName = '';
 String deviceID = '';
+String deviceType = 'unknown';
 String examCat = 'Simulación Del Examen';
 int respostaDada = 0;
 String translatedDescription = "";

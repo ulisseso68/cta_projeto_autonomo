@@ -110,15 +110,15 @@ class Funcoes {
   String get languageName {
     switch (language) {
       case 0:
-        return 'english';
+        return appLang('English');
       case 1:
-        return 'portuguese';
+        return appLang('Portuguese');
       case 2:
-        return 'spanish';
+        return appLang('Spanish');
       case 3:
-        return 'marroquí arabic';
+        return appLang('Moroccan Arabic');
       default:
-        return 'Unknown';
+        return appLang('Unknown');
     }
   }
 
@@ -395,25 +395,33 @@ class Funcoes {
         ? Stack(
             alignment: Alignment.center,
             children: [
+              //total answers
               CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    Funcoes().semaforo(correct / (answered > 0 ? answered : 1)),
-                  ),
-                  value: correct / (answered > 0 ? answered : 1),
-                  strokeWidth: 5,
-                  strokeAlign: 4,
-                  trackGap: 1,
-                  /* color: Colors.grey, */
-                  semanticsValue:
-                      '${(correct / (answered > 0 ? answered : 1) * 100).toInt()}%',
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  value: 1,
+                  strokeWidth: 8,
+                  strokeAlign: 2,
+                  /* color: Funcoes().semaforo(answered / total), */
+                  semanticsValue: '100%',
                   backgroundColor: Colors.transparent),
+
+              //total answers
               CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                   value: answered / total,
-                  strokeWidth: 5,
-                  strokeAlign: 1,
+                  strokeWidth: 8,
+                  strokeAlign: 2,
                   /* color: Funcoes().semaforo(answered / total), */
                   semanticsValue: '${(answered / total * 100).toInt()}%',
+                  backgroundColor: Colors.transparent),
+
+              // Correct Answers
+              CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                  value: correct / (total > 0 ? total : 1),
+                  strokeWidth: 8,
+                  strokeAlign: 2,
+                  semanticsValue: '${(correct / total * 100).toInt()}%',
                   backgroundColor: Colors.transparent),
             ],
           )
@@ -493,6 +501,12 @@ class Funcoes {
               color: Colors.grey.shade100),
           height: barHeight,
           width: screenW * barSize,
+          child: Center(
+            child: Text(
+              appLang('Progress'),
+              style: TextStyle(fontSize: 10, color: Colors.black54),
+            ),
+          ),
         ),
         Container(
           decoration: BoxDecoration(
@@ -623,5 +637,49 @@ class Funcoes {
     } else {
       return Colors.green;
     }
+  }
+
+  Widget languageFlag(String languageCode, {double size = 40}) {
+    // Assuming you have images named 'en.jpg', 'pt.jpg', 'es.jpg', etc. in the 'img' folder
+    String code = 'en';
+    switch (languageCode) {
+      case '0':
+        code = 'en';
+        break;
+      case '1':
+        code = 'pt-br';
+        break;
+      case '2':
+        code = 'es';
+        break;
+      case '3':
+        code = 'mo';
+        break;
+      default:
+        code = '';
+    }
+    return Container(
+      height: size,
+      width: size,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: ClipOval(
+        child: Image(
+          image: NetworkImage("$APP_URL/img/flags/$code.jpg"),
+          fit: BoxFit.cover,
+          width: size,
+          height: size,
+        ),
+      ),
+    );
   }
 }

@@ -1,11 +1,11 @@
 import 'dart:io';
+import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dio/dio.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:cta_projeto_autonomo/utilidadeS/dados.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class CallApi {
@@ -13,7 +13,7 @@ class CallApi {
 
   Future<void> sendEmail(String subject, String body) async {
     final Email email = Email(
-      body: deviceID + '\n\n' + body,
+      body: '$deviceID\n\n$body',
       subject: subject,
       recipients: ['soporte@ccsefacil.es'],
     );
@@ -28,7 +28,7 @@ class CallApi {
     ));
 
     try {
-      print('Fetching public data from: $_url$apiUrl');
+      //print('Fetching public data from: $_url$apiUrl');
       var response = await dio.get(_url + apiUrl);
       if (response.statusCode == 200) {
         return response.data;
@@ -42,7 +42,7 @@ class CallApi {
 
   Future postData(apiUrl, data) async {
     try {
-      print(_url + apiUrl);
+      //print(_url + apiUrl);
       var response = await Dio().post(_url + apiUrl, data: data);
 
       if (response.statusCode == 200) {
@@ -70,11 +70,12 @@ class CallApi {
     }
   }
 
-  // Execute a Simple Journal Entry
+  // Sends a Simple Journal Entry
   Future<void> createJournalEntry(
       {String description = '', String type = 'journal', value = 0.0}) async {
     postDataWithHeaders('journals/process', {
       'deviceid': await getId(),
+      'devicetype': deviceType,
       'type': type,
       'value': value,
       'description': description
@@ -85,7 +86,7 @@ class CallApi {
 
   void showAlert(context, msg, actionMsg) {
     final snackBar = SnackBar(
-      backgroundColor: redEspana,
+      backgroundColor: COR_02b,
       closeIconColor: Colors.white,
       duration: const Duration(seconds: 3),
       content: msg,
@@ -116,9 +117,11 @@ class CallApi {
     var deviceInfo = DeviceInfoPlugin();
     try {
       if (Platform.isIOS) {
+        deviceType = 'iOS';
         var iosDeviceInfo = await deviceInfo.iosInfo;
         return iosDeviceInfo.identifierForVendor; // unique ID on iOS
       } else if (Platform.isAndroid) {
+        deviceType = 'Android';
         var androidDeviceInfo = await deviceInfo.androidInfo;
         return androidDeviceInfo.id; // unique ID on Android
       }

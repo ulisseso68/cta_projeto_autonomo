@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
+import 'package:cta_projeto_autonomo/utilidades/policy.dart';
 
 class QuestionsExam extends StatefulWidget {
   const QuestionsExam({super.key});
@@ -24,6 +24,7 @@ class _QuestionsExam extends State<QuestionsExam> {
   int printed = 0;
   int answeredCorrect = 0;
   bool beat = false;
+  bool examPresented = false;
   var counter = 45 * 60;
   late Timer clock;
 
@@ -171,67 +172,114 @@ class _QuestionsExam extends State<QuestionsExam> {
         //shadowColor: Colors.white70.withOpacity(0.0),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            // Container with the question
-            Container(
-              width: largura,
-              //color: COR_02.withOpacity(0.1),
-              padding: const EdgeInsets.only(top: 10),
-              child: Column(
-                children: [
-                  Funcoes().titleWithIcon(
-                      Funcoes().appLang('Exam Simulation'),
-                      "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()} \n${Funcoes().appLang("CCSE ID")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}",
-                      context,
-                      isOpen: true,
-                      hasIcon: false),
-                  ListTile(
-                    title: Text(
-                      (_preguntasSelecionadas.isEmpty ||
-                              indexPreguntas >= _preguntasSelecionadas.length)
-                          ? 'No hay preguntas para esta selección'
-                          : _preguntasSelecionadas[indexPreguntas].question,
-                      //maxLines: 4,
-                      style: const TextStyle(
-                        color: COR_01,
-                        fontSize: 24,
+        child: (examPresented)
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  // Container with the question
+                  Container(
+                    width: largura,
+                    //color: COR_02.withOpacity(0.1),
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Column(
+                      children: [
+                        Funcoes().titleWithIcon(
+                            Funcoes().appLang('CCSE - Simulated Exam'),
+                            "${Funcoes().appLang("Question")}(${_preguntasSelecionadas[indexPreguntas].ccse_id}): ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
+                            context,
+                            isOpen: true,
+                            hasIcon: false),
+                        ListTile(
+                          title: Text(
+                            (_preguntasSelecionadas.isEmpty ||
+                                    indexPreguntas >=
+                                        _preguntasSelecionadas.length)
+                                ? 'No hay preguntas para esta selección'
+                                : _preguntasSelecionadas[indexPreguntas]
+                                    .question,
+                            //maxLines: 4,
+                            style: const TextStyle(
+                              color: COR_01,
+                              fontSize: 24,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Container(
+                    color: COR_02,
+                    height: 5,
+                    margin: EdgeInsets.only(
+                        left: screenW * 0.05, right: screenW * 0.05),
+                  ),
+
+                  // Container with the answers
+                  Container(
+                    padding: EdgeInsets.all(screenW * 0.05),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: _buildAnswersTiles(_respostasLista),
+                    ),
+                  ),
+
+                  Divider(
+                    thickness: 5,
+                    height: screenH / 10,
+                    indent: 10,
+                    endIndent: 10,
+                    color: Colors.white,
+                  ),
+                  /* Funcoes()
+                .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey), */
+                ],
+              )
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  const Divider(
+                    thickness: 5.0,
+                    height: 5.0,
+                    color: COR_02,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      dense: true,
+                      visualDensity: VisualDensity.compact,
+                      title: Text(
+                        Funcoes().appLang('The CCSE Exam'),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: COR_02,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                      trailing: IconButton(
+                          color: COR_02,
+                          onPressed: () {
+                            setState(() {});
+                          },
+                          icon: Icon(Icons.edit_note)),
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 5.0,
+                    height: 5.0,
+                    color: COR_02,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: buildTiles(),
                     ),
                   ),
                 ],
               ),
-            ),
-
-            Container(
-              color: COR_02,
-              height: 5,
-              margin:
-                  EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
-            ),
-
-            // Container with the answers
-            Container(
-              padding: EdgeInsets.all(screenW * 0.05),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _buildAnswersTiles(_respostasLista),
-              ),
-            ),
-
-            Divider(
-              thickness: 5,
-              height: screenH / 10,
-              indent: 10,
-              endIndent: 10,
-              color: Colors.white,
-            ),
-            /* Funcoes()
-                .logoWidget(fontSize: 20, opacity: 0, letterColor: Colors.grey), */
-          ],
-        ),
       ),
       bottomSheet: BottomSheet(
         onClosing: () {},
@@ -245,52 +293,69 @@ class _QuestionsExam extends State<QuestionsExam> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Funcoes().appProgressBar(
+                    1.0,
+                    ((respostasCorretas) / _preguntasSelecionadas.length),
+                    ((respostasErradas) / _preguntasSelecionadas.length),
+                    barHeight: 15,
+                    color1: COR_02b,
+                    color2: COR_02b),
                 Text(
-                  clockFormat(counter),
+                  clockFormat((examPresented) ? counter : 45 * 60),
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontSize: 30),
-                )
+                ),
               ],
             ),
           );
         },
       ),
       floatingActionButton: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        child: (responded)
-            ? FloatingActionButton(
-                shape: const StadiumBorder(),
-                backgroundColor: COR_02,
-                onPressed: () {
-                  indexPreguntas++;
-                  Funcoes().saveAnsweredQuestionsToLocal();
-                  if (indexPreguntas >= _preguntasSelecionadas.length) {
-                    indexPreguntas--;
-                    //counter = 1;
-                    clock.cancel();
-                    Navigator.pushReplacementNamed(context, 'examClosing');
-                  } else {
-                    currentQuestion = _preguntasSelecionadas[indexPreguntas];
-                    _respostasLista =
-                        _preguntasSelecionadas[indexPreguntas].answers;
-                    responded = false;
-                    respostaErrada = -1;
-                  }
-                  setState(() {});
-                },
-                child: const Icon(Icons.arrow_forward_rounded,
-                    color: Colors.white, size: 30),
-              )
-            : const SizedBox(
-                height: 0,
-                width: 0,
-              ),
-      ),
+          margin: const EdgeInsets.only(bottom: 10),
+          child: (examPresented)
+              ? FloatingActionButton(
+                  shape: const StadiumBorder(),
+                  backgroundColor: (responded) ? COR_02b : Colors.grey,
+                  onPressed: () {
+                    if (responded) {
+                      indexPreguntas++;
+                      Funcoes().saveAnsweredQuestionsToLocal();
+                      if (indexPreguntas >= _preguntasSelecionadas.length) {
+                        indexPreguntas--;
+                        //counter = 1;
+                        clock.cancel();
+                        Navigator.pushReplacementNamed(context, 'examClosing');
+                      } else {
+                        currentQuestion =
+                            _preguntasSelecionadas[indexPreguntas];
+                        _respostasLista =
+                            _preguntasSelecionadas[indexPreguntas].answers;
+                        responded = false;
+                        respostaErrada = -1;
+                      }
+                      setState(() {});
+                    }
+                  },
+                  child: const Icon(Icons.arrow_forward_rounded,
+                      color: Colors.white, size: 30),
+                )
+              : FloatingActionButton(
+                  shape: const StadiumBorder(),
+                  backgroundColor: COR_02b,
+                  onPressed: () {
+                    examPresented = true;
+                    counter = 45 * 60;
+                    setState(() {});
+                  },
+                  child: const Icon(Icons.play_circle_fill_rounded,
+                      color: Colors.white, size: 30),
+                )),
     );
   }
 
+// Build the tiles for the answer options
   List<Widget> _buildAnswersTiles(List answers) {
     List<Widget> tiles = [];
 
@@ -379,9 +444,37 @@ class _QuestionsExam extends State<QuestionsExam> {
     return tiles;
   }
 
+// Format the timer display
   String clockFormat(int seconds) {
     int minutes = seconds ~/ 60;
     int remainingSeconds = seconds % 60;
     return '${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
+  }
+
+// Build the tiles for the exam explanation
+  List<ListTile> buildTiles() {
+    List<ListTile> tiles = [];
+    final tncs = DocumentContent().getSessionsbyLanguage(language.toString());
+
+    for (var element in tncs) {
+      tiles.add(
+        ListTile(
+          dense: true,
+          visualDensity: VisualDensity.compact,
+          //leading: const Icon(Icons.comment),
+          title: Text(
+            element['title'].toString(),
+            style: const TextStyle(
+                fontSize: 17, color: COR_02, fontFamily: 'Verdana'),
+          ),
+          subtitle: Text(
+            element['content'].toString(),
+            style: const TextStyle(
+                fontSize: 14, color: Colors.grey, fontFamily: 'Verdana'),
+          ),
+        ),
+      );
+    }
+    return tiles;
   }
 }

@@ -4,8 +4,8 @@ import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:device_info_plus/device_info_plus.dart';
-import 'dart:io';
+//import 'package:device_info_plus/device_info_plus.dart';
+//import 'dart:io';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -23,31 +23,6 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     /*  _getDataFromStorage(); */
   }
-
-  /*  Future<void> _getDataFromStorage() async {
-    await Funcoes().getCountryFromStorage();
-    await Funcoes().getLanguageFromStorage();
-    await Funcoes().getTcsAcceptedFromStorage();
-    await Funcoes().getUserNameFromStorage();
-    deviceID = (await _getId()).toString();
-    setState(() {});
-  } */
-
-  /* Future<String?> _getId() async {
-    var deviceInfo = DeviceInfoPlugin();
-    try {
-      if (Platform.isIOS) {
-        var iosDeviceInfo = await deviceInfo.iosInfo;
-        return iosDeviceInfo.identifierForVendor; // unique ID on iOS
-      } else if (Platform.isAndroid) {
-        var androidDeviceInfo = await deviceInfo.androidInfo;
-        return androidDeviceInfo.id; // unique ID on Android
-      }
-      return 'test_device_001';
-    } catch (e) {
-      return 'test_device_001';
-    }
-  } */
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +155,8 @@ class _SplashPageState extends State<SplashPage> {
                   trailing: IconButton(
                     icon: const Icon(Icons.read_more, color: COR_01, size: 30),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'termosUsoPrivacidade');
+                      CallApi().launchUrlOut(
+                          'https://app.ccsefacil.es/terms-of-service/es');
                     },
                   ),
                 )
@@ -253,7 +229,6 @@ class _SplashPageState extends State<SplashPage> {
                       ),
                     ),
                     onSelect: (Country country) {
-                      print(country.toString());
                       Funcoes().setCountry(country.name, country.flagEmoji);
                       CallApi().createJournalEntry(
                           type: 'citizenship',
@@ -344,7 +319,7 @@ class _SplashPageState extends State<SplashPage> {
                   fontSize: 20, color: COR_02, fontWeight: FontWeight.normal),
             ),
             subtitle: Text(
-              Funcoes().appLang('Language of the App'),
+              Funcoes().appLang('Language for translation'),
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             trailing:
@@ -353,7 +328,8 @@ class _SplashPageState extends State<SplashPage> {
               icon: const Icon(Icons.change_circle_rounded,
                   color: COR_02, size: 30),
               onPressed: () {
-                showDialog(
+                uxToChangeLanguage(context, altura, largura);
+                /* showDialog(
                   context: context,
                   builder: (context) {
                     return AlertDialog(
@@ -452,6 +428,7 @@ class _SplashPageState extends State<SplashPage> {
                     );
                   },
                 );
+               */
               },
             ),
           ),
@@ -549,6 +526,137 @@ class _SplashPageState extends State<SplashPage> {
         backgroundColor: COR_02,
         child: const Icon(Icons.arrow_forward, color: Colors.white, size: 30),
       ),
+    );
+  }
+
+  void uxToChangeLanguage(context, double altura, double largura) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            Funcoes().appLang('Available Languages'),
+            style: const TextStyle(fontSize: 20, color: COR_02),
+            textAlign: TextAlign.center,
+          ),
+          content: SizedBox(
+            height: altura * 0.25,
+            child: Column(
+              spacing: 8,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 0) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(0);
+                    Navigator.pop(context);
+                    setState(() {});
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('0', size: 30),
+                        Text(Funcoes().appLang('English'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 1) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(1);
+                    Navigator.pop(context);
+                    setState(() {});
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('1', size: 30),
+                        Text(Funcoes().appLang('Portuguese'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 2) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(2);
+                    Navigator.pop(context);
+                    setState(() {});
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('2', size: 30),
+                        Text(Funcoes().appLang('Spanish'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 3) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(3);
+                    Navigator.pop(context);
+                    setState(() {});
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('3', size: 30),
+                        Text(Funcoes().appLang('Marroquí'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

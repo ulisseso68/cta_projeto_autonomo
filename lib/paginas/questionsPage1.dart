@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
@@ -135,12 +133,47 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               padding: const EdgeInsets.only(top: 10),
               child: Column(
                 children: [
-                  Funcoes().titleWithIcon(
-                      "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}",
-                      "${Funcoes().appLang("CCSE ID")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}",
-                      context,
-                      isOpen: true,
-                      hasIcon: false),
+                  ListTile(
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          Funcoes().appLang(
+                              "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}"),
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(
+                              fontSize: 20,
+                              color: COR_02,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const Divider(
+                          color: COR_02,
+                          height: 10,
+                          thickness: 1,
+                        ),
+                      ],
+                    ),
+                    /* subtitle: Text(
+                      Funcoes().appLang(
+                          "${Funcoes().appLang("CCSE ID")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}"),
+                      textAlign: TextAlign.start,
+                      style: const TextStyle(fontSize: 14, color: COR_01),
+                    ), */
+                    trailing: (otherLanguage && translationAvailable)
+                        ? FloatingActionButton(
+                            heroTag: 'translate_button',
+                            onPressed: () {
+                              setState(() {
+                                translate = !translate;
+                              });
+                            },
+                            shape: const StadiumBorder(),
+                            backgroundColor: COR_04.shade800,
+                            child: const Icon(Icons.translate_rounded,
+                                color: Colors.white, size: 30),
+                          )
+                        : null,
+                  ),
                   ListTile(
                     title: Text(
                       (_preguntasSelecionadas.isEmpty ||
@@ -225,49 +258,35 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
         },
       ),
       floatingActionButton: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        child: (responded)
-            ? FloatingActionButton(
-                shape: const StadiumBorder(),
-                backgroundColor: COR_02,
-                onPressed: () {
-                  setState(() {
-                    indexPreguntas++;
-                    Funcoes().saveAnsweredQuestionsToLocal();
-                    if (indexPreguntas >= _preguntasSelecionadas.length) {
-                      indexPreguntas--;
-                      Navigator.pushNamed(context, 'questionsClosing');
-                    } else {
-                      currentQuestion = _preguntasSelecionadas[indexPreguntas];
-                      _respostasLista =
-                          _preguntasSelecionadas[indexPreguntas].answers;
-                      _Translate().then((_) {
-                        setState(() {});
-                      });
-                      responded = false;
-                      respostaErrada = -1;
-                      translate = false;
-                    }
-                  });
-                },
-                child: const Icon(Icons.arrow_forward_rounded,
-                    color: Colors.white, size: 30),
-              )
-            : (otherLanguage && translationAvailable)
-                ? FloatingActionButton(
-                    heroTag: 'translate_button',
-                    onPressed: () {
-                      setState(() {
-                        translate = !translate;
-                      });
-                    },
-                    shape: const StadiumBorder(),
-                    backgroundColor: COR_04.shade800,
-                    child: const Icon(Icons.translate_rounded,
-                        color: Colors.white, size: 30),
-                  )
-                : null,
-      ),
+          margin: const EdgeInsets.only(bottom: 10),
+          child: FloatingActionButton(
+            shape: const StadiumBorder(),
+            backgroundColor: (responded) ? COR_02 : Colors.grey.shade500,
+            onPressed: () {
+              if (responded) {
+                setState(() {
+                  indexPreguntas++;
+                  Funcoes().saveAnsweredQuestionsToLocal();
+                  if (indexPreguntas >= _preguntasSelecionadas.length) {
+                    indexPreguntas--;
+                    Navigator.pushNamed(context, 'questionsClosing');
+                  } else {
+                    currentQuestion = _preguntasSelecionadas[indexPreguntas];
+                    _respostasLista =
+                        _preguntasSelecionadas[indexPreguntas].answers;
+                    _Translate().then((_) {
+                      setState(() {});
+                    });
+                    responded = false;
+                    respostaErrada = -1;
+                    translate = false;
+                  }
+                });
+              }
+            },
+            child: const Icon(Icons.arrow_forward_rounded,
+                color: Colors.white, size: 30),
+          )),
     );
   }
 

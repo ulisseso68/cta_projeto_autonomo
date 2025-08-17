@@ -6,6 +6,40 @@
 
 // Listing of messages
 final lang = {
+  'Progress': ['Progress', 'Progresso', 'Progreso', 'التقدم'],
+  'Study by Category': [
+    'Study by Category',
+    'Estudar por Categoria',
+    'Estudiar por Categoría',
+    'الدراسة حسب الفئة'
+  ],
+  'CCSE - Simulated Exam': [
+    'CCSE - Simulated Exam',
+    'CCSE - Simulado',
+    'CCSE - Examen Simulado',
+    'CCSE - امتحان محاكاة'
+  ],
+  'Take the CCSE Exam': [
+    'Take the CCSE Exam',
+    'Faça o simulado CCSE.',
+    'Hacer el examen simulado CCSE',
+    'اجتياز امتحان CCSE'
+  ],
+  'Portuguese': ['Portuguese', 'Português', 'Portugués', 'البرتغالية'],
+  'Spanish': ['Spanish', 'Espanhol', 'Español', 'الإسبانية'],
+  'Moroccan Arabic': [
+    'Moroccan Arabic',
+    'Árabe Marroquino',
+    'Árabe Marroquí',
+    'العربية المغربية'
+  ],
+  'English': ['English', 'Inglês', 'Inglés', 'الإنجليزية'],
+  'Language for translation': [
+    'Language for translation',
+    'Idioma para tradução',
+    'Idioma para traducción',
+    'اللغة للترجمة'
+  ],
   'CCSE Manual': ['CCSE Manual', 'Manual CCSE', 'Manual CCSE', 'دليل CCSE'],
   'Try the CCSE Exam': [
     'Try the CCSE Exam',
@@ -20,6 +54,7 @@ final lang = {
     "إعادة تعيين الإحصائيات"
   ],
   'Re-start the statistics': [
+    'Re-start the statistics',
     'Reiniciar Estatísticas',
     'Reiniciar Estadísticas',
     'إعادة تشغيل الإحصائيات'

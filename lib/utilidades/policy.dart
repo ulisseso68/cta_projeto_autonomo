@@ -15,200 +15,120 @@ class DocumentContent {
           "language": "English",
           "sections": [
             {
-              "title": "1. Purpose of the App",
+              "title": "This is a simulation of the CCSE exam",
               "content":
-                  "This app provides educational tools, including practice questions and study materials, to support preparation for the CCSE (Conocimientos Constitucionales y Socioculturales de España) exam."
+                  "The actual CCSe exam requires that you enroll to take it. It is managed by the Instituto Cervantes, and is taken in person at authorized testing centers."
             },
             {
-              "title": "2. User Eligibility",
+              "title": "The exam is comprised of 25 questions",
               "content":
-                  "You must be at least 14 years old to use this app. By using the app, you confirm that you meet this requirement and comply with all applicable laws."
+                  "The exam consists of 25 questions selected from a larger pool. Out of the 5 major topics, 10 questions are chosen from the 'Govern and Legislation' category, 3 from 'Rights and Fundamental Duties', 2 from 'Physical and Political Geography', 3 from 'Culture and History of Spain', and 7 from 'Spanish Society'."
             },
             {
-              "title": "3. Intellectual Property",
+              "title": "Time is limited",
               "content":
-                  "All app content—including text, graphics, and layout—is owned by the developer and collaborators unless otherwise noted. Copying, redistributing, or modifying the app or its content without permission is prohibited."
+                  "In this simulation, as well as in the actual exam, you will have 45 minutes to conclude the exam."
             },
             {
-              "title": "4. No Official Affiliation",
+              "title": "What is required to pass.",
               "content":
-                  "This app is not affiliated with, endorsed by, or sponsored by the Instituto Cervantes or the Government of Spain. The content is based on publicly available materials and expert input."
+                  "You need to respond correctly to 15 (60%) of the questions to be approved."
             },
             {
-              "title": "5. Disclaimer",
+              "title": "Results",
               "content":
-                  "While we strive for accuracy, we do not guarantee that all content is complete, error-free, or up to date. Always consult official sources when needed. Use of the app is at your own risk."
+                  "The results are communicated, online and via e-mail, by the Instituto Cervantes within a month (in average)."
             },
-            {
-              "title": "6. Limitation of Liability",
-              "content":
-                  "To the maximum extent permitted by law, the app developer and its partners are not liable for any indirect, incidental, or consequential damages resulting from the use of the app."
-            },
-            {
-              "title": "7. Privacy and Data",
-              "content":
-                  "We collect limited data to improve your experience. We do not sell your data. Please refer to our Privacy Policy for full details on how we handle user information in compliance with GDPR and Apple requirements."
-            },
-            {
-              "title": "8. Changes to the Terms",
-              "content":
-                  "These Terms may be updated periodically. If you continue using the app after updates are made, you accept the revised terms."
-            },
-            {
-              "title": "9. Contact Information",
-              "content":
-                  "If you have any questions about these Terms, please contact us at: Email: soporte@ccsefacil.es, Website: https://app.ccsefacil.es"
-            }
           ]
         },
         "2": {
           "language": "Español",
           "sections": [
             {
-              "title": "1. Propósito de la Aplicación",
+              "title": "Esta es una simulación del examen CCSE",
               "content":
-                  "Esta aplicación ofrece herramientas educativas, incluyendo preguntas de práctica y materiales de estudio, para ayudar a preparar el examen CCSE (Conocimientos Constitucionales y Socioculturales de España)."
+                  "El examen CCSE real requiere que te inscribas para realizarlo. Está gestionado por el Instituto Cervantes y se realiza de forma presencial en centros autorizados."
             },
             {
-              "title": "2. Requisitos de Edad",
+              "title": "El examen consta de 25 preguntas",
               "content":
-                  "Debes tener al menos 14 años para usar esta aplicación. Al usarla, confirmas que cumples con este requisito y con las leyes aplicables."
+                  "El examen consiste en 25 preguntas seleccionadas de un banco mayor. De los 5 grandes temas, 10 preguntas son del apartado 'Gobierno y Legislación', 3 de 'Derechos y Deberes Fundamentales', 2 de 'Geografía Física y Política', 3 de 'Cultura e Historia de España' y 7 de 'Sociedad Española'."
             },
             {
-              "title": "3. Propiedad Intelectual",
+              "title": "El tiempo es limitado",
               "content":
-                  "Todo el contenido de la app, incluyendo textos, gráficos y diseño, es propiedad del desarrollador y sus colaboradores, salvo que se indique lo contrario. Queda prohibido copiar, redistribuir o modificar la app sin permiso."
+                  "En esta simulación, así como en el examen real, tendrás 45 minutos para completar el examen."
             },
             {
-              "title": "4. Sin Afiliación Oficial",
+              "title": "Requisitos para aprobar",
               "content":
-                  "Esta aplicación no está afiliada, respaldada ni patrocinada por el Instituto Cervantes ni por el Gobierno de España. El contenido se basa en materiales públicos y aportes de expertos."
+                  "Debes responder correctamente al menos 15 preguntas (60%) para ser aprobado."
             },
             {
-              "title": "5. Descargo de Responsabilidad",
+              "title": "Resultados",
               "content":
-                  "Aunque procuramos la precisión, no garantizamos que todo el contenido esté completo o actualizado. Consulta siempre fuentes oficiales. El uso de la app es bajo tu responsabilidad."
+                  "Los resultados son comunicados en línea y por correo electrónico por el Instituto Cervantes en un plazo aproximado de un mes."
             },
-            {
-              "title": "6. Limitación de Responsabilidad",
-              "content":
-                  "En la máxima medida permitida por la ley, el desarrollador y sus socios no son responsables por daños indirectos, incidentales o consecuentes derivados del uso de la aplicación."
-            },
-            {
-              "title": "7. Privacidad y Datos",
-              "content":
-                  "Recopilamos datos mínimos para mejorar tu experiencia. No vendemos tu información. Consulta nuestra Política de Privacidad para más detalles, conforme al RGPD y las normas de Apple."
-            },
-            {
-              "title": "8. Cambios en los Términos",
-              "content":
-                  "Estos términos pueden actualizarse periódicamente. Si continúas usando la app después de las modificaciones, aceptas los nuevos términos."
-            },
-            {
-              "title": "9. Información de Contacto",
-              "content":
-                  "Si tienes preguntas sobre estos términos, contáctanos: Correo electrónico: soporte@ccsefacil.es, Sitio web: https://app.ccsefacil.es"
-            }
           ]
         },
         "1": {
           "language": "Português",
           "sections": [
             {
-              "title": "1. Finalidade do Aplicativo",
+              "title": "Esta é uma simulação do exame CCSE",
               "content":
-                  "Este aplicativo oferece ferramentas educacionais, incluindo questões práticas e materiais de estudo, para ajudar na preparação para o exame CCSE (Conhecimentos Constitucionais e Socioculturais da Espanha)."
+                  "O exame CCSE real exige que você se inscreva para realizá-lo. Ele é administrado pelo Instituto Cervantes e realizado presencialmente em centros autorizados."
             },
             {
-              "title": "2. Requisitos de Idade",
+              "title": "O exame é composto por 25 perguntas",
               "content":
-                  "Você deve ter pelo menos 14 anos para usar este aplicativo. Ao utilizá-lo, você confirma que atende a esse requisito e cumpre as leis aplicáveis."
+                  "O exame consiste em 25 perguntas selecionadas de um banco maior. Dos 5 grandes temas, 10 perguntas são da categoria 'Governo e Legislação', 3 de 'Direitos e Deveres Fundamentais', 2 de 'Geografia Física e Política', 3 de 'Cultura e História da Espanha' e 7 de 'Sociedade Espanhola'."
             },
             {
-              "title": "3. Propriedade Intelectual",
+              "title": "O tempo é limitado",
               "content":
-                  "Todo o conteúdo do app—including textos, gráficos e layout—pertence ao desenvolvedor e colaboradores, salvo indicação contrária. É proibido copiar, redistribuir ou modificar o app sem autorização."
+                  "Nesta simulação, assim como no exame real, você terá 45 minutos para concluir o exame."
             },
             {
-              "title": "4. Sem Afiliação Oficial",
+              "title": "O que é necessário para passar",
               "content":
-                  "Este aplicativo não é afiliado, patrocinado ou endossado pelo Instituto Cervantes ou pelo Governo da Espanha. O conteúdo é baseado em materiais públicos e contribuições de especialistas."
+                  "Você precisa responder corretamente a 15 (60%) das perguntas para ser aprovado."
             },
             {
-              "title": "5. Isenção de Responsabilidade",
+              "title": "Resultados",
               "content":
-                  "Apesar de buscarmos a precisão, não garantimos que todas as informações estejam atualizadas ou livres de erros. Consulte sempre fontes oficiais. O uso do app é por sua conta e risco."
+                  "Os resultados são comunicados online e por e-mail pelo Instituto Cervantes em até um mês (em média)."
             },
-            {
-              "title": "6. Limitação de Responsabilidade",
-              "content":
-                  "Na extensão máxima permitida por lei, o desenvolvedor e seus parceiros não se responsabilizam por danos indiretos ou consequenciais resultantes do uso do aplicativo."
-            },
-            {
-              "title": "7. Privacidade e Dados",
-              "content":
-                  "Coletamos dados mínimos para melhorar sua experiência. Não vendemos seus dados. Consulte nossa Política de Privacidade para detalhes, conforme o RGPD e os requisitos da Apple."
-            },
-            {
-              "title": "8. Alterações nos Termos",
-              "content":
-                  "Estes termos podem ser atualizados periodicamente. O uso contínuo do aplicativo após alterações implica a aceitação dos novos termos."
-            },
-            {
-              "title": "9. Informações de Contato",
-              "content":
-                  "Em caso de dúvidas sobre estes termos, entre em contato: Email: soporte@ccsefacil.es, Site: https://app.ccsefacil.es"
-            }
           ]
         },
         "3": {
           "language": "Marroquí",
           "sections": [
             {
-              "title": "1. هدف التطبيق",
+              "title": "هذا محاكاة لامتحان CCSE",
               "content":
-                  "يوفر هذا التطبيق أدوات تعليمية، بما في ذلك أسئلة تدريبية ومواد دراسية، لدعم التحضير لامتحان CCSE (المعرفة الدستورية والثقافية الاجتماعية لإسبانيا)."
+                  "يتطلب امتحان CCSE الفعلي التسجيل لأدائه. يتم إدارته من قبل معهد سيرفانتس، ويُجرى شخصيًا في مراكز اختبار معتمدة."
             },
             {
-              "title": "2. أهلية المستخدم",
+              "title": "يتكون الامتحان من 25 سؤالًا",
               "content":
-                  "يجب أن يكون عمرك 14 عامًا على الأقل لاستخدام هذا التطبيق. باستخدام التطبيق، تؤكد أنك تستوفي هذا الشرط وتلتزم بجميع القوانين المعمول بها."
+                  "يتكون الامتحان من 25 سؤالًا مختارة من مجموعة أكبر. من بين 5 مواضيع رئيسية، يتم اختيار 10 أسئلة من فئة 'الحكومة والتشريع'، و3 من 'الحقوق والواجبات الأساسية'، و2 من 'الجغرافيا الفيزيائية والسياسية'، و3 من 'ثقافة وتاريخ إسبانيا'، و7 من 'المجتمع الإسباني'."
             },
             {
-              "title": "3. الملكية الفكرية",
+              "title": "الوقت محدود",
               "content":
-                  "جميع محتويات التطبيق - بما في ذلك النصوص والرسوم التوضيحية والتصميم - مملوكة للمطور والمتعاونين ما لم يُذكر خلاف ذلك. يُحظر نسخ أو إعادة توزيع أو تعديل التطبيق أو محتوياته دون إذن."
+                  "في هذه المحاكاة، وكذلك في الامتحان الفعلي، سيكون لديك 45 دقيقة لإنهاء الامتحان."
             },
             {
-              "title": "4. عدم الانتماء الرسمي",
+              "title": "ما هو مطلوب للنجاح",
               "content":
-                  "هذا التطبيق ليس تابعًا أو معتمدًا أو برعاية معهد سيرفانتس أو حكومة إسبانيا. المحتوى مستند إلى مواد متاحة للجمهور ومساهمات من خبراء."
+                  "يجب عليك الإجابة بشكل صحيح على 15 (60%) من الأسئلة لتكون ناجحًا."
             },
             {
-              "title": "5. إخلاء المسؤولية",
+              "title": "النتائج",
               "content":
-                  "بينما نسعى لتحقيق الدقة، لا نضمن أن يكون كل المحتوى كاملاً أو خالياً من الأخطاء. استشر دائمًا المصادر الرسمية عند الحاجة. استخدام التطبيق يكون على مسؤوليتك الخاصة."
+                  "يتم إبلاغ النتائج عبر الإنترنت وعبر البريد الإلكتروني من قبل معهد سيرفانتس في غضون شهر (في المتوسط)."
             },
-            {
-              "title": "6. تحديد المسؤولية",
-              "content":
-                  "إلى أقصى حد يسمح به القانون، لا يتحمل مطور التطبيق وشركاؤه أي مسؤولية عن أي أضرار غير مباشرة أو عرضية أو تبعية ناتجة عن استخدام التطبيق."
-            },
-            {
-              "title": "7. الخصوصية والبيانات",
-              "content":
-                  "نجمع بيانات محدودة لتحسين تجربتك. لا نبيع بياناتك. يرجى الرجوع إلى سياسة الخصوصية الخاصة بنا للحصول على تفاصيل كاملة حول كيفية التعامل مع معلومات المستخدم وفقًا للائحة العامة لحماية البيانات ومتطلبات Apple."
-            },
-            {
-              "title": "8. تغييرات على الشروط",
-              "content":
-                  "يمكن تحديث هذه الشروط بشكل دوري. إذا واصلت استخدام التطبيق بعد إجراء التحديثات، فإنك تقبل الشروط المعدلة."
-            },
-            {
-              "title": "9. معلومات الاتصال",
-              "content":
-                  "إذا كان لديك أي أسئلة حول هذه الشروط، يرجى الاتصال بنا على: soporte@ccsefacil.es, https://app.ccsefacil.es"
-            }
           ]
         }
       }

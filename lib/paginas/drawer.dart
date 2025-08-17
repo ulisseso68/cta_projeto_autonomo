@@ -70,25 +70,6 @@ class AJDrawer extends StatelessWidget {
               thickness: 1,
             ),
 
-            // Credits and Acknowledgments
-            /* ListTile(
-              leading: const Icon(
-                Icons.star,
-                size: 40,
-                color: redEspana,
-              ),
-              title: Text(
-                Funcoes().appLang('Credits and Acknowledgments'),
-                textAlign: TextAlign.start,
-                style: TextStyle(color: COR_01, fontSize: 14),
-              ),
-              onTap: () {
-                Navigator.popAndPushNamed(context, 'paginaCreditos');
-              },
-            ), */
-
-            // Share your experience
-
             // Settings
             ListTile(
               leading: const Icon(
@@ -117,7 +98,7 @@ class AJDrawer extends StatelessWidget {
             // Terms of Use
             ListTile(
               leading: const Icon(
-                Icons.edit_document,
+                Icons.handshake,
                 size: 40,
                 color: redEspana,
               ),
@@ -127,7 +108,27 @@ class AJDrawer extends StatelessWidget {
                 style: TextStyle(color: COR_01, fontSize: 14),
               ),
               onTap: () {
-                Navigator.popAndPushNamed(context, 'termosUsoPrivacidade');
+                CallApi().launchUrlOut(
+                    'https://app.ccsefacil.es/terms-of-service/es'); /* 
+                Navigator.popAndPushNamed(context, 'termosUsoPrivacidade'); */
+              },
+            ),
+
+            // Privacy
+            ListTile(
+              leading: const Icon(
+                Icons.policy_rounded,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Privacy Policy'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              onTap: () {
+                CallApi()
+                    .launchUrlOut('https://app.ccsefacil.es/privacy-policy/es');
               },
             ),
 
@@ -154,7 +155,7 @@ class AJDrawer extends StatelessWidget {
             // Send email to Support
             ListTile(
               leading: const Icon(
-                Icons.email,
+                Icons.help,
                 size: 40,
                 color: redEspana,
               ),
@@ -179,7 +180,7 @@ class AJDrawer extends StatelessWidget {
             // News do CCSE facil
             ListTile(
               leading: const Icon(
-                Icons.notifications_active,
+                Icons.campaign,
                 size: 40,
                 color: redEspana,
               ),
@@ -193,7 +194,7 @@ class AJDrawer extends StatelessWidget {
               },
             ),
 
-            // News Instituto Cervantes
+            // Manual Instituto Cervantes
             ListTile(
               leading: const Icon(
                 Icons.edit_note,
@@ -249,7 +250,9 @@ class AJDrawer extends StatelessWidget {
                 );
               },
             ),
-            /* ListTile(
+
+            /* Share your experience 
+            ListTile(
               leading: const Icon(
                 Icons.rate_review_rounded,
                 size: 40,
