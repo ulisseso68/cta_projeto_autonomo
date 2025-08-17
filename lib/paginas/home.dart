@@ -216,10 +216,16 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ListTile(
-                              leading: Icon(
-                                Icons.edit_note,
-                                color: Colors.white,
-                                size: 40,
+                              leading: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Funcoes().progressRings(),
+                                  Icon(
+                                    Icons.edit_note,
+                                    color: Colors.white,
+                                    size: 40,
+                                  ),
+                                ],
                               ),
                               title: Text(
                                 Funcoes().appLang('Take the CCSE Exam'),
@@ -299,14 +305,15 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  trailing: IconButton(
-                      color: COR_02,
+                  trailing: FloatingActionButton(
+                      backgroundColor: COR_02,
                       onPressed: () {
                         setState(() {
                           practiceTileDetailed = !practiceTileDetailed;
                         });
                       },
-                      icon: Icon(
+                      child: Icon(
+                        color: Colors.white,
                         (!practiceTileDetailed)
                             ? Icons.info_outline_rounded
                             : Icons.expand_less_rounded,
@@ -317,11 +324,13 @@ class _HomePageState extends State<HomePage> {
                               'You can chose how many questions to practice, and will have: Immediate validation of your response, knowledge cards to help you memorize, and translation to your language if you want.'),
                           style: TextStyle(color: COR_01),
                         )
-                      : Divider(
-                          color: COR_02,
-                          height: 10,
-                          thickness: 1,
-                        ),
+                      : Container(),
+                ),
+
+                Divider(
+                  color: COR_02,
+                  height: 20,
+                  thickness: 1,
                 ),
 
                 //List of categories
@@ -350,154 +359,70 @@ class _HomePageState extends State<HomePage> {
   //Builds the list of tiles for the categories
   Widget _buildListTile() {
     List<Widget> listTiles = [];
+    Color catTileColor = Colors.grey.shade100;
 
     for (int i = 1; i < _categoriesSelected.length; i++) {
       String catsel = _categoriesSelected[i];
       int qty = Funcoes().selectQuestions(catsel).length;
+      catTileColor = (_isOpen[i])
+          ? Colors.orange.shade200 // Color for the open category
+          : Colors.grey.shade400; // Color for the exam category
 
       // Skip the test category
       listTiles.add(Container(
-        //width: screenW * 0.95,
+        //width: screenW * 0.90,
         decoration: BoxDecoration(
-          border: Border.all(
-              color:
-                  (_isOpen[i]) ? Colors.orange.shade200 : Colors.grey.shade300,
-              width: 2),
+          border: Border.all(color: catTileColor, width: 2),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 2,
+              color: catTileColor,
+              spreadRadius: 1,
               blurRadius: 5,
               offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
         child: ListTile(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          tileColor: _isOpen[i] ? Colors.orange.shade100 : Colors.grey.shade100,
-          dense: true,
-          visualDensity: VisualDensity.compact,
-          title: GestureDetector(
-            onTap: () => setState(() {
-              collapse(i);
-            }),
-            child: Text(
-              Funcoes().shortCat(catsel),
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 17, color: COR_01),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-          ),
-          subtitle:
-              questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
-          leading: (i != 0)
-              ? Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Funcoes().progressRings(category: catsel),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            collapse(i);
-                          });
-                        },
-                        icon: _isOpen[i]
-                            ? Icon(
-                                (catsel == examCat)
-                                    ? Icons.edit_document
-                                    : Icons.auto_stories,
-                                color: Colors.grey,
-                                size: 20,
-                              )
-                            : Container(
-                                width: 30,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: (i > 0) ? COR_02 : Colors.white,
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                child: (i > 0)
-                                    ? Text((i).toString(),
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        ))
-                                    : Icon(
-                                        Icons.verified,
-                                        color: redEspana,
-                                        size: 20,
-                                      ),
-                              )),
-                  ],
-                )
-              : GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      collapse(i);
-                    }); // Handle tap
-                  },
-                  child: Container(
-                    width: screenW / 10,
-                    height: screenW / 10,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: redEspana,
-                    ),
-                    child: Icon(
-                      Icons.edit_note,
-                      color: Colors.white,
-                      size: 40,
-                    ),
-                  ),
-                ),
-        ),
-      ));
-
-      /* if (catsel == examCat) {
-        listTiles.add(
-          Divider(
-            color: COR_02,
-            height: 10,
-            indent: 10,
-            endIndent: 10,
-            thickness: 1,
-          ),
-        );
-        listTiles.add(
-          ListTile(
+            tileColor:
+                _isOpen[i] ? Colors.orange.shade100 : Colors.grey.shade100,
             dense: true,
             visualDensity: VisualDensity.compact,
-            title: Text(Funcoes().appLang('Practice'),
-                style: const TextStyle(
-                    fontSize: 20, color: COR_02, fontWeight: FontWeight.bold)),
-            subtitle: (practiceTileDetailed)
-                ? Text(
-                    Funcoes().appLang(
-                        'You can chose how many questions to practice, and will have: Immediate validation of your response, knowledge cards to help you memorize, and translation to your language if you want.'),
-                    style: TextStyle(fontSize: 12, color: Colors.grey))
-                : null,
-            trailing: IconButton(
-              icon: Icon(
-                (practiceTileDetailed)
-                    ? Icons.arrow_drop_up_rounded
-                    : Icons.info,
-                color: COR_02,
-                size: 30,
+            title: GestureDetector(
+              onTap: () => setState(() {
+                collapse(i);
+              }),
+              child: Text(
+                Funcoes().shortCat(catsel),
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 17, color: COR_01),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              onPressed: () {
-                setState(() {
-                  practiceTileDetailed = !practiceTileDetailed;
-                });
-              },
             ),
-          ),
-        );
-      } */
+            subtitle:
+                questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
+            leading: Stack(
+              alignment: Alignment.center,
+              children: [
+                Funcoes().progressRings(category: catsel),
+                IconButton(
+                    onPressed: () {
+                      setState(() {
+                        collapse(i);
+                      });
+                    },
+                    icon: Icon(
+                      Icons.auto_stories,
+                      color: Colors.white,
+                      size: 20,
+                    )),
+              ],
+            )),
+      ));
     }
 
     return Column(
@@ -513,9 +438,7 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Divider(
-          color: (category == examCat)
-              ? redEspana
-              : Color.fromRGBO(255, 224, 178, 1),
+          color: Colors.transparent,
           thickness: 1,
           height: 10,
         ),
@@ -527,45 +450,15 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 15,
-                  color: (category == examCat) ? redEspana : COR_02,
+                  color: Colors.white,
                 ))
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  (category == examCat)
-                      ? Text(
-                          Funcoes().appLang(
-                              'The CCSE exam includes 25 questions extracted from the 300 exercises of the CCSE learning manual. You will have 45 minutes to complete it, and needs to respond correctly to at least 15 questions to pass.'),
-                          style:
-                              TextStyle(fontSize: 15, color: Colors.grey[600]),
-                        )
-                      : Container(),
                   OverflowBar(
                     alignment: MainAxisAlignment.start,
                     spacing: 5,
                     children: [
-                      /* Icon(Icons.navigate_next_rounded, color: COR_02), */
-                      /* if (category != examCat)
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            backgroundColor: COR_02,
-                          ),
-                          onPressed: () async {
-                            Funcoes.categorySelected = category;
-                            numberOfQuestions = 15;
-                            await Navigator.pushNamed(context, 'questionsPage1')
-                                .then((value) {
-                              //This callback is executed when returning from the questions page
-                              updateStatus();
-                            });
-                          },
-                          child: Text(Funcoes().appLang("15"),
-                              style: const TextStyle(
-                                  fontSize: 15, color: Colors.white)),
-                        ), */
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -577,45 +470,38 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () async {
                           Funcoes.categorySelected = category;
                           numberOfQuestions = 25;
-                          await Navigator.pushNamed(
-                                  context,
-                                  (category != examCat)
-                                      ? 'questionsPage1'
-                                      : 'questionsExam')
+                          await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
                             //This callback is executed when returning from the questions page
                             updateStatus();
                           });
                         },
-                        child: Text(
-                            (category != examCat)
-                                ? Funcoes().appLang("25")
-                                : Funcoes().appLang("Take the test"),
+                        child: Text(Funcoes().appLang("25"),
                             style: const TextStyle(
                                 fontSize: 15, color: Colors.white)),
                       ),
                       //All questions button
-                      if (category != examCat)
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            backgroundColor: COR_02,
+
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
                           ),
-                          onPressed: () async {
-                            Funcoes.categorySelected = category;
-                            numberOfQuestions = 1000;
-                            await Navigator.pushNamed(context, 'questionsPage1')
-                                .then((value) {
-                              // This callback is executed when returning from the questions page
-                              updateStatus();
-                            });
-                          },
-                          child: Text(Funcoes().appLang("All"),
-                              style: const TextStyle(
-                                  fontSize: 15, color: Colors.white)),
+                          backgroundColor: COR_02,
                         ),
+                        onPressed: () async {
+                          Funcoes.categorySelected = category;
+                          numberOfQuestions = 1000;
+                          await Navigator.pushNamed(context, 'questionsPage1')
+                              .then((value) {
+                            // This callback is executed when returning from the questions page
+                            updateStatus();
+                          });
+                        },
+                        child: Text(Funcoes().appLang("All"),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.white)),
+                      ),
 
                       //Wrongly answered questions button
                       if (category != examCat &&

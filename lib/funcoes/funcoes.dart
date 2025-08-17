@@ -391,43 +391,41 @@ class Funcoes {
       aques.lastCorrect ? correct++ : null;
     }
 
-    return answered > 0
-        ? Stack(
-            alignment: Alignment.center,
-            children: [
-              //total answers
-              CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                  value: 1,
-                  strokeWidth: 8,
-                  strokeAlign: 2,
-                  /* color: Funcoes().semaforo(answered / total), */
-                  semanticsValue: '100%',
-                  backgroundColor: Colors.transparent),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        //total answers
+        CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+            value: 1,
+            strokeWidth: 8,
+            strokeAlign: 2,
+            /* color: Funcoes().semaforo(answered / total), */
+            semanticsValue: '100%',
+            backgroundColor: Colors.transparent),
 
-              //total answers
-              CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                  value: answered / total,
-                  strokeWidth: 8,
-                  strokeAlign: 2,
-                  /* color: Funcoes().semaforo(answered / total), */
-                  semanticsValue: '${(answered / total * 100).toInt()}%',
-                  backgroundColor: Colors.transparent),
+        //total answers
+        CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+            value: answered / total,
+            strokeWidth: 8,
+            strokeAlign: 2,
+            /* color: Funcoes().semaforo(answered / total), */
+            semanticsValue:
+                '${(answered / (total > 0 ? total : 1) * 100).toInt()}%',
+            backgroundColor: Colors.transparent),
 
-              // Correct Answers
-              CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-                  value: correct / (total > 0 ? total : 1),
-                  strokeWidth: 8,
-                  strokeAlign: 2,
-                  semanticsValue: '${(correct / total * 100).toInt()}%',
-                  backgroundColor: Colors.transparent),
-            ],
-          )
-        : const SizedBox(
-            height: 0,
-          );
+        // Correct Answers
+        CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+            value: correct / (total > 0 ? total : 1),
+            strokeWidth: 8,
+            strokeAlign: 2,
+            semanticsValue:
+                '${(correct / (total > 0 ? total : 1) * 100).toInt()}%',
+            backgroundColor: Colors.transparent),
+      ],
+    );
   }
 
   bool existsAnyAnsweredQuestion() {
