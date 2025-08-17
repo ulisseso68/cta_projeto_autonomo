@@ -185,8 +185,6 @@ class Funcoes {
   }
 
   Future<void> iniciarPreguntas() async {
-    print('Iniciando preguntas... 2');
-
     var questionsFromServer = await CallApi().getPublicData('questions/index');
 
     if (questionsFromServer is String) {
@@ -195,10 +193,47 @@ class Funcoes {
     } else {
       offlineMode = false;
     }
-    print(offlineMode);
     preguntas =
         questionsFromServer.map((e) => Question.fromServerJson(e)).toList();
+
+    learnings.clear();
+    for (var question in preguntas) {
+      if (question.photo != null && question.photo != '') {
+        if (learnings
+            .where((element) => element.description == question.description)
+            .isEmpty) {
+          learnings.add(question);
+        }
+      }
+    }
+    learnings.shuffle();
   }
+
+  /* Future<dynamic> _Translate() async {
+    translationAvailable = false;
+    translatedDescription = "";
+    var translation;
+    if (otherLanguage) {
+      translation =
+          await CallApi().postDataWithHeaders('questions/translation', {
+        'deviceid': deviceID,
+        'ccse_id': currentQuestion.ccse_id,
+        'target_language': Funcoes().languageName
+      }, {
+        'Authorization': 'Bearer token'
+      });
+
+      if (translation != null && translation['success'] == true) {
+        translatedQuestion = translation['translated_question'] ?? '';
+        _translatedAnswers = [];
+        for (var ans in translation['translated_answers']) {
+          _translatedAnswers.add(ans ?? '');
+        }
+        translatedDescription = translation['translated_description'] ?? '';
+        translationAvailable = true;
+      }
+    }
+  } */
 
   List selectQuestions(String categoryChosen) {
     List selQue = [];

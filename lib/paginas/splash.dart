@@ -470,7 +470,7 @@ class _SplashPageState extends State<SplashPage> {
                           actions: [
                             TextButton(
                               onPressed: () async {
-                                print('Resetting statistics...');
+                                //print('Resetting statistics...');
                                 tcsAccepted = false;
                                 Funcoes().setTcsAcceptedToStorage(tcsAccepted);
                                 await Funcoes().deleteAnsweredQuestions();

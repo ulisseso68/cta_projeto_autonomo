@@ -61,7 +61,7 @@ class Question {
       if (offlineMode) {
         return AssetImage('img/${ccse_id.toString()}.jpg');
       } else {
-        return NetworkImage("$APP_URL/img$photo");
+        return NetworkImage("$APP_URL/img/$photo");
       }
     } else {
       return const AssetImage('img/ccse1.jpg');

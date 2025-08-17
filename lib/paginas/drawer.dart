@@ -27,14 +27,14 @@ class AJDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Funcoes().logoWidget(fontSize: 35, opacity: 0),
-                  Hero(
+                  /* Hero(
                     tag: 'splash_image_drawer',
                     child: Image(
                       width: screenW * 0.15,
                       image: AssetImage('img/CCSEf.png'),
                       fit: BoxFit.fill,
                     ),
-                  ),
+                  ), */
                 ],
               ),
             ),

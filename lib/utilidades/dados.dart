@@ -11,6 +11,7 @@ List uniqueCategories = [
   'Tarea 5',
 ];
 List preguntas = [];
+List learnings = [];
 Question currentQuestion = Question();
 List answeredQuestions = [];
 int language = 2;
@@ -32,6 +33,8 @@ int respostaDada = 0;
 String translatedDescription = "";
 bool translationAvailable = false;
 bool otherLanguage = (language != 2) ? true : false;
+
+var translation;
 
 double screenH = 100;
 double screenW = 100;

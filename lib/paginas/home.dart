@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
-import 'package:cta_projeto_autonomo/paginas/drawer.dart'; /* 
-import 'package:cta_projeto_autonomo/utilidades/questions.dart'; */
+import 'package:cta_projeto_autonomo/paginas/drawer.dart';
+import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   bool extended = false;
   bool totalStatistics = false;
   bool practiceTileDetailed = false;
+  bool flashCardsDetailed = false;
 
   @override
   initState() {
@@ -280,6 +281,7 @@ class _HomePageState extends State<HomePage> {
                   height: 40,
                   thickness: 1,
                 ),
+
                 //Title - Study by Category
                 ListTile(
                   dense: true,
@@ -325,6 +327,120 @@ class _HomePageState extends State<HomePage> {
                 //List of categories
                 _buildListTile(),
 
+                //Study with flash cards
+                Divider(
+                  color: COR_02,
+                  height: 40,
+                  thickness: 1,
+                ),
+
+                ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    Funcoes().appLang('Flash Cards'),
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: COR_02,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  trailing: FloatingActionButton(
+                      backgroundColor: COR_02,
+                      heroTag: 'btnCards',
+                      onPressed: () {
+                        setState(() {
+                          flashCardsDetailed = !flashCardsDetailed;
+                        });
+                      },
+                      child: Icon(
+                        color: Colors.white,
+                        (!flashCardsDetailed)
+                            ? Icons.info_outline_rounded
+                            : Icons.expand_less_rounded,
+                      )),
+                  subtitle: (flashCardsDetailed)
+                      ? Text(
+                          Funcoes().appLang(
+                              'You can also choose to look at interesting facts that can help you learn about Spanish Government, Economics, Society and Culture.'),
+                          style: TextStyle(color: COR_01),
+                        )
+                      : Container(),
+                ),
+
+                Divider(
+                  color: Colors.transparent,
+                  height: 10,
+                  thickness: 1,
+                ),
+
+                if (learnings.isNotEmpty)
+                  SizedBox(
+                    height: screenH * 0.2,
+                    /* width: screenW * 0.6, */
+                    child: PageView.builder(
+                      itemCount: learnings.length,
+                      onPageChanged: (index) {
+                        currentQuestion = learnings[index];
+                        translationAvailable = false;
+                      },
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, 'learningPage');
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                                color: Colors.grey.shade300, width: 2),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: screenW * 0.4,
+                                decoration: BoxDecoration(
+                                  color: COR_02,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                  ),
+                                  border: Border.all(
+                                      color: Colors.grey.shade300, width: 1),
+                                  image: DecorationImage(
+                                    image: learnings[index].imagem(),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: screenW * 0.3,
+                                padding: EdgeInsets.all(3.0),
+                                child: Text(
+                                  Funcoes()
+                                      .appLang(learnings[index].description),
+                                  maxLines: 12,
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    color: COR_01,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      scrollDirection: Axis.horizontal,
+                      controller: PageController(
+                        viewportFraction: 0.80,
+                        initialPage: 1,
+                      ),
+                    ),
+                  ),
+
                 Divider(
                   thickness: 1,
                   height: 30,
@@ -334,6 +450,13 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Funcoes().logoWidget(
                     fontSize: 20, opacity: 0, letterColor: Colors.grey),
+                Divider(
+                  thickness: 1,
+                  height: 100,
+                  indent: 10,
+                  endIndent: 10,
+                  color: Colors.white,
+                )
               ]),
         ),
       ),
@@ -422,7 +545,7 @@ class _HomePageState extends State<HomePage> {
   //build the expanded view of each tile
   Widget questionaryOptions(
       bool isOpen, String title, String category, BuildContext context,
-      {Color mainColor = COR_01}) {
+      {Color mainColor = COR_02}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -435,7 +558,7 @@ class _HomePageState extends State<HomePage> {
             ? Text(
                 (category == examCat)
                     ? "25 ${Funcoes().appLang("questions from all categories.")}"
-                    : "${Funcoes().appLang('Practice')} $title ${Funcoes().appLang("Questions")}",
+                    : "$title ${Funcoes().appLang("Questions")}",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 15,

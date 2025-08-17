@@ -13,6 +13,19 @@ final lang = {
     'Haga clic para obtener más información sobre cómo debe realizar el examen.',
     'انقر لمعرفة المزيد حول كيفية إجراء الامتحان.'
   ],
+  'You can also choose to look at interesting facts that can help you learn about Spanish Government, Economics, Society and Culture.':
+      [
+    'You can also choose to look at interesting facts that can help you learn about Spanish Government, Economics, Society and Culture.',
+    'Você também pode escolher olhar para fatos interessantes que podem ajudá-lo a aprender sobre o governo espanhol, economia, sociedade e cultura.',
+    'También puedes optar por ver datos interesantes que pueden ayudarte a aprender sobre el gobierno español, la economía, la sociedad y la cultura.',
+    'يمكنك أيضًا اختيار الاطلاع على حقائق مثيرة للاهتمام يمكن أن تساعدك في التعرف على الحكومة الإسبانية والاقتصاد والمجتمع والثقافة.'
+  ],
+  'Flash Cards': [
+    'Flash Cards',
+    'Cartões de Memória',
+    'Tarjetas de Memoria',
+    'بطاقات الذاكرة'
+  ],
   'Start Exam': [
     'Start Exam',
     'Iniciar Exame',

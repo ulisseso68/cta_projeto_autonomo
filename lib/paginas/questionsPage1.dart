@@ -16,8 +16,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   // ignore: prefer_final_fields
   List _preguntasSelecionadas = [];
   List _respostasLista = [];
-  List _translatedAnswers = [];
-  String translatedQuestion = '';
+
   bool responded = false;
   int respostaErrada = -1;
   int iResp = 0;
@@ -25,7 +24,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
   int answeredCorrect = 0;
   bool beat = false;
   bool translate = false;
-  var translation;
+  List _translatedAnswers = [];
+  String translatedQuestion = '';
 
   @override
   initState() {

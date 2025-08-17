@@ -313,7 +313,7 @@ class _QuestionsExam extends State<QuestionsExam> {
                         ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      backgroundColor: COR_02b,
+                      backgroundColor: COR_02,
                       padding: const EdgeInsets.all(15),
                     ),
                     onPressed: () {
@@ -330,6 +330,11 @@ class _QuestionsExam extends State<QuestionsExam> {
                       ),
                     ),
                   ),
+                  Divider(
+                    thickness: 1.0,
+                    height: 150.0,
+                    color: COR_02,
+                  )
                 ],
               ),
       ),
