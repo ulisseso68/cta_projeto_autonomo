@@ -327,32 +327,36 @@ class Funcoes {
     return Container(
       width: largura * 0.9,
       padding: const EdgeInsets.all(5),
-      height: screenH * 0.12,
-      child: ListTile(
-        tileColor: backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        leading: Icon(
-          icon,
-          size: 35,
-          color: foreColor,
-        ),
-        title: Text(
-          text1,
-          style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: foreColor),
-        ),
-        subtitle: Text(
-          text2,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.bold, color: foreColor),
-        ),
-        onTap: () {
-          // Implement your onTap functionality here
-        },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ListTile(
+            tileColor: backgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            leading: Icon(
+              icon,
+              size: 35,
+              color: foreColor,
+            ),
+            title: Text(
+              text1,
+              style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.bold, color: foreColor),
+            ),
+            subtitle: Text(
+              text2,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontSize: 15, fontWeight: FontWeight.bold, color: foreColor),
+            ),
+            onTap: () {
+              // Implement your onTap functionality here
+            },
+          ),
+        ],
       ),
     );
   }

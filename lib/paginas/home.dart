@@ -287,11 +287,10 @@ class _HomePageState extends State<HomePage> {
 
                 //Divider
                 Divider(
-                  color: Colors.transparent,
-                  height: 10,
+                  color: COR_02,
+                  height: 40,
                   thickness: 1,
                 ),
-
                 //Title - Study by Category
                 ListTile(
                   dense: true,
@@ -328,8 +327,8 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 Divider(
-                  color: COR_02,
-                  height: 20,
+                  color: Colors.transparent,
+                  height: 10,
                   thickness: 1,
                 ),
 
@@ -405,7 +404,7 @@ class _HomePageState extends State<HomePage> {
             ),
             subtitle:
                 questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
-            leading: Stack(
+            trailing: Stack(
               alignment: Alignment.center,
               children: [
                 Funcoes().progressRings(category: catsel),

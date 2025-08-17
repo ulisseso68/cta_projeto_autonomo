@@ -45,7 +45,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
 
     return Scaffold(
       bottomSheet: SizedBox(
-        height: altura * 0.30,
+        height: altura * 0.35,
         width: largura,
         //color: Colors.white,
         child: Column(
