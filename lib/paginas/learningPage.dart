@@ -23,6 +23,10 @@ class _LearningPageState extends State<LearningPage> {
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
 
+    currentQuestion.hasTranslationForCurrentLanguage;
+    translatedDescription =
+        currentQuestion.getTranslatedDescriptionForCurrentLanguage();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

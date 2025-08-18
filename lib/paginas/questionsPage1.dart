@@ -87,6 +87,11 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           _translatedAnswers.add(ans ?? '');
         }
         translatedDescription = translation['translated_description'] ?? '';
+        if (translatedDescription != "") {
+          Funcoes().addTranslatedDescription(
+              '${language.toString()}${currentQuestion.ccse_id}',
+              translatedDescription);
+        }
         translationAvailable = true;
       }
     }
@@ -105,18 +110,19 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         backgroundColor: COR_02,
+
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Funcoes().logoWidget(fontSize: 35, opacity: 0),
-            Hero(
+            /* Hero(
               tag: 'splash_image',
               child: Image(
                 width: largura * 0.15,
                 image: AssetImage('img/CCSEf.png'),
                 fit: BoxFit.fill,
               ),
-            ),
+            ), */
           ],
         ),
         //shadowColor: Colors.white70.withOpacity(0.0),

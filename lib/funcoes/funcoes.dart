@@ -235,17 +235,30 @@ class Funcoes {
     }
   } */
 
+  void addTranslatedDescription(String key, String description) {
+    descriptionsTranslations[key] = description;
+  }
+
+  String getTranslatedDescription(String key) {
+    return descriptionsTranslations[key] ?? '';
+  }
+
   List selectQuestions(String categoryChosen) {
     List selQue = [];
-    selQue = preguntas
-        .where((element) =>
-            element.category.toString().toLowerCase() ==
-            categoryChosen.toLowerCase())
-        .toList();
-    if (selQue.isEmpty) {
+
+    if (categoryChosen == examCat || categoryChosen == '') {
       selQue = preguntas;
+    } else {
+      selQue = preguntas
+          .where((element) =>
+              element.category.toString().toLowerCase() ==
+              categoryChosen.toLowerCase())
+          .toList();
     }
-    selQue.sort((a, b) => a.getAnsQue.printed.compareTo(b.getAnsQue.printed));
+
+    if (selQue.isNotEmpty) {
+      selQue.sort((a, b) => a.getAnsQue.printed.compareTo(b.getAnsQue.printed));
+    }
     return selQue;
   }
 

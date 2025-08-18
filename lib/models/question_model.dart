@@ -57,14 +57,35 @@ class Question {
   answeredQuestion get getAnsQue => Funcoes().findAnsweredQuestion(id);
 
   ImageProvider imagem() {
+    ImageProvider image;
     if (photo != null && photo!.isNotEmpty) {
       if (offlineMode) {
-        return AssetImage('img/${ccse_id.toString()}.jpg');
+        try {
+          image = AssetImage('img/${ccse_id.toString()}.jpg');
+        } catch (e) {
+          //print('captured $e');
+          image = const AssetImage('img/ccse1.jpg');
+        }
       } else {
-        return NetworkImage("$APP_URL/img/$photo");
+        try {
+          image = NetworkImage("$APP_URL/img/$photo");
+        } catch (e) {
+          //print('captured $e');
+          image = const AssetImage('img/ccse1.jpg');
+        }
       }
     } else {
-      return const AssetImage('img/ccse1.jpg');
+      image = const AssetImage('img/ccse1.jpg');
     }
+    return image;
+  }
+
+  bool get hasTranslationForCurrentLanguage {
+    return Funcoes().getTranslatedDescription(language.toString() + ccse_id) !=
+        '';
+  }
+
+  String getTranslatedDescriptionForCurrentLanguage() {
+    return Funcoes().getTranslatedDescription(language.toString() + ccse_id);
   }
 }

@@ -16,15 +16,15 @@ final lang = {
   'You can also choose to look at interesting facts that can help you learn about Spanish Government, Economics, Society and Culture.':
       [
     'You can also choose to look at interesting facts that can help you learn about Spanish Government, Economics, Society and Culture.',
-    'Você também pode escolher olhar para fatos interessantes que podem ajudá-lo a aprender sobre o governo espanhol, economia, sociedade e cultura.',
-    'También puedes optar por ver datos interesantes que pueden ayudarte a aprender sobre el gobierno español, la economía, la sociedad y la cultura.',
+    'Você também pode escolher olhar para fatos interessantes que podem ajudá-lo a aprender sobre o governo, a economia, a sociedade e a cultura da Espanha.',
+    'También puedes optar por ver datos interesantes que pueden ayudarte a aprender sobre el gobierno, la economía, la sociedad y la cultura de España.',
     'يمكنك أيضًا اختيار الاطلاع على حقائق مثيرة للاهتمام يمكن أن تساعدك في التعرف على الحكومة الإسبانية والاقتصاد والمجتمع والثقافة.'
   ],
-  'Flash Cards': [
-    'Flash Cards',
-    'Cartões de Memória',
-    'Tarjetas de Memoria',
-    'بطاقات الذاكرة'
+  'Study Cards': [
+    'Study Cards',
+    'Cartões de Estudo',
+    'Tarjetas de Estudio',
+    'بطاقات الدراسة'
   ],
   'Start Exam': [
     'Start Exam',

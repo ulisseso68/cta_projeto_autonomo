@@ -33,6 +33,7 @@ int respostaDada = 0;
 String translatedDescription = "";
 bool translationAvailable = false;
 bool otherLanguage = (language != 2) ? true : false;
+Map<String, String> descriptionsTranslations = {};
 
 var translation;
 

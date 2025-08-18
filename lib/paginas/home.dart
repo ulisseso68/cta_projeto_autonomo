@@ -4,7 +4,6 @@ import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
 import 'package:cta_projeto_autonomo/paginas/drawer.dart';
-import 'package:cta_projeto_autonomo/utilidades/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -212,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                   height: 10,
                 ),
 
-                //header
+                //Header
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -338,7 +337,7 @@ class _HomePageState extends State<HomePage> {
                   dense: true,
                   visualDensity: VisualDensity.compact,
                   title: Text(
-                    Funcoes().appLang('Flash Cards'),
+                    Funcoes().appLang('Study Cards'),
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
@@ -357,7 +356,7 @@ class _HomePageState extends State<HomePage> {
                       child: Icon(
                         color: Colors.white,
                         (!flashCardsDetailed)
-                            ? Icons.info_outline_rounded
+                            ? Icons.tips_and_updates
                             : Icons.expand_less_rounded,
                       )),
                   subtitle: (flashCardsDetailed)
@@ -383,7 +382,6 @@ class _HomePageState extends State<HomePage> {
                       itemCount: learnings.length,
                       onPageChanged: (index) {
                         currentQuestion = learnings[index];
-                        translationAvailable = false;
                       },
                       itemBuilder: (context, index) => GestureDetector(
                         onTap: () {
@@ -394,26 +392,53 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                                color: Colors.grey.shade300, width: 2),
+                                color: Colors.grey.shade400, width: 2),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
-                                width: screenW * 0.4,
-                                decoration: BoxDecoration(
-                                  color: COR_02,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomLeft: Radius.circular(20),
+                              Stack(
+                                children: [
+                                  Center(
+                                    child: CircularProgressIndicator(
+                                      color: COR_02,
+                                    ),
                                   ),
-                                  border: Border.all(
-                                      color: Colors.grey.shade300, width: 1),
-                                  image: DecorationImage(
-                                    image: learnings[index].imagem(),
-                                    fit: BoxFit.cover,
+                                  Container(
+                                    width: screenW * 0.4,
+                                    decoration: BoxDecoration(
+                                      color: COR_02,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        bottomLeft: Radius.circular(20),
+                                      ),
+                                      border:
+                                          Border.all(color: COR_02, width: 1),
+                                      image: DecorationImage(
+                                        image: learnings[index].imagem(),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  if (learnings[index]
+                                      .hasTranslationForCurrentLanguage)
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: FloatingActionButton.small(
+                                        heroTag: 'translate_button_$index',
+                                        shape: const StadiumBorder(),
+                                        backgroundColor: COR_04,
+                                        onPressed: () {
+                                          // Handle translation button press
+                                          Navigator.pushNamed(
+                                              context, 'learningPage');
+                                        },
+                                        child: Icon(Icons.translate_rounded,
+                                            color: Colors.white, size: 20),
+                                      ),
+                                    )
+                                ],
                               ),
                               Container(
                                 width: screenW * 0.3,
@@ -424,7 +449,10 @@ class _HomePageState extends State<HomePage> {
                                   maxLines: 12,
                                   style: TextStyle(
                                     fontSize: 10,
-                                    color: COR_01,
+                                    color: (learnings[index]
+                                            .hasTranslationForCurrentLanguage)
+                                        ? COR_04
+                                        : COR_01,
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
@@ -441,6 +469,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
+                //Footer
                 Divider(
                   thickness: 1,
                   height: 30,
@@ -481,59 +510,61 @@ class _HomePageState extends State<HomePage> {
           : Colors.grey.shade400; // Color for the exam category
 
       // Skip the test category
-      listTiles.add(Container(
-        //width: screenW * 0.90,
-        decoration: BoxDecoration(
-          border: Border.all(color: catTileColor, width: 2),
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white,
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: ListTile(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            tileColor: catTileColor,
-            dense: true,
-            visualDensity: VisualDensity.compact,
-            title: GestureDetector(
-              onTap: () => setState(() {
-                collapse(i);
-              }),
-              child: Text(
-                Funcoes().shortCat(catsel),
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 17, color: COR_01),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+      if (qty > 0) {
+        listTiles.add(Container(
+          //width: screenW * 0.90,
+          decoration: BoxDecoration(
+            border: Border.all(color: catTileColor, width: 2),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white,
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 3), // changes position of shadow
               ),
-            ),
-            subtitle:
-                questionaryOptions(_isOpen[i], qty.toString(), catsel, context),
-            trailing: Stack(
-              alignment: Alignment.center,
-              children: [
-                Funcoes().progressRings(category: catsel),
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        collapse(i);
-                      });
-                    },
-                    icon: Icon(
-                      Icons.auto_stories,
-                      color: COR_02,
-                      size: 20,
-                    )),
-              ],
-            )),
-      ));
+            ],
+          ),
+          child: ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              tileColor: catTileColor,
+              dense: true,
+              visualDensity: VisualDensity.compact,
+              title: GestureDetector(
+                onTap: () => setState(() {
+                  collapse(i);
+                }),
+                child: Text(
+                  Funcoes().shortCat(catsel),
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 17, color: COR_01),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              subtitle: questionaryOptions(
+                  _isOpen[i], qty.toString(), catsel, context),
+              trailing: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Funcoes().progressRings(category: catsel),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          collapse(i);
+                        });
+                      },
+                      icon: Icon(
+                        Icons.auto_stories,
+                        color: COR_02,
+                        size: 20,
+                      )),
+                ],
+              )),
+        ));
+      }
     }
 
     return Column(
