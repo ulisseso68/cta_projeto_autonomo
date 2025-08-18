@@ -543,7 +543,7 @@ class _SplashPageState extends State<SplashPage> {
             textAlign: TextAlign.center,
           ),
           content: SizedBox(
-            height: altura * 0.25,
+            height: altura * 0.35,
             child: Column(
               spacing: 8,
               children: [

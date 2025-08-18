@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-const APP_URL = 'http://127.0.0.1:8000';
+/* const APP_URL = 'http://127.0.0.1:8000'; */
 
-/* const APP_URL = 'https://app.ccsefacil.es'; */
+const APP_URL = 'https://app.ccsefacil.es';
 const API_URL = '${APP_URL}/api/';
 const Ru_mainFont = "Verdana";
 const COR_01 = Colors.black54;

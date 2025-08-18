@@ -26,6 +26,26 @@ class Funcoes {
     //print(autonomos.length);
   }
 
+// functions to treat descriptionsTranslations into local storage
+
+  Future<void> saveDescriptionsTranslationsToStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setString(
+        'descriptionsTranslations', jsonEncode(descriptionsTranslations));
+  }
+
+  Future<void> loadDescriptionsTranslationsFromStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    String? savedTranslations =
+        localStorage.getString('descriptionsTranslations');
+    if (savedTranslations != null) {
+      descriptionsTranslations =
+          Map<String, String>.from(jsonDecode(savedTranslations));
+    } else {
+      descriptionsTranslations = {};
+    }
+  }
+
 // functions to treat userName
   void setUserName(String name) {
     userName = name;
@@ -237,6 +257,7 @@ class Funcoes {
 
   void addTranslatedDescription(String key, String description) {
     descriptionsTranslations[key] = description;
+    saveDescriptionsTranslationsToStorage();
   }
 
   String getTranslatedDescription(String key) {

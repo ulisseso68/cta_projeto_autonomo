@@ -160,14 +160,14 @@ class _QuestionsExam extends State<QuestionsExam> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Funcoes().logoWidget(fontSize: 35, opacity: 0),
-            Hero(
+            /* Hero(
               tag: 'splash_image',
               child: Image(
                 width: largura * 0.15,
                 image: AssetImage('img/CCSEf.png'),
                 fit: BoxFit.fill,
               ),
-            ),
+            ), */
           ],
         ),
         //shadowColor: Colors.white70.withOpacity(0.0),

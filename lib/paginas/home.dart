@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
     await Funcoes().getLanguageFromStorage();
     await Funcoes().getTcsAcceptedFromStorage();
     await Funcoes().getUserNameFromStorage();
+    await Funcoes().loadDescriptionsTranslationsFromStorage();
 
     deviceID = (await _getId()).toString();
 
@@ -227,8 +228,9 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       child: Container(
-                        height: altura / 12,
+                        //height: altura / 10,
                         width: largura * 0.95,
+                        padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           border: Border.all(color: colorCCSE, width: 2),
                           borderRadius: BorderRadius.circular(20),
@@ -399,15 +401,24 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Stack(
                                 children: [
-                                  Center(
-                                    child: CircularProgressIndicator(
-                                      color: COR_02,
-                                    ),
-                                  ),
+                                  Container(
+                                      width: screenW * 0.4,
+                                      decoration: const BoxDecoration(
+                                        color: COR_02,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          bottomLeft: Radius.circular(20),
+                                        ),
+                                      ),
+                                      child: const Center(
+                                        child: CircularProgressIndicator(
+                                          color: Colors.white,
+                                        ),
+                                      )),
                                   Container(
                                     width: screenW * 0.4,
                                     decoration: BoxDecoration(
-                                      color: COR_02,
+                                      color: Colors.transparent,
                                       borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(20),
                                         bottomLeft: Radius.circular(20),
@@ -705,7 +716,8 @@ class _HomePageState extends State<HomePage> {
             textAlign: TextAlign.center,
           ),
           content: SizedBox(
-            height: altura * 0.25,
+            //padding: EdgeInsets.all(8.0),
+            height: altura * 0.50,
             child: Column(
               spacing: 8,
               children: [
