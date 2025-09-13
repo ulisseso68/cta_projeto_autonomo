@@ -26,6 +26,20 @@ final lang = {
     'Tarjetas de Estudio',
     'بطاقات الدراسة'
   ],
+  'Practice by Category': [
+    'Practice by Category',
+    'Praticar por Tema',
+    'Practicar por Tema',
+    'الممارسة حسب الموضوع'
+  ],
+  'Practice Cards': [
+    'Practice Cards',
+    'Cartões de Prática',
+    'Tarjetas de Práctica',
+    'بطاقات الممارسة'
+  ],
+  'Review': ['Review', 'Revisar', 'Revisar', 'مراجعة'],
+  'Quick': ['Quick', 'Rápido', 'Rápido', 'سريع'],
   'Start Exam': [
     'Start Exam',
     'Iniciar Exame',
@@ -331,7 +345,7 @@ final lang = {
     'Problema al cargar los datos',
     'مشكلة في تحميل البيانات'
   ],
-  'All': ['All', 'Todas', 'Todas', 'الكل'],
+  'All': ['All', 'Completo', 'Completo', 'الكل'],
   'Only': ['Only', 'Somente', 'Solo', 'فقط'],
   'Unanswered': [
     'Unanswered',

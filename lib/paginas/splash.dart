@@ -43,15 +43,19 @@ class _SplashPageState extends State<SplashPage> {
           alignment: Alignment.center,
           fit: StackFit.expand,
           children: [
+            SizedBox(
+              width: largura,
+              height: 10,
+            ),
             Center(
                 child: Hero(
               tag: 'splash_image',
               child: Image(
-                image: AssetImage('img/CCSEf.png'),
+                image: AssetImage('img/playstore.png'),
                 fit: BoxFit.fill,
               ),
             )),
-            Positioned(
+            /* Positioned(
               bottom: 0,
               child: Container(
                 alignment: Alignment.center,
@@ -65,7 +69,7 @@ class _SplashPageState extends State<SplashPage> {
                 height: 5,
                 color: redEspana,
               ),
-            ),
+            ), */
           ],
         ),
         elevation: 0,

@@ -324,7 +324,7 @@ class _HomePageState extends State<HomePage> {
                   dense: true,
                   visualDensity: VisualDensity.compact,
                   title: Text(
-                    Funcoes().appLang('Study by Category'),
+                    Funcoes().appLang('Practice by Category'),
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
@@ -376,7 +376,7 @@ class _HomePageState extends State<HomePage> {
                   dense: true,
                   visualDensity: VisualDensity.compact,
                   title: Text(
-                    Funcoes().appLang('Study Cards'),
+                    Funcoes().appLang('Practice Cards'),
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
@@ -685,14 +685,15 @@ class _HomePageState extends State<HomePage> {
                           });
                         },
                         child: Row(
+                          spacing: 5,
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(Funcoes().appLang("10"),
-                                style: const TextStyle(
-                                    fontSize: 15, color: Colors.white)),
                             Icon(Icons.rocket_launch,
                                 color: Colors.white, size: 18),
+                            Text(Funcoes().appLang("Quick"),
+                                style: const TextStyle(
+                                    fontSize: 15, color: Colors.white)),
                           ],
                         ),
                       ),
@@ -715,14 +716,15 @@ class _HomePageState extends State<HomePage> {
                           });
                         },
                         child: Row(
+                          spacing: 5,
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Icon(Icons.self_improvement,
+                                color: Colors.white, size: 20),
                             Text(Funcoes().appLang("All"),
                                 style: const TextStyle(
                                     fontSize: 15, color: Colors.white)),
-                            /* Icon(Icons.self_improvement,
-                                color: Colors.white, size: 20), */
                           ],
                         ),
                       ),
@@ -734,7 +736,9 @@ class _HomePageState extends State<HomePage> {
                               .isNotEmpty)
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            shape: CircleBorder(),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             backgroundColor: redEspana,
                           ),
                           onPressed: () async {
@@ -747,6 +751,7 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           child: Row(
+                            spacing: 5,
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -755,6 +760,10 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.white,
                                 size: 20,
                               ),
+                              Text(Funcoes().appLang("Review"),
+                                  style: const TextStyle(
+                                      fontSize: 15, color: Colors.white)),
+
                               /* Text(
                                   Funcoes()
                                       .wronglyAnsweredQuestions(category)
