@@ -172,10 +172,10 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
           size: 40,
         ),
-        toolbarHeight: (extended) ? altura / 3 : altura / 6,
+        toolbarHeight: altura / 10,
         title: Row(
           children: [
-            Funcoes().logoWidget(fontSize: 35, opacity: 0.4),
+            Funcoes().logoWidget(fontSize: 35, opacity: 0),
             /* Hero(
               tag: 'splash_image',
               child: Image(
@@ -189,9 +189,14 @@ class _HomePageState extends State<HomePage> {
         flexibleSpace: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
-              'img/ccse1.jpg',
-              fit: BoxFit.cover,
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[COR_02, redEspana],
+                ),
+              ),
             ),
             Positioned(
               bottom: 0,
@@ -540,12 +545,12 @@ class _HomePageState extends State<HomePage> {
       bottomSheet: //Ad Banner
           Container(
         decoration: BoxDecoration(
-          color: Colors.grey.shade300,
+          color: Colors.grey.shade400,
           border: Border(
             top: BorderSide(color: COR_02, width: 5),
           ),
         ),
-        height: widget.adSize.height.toDouble() + 30,
+        height: widget.adSize.height.toDouble() + 40,
         alignment: Alignment.center,
         padding: EdgeInsets.only(
             bottom: 10,

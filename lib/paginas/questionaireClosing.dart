@@ -110,21 +110,38 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
 
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white, size: 40),
-        backgroundColor: COR_02,
+        toolbarHeight: altura / 10,
         automaticallyImplyLeading: false,
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        centerTitle: true,
+        flexibleSpace: Stack(
+          fit: StackFit.expand,
           children: [
-            Text(Funcoes().shortCat(Funcoes.categorySelected),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontFamily: 'verdana',
-                    fontWeight: FontWeight.bold)),
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[COR_02, redEspana],
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                width: largura,
+                height: 5,
+                color: COR_02,
+              ),
+            ),
           ],
         ),
+        title: Text(Funcoes().shortCat(Funcoes.categorySelected),
+            maxLines: 2,
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontFamily: 'verdana',
+                fontWeight: FontWeight.bold)),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -135,11 +152,6 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                color: Colors.grey,
-                height: 2,
-                width: largura,
-              ),
               Container(
                 padding:
                     EdgeInsets.only(bottom: 10, top: 10, left: 20, right: 20),
@@ -233,8 +245,8 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
               padding: const EdgeInsets.only(top: 35),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.white,
-                //border: Border(top: BorderSide(color: Colors.grey, width: 2)),
+                color: Colors.grey.shade400,
+                border: Border(top: BorderSide(color: COR_02, width: 5)),
               ),
               child: Container(
                   padding: const EdgeInsets.all(10),
@@ -242,7 +254,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             )
           : Container(
               decoration: BoxDecoration(
-                color: COR_02,
+                color: Colors.grey.shade400,
                 border: Border(top: BorderSide(color: Colors.grey, width: 2)),
               ),
               width: largura,
@@ -254,13 +266,6 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
         elevation: 20,
         onPressed: () {
           Navigator.popUntil(context, (route) => route.isFirst);
-          //Navigator.pushNamed(context, 'adPage');
-          /* mainColor = Funcoes().semaforo(
-              respostasCorretas / (respostasErradas + respostasCorretas));
-          _nativeAdIsLoaded = false;
-          _nativeAd?.dispose();
-          loadAd();
-          setState(() {}); */
         },
         backgroundColor: (_nativeAdIsLoaded) ? COR_04 : Colors.grey,
         child: const Icon(Icons.home_filled, color: Colors.white, size: 40),
