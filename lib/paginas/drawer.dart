@@ -16,17 +16,29 @@ class AJDrawer extends StatelessWidget {
         surfaceTintColor: Colors.white,
         shadowColor: Colors.white,
         backgroundColor: Colors.white,
+        shape: Border(
+          right: BorderSide(
+            color: redEspana,
+            width: 1,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DrawerHeader(
+            /* DrawerHeader(
               decoration: BoxDecoration(
-                color: redEspana,
+                color: Colors.white,
+                border: Border(
+                  bottom: BorderSide(
+                    style: BorderStyle.none,
+                  ),
+                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Funcoes().logoWidget(fontSize: 35, opacity: 0),
+                  Funcoes().logoWidget(
+                      fontSize: 35, opacity: 0, letterColor: redEspana),
                   /* Hero(
                     tag: 'splash_image_drawer',
                     child: Image(
@@ -38,9 +50,27 @@ class AJDrawer extends StatelessWidget {
                 ],
               ),
             ),
+ */
+            SizedBox(
+              height: screenH * 0.10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: screenW * 0.05,
+                ),
+                Funcoes().logoWidget(
+                    fontSize: 35, opacity: 0, letterColor: redEspana),
+              ],
+            ),
 
+            // KPIs
+            SizedBox(
+              height: screenH * 0.02,
+            ),
             // Summary of progress
-            (!Funcoes().existsAnyAnsweredQuestion())
+            /* (!Funcoes().existsAnyAnsweredQuestion())
                 ? SizedBox(
                     height: 0,
                     width: 0,
@@ -68,7 +98,7 @@ class AJDrawer extends StatelessWidget {
               indent: 10,
               endIndent: 10,
               thickness: 1,
-            ),
+            ), */
 
             // Settings
             ListTile(

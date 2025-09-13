@@ -9,8 +9,14 @@ import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
 
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final AdSize adSize = AdSize.largeBanner;
+  final String adUnitId =
+      Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
+
+  HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -23,12 +29,48 @@ class _HomePageState extends State<HomePage> {
   bool totalStatistics = false;
   bool practiceTileDetailed = false;
   bool flashCardsDetailed = false;
+  BannerAd? _bannerAd;
 
   @override
   initState() {
+    //print(widget.adUnitId);
     super.initState();
+    _loadAd();
     _getDatafromServer();
-    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
+  }
+
+  /// Loads a banner ad.
+  void _loadAd() {
+    final bannerAd = BannerAd(
+      size: widget.adSize,
+      adUnitId: widget.adUnitId,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        // Called when an ad is successfully received.
+        onAdLoaded: (ad) {
+          if (!mounted) {
+            ad.dispose();
+            return;
+          }
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (ad, error) {
+          debugPrint('BannerAd failed to load: $error');
+          ad.dispose();
+        },
+      ),
+    );
+    // Start loading.
+    bannerAd.load();
   }
 
   void collapse(int index) {
@@ -121,7 +163,6 @@ class _HomePageState extends State<HomePage> {
 
     final double altura = MediaQuery.of(context).size.height;
     final double largura = MediaQuery.of(context).size.width;
-    final colorCCSE = COR_02;
 
     return Scaffold(
       onDrawerChanged: (isClosed) => updateStatus(),
@@ -199,6 +240,9 @@ class _HomePageState extends State<HomePage> {
         displacement: 50,
         backgroundColor: Colors.grey.shade300,
         onRefresh: () {
+          _bannerAd?.dispose();
+          _loadAd();
+
           return _getDatafromServer();
         },
         child: SingleChildScrollView(
@@ -207,12 +251,11 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //Cabeçalho com imagem, Logo e Slogan
                 const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
 
-                //Header
+                //Simulation Exam Button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -230,19 +273,11 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         //height: altura / 10,
                         width: largura * 0.95,
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          border: Border.all(color: colorCCSE, width: 2),
+                          border: Border.all(color: Colors.white, width: 2),
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: colorCCSE,
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                              offset: const Offset(
-                                  0, 3), // changes position of shadow
-                            ),
-                          ],
+                          color: COR_02,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -260,9 +295,10 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                               title: Text(
-                                Funcoes().appLang('Take the CCSE Exam'),
+                                Funcoes().appLang('CCSE Exam Simulation'),
                                 maxLines: 2,
                                 style: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                   fontSize: 17,
                                   color: Colors.white,
                                   overflow: TextOverflow.ellipsis,
@@ -279,7 +315,7 @@ class _HomePageState extends State<HomePage> {
                 //Divider
                 Divider(
                   color: COR_02,
-                  height: 40,
+                  height: 30,
                   thickness: 1,
                 ),
 
@@ -292,22 +328,23 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
-                      color: COR_02,
+                      color: Colors.grey,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  trailing: FloatingActionButton(
-                      backgroundColor: COR_02,
-                      heroTag: 'btnInfo',
+                  trailing: IconButton(
+                      //backgroundColor: Colors.white,
+                      //heroTag: 'btnInfo',
                       onPressed: () {
                         setState(() {
                           practiceTileDetailed = !practiceTileDetailed;
                         });
                       },
-                      child: Icon(
-                        color: Colors.white,
+                      icon: Icon(
+                        size: 30,
+                        color: Colors.grey,
                         (!practiceTileDetailed)
-                            ? Icons.info_outline_rounded
+                            ? Icons.info_rounded
                             : Icons.expand_less_rounded,
                       )),
                   subtitle: (practiceTileDetailed)
@@ -343,20 +380,19 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
-                      color: COR_02,
+                      color: Colors.grey,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  trailing: FloatingActionButton(
-                      backgroundColor: COR_02,
-                      heroTag: 'btnCards',
+                  trailing: IconButton(
                       onPressed: () {
                         setState(() {
                           flashCardsDetailed = !flashCardsDetailed;
                         });
                       },
-                      child: Icon(
-                        color: Colors.white,
+                      icon: Icon(
+                        size: 30,
+                        color: Colors.grey,
                         (!flashCardsDetailed)
                             ? Icons.tips_and_updates
                             : Icons.expand_less_rounded,
@@ -387,6 +423,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       itemBuilder: (context, index) => GestureDetector(
                         onTap: () {
+                          currentQuestion = learnings[index];
                           Navigator.pushNamed(context, 'learningPage');
                         },
                         child: Container(
@@ -500,10 +537,30 @@ class _HomePageState extends State<HomePage> {
               ]),
         ),
       ),
-      bottomSheet: Container(
-        width: largura,
-        height: altura / 15,
-        color: COR_02b,
+      bottomSheet: //Ad Banner
+          Container(
+        decoration: BoxDecoration(
+          color: Colors.grey.shade300,
+          border: Border(
+            top: BorderSide(color: COR_02, width: 5),
+          ),
+        ),
+        height: widget.adSize.height.toDouble() + 30,
+        alignment: Alignment.center,
+        padding: EdgeInsets.only(
+            bottom: 10,
+            top: 10,
+            left: max(5, (largura - widget.adSize.width) / 2),
+            right: max(5, (largura - widget.adSize.width) / 2)),
+        child: SizedBox(
+          width: widget.adSize.width.toDouble(),
+          height: widget.adSize.height.toDouble(),
+          child: _bannerAd == null
+              // Nothing to render yet.
+              ? const SizedBox()
+              // The actual ad.
+              : AdWidget(ad: _bannerAd!),
+        ),
       ),
     );
   }
@@ -511,28 +568,25 @@ class _HomePageState extends State<HomePage> {
   //Builds the list of tiles for the categories
   Widget _buildListTile() {
     List<Widget> listTiles = [];
-    Color catTileColor = Colors.grey.shade100;
+    //Color catTileColor = Colors.grey.shade100;
 
     for (int i = 1; i < _categoriesSelected.length; i++) {
       String catsel = _categoriesSelected[i];
       int qty = Funcoes().selectQuestions(catsel).length;
-      catTileColor = (_isOpen[i])
-          ? Colors.orange.shade200 // Color for the open category
-          : Colors.grey.shade400; // Color for the exam category
 
       // Skip the test category
       if (qty > 0) {
         listTiles.add(Container(
           //width: screenW * 0.90,
           decoration: BoxDecoration(
-            border: Border.all(color: catTileColor, width: 2),
+            border: Border.all(color: Colors.grey, width: (_isOpen[i]) ? 2 : 1),
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
                 color: Colors.white,
                 spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(0, 3), // changes position of shadow
+                blurRadius: 1,
+                offset: const Offset(0, 0), // changes position of shadow
               ),
             ],
           ),
@@ -540,7 +594,7 @@ class _HomePageState extends State<HomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              tileColor: catTileColor,
+              tileColor: Colors.white,
               dense: true,
               visualDensity: VisualDensity.compact,
               title: GestureDetector(
@@ -623,16 +677,24 @@ class _HomePageState extends State<HomePage> {
                         ),
                         onPressed: () async {
                           Funcoes.categorySelected = category;
-                          numberOfQuestions = 25;
+                          numberOfQuestions = 10;
                           await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
                             //This callback is executed when returning from the questions page
                             updateStatus();
                           });
                         },
-                        child: Text(Funcoes().appLang("25"),
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.white)),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(Funcoes().appLang("10"),
+                                style: const TextStyle(
+                                    fontSize: 15, color: Colors.white)),
+                            Icon(Icons.rocket_launch,
+                                color: Colors.white, size: 18),
+                          ],
+                        ),
                       ),
                       //All questions button
 
@@ -652,9 +714,17 @@ class _HomePageState extends State<HomePage> {
                             updateStatus();
                           });
                         },
-                        child: Text(Funcoes().appLang("All"),
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.white)),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(Funcoes().appLang("All"),
+                                style: const TextStyle(
+                                    fontSize: 15, color: Colors.white)),
+                            /* Icon(Icons.self_improvement,
+                                color: Colors.white, size: 20), */
+                          ],
+                        ),
                       ),
 
                       //Wrongly answered questions button
@@ -664,9 +734,7 @@ class _HomePageState extends State<HomePage> {
                               .isNotEmpty)
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            ),
+                            shape: CircleBorder(),
                             backgroundColor: redEspana,
                           ),
                           onPressed: () async {
@@ -683,17 +751,17 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.error_outline_rounded,
+                                Icons.rule,
                                 color: Colors.white,
-                                size: 18,
+                                size: 20,
                               ),
-                              Text(
+                              /* Text(
                                   Funcoes()
                                       .wronglyAnsweredQuestions(category)
                                       .length
                                       .toString(),
                                   style: const TextStyle(
-                                      fontSize: 15, color: Colors.white)),
+                                      fontSize: 15, color: Colors.white)), */
                             ],
                           ),
                         ),

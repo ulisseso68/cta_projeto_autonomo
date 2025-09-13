@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cta_projeto_autonomo/paginas/examClosing.dart';
 import 'package:cta_projeto_autonomo/paginas/pagina_creditos_projeto.dart';
 import 'package:cta_projeto_autonomo/paginas/learningPage.dart';
@@ -8,10 +10,13 @@ import 'package:cta_projeto_autonomo/paginas/questionsExam.dart';
 import 'package:cta_projeto_autonomo/paginas/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'paginas/questionsPage1.dart';
+import 'paginas/intersticial.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  unawaited(MobileAds.instance.initialize());
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(MyApp());
@@ -37,14 +42,28 @@ class MyApp extends StatelessWidget {
       },
       title: 'CCSE Fácil',
       theme: ThemeData(
+          drawerTheme: DrawerThemeData(
+              backgroundColor: Colors.white,
+              elevation: 5,
+              surfaceTintColor: Colors.white,
+              shadowColor: Colors.white,
+              shape: Border(
+                right: BorderSide(
+                  color: Colors.grey.shade300,
+                  width: 1,
+                ),
+              )),
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: AppBarTheme(),
           fontFamily: 'Verdana',
           colorScheme: ColorScheme.fromSwatch(
-            backgroundColor: Colors.black12,
-            primarySwatch: Colors.yellow,
-            cardColor: Colors.white,
-          )),
+              backgroundColor: Colors.white,
+              primarySwatch: Colors.grey,
+              cardColor: Colors.white,
+              accentColor: Colors.grey)),
       routes: {
-        'homePage': ((context) => const HomePage()),
+        'homePage': ((context) => HomePage()),
+        'adPage': ((context) => AdPage()),
         'questionsPage1': ((context) => const QuestionsPage1()),
         'questionsExam': ((context) => const QuestionsExam()),
         'questionsClosing': ((context) => const QuestionareClosing()),

@@ -35,6 +35,7 @@ class _SplashPageState extends State<SplashPage> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: redEspana,
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         toolbarHeight: altura * 0.40,

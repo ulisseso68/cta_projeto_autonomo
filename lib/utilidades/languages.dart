@@ -44,11 +44,11 @@ final lang = {
     'CCSE - Examen Simulado',
     'CCSE - امتحان محاكاة'
   ],
-  'Take the CCSE Exam': [
-    'Take the CCSE Exam',
-    'Faça o simulado CCSE.',
-    'Hacer el examen simulado CCSE',
-    'اجتياز امتحان CCSE'
+  'CCSE Exam Simulation': [
+    'CCSE Exam Simulation',
+    'Simulado do Exame CCSE',
+    'Simulación del Examen CCSE',
+    'محاكاة امتحان CCSE'
   ],
   'Portuguese': ['Portuguese', 'Português', 'Portugués', 'البرتغالية'],
   'Spanish': ['Spanish', 'Espanhol', 'Español', 'الإسبانية'],

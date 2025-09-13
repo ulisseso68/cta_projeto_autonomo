@@ -80,7 +80,8 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
         'Authorization': 'Bearer token'
       });
 
-      if (translation != null && translation['success'] == true) {
+      if (translation is Map<String, dynamic> &&
+          translation['success'] == true) {
         translatedQuestion = translation['translated_question'] ?? '';
         _translatedAnswers = [];
         for (var ans in translation['translated_answers']) {

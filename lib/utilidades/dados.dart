@@ -34,6 +34,12 @@ String translatedDescription = "";
 bool translationAvailable = false;
 bool otherLanguage = (language != 2) ? true : false;
 Map<String, String> descriptionsTranslations = {};
+// AdMob & AdUnit Ids
+String admobAppId = 'ca-app-pub-3940256099942544~3347511713';
+String bannerAdUnitIdIOS = 'ca-app-pub-6464644953989525/1731618446';
+String bannerAdUnitIdAndroid = 'ca-app-pub-6464644953989525/1731618446';
+String nativeAdUnitIdIOS = 'ca-app-pub-6464644953989525/2184712881';
+String nativeAdUnitIdAndroid = 'ca-app-pub-6464644953989525/2184712881';
 
 var translation;
 

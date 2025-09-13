@@ -15,4 +15,9 @@
     <style name="NormalTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+    <!-- This was added to avoid the adMod border -->
+    <resources>
+        <color name="gnt_outline">#00000000</color>
+        <color name="gnt_white">#00000000</color>
+    </resources>
 </resources>

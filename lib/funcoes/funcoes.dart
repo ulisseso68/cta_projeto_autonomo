@@ -395,31 +395,36 @@ class Funcoes {
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
     return Container(
       width: largura * 0.9,
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ListTile(
-            tileColor: backgroundColor,
+            tileColor: foreColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
+              //side: BorderSide(color: backgroundColor, width: 2),
             ),
             leading: Icon(
               icon,
               size: 35,
-              color: foreColor,
+              color: backgroundColor,
             ),
             title: Text(
               text1,
               style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.bold, color: foreColor),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: backgroundColor),
             ),
             subtitle: Text(
               text2,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  fontSize: 15, fontWeight: FontWeight.bold, color: foreColor),
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: backgroundColor),
             ),
             onTap: () {
               // Implement your onTap functionality here
