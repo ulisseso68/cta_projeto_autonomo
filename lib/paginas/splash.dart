@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
         automaticallyImplyLeading: false,
         backgroundColor: redEspana,
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
-        toolbarHeight: altura * 0.40,
+        toolbarHeight: altura * 0.30,
         flexibleSpace: Stack(
           alignment: Alignment.center,
           fit: StackFit.expand,
@@ -47,14 +47,18 @@ class _SplashPageState extends State<SplashPage> {
               width: largura,
               height: 10,
             ),
-            Center(
-                child: Hero(
-              tag: 'splash_image',
-              child: Image(
-                image: AssetImage('img/playstore.png'),
-                fit: BoxFit.fill,
-              ),
-            )),
+            Positioned(
+              height: altura * 0.25,
+              bottom: 0,
+              child: Center(
+                  child: Hero(
+                tag: 'splash_image',
+                child: Image(
+                  image: AssetImage('img/CCSELogo.png'),
+                  fit: BoxFit.contain,
+                ),
+              )),
+            ),
             /* Positioned(
               bottom: 0,
               child: Container(

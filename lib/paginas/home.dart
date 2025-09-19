@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: altura / 10,
         title: Row(
           children: [
-            Funcoes().logoWidget(fontSize: 35, opacity: 0),
+            Funcoes().logoWidget(opacity: 0),
             /* Hero(
               tag: 'splash_image',
               child: Image(
@@ -530,8 +530,7 @@ class _HomePageState extends State<HomePage> {
                   endIndent: 10,
                   color: COR_02,
                 ),
-                Funcoes().logoWidget(
-                    fontSize: 20, opacity: 0, letterColor: Colors.grey),
+                Funcoes().logoWidget(opacity: 0, letterColor: Colors.grey),
                 Divider(
                   thickness: 1,
                   height: 100,
@@ -550,7 +549,9 @@ class _HomePageState extends State<HomePage> {
             top: BorderSide(color: COR_02, width: 5),
           ),
         ),
-        height: widget.adSize.height.toDouble() + 40,
+        height: _bannerAd == null
+            ? screenH * 0.08
+            : widget.adSize.height.toDouble() + 40,
         alignment: Alignment.center,
         padding: EdgeInsets.only(
             bottom: 10,

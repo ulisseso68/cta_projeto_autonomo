@@ -41,7 +41,6 @@ class _PaginaTermosUsoPrivacidadeState
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Funcoes().logoWidget(
-                    fontSize: 25,
                     opacity: 0,
                   ),
                   Text(

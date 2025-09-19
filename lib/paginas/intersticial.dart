@@ -142,7 +142,7 @@ class _AdPageState extends State<AdPage> {
             },
           )
         ],
-        title: Funcoes().logoWidget(fontSize: 35, opacity: 0),
+        title: Funcoes().logoWidget(opacity: 0),
       ),
       body: SafeArea(child: ReusableInlineExample()),
       bottomSheet: Container(

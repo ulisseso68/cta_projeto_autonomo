@@ -666,41 +666,18 @@ class Funcoes {
 
   // Used at Many Pages
   Widget logoWidget(
-      {double fontSize = 40,
+      {double size = 0.08,
       double opacity = 0.3,
       Color letterColor = Colors.white}) {
     return Container(
-      //padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(opacity),
-            spreadRadius: 1,
-            blurRadius: 10,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "CCSE",
-            style: TextStyle(
-                fontSize: fontSize,
-                color: letterColor,
-                fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "fácil",
-            style: TextStyle(
-                fontSize: fontSize,
-                fontFamily: 'Bradley Hand',
-                color: letterColor,
-                fontWeight: FontWeight.bold),
-          ),
-        ],
+      padding: const EdgeInsets.all(5),
+      alignment: Alignment.center,
+      height: size * screenH,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      child: Image(
+        image: AssetImage('img/LogoHorizontal.png'),
+        color: letterColor,
+        fit: BoxFit.contain,
       ),
     );
   }

@@ -115,7 +115,7 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Funcoes().logoWidget(fontSize: 35, opacity: 0),
+            Funcoes().logoWidget(opacity: 0),
             /* Hero(
               tag: 'splash_image',
               child: Image(

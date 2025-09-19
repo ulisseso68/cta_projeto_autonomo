@@ -60,8 +60,7 @@ class AJDrawer extends StatelessWidget {
                 SizedBox(
                   width: screenW * 0.05,
                 ),
-                Funcoes().logoWidget(
-                    fontSize: 35, opacity: 0, letterColor: redEspana),
+                Funcoes().logoWidget(opacity: 0, letterColor: redEspana),
               ],
             ),
 
