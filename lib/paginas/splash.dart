@@ -59,21 +59,6 @@ class _SplashPageState extends State<SplashPage> {
                 ),
               )),
             ),
-            /* Positioned(
-              bottom: 0,
-              child: Container(
-                alignment: Alignment.center,
-                child: Funcoes().logoWidget(fontSize: 35, opacity: 0),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: Container(
-                width: largura,
-                height: 5,
-                color: redEspana,
-              ),
-            ), */
           ],
         ),
         elevation: 0,

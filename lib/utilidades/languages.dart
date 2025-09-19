@@ -6,6 +6,19 @@
 
 // Listing of messages
 final lang = {
+  'Dear User': [
+    'Dear User',
+    'Caro Usuário',
+    'Estimado Usuario',
+    'عزيزي المستخدم'
+  ],
+  'Continue': ['Continue', 'Continuar', 'Continuar', 'استمر'],
+  'trckMsg': [
+    'We care about your privacy and data security. We keep this app free by showing ads. Can we continue to use your data to tailor ads for you? You can change your choice anytime in the app settings. Thank you for Supporting us!',
+    'Nós nos preocupamos com sua privacidade e segurança de dados. Mantemos este aplicativo gratuito exibindo anúncios. Podemos continuar a usar seus dados para personalizar os anúncios para você? Você pode alterar sua escolha a qualquer momento nas configurações do aplicativo. Obrigado por nos apoiar!',
+    'Nos preocupamos por su privacidad y la seguridad de sus datos. Mantenemos esta aplicación gratuita mostrando anuncios. ¿Podemos continuar usando sus datos para personalizar los anuncios para usted? Puede cambiar su elección en cualquier momento en la configuración de la aplicación. ¡Gracias por apoyarnos!',
+    'نحن نهتم بخصوصيتك وأمان بياناتك. نحافظ على هذا التطبيق مجانيًا من خلال عرض الإعلانات. هل يمكننا الاستمرار في استخدام بياناتك لتخصيص الإعلانات لك؟ يمكنك تغيير اختيارك في أي وقت في إعدادات التطبيق. شكرًا لدعمنا!'
+  ],
   'Progress': ['Progress', 'Progresso', 'Progreso', 'التقدم'],
   'Click to learn more about how you have to take the exam.': [
     'Click to learn more about how you have to take the exam.',

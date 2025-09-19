@@ -241,8 +241,8 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
       bottomSheet: (_nativeAdIsLoaded)
           ? Container(
               width: largura,
-              height: altura / 4,
-              padding: const EdgeInsets.only(top: 35),
+              height: altura / 5,
+              //padding: const EdgeInsets.only(top: 5),
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Colors.grey.shade400,
@@ -258,7 +258,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                 border: Border(top: BorderSide(color: Colors.grey, width: 2)),
               ),
               width: largura,
-              height: altura / 10,
+              height: altura * 0.08,
             ),
       floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),

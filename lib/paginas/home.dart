@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
 import 'package:cta_projeto_autonomo/utilidades/dados.dart';
 import 'package:cta_projeto_autonomo/utilidades/env.dart';
@@ -8,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
-
+// For AdMob
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 class HomePage extends StatefulWidget {
   final AdSize adSize = AdSize.largeBanner;
@@ -30,11 +29,15 @@ class _HomePageState extends State<HomePage> {
   bool practiceTileDetailed = false;
   bool flashCardsDetailed = false;
   BannerAd? _bannerAd;
+  String _authStatus = 'Unknown';
 
   @override
   initState() {
     //print(widget.adUnitId);
     super.initState();
+    WidgetsFlutterBinding.ensureInitialized()
+        .addPostFrameCallback((_) => initPlugin());
+    if (modoDeveloper) Funcoes().configureAppForDeveloperMode(true);
     _loadAd();
     _getDatafromServer();
   }
@@ -43,34 +46,6 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     _bannerAd?.dispose();
     super.dispose();
-  }
-
-  /// Loads a banner ad.
-  void _loadAd() {
-    final bannerAd = BannerAd(
-      size: widget.adSize,
-      adUnitId: widget.adUnitId,
-      request: const AdRequest(),
-      listener: BannerAdListener(
-        // Called when an ad is successfully received.
-        onAdLoaded: (ad) {
-          if (!mounted) {
-            ad.dispose();
-            return;
-          }
-          setState(() {
-            _bannerAd = ad as BannerAd;
-          });
-        },
-        // Called when an ad request failed.
-        onAdFailedToLoad: (ad, error) {
-          debugPrint('BannerAd failed to load: $error');
-          ad.dispose();
-        },
-      ),
-    );
-    // Start loading.
-    bannerAd.load();
   }
 
   void collapse(int index) {
@@ -154,6 +129,70 @@ class _HomePageState extends State<HomePage> {
     } catch (e) {
       return 'test_device_001';
     }
+  }
+
+  /// Loads a banner ad.
+  /// [AdMob](https://firebase.google.com/docs/admob/flutter/quick-start) integration.
+  Future<void> initPlugin() async {
+    final TrackingStatus status =
+        await AppTrackingTransparency.trackingAuthorizationStatus;
+    setState(() => _authStatus = '$status');
+    // If the system can show an authorization request dialog
+    if (status == TrackingStatus.notDetermined) {
+      // Show a custom explainer dialog before the system dialog
+      await showCustomTrackingDialog(context);
+      // Wait for dialog popping animation
+      await Future.delayed(const Duration(milliseconds: 200));
+      // Request system's tracking authorization dialog
+      final TrackingStatus status =
+          await AppTrackingTransparency.requestTrackingAuthorization();
+      setState(() => _authStatus = '$status');
+    }
+
+    final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
+    //print("UUID: $uuid");
+  }
+
+  Future<void> showCustomTrackingDialog(BuildContext context) async =>
+      await showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(Funcoes().appLang('Dear User')),
+          content: Text(Funcoes().appLang('trckMsg')),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(Funcoes().appLang('Continue')),
+            ),
+          ],
+        ),
+      );
+
+  void _loadAd() {
+    final bannerAd = BannerAd(
+      size: widget.adSize,
+      adUnitId: widget.adUnitId,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        // Called when an ad is successfully received.
+        onAdLoaded: (ad) {
+          if (!mounted) {
+            ad.dispose();
+            return;
+          }
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (ad, error) {
+          debugPrint('BannerAd failed to load: $error');
+          ad.dispose();
+        },
+      ),
+    );
+    // Start loading.
+    bannerAd.load();
   }
 
   @override
@@ -551,16 +590,16 @@ class _HomePageState extends State<HomePage> {
         ),
         height: _bannerAd == null
             ? screenH * 0.08
-            : widget.adSize.height.toDouble() + 40,
+            : widget.adSize.height.toDouble() + 10,
         alignment: Alignment.center,
-        padding: EdgeInsets.only(
-            bottom: 10,
-            top: 10,
+        /* padding: EdgeInsets.only(
+            bottom: 5,
+            top: 5,
             left: max(5, (largura - widget.adSize.width) / 2),
-            right: max(5, (largura - widget.adSize.width) / 2)),
-        child: SizedBox(
-          width: widget.adSize.width.toDouble(),
-          height: widget.adSize.height.toDouble(),
+            right: max(5, (largura - widget.adSize.width) / 2)), */
+        child: SafeArea(
+          //width: widget.adSize.width.toDouble(),
+          //height: widget.adSize.height.toDouble(),
           child: _bannerAd == null
               // Nothing to render yet.
               ? const SizedBox()

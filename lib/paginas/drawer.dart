@@ -280,6 +280,33 @@ class AJDrawer extends StatelessWidget {
               },
             ),
 
+// Modo Developer
+            if (developerMode)
+              ListTile(
+                leading: modoDeveloper
+                    ? const Icon(
+                        Icons.construction_outlined,
+                        size: 40,
+                        color: COR_04,
+                      )
+                    : const Icon(
+                        Icons.construction_rounded,
+                        size: 40,
+                        color: redEspana,
+                      ),
+                title: Text(
+                  modoDeveloper
+                      ? Funcoes().appLang('Development Mode Activated')
+                      : Funcoes().appLang('User Mode Activated'),
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(color: COR_01, fontSize: 14),
+                ),
+                onTap: () async {
+                  Funcoes().configureAppForDeveloperMode(!modoDeveloper);
+                  Navigator.pop(context);
+                },
+              ),
+
             /* Share your experience 
             ListTile(
               leading: const Icon(
