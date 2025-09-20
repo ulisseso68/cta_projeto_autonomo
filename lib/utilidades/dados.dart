@@ -2,7 +2,8 @@ import 'package:cta_projeto_autonomo/models/question_model.dart';
 
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
-var modoDeveloper = false;
+bool modoDeveloper = true;
+bool developerMode = true;
 List uniqueCategories = [
   'Simulación Del Examen',
   'Tarea 1',
@@ -21,7 +22,7 @@ int respostasErradas = 0;
 int numberOfQuestions = 5;
 bool offlineMode = false;
 bool loginRegistered = false;
-bool developerMode = false;
+
 String citizenship = "";
 String countryFlag = ""; // Default to Spain
 bool tcsAccepted = false;
@@ -41,6 +42,7 @@ String bannerAdUnitIdIOS = 'ca-app-pub-6464644953989525/1731618446';
 String bannerAdUnitIdAndroid = 'ca-app-pub-6464644953989525/1731618446';
 String nativeAdUnitIdIOS = 'ca-app-pub-6464644953989525/2184712881';
 String nativeAdUnitIdAndroid = 'ca-app-pub-6464644953989525/2184712881';
+var uuid = '';
 
 var translation;
 

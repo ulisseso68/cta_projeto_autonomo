@@ -25,42 +25,26 @@ class AJDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /* DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(
-                  bottom: BorderSide(
-                    style: BorderStyle.none,
-                  ),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Funcoes().logoWidget(
-                      fontSize: 35, opacity: 0, letterColor: redEspana),
-                  /* Hero(
-                    tag: 'splash_image_drawer',
-                    child: Image(
-                      width: screenW * 0.15,
-                      image: AssetImage('img/CCSEf.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ), */
-                ],
-              ),
-            ),
- */
             SizedBox(
               height: screenH * 0.10,
             ),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: screenW * 0.05,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: screenW * 0.05,
+                    ),
+                    Funcoes().logoWidget(opacity: 0, letterColor: redEspana),
+                  ],
                 ),
-                Funcoes().logoWidget(opacity: 0, letterColor: redEspana),
+                Center(
+                  child: Text(uuid == '' ? '' : uuid,
+                      style: const TextStyle(fontSize: 8, color: redEspana)),
+                ),
               ],
             ),
 
@@ -68,36 +52,6 @@ class AJDrawer extends StatelessWidget {
             SizedBox(
               height: screenH * 0.02,
             ),
-            // Summary of progress
-            /* (!Funcoes().existsAnyAnsweredQuestion())
-                ? SizedBox(
-                    height: 0,
-                    width: 0,
-                  )
-                : ListTile(
-                    leading: const Icon(
-                      Icons.trending_up,
-                      size: 40,
-                      color: redEspana,
-                    ),
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Funcoes().progressBar(barSize: 0.35),
-                        Funcoes().progressRings()
-                      ],
-                    ),
-                  ),
-            Divider(
-              color: (Funcoes().existsAnyAnsweredQuestion())
-                  ? redEspana
-                  : Colors.transparent,
-              height: 1,
-              indent: 10,
-              endIndent: 10,
-              thickness: 1,
-            ), */
 
             // Settings
             ListTile(

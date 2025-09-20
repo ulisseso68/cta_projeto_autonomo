@@ -51,18 +51,14 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             ad.dispose();
           },
         ),
-        request: const AdRequest(
-          keywords: <String>['travel', 'spain', 'ads'],
-          contentUrl: 'https://app.ccsefacil.es',
-          nonPersonalizedAds: true,
-        ),
+        request: const AdRequest(),
         // Styling
         nativeTemplateStyle: NativeTemplateStyle(
             // Required: Choose a template.
             templateType: TemplateType.small,
             // Optional: Customize the ad's style.
             mainBackgroundColor: adBackgroundColor,
-            cornerRadius: 10.0,
+            cornerRadius: 20,
             callToActionTextStyle: NativeTemplateTextStyle(
                 textColor: Colors.white,
                 backgroundColor: adCallActionColor,

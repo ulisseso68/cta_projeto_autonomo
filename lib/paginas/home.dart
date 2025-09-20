@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   /// Loads a banner ad.
-  /// [AdMob](https://firebase.google.com/docs/admob/flutter/quick-start) integration.
+
   Future<void> initPlugin() async {
     final TrackingStatus status =
         await AppTrackingTransparency.trackingAuthorizationStatus;
@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
       setState(() => _authStatus = '$status');
     }
 
-    final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
+    uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
     //print("UUID: $uuid");
   }
 
@@ -286,7 +286,6 @@ class _HomePageState extends State<HomePage> {
         onRefresh: () {
           _bannerAd?.dispose();
           _loadAd();
-
           return _getDatafromServer();
         },
         child: SingleChildScrollView(
