@@ -736,20 +736,37 @@ class Funcoes {
     );
   }
 
-  void configureAppForDeveloperMode(bool mode) {
-    modoDeveloper = mode;
-    if (modoDeveloper) {
-      admobAppId = 'ca-app-pub-3940256099942544~3347511713';
+  Future<void> configureAppForDeveloperMode(bool mode) async {
+    developerMode = mode;
+    if (mode) {
+      //print('used AdMob Test Ids');
       bannerAdUnitIdIOS = 'ca-app-pub-3940256099942544/2934735716';
-      //bannerAdUnitIdAndroid = 'ca-app-pub-3940256099942544/6300978111';
+      bannerAdUnitIdAndroid = 'ca-app-pub-3940256099942544/6300978111';
       nativeAdUnitIdIOS = 'ca-app-pub-3940256099942544/3986624511';
-      //nativeAdUnitIdAndroid = 'ca-app-pub-3940256099942544/2247696110';
+      nativeAdUnitIdAndroid = 'ca-app-pub-3940256099942544/2247696110';
     } else {
-      admobAppId = 'ca-app-pub-6464644953989525~4816042821';
-      bannerAdUnitIdIOS = 'ca-app-pub-6464644953989525/1731618446';
-      bannerAdUnitIdAndroid = 'ca-app-pub-6464644953989525/1731618446';
-      nativeAdUnitIdIOS = 'ca-app-pub-6464644953989525/2184712881';
-      nativeAdUnitIdAndroid = 'ca-app-pub-6464644953989525/2184712881';
+      print('used AdMob Production Ids');
+      await getAdUnitsFromServer();
+    }
+  }
+
+  void toggleDeveloperMode() {
+    modoDeveloper = !modoDeveloper;
+    developerMode = modoDeveloper;
+  }
+
+  Future<void> getAdUnitsFromServer() async {
+    var adUnits = await CallApi().getPublicData('adunits');
+
+    if (adUnits is String) {
+      // Use default values already set
+    } else {
+      bannerAdUnitIdIOS = adUnits['bannerAdUnitIdIOS'] ?? bannerAdUnitIdIOS;
+      bannerAdUnitIdAndroid =
+          adUnits['bannerAdUnitIdAndroid'] ?? bannerAdUnitIdAndroid;
+      nativeAdUnitIdIOS = adUnits['nativeAdUnitIdIOS'] ?? nativeAdUnitIdIOS;
+      nativeAdUnitIdAndroid =
+          adUnits['nativeAdUnitIdAndroid'] ?? nativeAdUnitIdAndroid;
     }
   }
 }

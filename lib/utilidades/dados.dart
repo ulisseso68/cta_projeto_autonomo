@@ -2,8 +2,8 @@ import 'package:cta_projeto_autonomo/models/question_model.dart';
 
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
-bool modoDeveloper = true;
-bool developerMode = true;
+bool modoDeveloper = false;
+bool developerMode = false;
 List uniqueCategories = [
   'Simulación Del Examen',
   'Tarea 1',
@@ -37,11 +37,11 @@ bool translationAvailable = false;
 bool otherLanguage = (language != 2) ? true : false;
 Map<String, String> descriptionsTranslations = {};
 // AdMob & AdUnit Ids
-String admobAppId = 'ca-app-pub-6464644953989525~4816042821';
-String bannerAdUnitIdIOS = 'ca-app-pub-6464644953989525/1731618446';
-String bannerAdUnitIdAndroid = 'ca-app-pub-6464644953989525/1731618446';
-String nativeAdUnitIdIOS = 'ca-app-pub-6464644953989525/2184712881';
-String nativeAdUnitIdAndroid = 'ca-app-pub-6464644953989525/2184712881';
+//String admobAppId = 'ca-app-pub-6464644953989525~4816042821';
+String bannerAdUnitIdIOS = '';
+String bannerAdUnitIdAndroid = '';
+String nativeAdUnitIdIOS = '';
+String nativeAdUnitIdAndroid = '';
 var uuid = '';
 
 var translation;

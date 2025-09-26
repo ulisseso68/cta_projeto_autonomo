@@ -36,7 +36,7 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: redEspana,
+        backgroundColor: developerMode ? Colors.purple : redEspana,
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         toolbarHeight: altura * 0.30,
         flexibleSpace: Stack(
@@ -50,14 +50,21 @@ class _SplashPageState extends State<SplashPage> {
             Positioned(
               height: altura * 0.25,
               bottom: 0,
-              child: Center(
-                  child: Hero(
-                tag: 'splash_image',
-                child: Image(
-                  image: AssetImage('img/CCSELogo.png'),
-                  fit: BoxFit.contain,
-                ),
-              )),
+              child: GestureDetector(
+                onLongPress: () {
+                  setState(() {
+                    Funcoes().toggleDeveloperMode();
+                  });
+                },
+                child: Center(
+                    child: Hero(
+                  tag: 'splash_image',
+                  child: Image(
+                    image: AssetImage('img/CCSELogo.png'),
+                    fit: BoxFit.contain,
+                  ),
+                )),
+              ),
             ),
           ],
         ),

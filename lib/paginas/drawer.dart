@@ -41,6 +41,11 @@ class AJDrawer extends StatelessWidget {
                     Funcoes().logoWidget(opacity: 0, letterColor: redEspana),
                   ],
                 ),
+                Container(
+                  height: 1,
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  color: redEspana,
+                ),
                 Center(
                   child: Text(uuid == '' ? '' : uuid,
                       style: const TextStyle(fontSize: 8, color: redEspana)),

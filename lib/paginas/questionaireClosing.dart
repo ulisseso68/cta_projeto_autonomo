@@ -36,50 +36,52 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   );
 
   void loadAd() {
-    _nativeAd = NativeAd(
-        adUnitId: _adUnitId,
-        listener: NativeAdListener(
-          onAdLoaded: (ad) {
-            //debugPrint('$NativeAd loaded.');
-            setState(() {
-              _nativeAdIsLoaded = true;
-            });
-          },
-          onAdFailedToLoad: (ad, error) {
-            // Dispose the ad here to free resources.
-            //debugPrint('$NativeAd failed to load: $error');
-            ad.dispose();
-          },
-        ),
-        request: const AdRequest(),
-        // Styling
-        nativeTemplateStyle: NativeTemplateStyle(
-            // Required: Choose a template.
-            templateType: TemplateType.small,
-            // Optional: Customize the ad's style.
-            mainBackgroundColor: adBackgroundColor,
-            cornerRadius: 20,
-            callToActionTextStyle: NativeTemplateTextStyle(
-                textColor: Colors.white,
-                backgroundColor: adCallActionColor,
-                style: NativeTemplateFontStyle.bold,
-                size: 18.0),
-            primaryTextStyle: NativeTemplateTextStyle(
-                textColor: Colors.white,
-                //backgroundColor: Colors.cyan,
-                style: NativeTemplateFontStyle.bold,
-                size: 16.0),
-            secondaryTextStyle: NativeTemplateTextStyle(
-                textColor: Colors.white,
-                //backgroundColor: Colors.black,
-                style: NativeTemplateFontStyle.bold,
-                size: 14.0),
-            tertiaryTextStyle: NativeTemplateTextStyle(
-                textColor: Colors.white,
-                //backgroundColor: Colors.amber,
-                style: NativeTemplateFontStyle.normal,
-                size: 14.0)))
-      ..load();
+    if (_adUnitId != '') {
+      _nativeAd = NativeAd(
+          adUnitId: _adUnitId,
+          listener: NativeAdListener(
+            onAdLoaded: (ad) {
+              //debugPrint('$NativeAd loaded.');
+              setState(() {
+                _nativeAdIsLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              // Dispose the ad here to free resources.
+              //debugPrint('$NativeAd failed to load: $error');
+              ad.dispose();
+            },
+          ),
+          request: const AdRequest(),
+          // Styling
+          nativeTemplateStyle: NativeTemplateStyle(
+              // Required: Choose a template.
+              templateType: TemplateType.small,
+              // Optional: Customize the ad's style.
+              mainBackgroundColor: adBackgroundColor,
+              cornerRadius: 20,
+              callToActionTextStyle: NativeTemplateTextStyle(
+                  textColor: Colors.white,
+                  backgroundColor: adCallActionColor,
+                  style: NativeTemplateFontStyle.bold,
+                  size: 18.0),
+              primaryTextStyle: NativeTemplateTextStyle(
+                  textColor: Colors.white,
+                  //backgroundColor: Colors.cyan,
+                  style: NativeTemplateFontStyle.bold,
+                  size: 16.0),
+              secondaryTextStyle: NativeTemplateTextStyle(
+                  textColor: Colors.white,
+                  //backgroundColor: Colors.black,
+                  style: NativeTemplateFontStyle.bold,
+                  size: 14.0),
+              tertiaryTextStyle: NativeTemplateTextStyle(
+                  textColor: Colors.white,
+                  //backgroundColor: Colors.amber,
+                  style: NativeTemplateFontStyle.normal,
+                  size: 14.0)))
+        ..load();
+    }
   }
 
   @override
@@ -251,7 +253,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           : Container(
               decoration: BoxDecoration(
                 color: Colors.grey.shade400,
-                border: Border(top: BorderSide(color: Colors.grey, width: 2)),
+                border: Border(top: BorderSide(color: COR_02, width: 5)),
               ),
               width: largura,
               height: altura * 0.08,
@@ -263,7 +265,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
         onPressed: () {
           Navigator.popUntil(context, (route) => route.isFirst);
         },
-        backgroundColor: (_nativeAdIsLoaded) ? COR_04 : Colors.grey,
+        backgroundColor: (_nativeAdIsLoaded) ? COR_04 : COR_04,
         child: const Icon(Icons.home_filled, color: Colors.white, size: 40),
       ),
     );

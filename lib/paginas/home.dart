@@ -9,12 +9,10 @@ import 'dart:io';
 // For AdMob
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'dart:math';
 
 class HomePage extends StatefulWidget {
   final AdSize adSize = AdSize.largeBanner;
-  final String adUnitId =
-      Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
-
   HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
@@ -30,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   bool flashCardsDetailed = false;
   BannerAd? _bannerAd;
   String _authStatus = 'Unknown';
+  String adUnitId = '';
 
   @override
   initState() {
@@ -37,9 +36,8 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     WidgetsFlutterBinding.ensureInitialized()
         .addPostFrameCallback((_) => initPlugin());
-    if (modoDeveloper) Funcoes().configureAppForDeveloperMode(true);
-    _loadAd();
     _getDatafromServer();
+    _loadAd();
   }
 
   @override
@@ -72,7 +70,11 @@ class _HomePageState extends State<HomePage> {
     await Funcoes().getTcsAcceptedFromStorage();
     await Funcoes().getUserNameFromStorage();
     await Funcoes().loadDescriptionsTranslationsFromStorage();
+    //await Funcoes().getAdUnitsFromServer();
 
+    await Funcoes().configureAppForDeveloperMode(modoDeveloper);
+    adUnitId = Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
+    print('Ad Unit ID: $adUnitId');
     deviceID = (await _getId()).toString();
 
     if (!loginRegistered) {
@@ -169,30 +171,34 @@ class _HomePageState extends State<HomePage> {
       );
 
   void _loadAd() {
-    final bannerAd = BannerAd(
-      size: widget.adSize,
-      adUnitId: widget.adUnitId,
-      request: const AdRequest(),
-      listener: BannerAdListener(
-        // Called when an ad is successfully received.
-        onAdLoaded: (ad) {
-          if (!mounted) {
+    if (adUnitId != '') {
+      final bannerAd = BannerAd(
+        size: widget.adSize,
+        adUnitId: adUnitId,
+        request: const AdRequest(),
+        listener: BannerAdListener(
+          // Called when an ad is successfully received.
+          onAdLoaded: (ad) {
+            if (!mounted) {
+              ad.dispose();
+              return;
+            }
+            setState(() {
+              _bannerAd = ad as BannerAd;
+            });
+          },
+          // Called when an ad request failed.
+          onAdFailedToLoad: (ad, error) {
+            //debugPrint('BannerAd failed to load: $error');
             ad.dispose();
-            return;
-          }
-          setState(() {
-            _bannerAd = ad as BannerAd;
-          });
-        },
-        // Called when an ad request failed.
-        onAdFailedToLoad: (ad, error) {
-          debugPrint('BannerAd failed to load: $error');
-          ad.dispose();
-        },
-      ),
-    );
-    // Start loading.
-    bannerAd.load();
+          },
+        ),
+      );
+      // Start loading.
+      bannerAd.load();
+    } else {
+      //debugPrint('Ad Unit ID is empty. Ad will not be loaded.');
+    }
   }
 
   @override
