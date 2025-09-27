@@ -35,12 +35,12 @@ android {
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "11"
     }
 
     sourceSets {
@@ -64,8 +64,8 @@ android {
             applicationId "com.ccsefacil.app2"  // this stays as-is
             minSdkVersion 23
             targetSdkVersion 35
-            versionCode 3
-            versionName "3.1.0"
+            versionCode 5
+            versionName "4.2.0"
         }
 
     }
@@ -92,4 +92,6 @@ flutter {
 
 dependencies {
     implementation 'com.google.android.material:material:1.6.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.8.0"
+    implementation "com.google.android.gms:play-services-ads:24.6.0"
 }
