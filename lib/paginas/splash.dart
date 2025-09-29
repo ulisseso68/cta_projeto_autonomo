@@ -506,6 +506,88 @@ class _SplashPageState extends State<SplashPage> {
                   ),
                 )
               : Container(),
+          (modoDeveloper)
+              ? Divider(
+                  color: COR_dev,
+                  height: 1,
+                  thickness: 1,
+                )
+              : Container(),
+          (modoDeveloper)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    'Ad UUID',
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_dev,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    uuid,
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  /* trailing:
+                      const Icon(Icons.developer_mode, color: COR_01, size: 30), */
+                  leading: IconButton(
+                    icon:
+                        Icon(Icons.confirmation_num, color: COR_dev, size: 30),
+                    onPressed: () => {},
+                  ),
+                )
+              : Container(),
+          (modoDeveloper)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    'AdUnit Banner',
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_dev,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    deviceType == 'iOS'
+                        ? bannerAdUnitIdIOS
+                        : bannerAdUnitIdAndroid,
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  /* trailing:
+                      const Icon(Icons.developer_mode, color: COR_01, size: 30), */
+                  leading: IconButton(
+                    icon: Icon(Icons.ad_units, color: COR_dev, size: 30),
+                    onPressed: () => {},
+                  ),
+                )
+              : Container(),
+          (modoDeveloper)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    'AdUnit Native',
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_dev,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    deviceType == 'iOS'
+                        ? nativeAdUnitIdIOS
+                        : nativeAdUnitIdAndroid,
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  /* trailing:
+                      const Icon(Icons.developer_mode, color: COR_01, size: 30), */
+                  leading: IconButton(
+                    icon: Icon(Icons.ad_units, color: COR_dev, size: 30),
+                    onPressed: () => {},
+                  ),
+                )
+              : Container(),
+          SizedBox(height: altura * 0.1),
         ]),
       ),
       floatingActionButton: FloatingActionButton(

@@ -10,6 +10,7 @@ const COR_02 = Color.fromARGB(255, 236, 175, 85);
 const COR_02b = Color.fromRGBO(38, 68, 124, 1);
 const COR_03 = Colors.white;
 const COR_05 = Color.fromARGB(43, 144, 168, 255);
+const COR_dev = Colors.purple;
 const COR_LightGrey = Color.fromARGB(255, 255, 211, 211);
 const COR_04 = Colors.green;
 const appname = 'CCSE Fácil';

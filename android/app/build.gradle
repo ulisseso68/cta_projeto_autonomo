@@ -64,7 +64,7 @@ android {
             applicationId "com.ccsefacil.app2"  // this stays as-is
             minSdkVersion 23
             targetSdkVersion 35
-            versionCode 5
+            versionCode 7
             versionName "4.2.0"
         }
 

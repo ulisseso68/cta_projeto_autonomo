@@ -244,12 +244,12 @@ class AJDrawer extends StatelessWidget {
               ListTile(
                 leading: modoDeveloper
                     ? const Icon(
-                        Icons.construction_outlined,
+                        Icons.bug_report,
                         size: 40,
                         color: COR_04,
                       )
                     : const Icon(
-                        Icons.construction_rounded,
+                        Icons.bug_report,
                         size: 40,
                         color: redEspana,
                       ),
@@ -261,7 +261,7 @@ class AJDrawer extends StatelessWidget {
                   style: const TextStyle(color: COR_01, fontSize: 14),
                 ),
                 onTap: () async {
-                  Funcoes().configureAppForDeveloperMode(!modoDeveloper);
+                  Funcoes().toggleDeveloperMode();
                   Navigator.pop(context);
                 },
               ),

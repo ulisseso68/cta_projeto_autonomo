@@ -745,8 +745,13 @@ class Funcoes {
       nativeAdUnitIdIOS = 'ca-app-pub-3940256099942544/3986624511';
       nativeAdUnitIdAndroid = 'ca-app-pub-3940256099942544/2247696110';
     } else {
-      print('used AdMob Production Ids');
+      //print('used AdMob Production Ids');
       await getAdUnitsFromServer();
+      /* print('Ad Units from Server:');
+      print('bannerAdUnitIdIOS: $bannerAdUnitIdIOS');
+      print('bannerAdUnitIdAndroid: $bannerAdUnitIdAndroid');
+      print('nativeAdUnitIdIOS: $nativeAdUnitIdIOS');
+      print('nativeAdUnitIdAndroid: $nativeAdUnitIdAndroid'); */
     }
   }
 
