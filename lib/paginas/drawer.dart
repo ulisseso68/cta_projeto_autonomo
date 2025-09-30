@@ -33,7 +33,7 @@ class AJDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: screenW * 0.05,
@@ -46,10 +46,10 @@ class AJDrawer extends StatelessWidget {
                   margin: EdgeInsets.only(left: 10, right: 10),
                   color: redEspana,
                 ),
-                Center(
+                /* Center(
                   child: Text(uuid == '' ? '' : uuid,
                       style: const TextStyle(fontSize: 8, color: redEspana)),
-                ),
+                ), */
               ],
             ),
 
