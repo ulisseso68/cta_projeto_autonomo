@@ -612,6 +612,18 @@ class _HomePageState extends State<HomePage> {
               : AdWidget(ad: _bannerAd!),
         ),
       ),
+      floatingActionButton: (developerMode)
+          ? FloatingActionButton(
+              shape: const StadiumBorder(),
+              onPressed: () {
+                MobileAds.instance.openAdInspector((error) {
+                  // Error will be non-null if ad inspector closed due to an error.
+                });
+              },
+              backgroundColor: COR_dev,
+              child: Icon(Icons.ad_units, color: Colors.white),
+            )
+          : null,
     );
   }
 

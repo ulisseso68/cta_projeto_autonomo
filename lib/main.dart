@@ -17,6 +17,8 @@ import 'paginas/intersticial.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   unawaited(MobileAds.instance.initialize());
+/*   MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
+      testDeviceIds: ['942369E6-A921-4F72-8AD3-817BC4500355'])); */
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(MyApp());

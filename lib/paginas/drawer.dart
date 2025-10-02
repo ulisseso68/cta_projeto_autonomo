@@ -246,7 +246,7 @@ class AJDrawer extends StatelessWidget {
                     ? const Icon(
                         Icons.bug_report,
                         size: 40,
-                        color: COR_04,
+                        color: COR_dev,
                       )
                     : const Icon(
                         Icons.bug_report,
