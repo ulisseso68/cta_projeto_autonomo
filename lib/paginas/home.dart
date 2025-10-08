@@ -9,7 +9,6 @@ import 'dart:io';
 // For AdMob
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
-import 'dart:math';
 
 class HomePage extends StatefulWidget {
   final AdSize adSize = AdSize.largeBanner;
@@ -22,22 +21,18 @@ class _HomePageState extends State<HomePage> {
   // ignore: prefer_final_fields
   List _categoriesSelected = [];
   List<bool> _isOpen = [];
-  bool extended = false;
-  bool totalStatistics = false;
   bool practiceTileDetailed = false;
   bool flashCardsDetailed = false;
   BannerAd? _bannerAd;
-  String _authStatus = 'Unknown';
+  String _authStatus = 'Unknown'; //is used
   String adUnitId = '';
 
   @override
   initState() {
-    //print(widget.adUnitId);
     super.initState();
     WidgetsFlutterBinding.ensureInitialized()
         .addPostFrameCallback((_) => initPlugin());
     _getDatafromServer();
-    _loadAd();
   }
 
   @override
@@ -46,14 +41,8 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  // Open and Close categories
   void collapse(int index) {
-    if (Funcoes().existsAnyAnsweredQuestion()) {
-      totalStatistics = true;
-      extended = false;
-    } else {
-      totalStatistics = false;
-      extended = true;
-    }
     for (int i = 0; i < _isOpen.length; i++) {
       if (i != index) {
         _isOpen[i] = false;
@@ -75,6 +64,8 @@ class _HomePageState extends State<HomePage> {
     await Funcoes().configureAppForDeveloperMode(modoDeveloper);
     adUnitId = Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
     print('Ad Unit ID: $adUnitId');
+    _bannerAd?.dispose();
+    _loadAd();
     deviceID = (await _getId()).toString();
 
     if (!loginRegistered) {
@@ -99,19 +90,11 @@ class _HomePageState extends State<HomePage> {
     await Funcoes().iniciarPreguntas();
     _categoriesSelected = uniqueCategories;
     _isOpen = List.generate(_categoriesSelected.length, (index) => false);
-    extended = !Funcoes().existsAnyAnsweredQuestion();
-    totalStatistics = !extended;
     setState(() {});
   }
 
   void updateStatus() {
-    if (Funcoes().existsAnyAnsweredQuestion()) {
-      totalStatistics = true;
-      extended = false;
-    } else {
-      totalStatistics = false;
-      extended = true;
-    }
+    //update other Things if needed - Ads??
     setState(() {});
   }
 
@@ -133,7 +116,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  /// Loads a banner ad.
+  /// Procedures related to Ad load, and Consent
 
   Future<void> initPlugin() async {
     final TrackingStatus status =
@@ -152,7 +135,6 @@ class _HomePageState extends State<HomePage> {
     }
 
     uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
-    //print("UUID: $uuid");
   }
 
   Future<void> showCustomTrackingDialog(BuildContext context) async =>
@@ -221,14 +203,6 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: [
             Funcoes().logoWidget(opacity: 0),
-            /* Hero(
-              tag: 'splash_image',
-              child: Image(
-                width: largura * 0.15,
-                image: AssetImage('img/CCSEf.png'),
-                fit: BoxFit.fill,
-              ),
-            ), */
           ],
         ),
         flexibleSpace: Stack(
@@ -290,8 +264,8 @@ class _HomePageState extends State<HomePage> {
         displacement: 50,
         backgroundColor: Colors.grey.shade300,
         onRefresh: () {
-          _bannerAd?.dispose();
-          _loadAd();
+          //_bannerAd?.dispose();
+          //_loadAd();
           return _getDatafromServer();
         },
         child: SingleChildScrollView(

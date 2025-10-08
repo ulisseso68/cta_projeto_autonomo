@@ -727,7 +727,7 @@ class Funcoes {
       ),
       child: ClipOval(
         child: Image(
-          image: NetworkImage("$APP_URL/img/flags/$code.jpg"),
+          image: AssetImage("img/flags/$code.jpg"),
           fit: BoxFit.cover,
           width: size,
           height: size,

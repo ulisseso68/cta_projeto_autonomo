@@ -5000,9 +5000,8 @@ var questions = [
       },
       {"answer": "Respetar las normas sobre equipaje.", "Correct": false}
     ],
-    "photo": "\/questions\/5065.jpg",
-    "description":
-        "La tierra compactada por caminar, estar de pie o pisadas fuertes puede causar diversos problemas al c\u00e9sped nuevo, desde mal drenaje, crecimiento d\u00e9bil e incluso susceptibilidad a enfermedades . De igual manera, el movimiento excesivo del c\u00e9sped nuevo puede provocar que se mueva o que se formen bultos y huecos, creando un c\u00e9sped poco atractivo e irregular.",
+    "photo": null,
+    "description": null,
     "rating": 5,
     "reviews_count": 1
   },
