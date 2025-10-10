@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:cta_projeto_autonomo/paginas/examClosing.dart';
-import 'package:cta_projeto_autonomo/paginas/pagina_creditos_projeto.dart';
-import 'package:cta_projeto_autonomo/paginas/learningPage.dart';
-import 'package:cta_projeto_autonomo/paginas/questionaireClosing.dart';
-import 'package:cta_projeto_autonomo/paginas/home.dart';
-import 'package:cta_projeto_autonomo/paginas/pagina_termos_privacidade.dart';
-import 'package:cta_projeto_autonomo/paginas/questionsExam.dart';
-import 'package:cta_projeto_autonomo/paginas/splash.dart';
+import 'package:ccse_mob/paginas/examClosing.dart';
+import 'package:ccse_mob/paginas/pagina_creditos_projeto.dart';
+import 'package:ccse_mob/paginas/learningPage.dart';
+import 'package:ccse_mob/paginas/questionaireClosing.dart';
+import 'package:ccse_mob/paginas/home.dart';
+import 'package:ccse_mob/paginas/pagina_termos_privacidade.dart';
+import 'package:ccse_mob/paginas/questionsExam.dart';
+import 'package:ccse_mob/paginas/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';

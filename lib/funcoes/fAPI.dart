@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:ccse_mob/utilidades/dados.dart';
+import 'package:ccse_mob/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dio/dio.dart';

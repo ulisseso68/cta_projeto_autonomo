@@ -1,9 +1,9 @@
-import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-import 'package:cta_projeto_autonomo/utilidades/env.dart';
-import 'package:cta_projeto_autonomo/paginas/drawer.dart';
+import 'package:ccse_mob/funcoes/funcoes.dart';
+import 'package:ccse_mob/utilidades/dados.dart';
+import 'package:ccse_mob/utilidades/env.dart';
+import 'package:ccse_mob/paginas/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
+import 'package:ccse_mob/funcoes/fAPI.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
 // For AdMob
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
     adUnitId = Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
 
     //included in the getDatafromServer with updates all data, including adUnitId
-    print('Ad Unit ID: $adUnitId');
+    //print('Ad Unit ID: $adUnitId');
     _bannerAd?.dispose();
     _loadAd();
     deviceID = (await _getId()).toString();

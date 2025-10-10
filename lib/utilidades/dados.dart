@@ -1,4 +1,4 @@
-import 'package:cta_projeto_autonomo/models/question_model.dart';
+import 'package:ccse_mob/models/question_model.dart';
 
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';

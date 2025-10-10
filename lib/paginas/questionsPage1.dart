@@ -1,9 +1,9 @@
-import 'package:cta_projeto_autonomo/funcoes/funcoes.dart';
-import 'package:cta_projeto_autonomo/paginas/drawer.dart';
-import 'package:cta_projeto_autonomo/utilidades/dados.dart';
-import 'package:cta_projeto_autonomo/utilidades/env.dart';
+import 'package:ccse_mob/funcoes/funcoes.dart';
+import 'package:ccse_mob/paginas/drawer.dart';
+import 'package:ccse_mob/utilidades/dados.dart';
+import 'package:ccse_mob/utilidades/env.dart';
 import 'package:flutter/material.dart';
-import 'package:cta_projeto_autonomo/funcoes/fAPI.dart';
+import 'package:ccse_mob/funcoes/fAPI.dart';
 
 class QuestionsPage1 extends StatefulWidget {
   const QuestionsPage1({super.key});
