@@ -62,7 +62,10 @@ class _HomePageState extends State<HomePage> {
     //await Funcoes().getAdUnitsFromServer();
 
     await Funcoes().configureAppForDeveloperMode(modoDeveloper);
+
     adUnitId = Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
+
+    //included in the getDatafromServer with updates all data, including adUnitId
     print('Ad Unit ID: $adUnitId');
     _bannerAd?.dispose();
     _loadAd();
