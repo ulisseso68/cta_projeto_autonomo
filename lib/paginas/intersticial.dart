@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:ccse_mob/funcoes/funcoes.dart';
 import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
@@ -9,10 +7,6 @@ import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'dart:io' show Platform;
-
-import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'dart:developer';
 
 /* import 'anchored_adaptive_example.dart';
 import 'fluid_example.dart';

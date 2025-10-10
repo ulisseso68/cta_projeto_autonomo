@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:io';
-import 'dart:math';
-//import 'package:flutter/services.dart';
-//ignore: camel_case_types
+//import 'dart:math';
 
 class QuestionareClosing extends StatefulWidget {
   const QuestionareClosing({super.key});
