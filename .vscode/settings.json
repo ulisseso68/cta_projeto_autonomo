@@ -1,5 +1,5 @@
 {
     "cmake.configureOnOpen": true,
     "java.configuration.updateBuildConfiguration": "interactive",
-    "cmake.sourceDirectory": "/Users/ulissescampos/Coding/cta_projeto_autonomo/linux/flutter"
+    "cmake.sourceDirectory": "/Users/ulissescampos/Coding/CCSE_MOB/linux/flutter"
 }

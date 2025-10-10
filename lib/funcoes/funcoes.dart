@@ -755,9 +755,10 @@ class Funcoes {
     }
   }
 
-  void toggleDeveloperMode() {
+  Future<void> toggleDeveloperMode() async {
     modoDeveloper = !modoDeveloper;
     developerMode = modoDeveloper;
+    await Funcoes().configureAppForDeveloperMode(modoDeveloper);
   }
 
   Future<void> getAdUnitsFromServer() async {

@@ -58,14 +58,14 @@ android {
         //versionName flutterVersionName
 
         namespace "com.ccsefacil.app2"   // <- set this
-        compileSdkVersion 35
+        compileSdkVersion 36
 
         defaultConfig {
             applicationId "com.ccsefacil.app2"  // this stays as-is
-            minSdkVersion 23
-            targetSdkVersion 35
-            versionCode 7
-            versionName "4.2.0"
+            minSdkVersion flutter.minSdkVersion
+            targetSdkVersion 36
+            versionCode 8
+            versionName "4.3.0"
         }
 
     }

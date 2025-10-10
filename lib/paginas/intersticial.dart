@@ -46,6 +46,7 @@ class _AdPageState extends State<AdPage> {
   int _numInterstitialLoadAttempts = 0;
   int maxFailedLoadAttempts = 3;
 
+  @override
   void initState() {
     super.initState();
     MobileAds.instance.updateRequestConfiguration(
