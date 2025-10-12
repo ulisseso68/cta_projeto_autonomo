@@ -1,4 +1,4 @@
-# cta_projeto_autonomo
+# CCSE_MOB
 
 A new Flutter project.
 

@@ -79,7 +79,7 @@ class _SplashPageState extends State<SplashPage> {
           Container(
             width: largura,
             height: 10,
-            color: redEspana,
+            color: developerMode ? Colors.purple : redEspana,
           ),
           // Config
           ListTile(
@@ -88,9 +88,9 @@ class _SplashPageState extends State<SplashPage> {
             title: Text(
               Funcoes()
                   .appLang((tcsAccepted) ? 'Configurations' : 'Terms of use'),
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 20,
-                  color: redEspana,
+                  color: developerMode ? Colors.purple : redEspana,
                   fontWeight: FontWeight.normal),
             ),
             subtitle: Text(
@@ -98,7 +98,8 @@ class _SplashPageState extends State<SplashPage> {
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             leading: IconButton(
-              icon: const Icon(Icons.settings, color: redEspana, size: 30),
+              icon: Icon(Icons.settings,
+                  color: developerMode ? Colors.purple : redEspana, size: 30),
               onPressed: () {
                 openDetails = !openDetails;
                 setState(() {});
@@ -106,7 +107,7 @@ class _SplashPageState extends State<SplashPage> {
             ),
           ),
           Divider(
-            color: redEspana,
+            color: developerMode ? Colors.purple : redEspana,
             height: 1,
             thickness: 1,
           ),

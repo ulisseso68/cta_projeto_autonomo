@@ -32,6 +32,16 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  # Google Mobile Ads comes via the Flutter plugin (google_mobile_ads),
+# but it's fine if you also add:
+# pod 'Google-Mobile-Ads-SDK'
+
+# Mediation adapters — keep versions aligned with the guides
+pod 'GoogleMobileAdsMediationInMobi'
+pod 'GoogleMobileAdsMediationVungle'
+pod 'GoogleMobileAdsMediationMintegral'
+
 end
 
 post_install do |installer|

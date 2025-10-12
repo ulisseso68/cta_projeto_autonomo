@@ -9,9 +9,10 @@ import 'dart:io';
 // For AdMob
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:ccse_mob/paginas/consent_manager.dart';
 
 class HomePage extends StatefulWidget {
-  final AdSize adSize = AdSize.largeBanner;
+  final AdSize adSize = AdSize.banner;
   HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,6 +27,10 @@ class _HomePageState extends State<HomePage> {
   BannerAd? _bannerAd;
   String _authStatus = 'Unknown'; //is used
   String adUnitId = '';
+  bool adLoaded = false;
+  final _consentManager = ConsentManager();
+  var _isMobileAdsInitializeCalled = false;
+  var _isPrivacyOptionsRequired = false;
 
   @override
   initState() {
@@ -37,6 +42,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
+    adLoaded = false;
     _bannerAd?.dispose();
     super.dispose();
   }
@@ -128,16 +134,63 @@ class _HomePageState extends State<HomePage> {
     // If the system can show an authorization request dialog
     if (status == TrackingStatus.notDetermined) {
       // Show a custom explainer dialog before the system dialog
-      await showCustomTrackingDialog(context);
+      // await showCustomTrackingDialog(context);
       // Wait for dialog popping animation
-      await Future.delayed(const Duration(milliseconds: 200));
+      // await Future.delayed(const Duration(milliseconds: 200));
       // Request system's tracking authorization dialog
       final TrackingStatus status =
           await AppTrackingTransparency.requestTrackingAuthorization();
       setState(() => _authStatus = '$status');
     }
-
     uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
+
+    _consentManager.gatherConsent((consentGatheringError) {
+      if (consentGatheringError != null) {
+        // Consent not obtained in current session.
+        debugPrint(
+          "${consentGatheringError.errorCode}: ${consentGatheringError.message}",
+        );
+      }
+
+      // Check if a privacy options entry point is required.
+      _getIsPrivacyOptionsRequired();
+
+      // Attempt to initialize the Mobile Ads SDK.
+      _initializeMobileAdsSDK();
+    });
+
+    // This sample attempts to load ads using consent obtained in the previous session.
+    _initializeMobileAdsSDK();
+  }
+
+  void _getIsPrivacyOptionsRequired() async {
+    if (await _consentManager.isPrivacyOptionsRequired()) {
+      setState(() {
+        _isPrivacyOptionsRequired = true;
+      });
+    }
+  }
+
+  /// Initialize the Mobile Ads SDK if the SDK has gathered consent aligned with
+  /// the app's configured messages.
+  void _initializeMobileAdsSDK() async {
+    if (_isMobileAdsInitializeCalled) {
+      return;
+    }
+
+    if (await _consentManager.canRequestAds()) {
+      _isMobileAdsInitializeCalled = true;
+
+      // [START initialize_sdk]
+      // Initialize the Mobile Ads SDK.
+      MobileAds.instance.initialize();
+      /* MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
+          testDeviceIds: ['942369E6-A921-4F72-8AD3-817BC4500355'])); */
+      // [END initialize_sdk]
+
+      // Load an ad.
+      //_loadAd();
+    }
   }
 
   Future<void> showCustomTrackingDialog(BuildContext context) async =>
@@ -157,6 +210,8 @@ class _HomePageState extends State<HomePage> {
 
   void _loadAd() {
     if (adUnitId != '') {
+      // Create a BannerAd
+      print('Loading Ad: $adUnitId');
       final bannerAd = BannerAd(
         size: widget.adSize,
         adUnitId: adUnitId,
@@ -165,16 +220,19 @@ class _HomePageState extends State<HomePage> {
           // Called when an ad is successfully received.
           onAdLoaded: (ad) {
             if (!mounted) {
+              adLoaded = false;
               ad.dispose();
               return;
             }
             setState(() {
               _bannerAd = ad as BannerAd;
+              adLoaded = true;
             });
           },
           // Called when an ad request failed.
           onAdFailedToLoad: (ad, error) {
-            //debugPrint('BannerAd failed to load: $error');
+            adLoaded = false;
+            debugPrint('BannerAd failed to load: $error');
             ad.dispose();
           },
         ),
@@ -182,7 +240,7 @@ class _HomePageState extends State<HomePage> {
       // Start loading.
       bannerAd.load();
     } else {
-      //debugPrint('Ad Unit ID is empty. Ad will not be loaded.');
+      debugPrint('Ad Unit ID is empty. Ad will not be loaded.');
     }
   }
 
@@ -298,7 +356,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Container(
                         //height: altura / 10,
-                        width: largura * 0.95,
+                        width: largura - 20,
                         padding: EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.white, width: 2),
@@ -338,13 +396,29 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
 
+                //Ad Banner
+                if (adLoaded)
+                  Container(
+                    height: _bannerAd!.size.height.toDouble() + 6,
+                    width: largura,
+                    margin: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.all(5.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      //color: Colors.grey.shade400,
+                      border: Border.all(
+                        color: COR_02,
+                        width: 1,
+                      ),
+                    ),
+                    child: AdWidget(ad: _bannerAd!),
+                  ),
                 //Divider
                 Divider(
                   color: COR_02,
                   height: 30,
                   thickness: 1,
                 ),
-
                 //Title - Study by Category
                 ListTile(
                   dense: true,
@@ -381,7 +455,7 @@ class _HomePageState extends State<HomePage> {
                         )
                       : Container(),
                 ),
-
+                //Divider
                 Divider(
                   color: Colors.transparent,
                   height: 10,
@@ -547,8 +621,6 @@ class _HomePageState extends State<HomePage> {
                 Divider(
                   thickness: 1,
                   height: 30,
-                  indent: 10,
-                  endIndent: 10,
                   color: COR_02,
                 ),
                 Funcoes().logoWidget(opacity: 0, letterColor: Colors.grey),
@@ -562,31 +634,12 @@ class _HomePageState extends State<HomePage> {
               ]),
         ),
       ),
-      bottomSheet: //Ad Banner
-          Container(
-        decoration: BoxDecoration(
-          color: Colors.grey.shade400,
-          border: Border(
-            top: BorderSide(color: COR_02, width: 5),
-          ),
-        ),
-        height: _bannerAd == null
-            ? screenH * 0.08
-            : widget.adSize.height.toDouble() + 10,
-        alignment: Alignment.center,
-        /* padding: EdgeInsets.only(
-            bottom: 5,
-            top: 5,
-            left: max(5, (largura - widget.adSize.width) / 2),
-            right: max(5, (largura - widget.adSize.width) / 2)), */
-        child: SafeArea(
-          //width: widget.adSize.width.toDouble(),
-          //height: widget.adSize.height.toDouble(),
-          child: _bannerAd == null
-              // Nothing to render yet.
-              ? const SizedBox()
-              // The actual ad.
-              : AdWidget(ad: _bannerAd!),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey.shade300,
+        height: 15,
+        child: Divider(
+          color: COR_02,
+          thickness: 5,
         ),
       ),
       floatingActionButton: (developerMode)
@@ -595,6 +648,13 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 MobileAds.instance.openAdInspector((error) {
                   // Error will be non-null if ad inspector closed due to an error.
+                  if (error != null) {
+                    CallApi().showAlert(
+                        context,
+                        Text(
+                            'Ad Inspector closed with error: ${error.code} • ${error.message}'),
+                        'OK');
+                  }
                 });
               },
               backgroundColor: COR_dev,

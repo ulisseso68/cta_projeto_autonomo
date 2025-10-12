@@ -12,12 +12,48 @@ PODS:
     - Flutter
     - Google-Mobile-Ads-SDK (~> 12.2.0)
     - webview_flutter_wkwebview
+  - GoogleMobileAdsMediationInMobi (10.8.8.0):
+    - Google-Mobile-Ads-SDK (~> 12.0)
+    - InMobiSDK (= 10.8.8)
+  - GoogleMobileAdsMediationMintegral (7.7.9.1):
+    - Google-Mobile-Ads-SDK (~> 12.0)
+    - MintegralAdSDK/All (= 7.7.9)
+  - GoogleMobileAdsMediationVungle (7.6.0.0):
+    - Google-Mobile-Ads-SDK (~> 12.0)
+    - VungleAds (= 7.6.0)
   - GoogleUserMessagingPlatform (3.0.0)
+  - InMobiSDK (10.8.8)
+  - MintegralAdSDK/All (7.7.9):
+    - MintegralAdSDK/BannerAd
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/InterstitialVideoAd
+    - MintegralAdSDK/NativeAd
+    - MintegralAdSDK/NativeAdvancedAd
+    - MintegralAdSDK/NewInterstitialAd
+    - MintegralAdSDK/RewardVideoAd
+    - MintegralAdSDK/SplashAd
+  - MintegralAdSDK/BannerAd (7.7.9):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/BidNativeAd (7.7.9):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/InterstitialVideoAd (7.7.9):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/NativeAd (7.7.9)
+  - MintegralAdSDK/NativeAdvancedAd (7.7.9):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/NewInterstitialAd (7.7.9):
+    - MintegralAdSDK/InterstitialVideoAd
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/RewardVideoAd (7.7.9):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/SplashAd (7.7.9):
+    - MintegralAdSDK/NativeAd
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
   - url_launcher_ios (0.0.1):
     - Flutter
+  - VungleAds (7.6.0)
   - webview_flutter_wkwebview (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -28,6 +64,9 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_email_sender (from `.symlinks/plugins/flutter_email_sender/ios`)
   - google_mobile_ads (from `.symlinks/plugins/google_mobile_ads/ios`)
+  - GoogleMobileAdsMediationInMobi
+  - GoogleMobileAdsMediationMintegral
+  - GoogleMobileAdsMediationVungle
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
@@ -35,7 +74,13 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Google-Mobile-Ads-SDK
+    - GoogleMobileAdsMediationInMobi
+    - GoogleMobileAdsMediationMintegral
+    - GoogleMobileAdsMediationVungle
     - GoogleUserMessagingPlatform
+    - InMobiSDK
+    - MintegralAdSDK
+    - VungleAds
 
 EXTERNAL SOURCES:
   app_tracking_transparency:
@@ -62,11 +107,17 @@ SPEC CHECKSUMS:
   flutter_email_sender: e03bdda7637bcd3539bfe718fddd980e9508efaa
   Google-Mobile-Ads-SDK: 1dfb0c3cb46c7e2b00b0f4de74a1e06d9ea25d67
   google_mobile_ads: cab27248050510554aa646195eacc393ce7406ad
+  GoogleMobileAdsMediationInMobi: 35c408065c32f31c7fe8f534a73b3d4fba4adfd8
+  GoogleMobileAdsMediationMintegral: 850a80c9cda83b28a12b0bcff690cd7daaaa14a4
+  GoogleMobileAdsMediationVungle: 54bd32b323146a3234c6b844b3055360e434ad83
   GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
+  InMobiSDK: 3772de19a4fa048225857e78d8a466dda0a004a8
+  MintegralAdSDK: 054814f99bb7e967b8974fe635d9005b225cbe42
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
+  VungleAds: 9750c739be23a102862bc234a8d789f2d93f43dd
   webview_flutter_wkwebview: 29eb20d43355b48fe7d07113835b9128f84e3af4
 
-PODFILE CHECKSUM: 0940a686eb3f7747ff575b8c89d61b33faac475a
+PODFILE CHECKSUM: 967b9537ef1a8ce0b56698baccf242ead9438299
 
 COCOAPODS: 1.16.2

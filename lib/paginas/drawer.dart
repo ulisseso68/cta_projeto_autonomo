@@ -120,26 +120,6 @@ class AJDrawer extends StatelessWidget {
               },
             ),
 
-            //Device ID in Developer Mode
-            if (developerMode)
-              ListTile(
-                leading: const Icon(
-                  Icons.perm_identity_rounded,
-                  size: 40,
-                  color: redEspana,
-                ),
-                title: Text(
-                  Funcoes().appLang('Device ID'),
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: COR_01, fontSize: 14),
-                ),
-                subtitle: Text(
-                  deviceID,
-                  style: const TextStyle(fontSize: 10, color: Colors.grey),
-                ),
-                onTap: () {},
-              ),
-
             // Send email to Support
             ListTile(
               leading: const Icon(
@@ -239,7 +219,28 @@ class AJDrawer extends StatelessWidget {
               },
             ),
 
-// Modo Developer
+            if (developerMode)
+              Divider(height: 1, indent: 10, endIndent: 10, color: COR_dev),
+            //Device ID in Developer Mode
+            if (developerMode)
+              ListTile(
+                leading: const Icon(
+                  Icons.perm_identity_rounded,
+                  size: 40,
+                  color: COR_dev,
+                ),
+                title: Text(
+                  Funcoes().appLang('Device ID'),
+                  textAlign: TextAlign.start,
+                  style: TextStyle(color: COR_dev, fontSize: 14),
+                ),
+                subtitle: Text(
+                  deviceID,
+                  style: const TextStyle(fontSize: 10, color: COR_dev),
+                ),
+                onTap: () {},
+              ),
+            // Modo Developer
             if (developerMode)
               ListTile(
                 leading: modoDeveloper
@@ -255,10 +256,10 @@ class AJDrawer extends StatelessWidget {
                       ),
                 title: Text(
                   modoDeveloper
-                      ? Funcoes().appLang('Development Mode Activated')
-                      : Funcoes().appLang('User Mode Activated'),
+                      ? Funcoes().appLang('Deactivate Developer Mode')
+                      : Funcoes().appLang('Activate Developer Mode'),
                   textAlign: TextAlign.start,
-                  style: const TextStyle(color: COR_01, fontSize: 14),
+                  style: const TextStyle(color: COR_dev, fontSize: 14),
                 ),
                 onTap: () async {
                   Funcoes().toggleDeveloperMode();

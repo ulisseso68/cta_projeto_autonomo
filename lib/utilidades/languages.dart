@@ -6,6 +6,18 @@
 
 // Listing of messages
 final lang = {
+  'Deactivate Developer Mode': [
+    'Deactivate Developer Mode',
+    'Desativar Modo de Desenvolvedor',
+    'Desactivar Modo de Desarrollador',
+    'إلغاء تنشيط وضع المطور'
+  ],
+  'Activate Developer Mode': [
+    'Activate Developer Mode',
+    'Ativar Modo de Desenvolvedor',
+    'Activar Modo de Desarrollador',
+    'تفعيل وضع المطور'
+  ],
   'Dear User': [
     'Dear User',
     'Caro Usuário',
