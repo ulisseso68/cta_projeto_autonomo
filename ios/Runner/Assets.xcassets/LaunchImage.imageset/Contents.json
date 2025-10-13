@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "playstore.png",
+      "filename" : "CCSE - Logo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "playstore 1.png",
+      "filename" : "CCSE - Logo 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "playstore 2.png",
+      "filename" : "CCSE - Logo 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
