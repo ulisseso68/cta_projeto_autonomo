@@ -242,27 +242,18 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
           ],
         ),
       ),
-      bottomSheet: BottomSheet(
-        onClosing: () {},
-        builder: (context) {
-          return Container(
-            height: screenH * 0.10,
-            color: COR_02,
-            width: screenW,
-            padding:
-                const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Funcoes().appProgressBar(
-                    1.0,
-                    ((respostasCorretas) / _preguntasSelecionadas.length),
-                    ((respostasErradas) / _preguntasSelecionadas.length),
-                    barHeight: 25),
-              ],
-            ),
-          );
-        },
+      bottomNavigationBar: BottomAppBar(
+        height: screenH * 0.08,
+        color: COR_02,
+        child: Column(
+          children: [
+            Funcoes().appProgressBar(
+                1.0,
+                ((respostasCorretas) / _preguntasSelecionadas.length),
+                ((respostasErradas) / _preguntasSelecionadas.length),
+                barHeight: 25),
+          ],
+        ),
       ),
       floatingActionButton: Container(
           margin: const EdgeInsets.only(bottom: 10),

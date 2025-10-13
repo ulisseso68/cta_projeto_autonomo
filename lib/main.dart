@@ -10,7 +10,7 @@ import 'package:ccse_mob/paginas/questionsExam.dart';
 import 'package:ccse_mob/paginas/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+//import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'paginas/questionsPage1.dart';
 import 'paginas/intersticial.dart';
 

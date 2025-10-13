@@ -234,28 +234,36 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           ),
         ),
       ),
-      bottomSheet: (_nativeAdIsLoaded)
-          ? Container(
-              width: largura,
-              height: altura / 5,
-              //padding: const EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade400,
-                border: Border(top: BorderSide(color: COR_02, width: 5)),
+      bottomNavigationBar: BottomAppBar(
+        height: (_nativeAdIsLoaded)
+            ? altura / 5
+            : (altura * 0.08 < 70)
+                ? 70
+                : altura * 0.08,
+        color: Colors.grey.shade300,
+        child: (_nativeAdIsLoaded)
+            ? Container(
+                width: largura,
+                height: altura / 5,
+                //padding: const EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade400,
+                  border: Border(top: BorderSide(color: COR_02, width: 5)),
+                ),
+                child: Container(
+                    padding: const EdgeInsets.all(10),
+                    child: AdWidget(ad: _nativeAd!)),
+              )
+            : Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  border: Border(top: BorderSide(color: COR_02, width: 5)),
+                ),
+                width: largura,
+                height: altura * 0.08,
               ),
-              child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: AdWidget(ad: _nativeAd!)),
-            )
-          : Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade400,
-                border: Border(top: BorderSide(color: COR_02, width: 5)),
-              ),
-              width: largura,
-              height: altura * 0.08,
-            ),
+      ),
       floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),
         clipBehavior: Clip.antiAliasWithSaveLayer,
