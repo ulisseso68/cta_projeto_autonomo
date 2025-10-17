@@ -12,7 +12,7 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:ccse_mob/paginas/consent_manager.dart';
 
 class HomePage extends StatefulWidget {
-  final AdSize adSize = AdSize.banner;
+  final AdSize adSize = AdSize.largeBanner;
   HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
