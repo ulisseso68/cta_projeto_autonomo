@@ -147,9 +147,9 @@ class _HomePageState extends State<HomePage> {
     _consentManager.gatherConsent((consentGatheringError) {
       if (consentGatheringError != null) {
         // Consent not obtained in current session.
-        debugPrint(
+        /* debugPrint(
           "${consentGatheringError.errorCode}: ${consentGatheringError.message}",
-        );
+        ); */
       }
 
       // Check if a privacy options entry point is required.
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
   void _loadAd() {
     if (adUnitId != '') {
       // Create a BannerAd
-      print('Loading Ad: $adUnitId');
+      /* print('Loading Ad: $adUnitId'); */
       final bannerAd = BannerAd(
         size: widget.adSize,
         adUnitId: adUnitId,
@@ -232,7 +232,7 @@ class _HomePageState extends State<HomePage> {
           // Called when an ad request failed.
           onAdFailedToLoad: (ad, error) {
             adLoaded = false;
-            debugPrint('BannerAd failed to load: $error');
+            /* debugPrint('BannerAd failed to load: $error'); */
             ad.dispose();
           },
         ),
@@ -240,7 +240,7 @@ class _HomePageState extends State<HomePage> {
       // Start loading.
       bannerAd.load();
     } else {
-      debugPrint('Ad Unit ID is empty. Ad will not be loaded.');
+      /* debugPrint('Ad Unit ID is empty. Ad will not be loaded.'); */
     }
   }
 
