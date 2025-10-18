@@ -6,6 +6,12 @@
 
 // Listing of messages
 final lang = {
+  'Follow us on Social Media': [
+    'Follow us on social media',
+    'Siga-nos nas redes sociais',
+    'Síguenos en las redes sociales',
+    'تابعنا على وسائل التواصل الاجتماعي'
+  ],
   'Deactivate Developer Mode': [
     'Deactivate Developer Mode',
     'Desativar Modo de Desenvolvedor',

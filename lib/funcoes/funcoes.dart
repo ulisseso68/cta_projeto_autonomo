@@ -484,7 +484,7 @@ class Funcoes {
 
         //total answers
         CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+            valueColor: AlwaysStoppedAnimation<Color>(redEspana),
             value: answered / total,
             strokeWidth: 8,
             strokeAlign: 2,
@@ -684,9 +684,9 @@ class Funcoes {
 
   Color semaforo(double value) {
     if (value < 0.6) {
-      return Colors.red;
+      return redEspana;
     } else if (value < 0.8) {
-      return Colors.orange;
+      return COR_02;
     } else {
       return Colors.green;
     }

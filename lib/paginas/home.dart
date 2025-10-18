@@ -402,23 +402,25 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
 
-                //Ad Banner
-                if (adLoaded)
-                  Container(
-                    height: _bannerAd!.size.height.toDouble() + 6,
-                    width: largura,
-                    margin: EdgeInsets.only(top: 10),
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      //color: Colors.grey.shade400,
-                      border: Border.all(
-                        color: COR_02,
-                        width: 1,
-                      ),
-                    ),
-                    child: AdWidget(ad: _bannerAd!),
-                  ),
+                //Ad Banner or Progress Indicator
+                (adLoaded)
+                    ? Container(
+                        height: _bannerAd!.size.height.toDouble() + 6,
+                        width: largura,
+                        margin: EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.all(5.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          //color: Colors.grey.shade400,
+                          border: Border.all(
+                            color: COR_02,
+                            width: 1,
+                          ),
+                        ),
+                        child: AdWidget(ad: _bannerAd!),
+                      )
+                    : Center(child: Funcoes().progressBar(barSize: 0.9)),
+
                 //Divider
                 Divider(
                   color: COR_02,
@@ -630,13 +632,13 @@ class _HomePageState extends State<HomePage> {
                   color: COR_02,
                 ),
                 Funcoes().logoWidget(opacity: 0, letterColor: Colors.grey),
-                Divider(
+                /* Divider(
                   thickness: 1,
                   height: 100,
                   indent: 10,
                   endIndent: 10,
                   color: Colors.white,
-                )
+                ) */
               ]),
         ),
       ),

@@ -28,6 +28,7 @@ class AJDrawer extends StatelessWidget {
             SizedBox(
               height: screenH * 0.10,
             ),
+
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,11 +36,21 @@ class AJDrawer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    /* SizedBox(
                       width: screenW * 0.05,
-                    ),
+                    ), */
                     Funcoes().logoWidget(opacity: 0, letterColor: redEspana),
                   ],
+                ),
+                Center(
+                  child: Text(
+                    'v$appVersion',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: redEspana,
+                    ),
+                  ),
                 ),
                 Container(
                   height: 1,
@@ -53,7 +64,6 @@ class AJDrawer extends StatelessWidget {
               ],
             ),
 
-            // KPIs
             SizedBox(
               height: screenH * 0.02,
             ),
@@ -162,6 +172,23 @@ class AJDrawer extends StatelessWidget {
               },
             ),
 
+            // Rede Social
+            ListTile(
+              leading: const Icon(
+                Icons.facebook,
+                size: 40,
+                color: redEspana,
+              ),
+              title: Text(
+                Funcoes().appLang('Follow us on Social Media'),
+                textAlign: TextAlign.start,
+                style: TextStyle(color: COR_01, fontSize: 14),
+              ),
+              onTap: () {
+                CallApi().launchUrlOut('https://www.instagram.com/ccsefacil/');
+              },
+            ),
+
             // Manual Instituto Cervantes
             ListTile(
               leading: const Icon(
@@ -181,7 +208,7 @@ class AJDrawer extends StatelessWidget {
             ),
 
             // Offline Mode
-            ListTile(
+            /* ListTile(
               leading: offlineMode
                   ? const Icon(
                       Icons.wifi_off,
@@ -217,7 +244,7 @@ class AJDrawer extends StatelessWidget {
                   },
                 );
               },
-            ),
+            ), */
 
             if (developerMode)
               Divider(height: 1, indent: 10, endIndent: 10, color: COR_dev),
