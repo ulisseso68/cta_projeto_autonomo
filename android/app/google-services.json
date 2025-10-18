@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861600816011",
+    "project_id": "ccse-mob",
+    "storage_bucket": "ccse-mob.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861600816011:android:388fb5298e78158ca4ed8e",
+        "android_client_info": {
+          "package_name": "com.ccsefacil.app2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtg42MmW_Y5Sq8875YQSNP_3UKM0hf2V8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

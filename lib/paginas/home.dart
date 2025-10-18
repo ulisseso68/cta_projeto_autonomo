@@ -10,6 +10,7 @@ import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:ccse_mob/paginas/consent_manager.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 class HomePage extends StatefulWidget {
   final AdSize adSize = AdSize.largeBanner;
@@ -32,9 +33,14 @@ class _HomePageState extends State<HomePage> {
   var _isMobileAdsInitializeCalled = false;
   var _isPrivacyOptionsRequired = false;
 
+  Future<void> _initFirebaseAnalytics() async {
+    await FirebaseAnalytics.instance.logAppOpen();
+  }
+
   @override
   initState() {
     super.initState();
+    _initFirebaseAnalytics();
     WidgetsFlutterBinding.ensureInitialized()
         .addPostFrameCallback((_) => initPlugin());
     _getDatafromServer();

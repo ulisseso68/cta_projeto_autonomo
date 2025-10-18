@@ -160,12 +160,6 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                         ),
                       ],
                     ),
-                    /* subtitle: Text(
-                      Funcoes().appLang(
-                          "${Funcoes().appLang("CCSE ID")}: ${_preguntasSelecionadas[indexPreguntas].ccse_id}"),
-                      textAlign: TextAlign.start,
-                      style: const TextStyle(fontSize: 14, color: COR_01),
-                    ), */
                     trailing: (otherLanguage && translationAvailable)
                         ? FloatingActionButton(
                             heroTag: 'translate_button',
@@ -231,6 +225,20 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
               ),
             ),
 
+            (_preguntasSelecionadas[indexPreguntas].hasDetails)
+                ? Container(
+                    height: screenH / 4,
+                    width: screenW * 0.9,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: currentQuestion.imagem(),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )
+                : Container(),
             Divider(
               thickness: 5,
               height: screenH / 10,

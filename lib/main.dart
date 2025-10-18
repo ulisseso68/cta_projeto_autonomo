@@ -13,9 +13,16 @@ import 'package:flutter/services.dart';
 //import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'paginas/questionsPage1.dart';
 import 'paginas/intersticial.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   //unawaited(MobileAds.instance.initialize());
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {

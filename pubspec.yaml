@@ -35,7 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_tags: ^1.0.0-nullsafety.1
-  url_launcher: ^6.1.4
+  url_launcher: ^6.3.2
   flutter_rating_bar: ^4.0.1
   http: ^1.4.0
   dio: ^5.9.0
@@ -46,6 +46,8 @@ dependencies:
   flutter_email_sender: ^8.0.0
   google_mobile_ads: ^6.0.0
   app_tracking_transparency: ^2.0.6+1
+  firebase_core: ^4.2.0
+  firebase_analytics: ^12.0.3
 
 dev_dependencies:
   flutter_test:
