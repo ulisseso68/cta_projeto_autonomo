@@ -69,8 +69,8 @@ android {
             applicationId "com.ccsefacil.app2"  // this stays as-is
             minSdkVersion flutter.minSdkVersion
             targetSdkVersion 36
-            versionCode 15
-            versionName "5.1.1"
+            versionCode 17
+            versionName "5.1.2"
         }
 
     }

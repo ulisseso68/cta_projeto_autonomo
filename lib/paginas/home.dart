@@ -346,61 +346,62 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 //Simulation Exam Button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Container for the exam button
-                    GestureDetector(
-                      onTap: () async {
-                        Funcoes.categorySelected = examCat;
-                        numberOfQuestions = 25;
-                        await Navigator.pushNamed(context, 'questionsExam')
-                            .then((value) {
-                          //This callback is executed when returning from the questions page
-                          updateStatus();
-                        });
-                      },
-                      child: Container(
-                        //height: altura / 10,
-                        width: largura - 20,
-                        padding: EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                          color: COR_02,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ListTile(
-                              leading: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Funcoes().progressRings(),
-                                  Icon(
-                                    Icons.edit_note,
+                if (Funcoes().existsAnyAnsweredQuestion())
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Container for the exam button
+                      GestureDetector(
+                        onTap: () async {
+                          Funcoes.categorySelected = examCat;
+                          numberOfQuestions = 25;
+                          await Navigator.pushNamed(context, 'questionsExam')
+                              .then((value) {
+                            //This callback is executed when returning from the questions page
+                            updateStatus();
+                          });
+                        },
+                        child: Container(
+                          //height: altura / 10,
+                          width: largura - 20,
+                          padding: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                            color: COR_02,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ListTile(
+                                leading: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Funcoes().progressRings(),
+                                    Icon(
+                                      Icons.edit_note,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
+                                  ],
+                                ),
+                                title: Text(
+                                  Funcoes().appLang('CCSE Exam Simulation'),
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
                                     color: Colors.white,
-                                    size: 40,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ],
-                              ),
-                              title: Text(
-                                Funcoes().appLang('CCSE Exam Simulation'),
-                                maxLines: 2,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
-                                  color: Colors.white,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
                 //Ad Banner or Progress Indicator
                 (adLoaded)
@@ -419,7 +420,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: AdWidget(ad: _bannerAd!),
                       )
-                    : Center(child: Funcoes().progressBar(barSize: 0.9)),
+                    : Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Funcoes().progressBar(barSize: 0.9),
+                      ),
 
                 //Divider
                 Divider(

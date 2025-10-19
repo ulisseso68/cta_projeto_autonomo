@@ -6,6 +6,41 @@
 
 // Listing of messages
 final lang = {
+  'We recommend you to practice at least 150 questions before taking the simulated exam. This will help you become more familiar with the question formats and improve your chances of success.':
+      [
+    'We recommend you to practice at least 150 questions before taking the simulated exam. This will help you become more familiar with the question formats and improve your chances of success.',
+    'Recomendamos que você pratique pelo menos 150 perguntas antes de fazer o exame simulado. Isso ajudará você a se familiarizar mais com os formatos das perguntas e a melhorar suas chances de sucesso.',
+    'Recomendamos que practiques al menos 150 preguntas antes de realizar el examen simulado. Esto te ayudará a familiarizarte más con los formatos de las preguntas y a mejorar tus posibilidades de éxito.',
+    'نوصي بأن تمارس ما لا يقل عن 150 سؤالًا قبل إجراء الامتحان التجريبي. سيساعدك ذلك على التعرف بشكل أفضل على تنسيقات الأسئلة وتحسين فرصك في النجاح.'
+  ],
+  'You have not practiced any questions yet. Start practicing to see your progress here!':
+      [
+    'You have not practiced any questions yet. Start practicing to see your progress here!',
+    'Você ainda não praticou nenhuma pergunta. Comece a praticar para ver seu progresso aqui!',
+    'Aún no has practicado ninguna pregunta. ¡Comienza a practicar para ver tu progreso aquí!',
+    'لم تمارس أي أسئلة بعد. ابدأ في الممارسة لرؤية تقدمك هنا!'
+  ],
+  'No Questions Practiced': [
+    'No Questions Practiced',
+    'Nenhuma Pergunta Praticada',
+    'Ninguna Pregunta Practicada',
+    'لم يتم ممارسة أي أسئلة'
+  ],
+  'You Have practiced': [
+    'You Have practiced',
+    'Você Praticou',
+    'Has practicado',
+    'لقد مارست'
+  ],
+  'of': ['of', 'de', 'de', 'من'],
+  'Questions': ['Questions', 'Perguntas', 'Preguntas', 'أسئلة'],
+  'and responded correctly to': [
+    'and responded correctly to',
+    'e respondeu corretamente a',
+    'y respondiste correctamente a',
+    'وأجبت بشكل صحيح على'
+  ],
+  'of them': ['of them', 'delas', 'de ellas', 'منها'],
   'Follow us on Social Media': [
     'Follow us on social media',
     'Siga-nos nas redes sociais',

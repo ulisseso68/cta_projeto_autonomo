@@ -274,6 +274,22 @@ class _QuestionsExam extends State<QuestionsExam> {
                     height: 5.0,
                     color: COR_02,
                   ),
+                  if (Funcoes().statistics()['answered']!.toInt() < 150)
+                    Padding(
+                        padding: EdgeInsets.all(screenW * 0.05),
+                        child: Text(
+                          Funcoes().appLang(
+                              'We recommend you to practice at least 150 questions before taking the simulated exam. This will help you become more familiar with the question formats and improve your chances of success.'),
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey.shade600,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        )),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Funcoes().progressBar(barSize: 0.9),
+                  ),
                   (showExamInfo == false)
                       ? Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -285,8 +301,8 @@ class _QuestionsExam extends State<QuestionsExam> {
                                   'Click to learn more about how you have to take the exam.'),
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                fontSize: 20,
-                                color: COR_02,
+                                fontSize: 15,
+                                color: Colors.grey.shade600,
                                 fontWeight: FontWeight.normal,
                               ),
                             ),

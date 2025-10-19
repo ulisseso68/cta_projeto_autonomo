@@ -537,31 +537,47 @@ class Funcoes {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                Funcoes().appLang('Answered'),
+                (answered > 0)
+                    ? '${Funcoes().appLang('You Have practiced')} $answered ${Funcoes().appLang('of')} $total ${Funcoes().appLang('Questions')}'
+                    : Funcoes().appLang('No Questions Practiced'),
                 style: const TextStyle(fontSize: 14, color: COR_01),
               ),
               appProgressBar(barSize, answered / total, 0, color1: Colors.grey),
               const SizedBox(
                 height: 5,
               ),
-              appProgressBar(
-                barSize,
-                correct / (answered > 0 ? answered : 1),
-                0,
-                color1:
-                    Funcoes().semaforo(correct / (answered > 0 ? answered : 1)),
-              ),
-              Text(
-                Funcoes().appLang('Correctly'),
-                style: const TextStyle(fontSize: 14, color: COR_01),
-              ),
+              if (correct > 0)
+                appProgressBar(
+                  barSize,
+                  correct / (answered > 0 ? answered : 1),
+                  0,
+                  color1: Funcoes()
+                      .semaforo(correct / (answered > 0 ? answered : 1)),
+                ),
+              if (correct > 0)
+                Text(
+                  '${Funcoes().appLang('and responded correctly to')} ${('$correct (${int.parse((correct / (answered > 0 ? answered : 1) * 100).toStringAsFixed(0))}%)')}' +
+                      ' ${Funcoes().appLang('of them')}',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Funcoes()
+                          .semaforo(correct / (answered > 0 ? answered : 1))),
+                ),
               const SizedBox(
                 height: 5,
               ),
             ],
           )
-        : const SizedBox(
-            height: 0,
+        : Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              Funcoes().appLang(
+                  'You have not practiced any questions yet. Start practicing to see your progress here!'),
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey.shade600,
+              ),
+            ),
           );
   }
 
