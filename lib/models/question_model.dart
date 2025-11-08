@@ -18,11 +18,16 @@ class Question {
   String category;
   String? description;
   String? photo;
+  String? sourceType;
+  String? sourceLink;
 
   Question(
       {this.id = 0,
       this.ccse_id = '',
       this.question = '',
+      this.description = '',
+      this.sourceLink = '',
+      this.sourceType = '',
       this.answers = const [],
       //this.hasDetails = false,
       this.category = ''});
@@ -36,7 +41,9 @@ class Question {
         answers = json['respostas'].toList(),
         category = json['tema'] is String ? json['tema'] : 'sin categoria',
         description = json['description'] is String ? json['description'] : '',
-        photo = json['photo'] is String ? json['photo'] : '';
+        photo = json['photo'] is String ? json['photo'] : '',
+        sourceType = json['sourceType'] is String ? json['sourceType'] : '',
+        sourceLink = json['sourceLink'] is String ? json['sourceLink'] : '';
 
   Question.fromServerJson(Map json)
       : id = json['id'] is int ? json['id'] : -1,
@@ -48,7 +55,9 @@ class Question {
         category =
             json['category'] is String ? json['category'] : 'sin categoria',
         description = json['description'] is String ? json['description'] : '',
-        photo = json['photo'] is String ? json['photo'] : '';
+        photo = json['photo'] is String ? json['photo'] : '',
+        sourceType = json['sourceType'] is String ? json['sourceType'] : '',
+        sourceLink = json['sourceLink'] is String ? json['sourceLink'] : '';
 
   bool get hasDetails {
     return (description != '');

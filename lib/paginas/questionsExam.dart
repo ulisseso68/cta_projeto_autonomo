@@ -331,7 +331,10 @@ class _QuestionsExam extends State<QuestionsExam> {
                   TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: COR_02,
-                      padding: const EdgeInsets.all(15),
+                      padding: const EdgeInsets.only(
+                          top: 15, bottom: 15, left: 30, right: 30),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
                     ),
                     onPressed: () {
                       examPresented = true;
@@ -349,25 +352,22 @@ class _QuestionsExam extends State<QuestionsExam> {
                   ),
                   Divider(
                     thickness: 1.0,
-                    height: 150.0,
-                    color: COR_02,
+                    height: 50.0,
+                    color: Colors.transparent,
                   )
                 ],
               ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: BottomAppBar(
-        height: screenH * 0.10,
+        height: screenH / 15,
         color: COR_02,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        shape: const CircularNotchedRectangle(),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
+          spacing: 15,
           children: [
-            Funcoes().appProgressBar(
-                1.0,
-                ((respostasCorretas) / _preguntasSelecionadas.length),
-                ((respostasErradas) / _preguntasSelecionadas.length),
-                barHeight: 15,
-                color1: COR_02b,
-                color2: COR_02b),
             Text(
               clockFormat((examPresented) ? counter : 45 * 60),
               style: TextStyle(
@@ -375,6 +375,13 @@ class _QuestionsExam extends State<QuestionsExam> {
                   color: Colors.white,
                   fontSize: 30),
             ),
+            Funcoes().appProgressBar(
+                0.5,
+                ((respostasCorretas) / _preguntasSelecionadas.length),
+                ((respostasErradas) / _preguntasSelecionadas.length),
+                barHeight: 20,
+                color1: COR_02b,
+                color2: COR_02b),
           ],
         ),
       ),

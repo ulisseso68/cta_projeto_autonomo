@@ -10,6 +10,7 @@ import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/languages.dart';
 import 'package:ccse_mob/utilidades/env.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ccse_mob/utilidades/questions.dart';
 
@@ -393,27 +394,24 @@ class Funcoes {
   Widget KPIbox(
       double largura, String text1, String text2, Color backgroundColor,
       {Color foreColor = Colors.white, IconData icon = Icons.check}) {
-    return Container(
+    return SizedBox(
       width: largura * 0.9,
-      padding: const EdgeInsets.only(top: 5, bottom: 5),
+      //padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ListTile(
             tileColor: foreColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-              //side: BorderSide(color: backgroundColor, width: 2),
-            ),
+            dense: true,
             leading: Icon(
               icon,
-              size: 35,
+              size: 25,
               color: backgroundColor,
             ),
             title: Text(
               text1,
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: backgroundColor),
             ),
@@ -422,7 +420,7 @@ class Funcoes {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 10,
                   fontWeight: FontWeight.bold,
                   color: backgroundColor),
             ),
@@ -556,8 +554,8 @@ class Funcoes {
                 ),
               if (correct > 0)
                 Text(
-                  '${Funcoes().appLang('and responded correctly to')} ${('$correct (${int.parse((correct / (answered > 0 ? answered : 1) * 100).toStringAsFixed(0))}%)')}' +
-                      ' ${Funcoes().appLang('of them')}',
+                  '${Funcoes().appLang('and responded correctly to')} ${('$correct (${int.parse((correct / (answered > 0 ? answered : 1) * 100).toStringAsFixed(0))}%)')}'
+                  ' ${Funcoes().appLang('of them')}',
                   style: TextStyle(
                       fontSize: 14,
                       color: Funcoes()
@@ -694,6 +692,62 @@ class Funcoes {
         image: AssetImage('img/LogoHorizontal.png'),
         color: letterColor,
         fit: BoxFit.contain,
+      ),
+    );
+  }
+
+  // Bottom bar used at Home Page
+  Widget uxBottomBar(SharePlus sharePlus, {corBottomBar = COR_02}) {
+    final params = ShareParams(
+      text: 'Check out this app: https://app.ccsefacil.es',
+    );
+    return BottomAppBar(
+      color: corBottomBar,
+      height: screenH / 15,
+      shape: CircularNotchedRectangle(),
+      child: SafeArea(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            spacing: 10,
+            children: [
+              IconButton(
+                  tooltip: appLang('Follow us on Instagram'),
+                  iconSize: 30,
+                  onPressed: () {
+                    CallApi()
+                        .launchUrlOut('https://www.instagram.com/ccsefacil/');
+                  },
+                  icon: Icon(
+                    Icons.supervised_user_circle,
+                    color: Colors.white,
+                  )),
+              IconButton(
+                  iconSize: 30,
+                  tooltip:
+                      Funcoes().appLang('Share this app with your friends'),
+                  onPressed: () async {
+                    final result = await SharePlus.instance.share(params);
+                    if (result.status == ShareResultStatus.success) {
+                      //print('Thank you for sharing my website!');
+                    }
+                  },
+                  icon: Icon(
+                    Icons.upload,
+                    color: Colors.white,
+                  )),
+              IconButton(
+                  iconSize: 30,
+                  tooltip: Funcoes().appLang('Rank our app on the Store'),
+                  onPressed: () {
+                    CallApi().launchUrlOut((deviceType == 'iOS')
+                        ? 'https://apps.apple.com/es/app/ccse-facil/id6748478239?action=write-review'
+                        : 'https://play.google.com/store/apps/details?id=com.ccsefacil.app2');
+                  },
+                  icon: Icon(
+                    Icons.verified,
+                    color: Colors.white,
+                  )),
+            ]),
       ),
     );
   }

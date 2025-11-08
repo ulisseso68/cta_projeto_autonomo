@@ -4,6 +4,7 @@ import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
+import 'package:share_plus/share_plus.dart';
 
 //import 'package:flutter/services.dart';
 //ignore: camel_case_types
@@ -45,26 +46,6 @@ class _ExamClosingState extends State<ExamClosing> {
     final Color resultColor = (respostasCorretas >= 15) ? COR_04 : redEspana;
 
     return Scaffold(
-      bottomSheet: SizedBox(
-        height: altura * 0.20,
-        width: largura,
-        //color: Colors.white,
-        child: Column(
-          children: [
-            Funcoes().KPIbox(
-                largura,
-                Funcoes()
-                    .appLang((respostasCorretas >= 15) ? 'PASSED' : 'FAILED'),
-                Funcoes().appLang((respostasCorretas >= 15)
-                    ? 'CONGRATULATIONS'
-                    : 'PRACTICE MORE'),
-                (respostasCorretas >= 15) ? COR_04 : redEspana,
-                icon: (respostasCorretas >= 15)
-                    ? Icons.thumb_up
-                    : Icons.thumb_down),
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -150,12 +131,32 @@ class _ExamClosingState extends State<ExamClosing> {
                   shouldLoop: false,
                   colors: const [Colors.green, Colors.orange]),
             ]),
+            SizedBox(
+              height: altura * 0.20,
+              width: largura,
+              //color: Colors.white,
+              child: Column(
+                children: [
+                  Funcoes().KPIbox(
+                      largura,
+                      Funcoes().appLang(
+                          (respostasCorretas >= 15) ? 'PASSED' : 'FAILED'),
+                      Funcoes().appLang((respostasCorretas >= 15)
+                          ? 'CONGRATULATIONS'
+                          : 'PRACTICE MORE'),
+                      (respostasCorretas >= 15) ? COR_04 : redEspana,
+                      icon: (respostasCorretas >= 15)
+                          ? Icons.thumb_up
+                          : Icons.thumb_down),
+                ],
+              ),
+            ),
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),
-        elevation: 20,
         onPressed: () {
           Navigator.popUntil(context, (route) => route.isFirst);
           setState(() {});
@@ -163,6 +164,7 @@ class _ExamClosingState extends State<ExamClosing> {
         backgroundColor: COR_02,
         child: const Icon(Icons.home_filled, color: Colors.white, size: 30),
       ),
+      bottomNavigationBar: Funcoes().uxBottomBar(SharePlus.instance),
     );
   }
 }

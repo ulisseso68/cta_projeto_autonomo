@@ -6,6 +6,50 @@
 
 // Listing of messages
 final lang = {
+  'Keep learning with the content in our social media. Follow us and stay updated with news, curiosities, and tips to help you pass the CCSE exam.':
+      [
+    'Keep learning with the content in our social media. Follow us and stay updated with news, curiosities, and tips to help you pass the CCSE exam.',
+    'Continue aprendendo com o conteúdo em nossas redes sociais. Siga-nos e fique atualizado com notícias, curiosidades e dicas para ajudá-lo a passar no exame CCSE.',
+    'Sigue aprendiendo con el contenido en nuestras redes sociales. Síguenos y mantente actualizado con noticias, curiosidades y consejos para ayudarte a aprobar el examen CCSE.',
+    'استمر في التعلم من خلال المحتوى في وسائل التواصل الاجتماعي الخاصة بنا. تابعنا وابقَ على اطلاع بالأخبار والفضول والنصائح لمساعدتك في اجتياز امتحان CCSE.'
+  ],
+  'Source link not available': [
+    'Source link not available',
+    'Link da fonte não disponível',
+    'Enlace de la fuente no disponible',
+    'رابط المصدر غير متوفر'
+  ],
+  'Source': ['Source', 'Fonte', 'Fuente', 'المصدر'],
+  'Source not available': [
+    'Source not available',
+    'Fonte não disponível',
+    'Fuente no disponible',
+    'المصدر غير متوفر'
+  ],
+  'Rank our app on the Store': [
+    'Rank our app on the Store',
+    'Avalie nosso aplicativo na Loja',
+    'Califica nuestra aplicación en la Tienda',
+    'قم بتقييم تطبيقنا على المتجر'
+  ],
+  'Follow us on Instagram': [
+    'Follow us on Instagram',
+    'Siga-nos no Instagram',
+    'Síguenos en Instagram',
+    'تابعنا على إنستغرام'
+  ],
+  'Share this app with your friends': [
+    'Share this app with your friends',
+    'Compartilhe este aplicativo com seus amigos',
+    'Comparte esta aplicación con tus amigos',
+    'شارك هذا التطبيق مع أصدقائك'
+  ],
+  'Please accept the terms and select your country to continue.': [
+    'Please accept the terms and select your country to continue.',
+    'Por favor, aceite os termos e selecione seu país para continuar.',
+    'Por favor, acepte los términos y seleccione su país para continuar.',
+    'يرجى قبول الشروط وتحديد بلدك للمتابعة.'
+  ],
   'We recommend you to practice at least 150 questions before taking the simulated exam. This will help you become more familiar with the question formats and improve your chances of success.':
       [
     'We recommend you to practice at least 150 questions before taking the simulated exam. This will help you become more familiar with the question formats and improve your chances of success.',

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:ccse_mob/funcoes/funcoes.dart';
 import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
@@ -11,6 +13,9 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:ccse_mob/paginas/consent_manager.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:share_plus/share_plus.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   final AdSize adSize = AdSize.largeBanner;
@@ -30,6 +35,9 @@ class _HomePageState extends State<HomePage> {
   String adUnitId = '';
   bool adLoaded = false;
   final _consentManager = ConsentManager();
+  /* final params = ShareParams(
+    text: 'Check out this app: https://app.ccsefacil.es',
+  ); */
   var _isMobileAdsInitializeCalled = false;
   var _isPrivacyOptionsRequired = false;
 
@@ -44,6 +52,7 @@ class _HomePageState extends State<HomePage> {
     WidgetsFlutterBinding.ensureInitialized()
         .addPostFrameCallback((_) => initPlugin());
     _getDatafromServer();
+    //var result = SharePlus.instance.share(params);
   }
 
   @override
@@ -84,14 +93,7 @@ class _HomePageState extends State<HomePage> {
     deviceID = (await _getId()).toString();
 
     if (!loginRegistered) {
-      CallApi().postDataWithHeaders('journals/process', {
-        'deviceid': deviceID,
-        'type': 'access',
-        'value': 0,
-        'devicetype': deviceType
-      }, {
-        'Authorization': 'Bearer token'
-      });
+      CallApi().createJournalEntry(type: 'access');
       loginRegistered = true;
     }
 
@@ -199,7 +201,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<void> showCustomTrackingDialog(BuildContext context) async =>
+  /* Future<void> showCustomTrackingDialog(BuildContext context) async =>
       await showDialog<void>(
         context: context,
         builder: (context) => AlertDialog(
@@ -212,12 +214,13 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      );
+      ); */
 
   void _loadAd() {
     if (adUnitId != '') {
       // Create a BannerAd
       /* print('Loading Ad: $adUnitId'); */
+      CallApi().createJournalEntry(type: 'adRequest');
       final bannerAd = BannerAd(
         size: widget.adSize,
         adUnitId: adUnitId,
@@ -477,6 +480,76 @@ class _HomePageState extends State<HomePage> {
                 //List of categories
                 _buildListTile(),
 
+                // 1st Party Ad
+
+                Container(
+                  height: altura / 8,
+                  width: largura,
+                  margin: EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    //color: Colors.grey.shade400,
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: screenW / 4,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                          ),
+                          /* border: Border.all(color: COR_02, width: 1), */
+                          image: DecorationImage(
+                            image: AssetImage('img/ad1.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        width: screenW * 0.5,
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          Funcoes().appLang(
+                              'Keep learning with the content in our social media. Follow us and stay updated with news, curiosities, and tips to help you pass the CCSE exam.'),
+                          textAlign: TextAlign.start,
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: COR_01,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: screenW / 8,
+                        height: altura / 8,
+                        decoration: BoxDecoration(
+                          color: COR_02,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
+                          ),
+                        ),
+                        child: IconButton(
+                            onPressed: () {
+                              launchUrl(Uri.parse(
+                                  'https://www.instagram.com/ccsefacil/'));
+                            },
+                            icon: Icon(Icons.supervised_user_circle_rounded,
+                                color: Colors.white, size: 30)),
+                      ),
+                    ],
+                  ),
+                ),
+
                 //Study with flash cards
                 Divider(
                   color: COR_02,
@@ -552,8 +625,8 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Container(
                                       width: screenW * 0.4,
-                                      decoration: const BoxDecoration(
-                                        color: COR_02,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.shade400,
                                         borderRadius: BorderRadius.only(
                                           topLeft: Radius.circular(20),
                                           bottomLeft: Radius.circular(20),
@@ -572,8 +645,9 @@ class _HomePageState extends State<HomePage> {
                                         topLeft: Radius.circular(20),
                                         bottomLeft: Radius.circular(20),
                                       ),
-                                      border:
-                                          Border.all(color: COR_02, width: 1),
+                                      /* border: Border.all(
+                                          color: Colors.grey.shade400,
+                                          width: 1), */
                                       image: DecorationImage(
                                         image: learnings[index].imagem(),
                                         fit: BoxFit.cover,
@@ -646,33 +720,28 @@ class _HomePageState extends State<HomePage> {
               ]),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade300,
-        height: 15,
-        child: Divider(
-          color: COR_02,
-          thickness: 5,
-        ),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: (developerMode)
           ? FloatingActionButton(
-              shape: const StadiumBorder(),
+              shape: StadiumBorder(),
               onPressed: () {
                 MobileAds.instance.openAdInspector((error) {
-                  // Error will be non-null if ad inspector closed due to an error.
                   if (error != null) {
                     CallApi().showAlert(
                         context,
-                        Text(
-                            'Ad Inspector closed with error: ${error.code} • ${error.message}'),
+                        Text('Ad Inspector closed with error: ${error.code}'),
                         'OK');
                   }
                 });
               },
-              backgroundColor: COR_dev,
-              child: Icon(Icons.ad_units, color: Colors.white),
+              child: Icon(
+                Icons.ad_units,
+                color: Colors.white,
+                size: screenH / 25,
+              ),
             )
           : null,
+      bottomNavigationBar: Funcoes().uxBottomBar(SharePlus.instance),
     );
   }
 

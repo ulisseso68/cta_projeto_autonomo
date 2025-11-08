@@ -11,7 +11,7 @@ var questions = [
       {"answer": "una rep\u00fablica federal", "Correct": false},
       {"answer": "una monarqu\u00eda federal", "Correct": false}
     ],
-    "photo": "\/questions\/1001.jpg",
+    "photo": "/questions/1001.jpg",
     "description":
         "La monarqu\u00eda parlamentaria en Espa\u00f1a es una forma de gobierno en la que el rey o la reina ejerce como jefe de Estado simb\u00f3lico, mientras que el poder ejecutivo y legislativo recae en instituciones democr\u00e1ticamente elegidas. Establecida por la Constituci\u00f3n de 1978, esta forma de gobierno reconoce al monarca \u2014actualmente el rey Felipe VI\u2014 como representante de la unidad y permanencia del Estado, con funciones principalmente ceremoniales y de representaci\u00f3n. El poder pol\u00edtico real reside en el Parlamento (las Cortes Generales) y en el Gobierno, encabezado por el presidente del Gobierno, elegido por mayor\u00eda parlamentaria.",
     "rating": 5,
@@ -29,7 +29,7 @@ var questions = [
       {"answer": "Ley b\u00e1sica", "Correct": false},
       {"answer": "Ordenamiento esencial", "Correct": false}
     ],
-    "photo": "\/questions\/1002.jpg",
+    "photo": "/questions/1002.jpg",
     "description":
         "La Constituci\u00f3n de 1978 es la norma suprema del ordenamiento jur\u00eddico espa\u00f1ol y marca el inicio de la actual democracia tras la dictadura franquista. Fue aprobada por las Cortes y ratificada en refer\u00e9ndum el 6 de diciembre de 1978, estableciendo un Estado social y democr\u00e1tico de derecho.",
     "rating": 5,
@@ -48,7 +48,7 @@ var questions = [
       {"answer": "el Gobierno del Estado", "Correct": false},
       {"answer": "el Congreso de los Diputados", "Correct": false}
     ],
-    "photo": "\/questions\/1003.jpg",
+    "photo": "/questions/1003.jpg",
     "description":
         "La frase \u201cla soberan\u00eda nacional reside en el pueblo espa\u00f1ol\u201d est\u00e1 recogida en el art\u00edculo 1.2 de la Constituci\u00f3n Espa\u00f1ola de 1978 y representa uno de los principios fundamentales del sistema democr\u00e1tico del pa\u00eds. Significa que el poder pol\u00edtico y la autoridad del Estado emanan directamente del conjunto de los ciudadanos, quienes, mediante el voto, eligen a sus representantes y participan en la toma de decisiones p\u00fablicas.",
     "rating": 5,
@@ -66,7 +66,7 @@ var questions = [
       {"answer": "un organismo espa\u00f1ol", "Correct": true},
       {"answer": "una ONG", "Correct": false}
     ],
-    "photo": "\/questions\/1004.jpg",
+    "photo": "/questions/1004.jpg",
     "description":
         "El Instituto de las Mujeres tiene como objetivo principal fomentar las condiciones que permitan la igualdad real y efectiva entre hombres y mujeres, as\u00ed como la participaci\u00f3n de estas \u00faltimas en la vida pol\u00edtica, civil, laboral, econ\u00f3mica, social y cultural. Adem\u00e1s, se encarga de impulsar pol\u00edticas activas para el empleo y el autoempleo de las mujeres, y de promover la aplicaci\u00f3n transversal del principio de igualdad de g\u00e9nero.",
     "rating": 5,
@@ -1068,7 +1068,7 @@ var questions = [
       {"answer": "rojo y amarillo", "Correct": true},
       {"answer": "amarillo y blanco", "Correct": false}
     ],
-    "photo": "questions\/1028.gif",
+    "photo": "questions/1028.gif",
     "description":
         "La bandera de Espa\u00f1a, conocida como la \"rojigualda\", tiene sus or\u00edgenes en la necesidad de diferenciaci\u00f3n en alta mar durante el reinado de Carlos III. El rojo y el amarillo fueron seleccionados por su alta visibilidad, especialmente en el contexto naval. El rojo se eligi\u00f3 porque era un color f\u00e1cil de te\u00f1ir, mientras que el amarillo se destacaba bien en el agua. La bandera actual, con sus franjas horizontales roja y amarilla (de doble ancho), surgi\u00f3 de un concurso para un nuevo pabell\u00f3n naval.",
     "rating": 5,
@@ -1105,7 +1105,7 @@ var questions = [
       {"answer": "El Parlamento Europeo", "Correct": false},
       {"answer": "la Comisi\u00f3n de Europa", "Correct": false}
     ],
-    "photo": "\/questions\/1030.jpg",
+    "photo": "/questions/1030.jpg",
     "description":
         "La bandera de la Uni\u00f3n Europea es azul con un c\u00edrculo de doce estrellas doradas. El c\u00edrculo de estrellas simboliza la unidad, la solidaridad y la armon\u00eda entre los pa\u00edses europeos. El n\u00famero doce no est\u00e1 relacionado con el n\u00famero de estados miembros, sino que es un s\u00edmbolo tradicional de perfecci\u00f3n y plenitud, seg\u00fan la Uni\u00f3n Europea.",
     "rating": 5,
@@ -4007,7 +4007,7 @@ var questions = [
     "ccse_id": "5010",
     "category": "Tarea 5",
     "question":
-        "\u00bfCu\u00e1l es la tasa m\u00e1xima de alcohol en sangre permitida a los conductores, en gramos por litro (g\/l)?",
+        "\u00bfCu\u00e1l es la tasa m\u00e1xima de alcohol en sangre permitida a los conductores, en gramos por litro (g/l)?",
     "answers": [
       {"answer": "0,5.", "Correct": true},
       {"answer": "0,7.", "Correct": false},
@@ -5066,9 +5066,9 @@ var questions = [
     "category": "Tarea 5",
     "question": "\u00bfCu\u00e1l es el l\u00edmite de velocidad en autopista?",
     "answers": [
-      {"answer": "90 km\/h.", "Correct": false},
-      {"answer": "120 km\/h.", "Correct": true},
-      {"answer": "150 km\/h.", "Correct": false}
+      {"answer": "90 km/h.", "Correct": false},
+      {"answer": "120 km/h.", "Correct": true},
+      {"answer": "150 km/h.", "Correct": false}
     ],
     "photo": null,
     "description": null,

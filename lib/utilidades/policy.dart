@@ -135,20 +135,25 @@ class DocumentContent {
     }
   };
 
-  getTermsOfUse() {
+  Map<String, Object>? getTermsOfUse() {
     return policy['terms_of_use'];
   }
 
-  getTermsOfUseByLanguage(String language) {
+  dynamic getTermsOfUseByLanguage(String language) {
     var terms = getTermsOfUse();
-    if (terms != null && terms['languages'].containsKey(language)) {
-      return terms['languages'][language];
+    if (terms != null && terms['languages'] != null) {
+      var languages = terms['languages'] as Map<String, Object>?;
+      if (languages?.containsKey(language) ?? false) {
+        return languages![language];
+      } else {
+        return languages!['0']; // Use '0' for English as per the comment
+      }
     } else {
-      return terms['languages']['English'];
+      return null;
     }
   }
 
-  getSessionsbyLanguage(String language) {
+  dynamic getSessionsbyLanguage(String language) {
     var terms = getTermsOfUseByLanguage(language);
     if (terms != null) {
       return terms['sections'];

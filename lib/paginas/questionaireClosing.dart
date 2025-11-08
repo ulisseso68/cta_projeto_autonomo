@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:io';
+import 'package:share_plus/share_plus.dart';
 //import 'dart:math';
 
 class QuestionareClosing extends StatefulWidget {
@@ -19,8 +20,8 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   bool expanded = false;
   bool passed = false;
   Color mainColor = COR_02;
-  Color adBackgroundColor = COR_02;
-  Color adCallActionColor = COR_04;
+  Color adBackgroundColor = Colors.white;
+  Color adCallActionColor = COR_02;
   Color semaforoColor = Funcoes()
       .semaforo(respostasCorretas / (respostasErradas + respostasCorretas));
   NativeAd? _nativeAd;
@@ -54,7 +55,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           // Styling
           nativeTemplateStyle: NativeTemplateStyle(
               // Required: Choose a template.
-              templateType: TemplateType.small,
+              templateType: TemplateType.medium,
               // Optional: Customize the ad's style.
               mainBackgroundColor: adBackgroundColor,
               cornerRadius: 20,
@@ -106,7 +107,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
 
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: altura / 10,
+        toolbarHeight: altura / 15,
         automaticallyImplyLeading: false,
         centerTitle: true,
         flexibleSpace: Stack(
@@ -148,122 +149,127 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                padding:
-                    EdgeInsets.only(bottom: 10, top: 10, left: 20, right: 20),
-                child: Text(
-                    Funcoes().appLang(
-                        'You have finished your training. These are your results'),
-                    style: TextStyle(
-                        color: semaforoColor,
-                        fontSize: 15,
-                        fontFamily: 'verdana',
-                        fontWeight: FontWeight.bold)),
-              ),
-              Stack(alignment: Alignment.center, children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  width: screenH * 0.3,
-                  height: screenH * 0.3,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      semaforoColor,
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: largura * 0.4,
+                      child: Text(
+                          Funcoes().appLang(
+                              'You have finished your training. These are your results'),
+                          style: TextStyle(
+                              color: semaforoColor,
+                              fontSize: 15,
+                              fontFamily: 'verdana',
+                              fontWeight: FontWeight.bold)),
                     ),
-                    value: (respostasCorretas /
-                        (respostasErradas + respostasCorretas)),
-                    strokeWidth: 30,
-                    color: semaforoColor,
-                    semanticsValue:
-                        '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
-                    backgroundColor: Colors.grey.shade200,
-                  ),
-                ),
-                SizedBox(
-                  width: screenH * 0.3,
-                  height: screenH * 0.3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
-                        style: TextStyle(
-                          fontSize: 80,
-                          fontWeight: FontWeight.bold,
+                    Stack(alignment: Alignment.center, children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        width: screenH * 0.20,
+                        height: screenH * 0.20,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            semaforoColor,
+                          ),
+                          value: (respostasCorretas /
+                              (respostasErradas + respostasCorretas)),
+                          strokeWidth: 30,
                           color: semaforoColor,
+                          semanticsValue:
+                              '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
+                          backgroundColor: Colors.grey.shade200,
                         ),
                       ),
-                      Text(
-                        '%',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: semaforoColor,
+                      SizedBox(
+                        width: screenH * 0.20,
+                        height: screenH * 0.20,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
+                              style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                                color: semaforoColor,
+                              ),
+                            ),
+                            Text(
+                              '%',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: semaforoColor,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                      ConfettiWidget(
+                          confettiController: confettiController,
+                          blastDirectionality: BlastDirectionality.explosive,
+                          shouldLoop: false,
+                          colors: const [Colors.green, Colors.orange]),
+                    ]),
+                  ],
                 ),
-                ConfettiWidget(
-                    confettiController: confettiController,
-                    blastDirectionality: BlastDirectionality.explosive,
-                    shouldLoop: false,
-                    colors: const [Colors.green, Colors.orange]),
-              ]),
-              SizedBox(
-                height: altura * 0.02,
               ),
-              Funcoes().KPIbox(
-                  largura,
-                  '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
-                  Funcoes().appLang('Accumulated Success Rate'),
-                  Funcoes().semaforo(Funcoes().statistics()['correct']! /
-                      Funcoes().statistics()['answered']!),
-                  icon: Icons.percent),
-              if (Funcoes.categorySelected != examCat)
-                Funcoes().KPIbox(
-                    largura,
-                    '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
-                    Funcoes().appLang('Answered Questions'),
-                    Colors.grey,
-                    icon: Icons.verified),
+              /* SizedBox(
+                height: altura * 0.01,
+              ), */
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Funcoes().KPIbox(
+                      largura * 0.5,
+                      '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
+                      Funcoes().appLang('Accumulated Success Rate'),
+                      Funcoes().semaforo(Funcoes().statistics()['correct']! /
+                          Funcoes().statistics()['answered']!),
+                      icon: Icons.percent),
+                  Funcoes().KPIbox(
+                      largura * 0.5,
+                      '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
+                      Funcoes().appLang('Answered Questions'),
+                      Colors.grey,
+                      icon: Icons.verified),
+                ],
+              ),
               Divider(
-                height: altura * 0.02,
+                height: altura * 0.01,
                 color: Colors.white,
               ),
+              Container(
+                width: largura,
+                height: 5,
+                color: COR_02,
+              ),
+              Divider(
+                height: altura * 0.01,
+                color: Colors.white,
+              ),
+              if (_nativeAdIsLoaded)
+                Container(
+                    color: adBackgroundColor,
+                    width: largura,
+                    height: altura * 0.40,
+                    child: AdWidget(ad: _nativeAd!)),
+              /* Container(
+                width: largura,
+                height: 5,
+                color: COR_02,
+              ), */
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        height: (_nativeAdIsLoaded)
-            ? altura / 5
-            : (altura * 0.08 < 70)
-                ? 70
-                : altura * 0.08,
-        color: Colors.grey.shade300,
-        child: (_nativeAdIsLoaded)
-            ? Container(
-                width: largura,
-                height: altura / 5,
-                //padding: const EdgeInsets.only(top: 5),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade400,
-                  border: Border(top: BorderSide(color: COR_02, width: 5)),
-                ),
-                child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: AdWidget(ad: _nativeAd!)),
-              )
-            : Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  border: Border(top: BorderSide(color: COR_02, width: 5)),
-                ),
-                width: largura,
-                height: altura * 0.08,
-              ),
+      bottomNavigationBar: Funcoes().uxBottomBar(
+        SharePlus.instance,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),
         clipBehavior: Clip.antiAliasWithSaveLayer,

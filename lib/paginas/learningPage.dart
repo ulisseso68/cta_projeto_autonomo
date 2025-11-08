@@ -4,6 +4,8 @@ import 'package:ccse_mob/utilidades/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:ccse_mob/funcoes/fAPI.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 //ignore: camel_case_types
 
 class LearningPage extends StatefulWidget {
@@ -86,7 +88,42 @@ class _LearningPageState extends State<LearningPage> {
                     fontWeight: FontWeight.normal,
                     fontSize: 18),
               ),
+
               textColor: Colors.black54,
+            ),
+            ListTile(
+              //  leading: Icon(Icons.info, size: 30),
+              trailing: IconButton(
+                icon: Icon(Icons.link_rounded,
+                    size: 30, color: (translateDescription) ? COR_04 : COR_02),
+                onPressed: () {
+                  // Handle source button press
+                  if (currentQuestion.sourceLink != null &&
+                      currentQuestion.sourceLink!.isNotEmpty) {
+                    launchUrl(Uri.parse(currentQuestion.sourceLink!));
+                  } else {
+                    CallApi().showAlert(
+                        context,
+                        Text(
+                          Funcoes().appLang('Source link not available'),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        'OK');
+                  }
+                },
+              ),
+              title: Text(
+                textAlign: TextAlign.right,
+                currentQuestion.sourceType!.isNotEmpty
+                    ? '${Funcoes().appLang('Source')}: ${currentQuestion.sourceType}'
+                    : Funcoes().appLang('Source not available'),
+                style: TextStyle(
+                    color: (translateDescription) ? COR_04 : COR_02,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10),
+              ),
+
+              textColor: Colors.black87,
             ),
             Divider(
                 thickness: 1.0,
@@ -147,6 +184,7 @@ class _LearningPageState extends State<LearningPage> {
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         heroTag: 'back_button',
         shape: const StadiumBorder(),
@@ -156,6 +194,7 @@ class _LearningPageState extends State<LearningPage> {
         },
         child: const Icon(Icons.arrow_back, color: Colors.white, size: 30),
       ),
+      bottomNavigationBar: Funcoes().uxBottomBar(SharePlus.instance),
     );
   }
 }

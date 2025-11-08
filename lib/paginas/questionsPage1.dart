@@ -108,15 +108,15 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
     //var textController;
 
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white, size: 40),
-        backgroundColor: COR_02,
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.white, size: 40),
+          backgroundColor: COR_02,
 
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Funcoes().logoWidget(opacity: 0),
-            /* Hero(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Funcoes().logoWidget(opacity: 0),
+              /* Hero(
               tag: 'splash_image',
               child: Image(
                 width: largura * 0.15,
@@ -124,176 +124,179 @@ class _QuestionsPage1 extends State<QuestionsPage1> {
                 fit: BoxFit.fill,
               ),
             ), */
-          ],
+            ],
+          ),
+          //shadowColor: Colors.white70.withOpacity(0.0),
         ),
-        //shadowColor: Colors.white70.withOpacity(0.0),
-      ),
-      endDrawer: AJDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            // Container with the question
-            Container(
-              width: largura,
-              //color: COR_02.withOpacity(0.1),
-              padding: const EdgeInsets.only(top: 10),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          Funcoes().appLang(
-                              "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}"),
-                          textAlign: TextAlign.start,
-                          style: const TextStyle(
-                              fontSize: 20,
-                              color: COR_02,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const Divider(
-                          color: COR_02,
-                          height: 10,
-                          thickness: 1,
-                        ),
-                      ],
-                    ),
-                    trailing: (otherLanguage && translationAvailable)
-                        ? FloatingActionButton(
-                            heroTag: 'translate_button',
-                            onPressed: () {
-                              setState(() {
-                                translate = !translate;
-                              });
-                            },
-                            shape: const StadiumBorder(),
-                            backgroundColor: COR_04.shade800,
-                            child: const Icon(Icons.translate_rounded,
-                                color: Colors.white, size: 30),
-                          )
-                        : null,
-                  ),
-                  ListTile(
-                    title: Text(
-                      (_preguntasSelecionadas.isEmpty ||
-                              indexPreguntas >= _preguntasSelecionadas.length)
-                          ? 'No hay preguntas para esta selección'
-                          : (translate)
-                              ? translatedQuestion
-                              : _preguntasSelecionadas[indexPreguntas].question,
-                      //maxLines: 4,
-                      style: TextStyle(
-                        color: (!translate) ? COR_01 : COR_04.shade800,
-                        fontSize: 24,
+        endDrawer: AJDrawer(),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              // Container with the question
+              Container(
+                width: largura,
+                //color: COR_02.withOpacity(0.1),
+                padding: const EdgeInsets.only(top: 10),
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            Funcoes().appLang(
+                                "${Funcoes().appLang("Question")}: ${(indexPreguntas + 1).toString()} / ${_preguntasSelecionadas.length.toString()}"),
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: COR_02,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const Divider(
+                            color: COR_02,
+                            height: 10,
+                            thickness: 1,
+                          ),
+                        ],
                       ),
+                      trailing: (otherLanguage && translationAvailable)
+                          ? FloatingActionButton(
+                              heroTag: 'translate_button',
+                              onPressed: () {
+                                setState(() {
+                                  translate = !translate;
+                                });
+                              },
+                              shape: const StadiumBorder(),
+                              backgroundColor: COR_04.shade800,
+                              child: const Icon(Icons.translate_rounded,
+                                  color: Colors.white, size: 30),
+                            )
+                          : null,
                     ),
-                    trailing:
-                        (_preguntasSelecionadas[indexPreguntas].hasDetails)
-                            ? IconButton(
-                                icon: Icon(
-                                  Icons.tips_and_updates,
-                                  size: 40,
-                                  color: (translate) ? COR_04.shade800 : COR_02,
-                                ),
-                                onPressed: () {
-                                  Navigator.pushNamed(
-                                    context,
-                                    'learningPage',
-                                  );
-                                })
-                            : null,
-                  ),
-                ],
-              ),
-            ),
-
-            Container(
-              color: (!translate) ? COR_02 : COR_04.shade800,
-              height: 5,
-              margin:
-                  EdgeInsets.only(left: screenW * 0.05, right: screenW * 0.05),
-            ),
-
-            Container(
-              padding: EdgeInsets.all(screenW * 0.05),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _buildAnswersTiles(_respostasLista),
-              ),
-            ),
-
-            (_preguntasSelecionadas[indexPreguntas].hasDetails)
-                ? Container(
-                    height: screenH / 4,
-                    width: screenW * 0.9,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: currentQuestion.imagem(),
-                        fit: BoxFit.cover,
+                    ListTile(
+                      title: Text(
+                        (_preguntasSelecionadas.isEmpty ||
+                                indexPreguntas >= _preguntasSelecionadas.length)
+                            ? 'No hay preguntas para esta selección'
+                            : (translate)
+                                ? translatedQuestion
+                                : _preguntasSelecionadas[indexPreguntas]
+                                    .question,
+                        //maxLines: 4,
+                        style: TextStyle(
+                          color: (!translate) ? COR_01 : COR_04.shade800,
+                          fontSize: 24,
+                        ),
                       ),
+                      trailing: (_preguntasSelecionadas[indexPreguntas]
+                              .hasDetails)
+                          ? IconButton(
+                              icon: Icon(
+                                Icons.tips_and_updates,
+                                size: 40,
+                                color: (translate) ? COR_04.shade800 : COR_02,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  'learningPage',
+                                );
+                              })
+                          : null,
                     ),
-                  )
-                : Container(),
-            Divider(
-              thickness: 5,
-              height: screenH / 10,
-              indent: 10,
-              endIndent: 10,
-              color: Colors.white,
+                  ],
+                ),
+              ),
+
+              Container(
+                color: (!translate) ? COR_02 : COR_04.shade800,
+                height: 5,
+                margin: EdgeInsets.only(
+                    left: screenW * 0.05, right: screenW * 0.05),
+              ),
+
+              Container(
+                padding: EdgeInsets.all(screenW * 0.05),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: _buildAnswersTiles(_respostasLista),
+                ),
+              ),
+
+              (_preguntasSelecionadas[indexPreguntas].hasDetails)
+                  ? Container(
+                      height: screenH / 4,
+                      width: screenW * 0.9,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: currentQuestion.imagem(),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
+                  : Container(),
+              Divider(
+                thickness: 5,
+                height: screenH / 10,
+                indent: 10,
+                endIndent: 10,
+                color: Colors.white,
+              ),
+              // Container with the answers
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: FloatingActionButton(
+          shape: const StadiumBorder(),
+          backgroundColor: (responded) ? COR_02 : Colors.grey.shade500,
+          onPressed: () {
+            if (responded) {
+              setState(() {
+                indexPreguntas++;
+                Funcoes().saveAnsweredQuestionsToLocal();
+                if (indexPreguntas >= _preguntasSelecionadas.length) {
+                  indexPreguntas--;
+                  Navigator.pushNamed(context, 'questionsClosing');
+                } else {
+                  currentQuestion = _preguntasSelecionadas[indexPreguntas];
+                  _respostasLista =
+                      _preguntasSelecionadas[indexPreguntas].answers;
+                  _Translate().then((_) {
+                    setState(() {});
+                  });
+                  responded = false;
+                  respostaErrada = -1;
+                  translate = false;
+                }
+              });
+            }
+          },
+          child: const Icon(Icons.arrow_forward_rounded,
+              color: Colors.white, size: 30),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          height: screenH / 15,
+          shape: CircularNotchedRectangle(),
+          color: COR_02,
+          child: SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Funcoes().appProgressBar(
+                    0.7,
+                    ((respostasCorretas) / _preguntasSelecionadas.length),
+                    ((respostasErradas) / _preguntasSelecionadas.length),
+                    barHeight: 25),
+              ],
             ),
-            // Container with the answers
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        height: screenH * 0.08,
-        color: COR_02,
-        child: Column(
-          children: [
-            Funcoes().appProgressBar(
-                1.0,
-                ((respostasCorretas) / _preguntasSelecionadas.length),
-                ((respostasErradas) / _preguntasSelecionadas.length),
-                barHeight: 25),
-          ],
-        ),
-      ),
-      floatingActionButton: Container(
-          margin: const EdgeInsets.only(bottom: 10),
-          child: FloatingActionButton(
-            shape: const StadiumBorder(),
-            backgroundColor: (responded) ? COR_02 : Colors.grey.shade500,
-            onPressed: () {
-              if (responded) {
-                setState(() {
-                  indexPreguntas++;
-                  Funcoes().saveAnsweredQuestionsToLocal();
-                  if (indexPreguntas >= _preguntasSelecionadas.length) {
-                    indexPreguntas--;
-                    Navigator.pushNamed(context, 'questionsClosing');
-                  } else {
-                    currentQuestion = _preguntasSelecionadas[indexPreguntas];
-                    _respostasLista =
-                        _preguntasSelecionadas[indexPreguntas].answers;
-                    _Translate().then((_) {
-                      setState(() {});
-                    });
-                    responded = false;
-                    respostaErrada = -1;
-                    translate = false;
-                  }
-                });
-              }
-            },
-            child: const Icon(Icons.arrow_forward_rounded,
-                color: Colors.white, size: 30),
-          )),
-    );
+          ),
+        ));
   }
 
   List<Widget> _buildAnswersTiles(List answers) {

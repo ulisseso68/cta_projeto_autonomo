@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:ccse_mob/paginas/examClosing.dart';
 import 'package:ccse_mob/paginas/pagina_creditos_projeto.dart';
 import 'package:ccse_mob/paginas/learningPage.dart';
@@ -12,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 //import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'paginas/questionsPage1.dart';
-import 'paginas/intersticial.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -70,7 +67,6 @@ class MyApp extends StatelessWidget {
               accentColor: Colors.grey)),
       routes: {
         'homePage': ((context) => HomePage()),
-        'adPage': ((context) => AdPage()),
         'questionsPage1': ((context) => const QuestionsPage1()),
         'questionsExam': ((context) => const QuestionsExam()),
         'questionsClosing': ((context) => const QuestionareClosing()),

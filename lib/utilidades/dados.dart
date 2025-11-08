@@ -3,8 +3,8 @@ import 'package:ccse_mob/models/question_model.dart';
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
 var appVersion = '5.1.2';
-bool modoDeveloper = false;
-bool developerMode = false;
+bool modoDeveloper = true;
+bool developerMode = true;
 List uniqueCategories = [
   'Simulación Del Examen',
   'Tarea 1',

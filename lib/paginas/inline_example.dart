@@ -50,7 +50,7 @@ class _ReusableInlineExampleState extends State<ReusableInlineExample> {
             itemBuilder: (BuildContext context, int index) {
               final BannerAd? bannerAd = _bannerAd;
               if (index == 5 && _bannerAdIsLoaded && bannerAd != null) {
-                return Container(
+                return SizedBox(
                     height: bannerAd.size.height.toDouble(),
                     width: bannerAd.size.width.toDouble(),
                     child: AdWidget(ad: bannerAd));
@@ -68,7 +68,7 @@ class _ReusableInlineExampleState extends State<ReusableInlineExample> {
 
               final NativeAd? nativeAd = _nativeAd;
               if (index == 15 && _nativeAdIsLoaded && nativeAd != null) {
-                return Container(
+                return SizedBox(
                     width: 250, height: 350, child: AdWidget(ad: nativeAd));
               }
 

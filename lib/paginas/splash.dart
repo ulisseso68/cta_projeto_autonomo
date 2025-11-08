@@ -4,6 +4,7 @@ import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 //import 'package:device_info_plus/device_info_plus.dart';
 //import 'dart:io';
 
@@ -331,106 +332,6 @@ class _SplashPageState extends State<SplashPage> {
                   color: COR_02, size: 30),
               onPressed: () {
                 uxToChangeLanguage(context, altura, largura);
-                /* showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text(
-                        Funcoes().appLang('Available Languages'),
-                        style: const TextStyle(fontSize: 20, color: COR_02),
-                        textAlign: TextAlign.center,
-                      ),
-                      content: SizedBox(
-                        height: altura * 0.25,
-                        child: Column(
-                          children: [
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    (language == 0) ? COR_04 : COR_02,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              onPressed: () {
-                                Funcoes().setLanguage(0);
-                                Navigator.pop(context);
-                                setState(() {});
-                              },
-                              child: SizedBox(
-                                width: largura * 0.8,
-                                child: Text(Funcoes().appLang('English'),
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 16)),
-                              ),
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    (language == 1) ? COR_04 : COR_02,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              onPressed: () {
-                                Funcoes().setLanguage(1);
-                                Navigator.pop(context);
-                                setState(() {});
-                              },
-                              child: SizedBox(
-                                width: largura * 0.8,
-                                child: Text(Funcoes().appLang('Portuguese'),
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 16)),
-                              ),
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    (language == 2) ? COR_04 : COR_02,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              onPressed: () {
-                                Funcoes().setLanguage(2);
-                                Navigator.pop(context);
-                                setState(() {});
-                              },
-                              child: SizedBox(
-                                width: largura * 0.8,
-                                child: Text(Funcoes().appLang('Spanish'),
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 16)),
-                              ),
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    (language == 3) ? COR_04 : COR_02,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              onPressed: () {
-                                Funcoes().setLanguage(3);
-                                Navigator.pop(context);
-                                setState(() {});
-                              },
-                              child: SizedBox(
-                                width: largura * 0.8,
-                                child: Text(Funcoes().appLang('Marroquí'),
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 16)),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-               */
               },
             ),
           ),
@@ -591,6 +492,7 @@ class _SplashPageState extends State<SplashPage> {
           SizedBox(height: altura * 0.1),
         ]),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         shape: const StadiumBorder(),
         onPressed: () {
@@ -602,7 +504,10 @@ class _SplashPageState extends State<SplashPage> {
                 backgroundColor: COR_02,
                 behavior: SnackBarBehavior.floating,
                 showCloseIcon: true,
-                content: Text(Funcoes().appLang('Please complete all fields')),
+                content: Text(
+                    Funcoes().appLang(
+                        'Please accept the terms and select your country to continue.'),
+                    style: const TextStyle(color: Colors.white, fontSize: 16)),
                 duration: const Duration(seconds: 3),
               ),
             );
@@ -610,9 +515,11 @@ class _SplashPageState extends State<SplashPage> {
           }
           Navigator.pushNamed(context, 'homePage');
         },
-        backgroundColor: COR_02,
+        backgroundColor: (developerMode) ? COR_dev : COR_02,
         child: const Icon(Icons.arrow_forward, color: Colors.white, size: 30),
       ),
+      bottomNavigationBar: Funcoes().uxBottomBar(SharePlus.instance,
+          corBottomBar: developerMode ? COR_dev : COR_02),
     );
   }
 
