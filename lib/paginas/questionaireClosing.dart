@@ -65,17 +65,17 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                   style: NativeTemplateFontStyle.bold,
                   size: 18.0),
               primaryTextStyle: NativeTemplateTextStyle(
-                  textColor: Colors.white,
+                  textColor: Colors.grey.shade900,
                   //backgroundColor: Colors.cyan,
                   style: NativeTemplateFontStyle.bold,
                   size: 16.0),
               secondaryTextStyle: NativeTemplateTextStyle(
-                  textColor: Colors.white,
+                  textColor: Colors.grey.shade800,
                   //backgroundColor: Colors.black,
                   style: NativeTemplateFontStyle.bold,
                   size: 14.0),
               tertiaryTextStyle: NativeTemplateTextStyle(
-                  textColor: Colors.white,
+                  textColor: Colors.grey.shade700,
                   //backgroundColor: Colors.amber,
                   style: NativeTemplateFontStyle.normal,
                   size: 14.0)))
@@ -133,10 +133,11 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           ],
         ),
         title: Text(Funcoes().shortCat(Funcoes.categorySelected),
-            maxLines: 2,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: Colors.white,
-                fontSize: 22,
+                fontSize: 20,
                 fontFamily: 'verdana',
                 fontWeight: FontWeight.bold)),
       ),
@@ -149,12 +150,13 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Padding(
+              Container(
+                color: Colors.white,
                 padding: const EdgeInsets.only(top: 20, bottom: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
+                    /* SizedBox(
                       width: largura * 0.4,
                       child: Text(
                           Funcoes().appLang(
@@ -164,7 +166,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                               fontSize: 15,
                               fontFamily: 'verdana',
                               fontWeight: FontWeight.bold)),
-                    ),
+                    ), */
                     Stack(alignment: Alignment.center, children: [
                       Container(
                         padding: const EdgeInsets.all(10),
@@ -214,54 +216,57 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                           shouldLoop: false,
                           colors: const [Colors.green, Colors.orange]),
                     ]),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Funcoes().KPIbox(
+                            largura * 0.5,
+                            '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
+                            Funcoes().appLang('Accumulated Success Rate'),
+                            Funcoes().semaforo(
+                                Funcoes().statistics()['correct']! /
+                                    Funcoes().statistics()['answered']!),
+                            icon: Icons.percent),
+                        Funcoes().KPIbox(
+                            largura * 0.5,
+                            '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
+                            Funcoes().appLang('Answered Questions'),
+                            Colors.grey,
+                            icon: Icons.verified),
+                      ],
+                    ),
                   ],
                 ),
               ),
-              /* SizedBox(
-                height: altura * 0.01,
-              ), */
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Funcoes().KPIbox(
-                      largura * 0.5,
-                      '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
-                      Funcoes().appLang('Accumulated Success Rate'),
-                      Funcoes().semaforo(Funcoes().statistics()['correct']! /
-                          Funcoes().statistics()['answered']!),
-                      icon: Icons.percent),
-                  Funcoes().KPIbox(
-                      largura * 0.5,
-                      '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
-                      Funcoes().appLang('Answered Questions'),
-                      Colors.grey,
-                      icon: Icons.verified),
-                ],
-              ),
               Divider(
                 height: altura * 0.01,
                 color: Colors.white,
               ),
-              Container(
-                width: largura,
-                height: 5,
-                color: COR_02,
-              ),
-              Divider(
-                height: altura * 0.01,
-                color: Colors.white,
-              ),
-              if (_nativeAdIsLoaded)
-                Container(
-                    color: adBackgroundColor,
-                    width: largura,
-                    height: altura * 0.40,
-                    child: AdWidget(ad: _nativeAd!)),
               /* Container(
                 width: largura,
-                height: 5,
+                height: 10,
                 color: COR_02,
               ), */
+              if (_nativeAdIsLoaded)
+                Container(
+                  color: COR_02,
+                  height: altura * 0.47,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          color: adBackgroundColor,
+                          width: largura,
+                          height: altura * 0.42,
+                          child: AdWidget(ad: _nativeAd!)),
+                      /* Container(
+                        width: largura,
+                        height: 10,
+                        color: COR_02,
+                      ), */
+                    ],
+                  ),
+                ),
             ],
           ),
         ),

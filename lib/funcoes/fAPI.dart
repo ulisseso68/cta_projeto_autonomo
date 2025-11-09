@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
@@ -7,6 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:ccse_mob/funcoes/funcoes.dart';
 
 class CallApi {
   final String _url = API_URL;
@@ -16,6 +18,17 @@ class CallApi {
       body: '$deviceID\n\n$body',
       subject: subject,
       recipients: ['soporte@ccsefacil.es'],
+    );
+
+    await FlutterEmailSender.send(email);
+  }
+
+  Future<void> sendEmailOther(
+      String subject, String body, String recipient) async {
+    final Email email = Email(
+      body: body,
+      subject: subject,
+      recipients: [recipient],
     );
 
     await FlutterEmailSender.send(email);
@@ -129,5 +142,12 @@ class CallApi {
     } catch (e) {
       return 'test_device_001';
     }
+  }
+
+  //Ux auxiliary functions
+
+  Future<void> getFirstPartyAd() async {
+    String url = 'advertisings/getAd/${Funcoes().languageForTranslation}';
+    firstPartyAd = await getPublicData(url);
   }
 }

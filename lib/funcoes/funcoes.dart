@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ccse_mob/utilidades/questions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Funcoes {
   static List atividadesSelecionadas = [];
@@ -140,6 +141,21 @@ class Funcoes {
         return appLang('Moroccan Arabic');
       default:
         return appLang('Unknown');
+    }
+  }
+
+  String get languageForTranslation {
+    switch (language) {
+      case 0:
+        return 'english';
+      case 1:
+        return 'portuguese';
+      case 2:
+        return 'spanish';
+      case 3:
+        return 'moroccan_arabic';
+      default:
+        return 'spanish';
     }
   }
 
@@ -750,6 +766,112 @@ class Funcoes {
             ]),
       ),
     );
+  }
+
+  Widget wFirstPartyAd() {
+    if (firstPartyAd != null && firstPartyAd.isNotEmpty) {
+      String photoUrl =
+          // ignore: prefer_interpolation_to_compose_strings
+          '$APP_URL/img' + (firstPartyAd['advertising']['photoLink'] ?? '');
+      return Container(
+        height: screenH / 8,
+        width: screenW,
+        margin: EdgeInsets.only(top: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          //color: Colors.grey.shade400,
+          border: Border.all(
+            color: Colors.grey.shade400,
+            width: 1,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: screenW * 0.25,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
+                ),
+                /* border: Border.all(color: COR_02, width: 1), */
+                image: DecorationImage(
+                  image: (photoUrl != '')
+                      ? NetworkImage(photoUrl) as ImageProvider
+                      : const AssetImage('img/ccse1.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              width: screenW * 0.55,
+              padding: const EdgeInsets.all(4.0),
+              child: Column(
+                children: [
+                  Text(firstPartyAd['translatedTitle'],
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: COR_02,
+                          fontWeight: FontWeight.bold)),
+                  Text(
+                    firstPartyAd['translatedDescription'] ?? '',
+                    textAlign: TextAlign.start,
+                    maxLines: 5,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: COR_01,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: screenW * 0.1,
+              height: screenH / 8,
+              decoration: BoxDecoration(
+                color: COR_02,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+              child: IconButton(
+                  onPressed: () async {
+                    switch (firstPartyAd['advertising']['actionType']) {
+                      case 'Send email':
+                        String body = Funcoes().appLang(
+                            'I saw this ad in the CCSE Fácil app and am insterested in learning more about it:\n\n');
+                        await CallApi().sendEmailOther(
+                            firstPartyAd['translatedTitle'] ?? '',
+                            body,
+                            firstPartyAd['advertising']['actionLink'] ?? '');
+                        break;
+
+                      default:
+                        launchUrl(
+                          Uri.parse(
+                              firstPartyAd['advertising']['actionLink'] ?? ''),
+                        );
+                    }
+                  },
+                  icon: Icon(Icons.exit_to_app, color: Colors.white, size: 30)),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return const SizedBox(
+        width: 0,
+        height: 0,
+      );
+    }
   }
 
   Color semaforo(double value) {

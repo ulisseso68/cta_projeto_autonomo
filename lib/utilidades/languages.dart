@@ -6,12 +6,12 @@
 
 // Listing of messages
 final lang = {
-  'Keep learning with the content in our social media. Follow us and stay updated with news, curiosities, and tips to help you pass the CCSE exam.':
+  'I saw this ad in the CCSE Fácil app and am insterested in learning more about it:\n\n':
       [
-    'Keep learning with the content in our social media. Follow us and stay updated with news, curiosities, and tips to help you pass the CCSE exam.',
-    'Continue aprendendo com o conteúdo em nossas redes sociais. Siga-nos e fique atualizado com notícias, curiosidades e dicas para ajudá-lo a passar no exame CCSE.',
-    'Sigue aprendiendo con el contenido en nuestras redes sociales. Síguenos y mantente actualizado con noticias, curiosidades y consejos para ayudarte a aprobar el examen CCSE.',
-    'استمر في التعلم من خلال المحتوى في وسائل التواصل الاجتماعي الخاصة بنا. تابعنا وابقَ على اطلاع بالأخبار والفضول والنصائح لمساعدتك في اجتياز امتحان CCSE.'
+    'I saw this ad in the CCSE Fácil app and am insterested in learning more about it:\n\n',
+    'Vi este anúncio no aplicativo CCSE Fácil e estou interessado em saber mais sobre ele:\n\n',
+    'Vi este anuncio en la aplicación CCSE Fácil y estoy interesado en aprender más sobre él:\n\n',
+    'رأيت هذا الإعلان في تطبيق CCSE Fácil وأنا مهتم بمعرفة المزيد عنه:\n\n'
   ],
   'Source link not available': [
     'Source link not available',

@@ -364,7 +364,7 @@ class _QuestionsExam extends State<QuestionsExam> {
         color: COR_02,
         shape: const CircularNotchedRectangle(),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           spacing: 15,
           children: [
@@ -373,7 +373,7 @@ class _QuestionsExam extends State<QuestionsExam> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
-                  fontSize: 30),
+                  fontSize: 20),
             ),
             Funcoes().appProgressBar(
                 0.5,

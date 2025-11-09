@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:ccse_mob/funcoes/funcoes.dart';
 import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
@@ -14,8 +12,6 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:ccse_mob/paginas/consent_manager.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:share_plus/share_plus.dart';
-
-import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   final AdSize adSize = AdSize.largeBanner;
@@ -75,11 +71,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _getDatafromServer() async {
+    await CallApi().getFirstPartyAd();
     await Funcoes().getCountryFromStorage();
     await Funcoes().getLanguageFromStorage();
     await Funcoes().getTcsAcceptedFromStorage();
     await Funcoes().getUserNameFromStorage();
     await Funcoes().loadDescriptionsTranslationsFromStorage();
+
     //await Funcoes().getAdUnitsFromServer();
 
     await Funcoes().configureAppForDeveloperMode(modoDeveloper);
@@ -200,21 +198,6 @@ class _HomePageState extends State<HomePage> {
       //_loadAd();
     }
   }
-
-  /* Future<void> showCustomTrackingDialog(BuildContext context) async =>
-      await showDialog<void>(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(Funcoes().appLang('Dear User')),
-          content: Text(Funcoes().appLang('trckMsg')),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(Funcoes().appLang('Continue')),
-            ),
-          ],
-        ),
-      ); */
 
   void _loadAd() {
     if (adUnitId != '') {
@@ -482,6 +465,8 @@ class _HomePageState extends State<HomePage> {
 
                 // 1st Party Ad
 
+                Funcoes().wFirstPartyAd(),
+/* 
                 Container(
                   height: altura / 8,
                   width: largura,
@@ -549,7 +534,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-
+ */
                 //Study with flash cards
                 Divider(
                   color: COR_02,
