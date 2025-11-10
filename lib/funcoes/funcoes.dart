@@ -427,7 +427,7 @@ class Funcoes {
             title: Text(
               text1,
               style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: backgroundColor),
             ),

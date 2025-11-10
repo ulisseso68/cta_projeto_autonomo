@@ -464,8 +464,7 @@ class _HomePageState extends State<HomePage> {
                 _buildListTile(),
 
                 // 1st Party Ad
-
-                Funcoes().wFirstPartyAd(),
+                if (!offlineMode) Funcoes().wFirstPartyAd(),
 /* 
                 Container(
                   height: altura / 8,

@@ -20,7 +20,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   bool expanded = false;
   bool passed = false;
   Color mainColor = COR_02;
-  Color adBackgroundColor = Colors.white;
+  Color adBackgroundColor = Colors.grey.shade200;
   Color adCallActionColor = COR_02;
   Color semaforoColor = Funcoes()
       .semaforo(respostasCorretas / (respostasErradas + respostasCorretas));
@@ -58,24 +58,24 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
               templateType: TemplateType.medium,
               // Optional: Customize the ad's style.
               mainBackgroundColor: adBackgroundColor,
-              cornerRadius: 20,
+              cornerRadius: 10,
               callToActionTextStyle: NativeTemplateTextStyle(
                   textColor: Colors.white,
                   backgroundColor: adCallActionColor,
                   style: NativeTemplateFontStyle.bold,
                   size: 18.0),
               primaryTextStyle: NativeTemplateTextStyle(
-                  textColor: Colors.grey.shade900,
+                  textColor: semaforoColor,
                   //backgroundColor: Colors.cyan,
                   style: NativeTemplateFontStyle.bold,
                   size: 16.0),
               secondaryTextStyle: NativeTemplateTextStyle(
-                  textColor: Colors.grey.shade800,
+                  textColor: semaforoColor,
                   //backgroundColor: Colors.black,
                   style: NativeTemplateFontStyle.bold,
                   size: 14.0),
               tertiaryTextStyle: NativeTemplateTextStyle(
-                  textColor: Colors.grey.shade700,
+                  textColor: semaforoColor,
                   //backgroundColor: Colors.amber,
                   style: NativeTemplateFontStyle.normal,
                   size: 14.0)))
@@ -114,13 +114,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           fit: StackFit.expand,
           children: [
             Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[COR_02, redEspana],
-                ),
-              ),
+              color: mainColor,
             ),
             Positioned(
               bottom: 0,
@@ -133,11 +127,12 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           ],
         ),
         title: Text(Funcoes().shortCat(Funcoes.categorySelected),
-            maxLines: 1,
+            maxLines: 2,
+            textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: altura / 15 / 3,
                 fontFamily: 'verdana',
                 fontWeight: FontWeight.bold)),
       ),
@@ -145,128 +140,131 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
         onRefresh: () async {
           // Implement your refresh logic here
         },
-        child: SingleChildScrollView(
+        child: SizedBox(
+          height: altura * 13 / 15,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
                 color: Colors.white,
-                padding: const EdgeInsets.only(top: 20, bottom: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Column(
                   children: [
-                    /* SizedBox(
-                      width: largura * 0.4,
+                    Padding(
+                      padding: EdgeInsets.all(altura / 15 / 5),
                       child: Text(
                           Funcoes().appLang(
                               'You have finished your training. These are your results'),
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: semaforoColor,
-                              fontSize: 15,
+                              fontSize: altura / 15 / 3 * 0.65,
                               fontFamily: 'verdana',
                               fontWeight: FontWeight.bold)),
-                    ), */
-                    Stack(alignment: Alignment.center, children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        width: screenH * 0.20,
-                        height: screenH * 0.20,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            semaforoColor,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Stack(alignment: Alignment.center, children: [
+                          Container(
+                            padding: const EdgeInsets.all(20),
+                            width: screenH * 0.20,
+                            height: screenH * 0.20,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                semaforoColor,
+                              ),
+                              value: (respostasCorretas /
+                                  (respostasErradas + respostasCorretas)),
+                              strokeWidth: 30,
+                              color: semaforoColor,
+                              semanticsValue:
+                                  '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
+                              backgroundColor: Colors.grey.shade400,
+                            ),
                           ),
-                          value: (respostasCorretas /
-                              (respostasErradas + respostasCorretas)),
-                          strokeWidth: 30,
-                          color: semaforoColor,
-                          semanticsValue:
-                              '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}%',
-                          backgroundColor: Colors.grey.shade200,
-                        ),
-                      ),
-                      SizedBox(
-                        width: screenH * 0.20,
-                        height: screenH * 0.20,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          SizedBox(
+                            width: screenH * 0.20,
+                            height: screenH * 0.20,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
+                                  style: TextStyle(
+                                    fontSize: 35,
+                                    fontWeight: FontWeight.bold,
+                                    color: semaforoColor,
+                                  ),
+                                ),
+                                Text(
+                                  '%',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: semaforoColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ConfettiWidget(
+                              confettiController: confettiController,
+                              blastDirectionality:
+                                  BlastDirectionality.explosive,
+                              shouldLoop: false,
+                              colors: const [Colors.green, Colors.orange]),
+                        ]),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text(
-                              '${(respostasCorretas / (respostasErradas + respostasCorretas) * 100).toInt()}',
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                color: semaforoColor,
-                              ),
-                            ),
-                            Text(
-                              '%',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: semaforoColor,
-                              ),
-                            ),
+                            Funcoes().KPIbox(
+                                largura * 0.52,
+                                '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
+                                Funcoes().appLang('Accumulated Success Rate'),
+                                Funcoes().semaforo(
+                                    Funcoes().statistics()['correct']! /
+                                        Funcoes().statistics()['answered']!),
+                                icon: Icons.percent),
+                            Funcoes().KPIbox(
+                                largura * 0.52,
+                                '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
+                                Funcoes().appLang('Answered Questions'),
+                                Colors.grey,
+                                icon: Icons.verified),
                           ],
                         ),
-                      ),
-                      ConfettiWidget(
-                          confettiController: confettiController,
-                          blastDirectionality: BlastDirectionality.explosive,
-                          shouldLoop: false,
-                          colors: const [Colors.green, Colors.orange]),
-                    ]),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Funcoes().KPIbox(
-                            largura * 0.5,
-                            '${(Funcoes().statistics()['correct']! / Funcoes().statistics()['answered']! * 100).toInt()}',
-                            Funcoes().appLang('Accumulated Success Rate'),
-                            Funcoes().semaforo(
-                                Funcoes().statistics()['correct']! /
-                                    Funcoes().statistics()['answered']!),
-                            icon: Icons.percent),
-                        Funcoes().KPIbox(
-                            largura * 0.5,
-                            '${Funcoes().statistics()['answered']!}/${Funcoes().statistics()['total']!} ',
-                            Funcoes().appLang('Answered Questions'),
-                            Colors.grey,
-                            icon: Icons.verified),
                       ],
                     ),
                   ],
                 ),
               ),
-              Divider(
-                height: altura * 0.01,
-                color: Colors.white,
-              ),
-              /* Container(
-                width: largura,
-                height: 10,
-                color: COR_02,
-              ), */
-              if (_nativeAdIsLoaded)
-                Container(
-                  color: COR_02,
-                  height: altura * 0.47,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          color: adBackgroundColor,
-                          width: largura,
-                          height: altura * 0.42,
-                          child: AdWidget(ad: _nativeAd!)),
-                      /* Container(
-                        width: largura,
-                        height: 10,
-                        color: COR_02,
-                      ), */
-                    ],
-                  ),
-                ),
+              (_nativeAdIsLoaded)
+                  ? Container(
+                      color: Colors.white,
+                      height: altura * 0.44,
+                      width: (largura > altura) ? altura * 0.7 : largura,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                              color: adBackgroundColor,
+                              width: largura,
+                              height: altura * 0.42,
+                              child: AdWidget(ad: _nativeAd!)),
+                        ],
+                      ),
+                    )
+                  : SizedBox(
+                      height: altura * 0.25,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            /* Funcoes().progressBar(barSize: 0.9), */
+                            SizedBox(
+                                width: largura - 10,
+                                child: Funcoes().wFirstPartyAd()),
+                          ])),
             ],
           ),
         ),
