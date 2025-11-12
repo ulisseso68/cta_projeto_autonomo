@@ -90,7 +90,7 @@ class CallApi {
       'deviceid': await getId(),
       'devicetype': deviceType,
       'uuid': uuid,
-      'language': language,
+      'language': Funcoes().languageForTranslation,
       'country': citizenship,
       'type': type,
       'value': value,

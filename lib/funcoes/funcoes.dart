@@ -769,7 +769,12 @@ class Funcoes {
   }
 
   Widget wFirstPartyAd() {
-    if (firstPartyAd != null && firstPartyAd.isNotEmpty) {
+    if (firstPartyAd != null &&
+        firstPartyAd is Map &&
+        firstPartyAd.isNotEmpty &&
+        firstPartyAd.containsKey('advertising') &&
+        firstPartyAd['advertising'] is Map &&
+        firstPartyAd['advertising'].containsKey('photoLink')) {
       String photoUrl =
           // ignore: prefer_interpolation_to_compose_strings
           '$APP_URL/img' + (firstPartyAd['advertising']['photoLink'] ?? '');
