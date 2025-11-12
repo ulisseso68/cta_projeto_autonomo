@@ -89,6 +89,9 @@ class CallApi {
     postDataWithHeaders('journals/process', {
       'deviceid': await getId(),
       'devicetype': deviceType,
+      'uuid': uuid,
+      'language': language,
+      'country': citizenship,
       'type': type,
       'value': value,
       'description': description

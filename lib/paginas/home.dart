@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
     if (adUnitId != '') {
       // Create a BannerAd
       /* print('Loading Ad: $adUnitId'); */
-      CallApi().createJournalEntry(type: 'adRequest');
+
       final bannerAd = BannerAd(
         size: widget.adSize,
         adUnitId: adUnitId,
@@ -842,6 +842,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () async {
                           Funcoes.categorySelected = category;
                           numberOfQuestions = 10;
+                          CallApi().createJournalEntry(type: 'adRequest');
                           await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
                             //This callback is executed when returning from the questions page
@@ -873,6 +874,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () async {
                           Funcoes.categorySelected = category;
                           numberOfQuestions = 1000;
+                          CallApi().createJournalEntry(type: 'adRequest');
                           await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
                             // This callback is executed when returning from the questions page
@@ -908,6 +910,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () async {
                             Funcoes.categorySelected = category;
                             numberOfQuestions = -1;
+                            CallApi().createJournalEntry(type: 'adRequest');
                             await Navigator.pushNamed(context, 'questionsPage1')
                                 .then((value) {
                               // This callback is executed when returning from the questions page
@@ -926,7 +929,8 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Text(Funcoes().appLang("Review"),
                                   style: const TextStyle(
-                                      fontSize: 15, color: Colors.white)),
+                                      fontSize: 15,
+                                      color: Color.fromRGBO(255, 255, 255, 1))),
 
                               /* Text(
                                   Funcoes()
