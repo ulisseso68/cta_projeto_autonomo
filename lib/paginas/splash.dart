@@ -428,7 +428,7 @@ class _SplashPageState extends State<SplashPage> {
                   ),
                   subtitle: Text(
                     uuid,
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
                   ),
                   /* trailing:
                       const Icon(Icons.developer_mode, color: COR_01, size: 30), */
@@ -454,7 +454,7 @@ class _SplashPageState extends State<SplashPage> {
                     deviceType == 'iOS'
                         ? bannerAdUnitIdIOS
                         : bannerAdUnitIdAndroid,
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
                   ),
                   /* trailing:
                       const Icon(Icons.developer_mode, color: COR_01, size: 30), */
@@ -479,7 +479,30 @@ class _SplashPageState extends State<SplashPage> {
                     deviceType == 'iOS'
                         ? nativeAdUnitIdIOS
                         : nativeAdUnitIdAndroid,
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  ),
+                  /* trailing:
+                      const Icon(Icons.developer_mode, color: COR_01, size: 30), */
+                  leading: IconButton(
+                    icon: Icon(Icons.ad_units, color: COR_dev, size: 30),
+                    onPressed: () => {},
+                  ),
+                )
+              : Container(),
+          (modoDeveloper)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
+                    'Firebase Unique ID',
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_dev,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    FirebaseUserId ?? 'No Firebase User ID',
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
                   ),
                   /* trailing:
                       const Icon(Icons.developer_mode, color: COR_01, size: 30), */

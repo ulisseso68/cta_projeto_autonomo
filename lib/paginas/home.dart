@@ -39,6 +39,8 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _initFirebaseAnalytics() async {
     await FirebaseAnalytics.instance.logAppOpen();
+    FirebaseUserId = await FirebaseAnalytics.instance.appInstanceId;
+    //print('Firebase User ID: $FirebaseUserId');
   }
 
   @override

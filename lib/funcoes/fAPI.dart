@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:ccse_mob/utilidades/dados.dart';
 import 'package:ccse_mob/utilidades/env.dart';
@@ -90,6 +89,7 @@ class CallApi {
       'deviceid': await getId(),
       'devicetype': deviceType,
       'uuid': uuid,
+      'firebaseUserId': FirebaseUserId,
       'language': Funcoes().languageForTranslation,
       'country': citizenship,
       'type': type,

@@ -60,7 +60,7 @@ class _ReusableInlineExampleState extends State<ReusableInlineExample> {
               if (index == 10 &&
                   _adManagerBannerAdIsLoaded &&
                   adManagerBannerAd != null) {
-                return Container(
+                return SizedBox(
                     height: adManagerBannerAd.sizes[0].height.toDouble(),
                     width: adManagerBannerAd.sizes[0].width.toDouble(),
                     child: AdWidget(ad: _adManagerBannerAd!));

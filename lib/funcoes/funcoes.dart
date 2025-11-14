@@ -14,6 +14,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ccse_mob/utilidades/questions.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:io' show Platform;
 
 class Funcoes {
   static List atividadesSelecionadas = [];
@@ -719,7 +720,7 @@ class Funcoes {
     );
     return BottomAppBar(
       color: corBottomBar,
-      height: screenH / 15,
+      height: (Platform.isAndroid) ? screenH / 12 : screenH / 15,
       shape: CircularNotchedRectangle(),
       child: SafeArea(
         child: Row(

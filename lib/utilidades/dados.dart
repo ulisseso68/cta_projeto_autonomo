@@ -46,6 +46,7 @@ String nativeAdUnitIdAndroid = '';
 var uuid = '';
 var firstPartyAd;
 var translation;
+String? FirebaseUserId = '';
 
 double screenH = 100;
 double screenW = 100;
