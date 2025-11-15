@@ -769,6 +769,7 @@ class Funcoes {
     );
   }
 
+  // First Party Ad Widget
   Widget wFirstPartyAd() {
     if (firstPartyAd != null &&
         firstPartyAd is Map &&
@@ -822,7 +823,7 @@ class Funcoes {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                          fontSize: 12,
+                          fontSize: screenH / 80,
                           color: COR_02,
                           fontWeight: FontWeight.bold)),
                   Text(
@@ -831,7 +832,7 @@ class Funcoes {
                     maxLines: 5,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: screenH / 80,
                       color: COR_01,
                     ),
                   ),

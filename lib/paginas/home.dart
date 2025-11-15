@@ -844,7 +844,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () async {
                           Funcoes.categorySelected = category;
                           numberOfQuestions = 10;
-                          CallApi().createJournalEntry(type: 'adRequest');
+                          await CallApi().createJournalEntry(type: 'adRequest');
                           await Navigator.pushNamed(context, 'questionsPage1')
                               .then((value) {
                             //This callback is executed when returning from the questions page

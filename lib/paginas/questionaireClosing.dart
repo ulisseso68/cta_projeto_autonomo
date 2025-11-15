@@ -145,8 +145,14 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // Questionaire Results
               Container(
-                color: Colors.white,
+                margin: EdgeInsets.all(altura / 15 / 5),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400, width: 1),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                //color: Colors.white,
                 child: Column(
                   children: [
                     Padding(
@@ -239,6 +245,8 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                   ],
                 ),
               ),
+
+              // Advertisement if available
               (_nativeAdIsLoaded)
                   ? Container(
                       color: Colors.white,
@@ -256,11 +264,19 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                       ),
                     )
                   : SizedBox(
-                      height: altura * 0.25,
+                      height: altura * 0.44,
                       child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            /* Funcoes().progressBar(barSize: 0.9), */
+                            Container(
+                                width: largura - 20,
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.grey.shade400, width: 1),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Funcoes().progressBar(barSize: 0.9)),
                             SizedBox(
                                 width: largura - 10,
                                 child: Funcoes().wFirstPartyAd()),
