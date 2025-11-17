@@ -112,6 +112,10 @@ class _HomePageState extends State<HomePage> {
 
   void updateStatus() {
     //update other Things if needed - Ads??
+    //requests ads more frequently
+    _bannerAd?.dispose();
+    _loadAd();
+    //print('Loaded Ad again');
     setState(() {});
   }
 
