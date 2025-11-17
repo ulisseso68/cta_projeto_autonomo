@@ -6,6 +6,12 @@
 
 // Listing of messages
 final lang = {
+  'Next Exam Dates': [
+    'Next Exam dates',
+    'Próximas datas de exame',
+    'Próximas fechas de examen',
+    'تواريخ الامتحانات القادمة'
+  ],
   'I saw this ad in the CCSE Fácil app and am insterested in learning more about it:\n\n':
       [
     'I saw this ad in the CCSE Fácil app and am insterested in learning more about it:\n\n',

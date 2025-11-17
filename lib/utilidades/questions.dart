@@ -695,8 +695,8 @@ var questions = [
     "question": "\u00bfQui\u00e9n fue el primer rey de Espa\u00f1a?",
     "answers": [
       {"answer": "Fernando VII", "Correct": false},
-      {"answer": "Carlos I", "Correct": false},
-      {"answer": "Juan Carlos I", "Correct": true}
+      {"answer": "Carlos I", "Correct": true},
+      {"answer": "Juan Carlos I", "Correct": false}
     ],
     "photo": null,
     "description": null,
@@ -1247,9 +1247,9 @@ var questions = [
     "question":
         "\u00bfCu\u00e1l de los siguientes organismos trabaja para conseguir la normalizaci\u00f3n ling\u00fc\u00edstica?",
     "answers": [
-      {"answer": "El Institut Ramon Llull", "Correct": true},
+      {"answer": "El Institut Ramon Llull", "Correct": false},
       {"answer": "El Instituto Cervantes", "Correct": false},
-      {"answer": "La Real Academia Espa\u00f1ola", "Correct": false}
+      {"answer": "La Real Academia Espa\u00f1ola", "Correct": true}
     ],
     "photo": null,
     "description": null,

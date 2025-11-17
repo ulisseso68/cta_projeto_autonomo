@@ -716,7 +716,7 @@ class Funcoes {
   // Bottom bar used at Home Page
   Widget uxBottomBar(SharePlus sharePlus, {corBottomBar = COR_02}) {
     final params = ShareParams(
-      text: 'Check out this app: https://app.ccsefacil.es',
+      text: appLang('Share this app with your friends.'),
     );
     return BottomAppBar(
       color: corBottomBar,
@@ -740,8 +740,7 @@ class Funcoes {
                   )),
               IconButton(
                   iconSize: 30,
-                  tooltip:
-                      Funcoes().appLang('Share this app with your friends'),
+                  tooltip: appLang('Share this app with your friends.'),
                   onPressed: () async {
                     final result = await SharePlus.instance.share(params);
                     if (result.status == ShareResultStatus.success) {
@@ -754,7 +753,7 @@ class Funcoes {
                   )),
               IconButton(
                   iconSize: 30,
-                  tooltip: Funcoes().appLang('Rank our app on the Store'),
+                  tooltip: appLang('Rank our app on the Store'),
                   onPressed: () {
                     CallApi().launchUrlOut((deviceType == 'iOS')
                         ? 'https://apps.apple.com/es/app/ccse-facil/id6748478239?action=write-review'
@@ -851,6 +850,12 @@ class Funcoes {
               ),
               child: IconButton(
                   onPressed: () async {
+                    CallApi().createJournalEntry(
+                      description: 'ad_clicked',
+                      type: 'advertising',
+                      value: firstPartyAd['advertising']['id'].toString(),
+                    );
+
                     switch (firstPartyAd['advertising']['actionType']) {
                       case 'Send email':
                         String body = Funcoes().appLang(

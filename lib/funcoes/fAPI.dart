@@ -150,7 +150,15 @@ class CallApi {
   //Ux auxiliary functions
 
   Future<void> getFirstPartyAd() async {
-    String url = 'advertisings/getAd/${Funcoes().languageForTranslation}';
-    firstPartyAd = await getPublicData(url);
+    firstPartyAd = await postDataWithHeaders('advertisings/getAdNew', {
+      'deviceid': await getId(),
+      'devicetype': deviceType,
+      'uuid': uuid,
+      'firebaseUserId': FirebaseUserId,
+      'language': Funcoes().languageForTranslation,
+      'country': citizenship,
+    }, {
+      'Authorization': 'Bearer token'
+    });
   }
 }
