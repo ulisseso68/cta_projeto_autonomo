@@ -195,7 +195,7 @@ class AJDrawer extends StatelessWidget {
               // Review
               ListTile(
                 leading: const Icon(
-                  Icons.star_rate_rounded,
+                  Icons.star_half_rounded,
                   size: 40,
                   color: redEspana,
                 ),

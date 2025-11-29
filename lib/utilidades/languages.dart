@@ -6,6 +6,12 @@
 
 // Listing of messages
 final lang = {
+  'Check out the CCSE Fácil app to prepare for your citizenship exam!': [
+    'Check out the CCSE Fácil app to prepare for your citizenship exam!',
+    'Confira o aplicativo CCSE Fácil para se preparar para o seu exame de cidadania!',
+    '¡Descarga la aplicación CCSE Fácil para prepararte para tu examen de ciudadanía!',
+    'تحقق من تطبيق CCSE Fácil للتحضير لامتحان المواطنة الخاص بك!'
+  ],
   'Next Exam Dates': [
     'Next Exam dates',
     'Próximas datas de exame',

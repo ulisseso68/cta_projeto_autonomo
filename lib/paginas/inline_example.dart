@@ -22,6 +22,8 @@ import 'dart:io' show Platform;
 /// This example demonstrates inline ads in a list view, where the ad objects
 /// live for the lifetime of this widget.
 class ReusableInlineExample extends StatefulWidget {
+  const ReusableInlineExample({super.key});
+
   @override
   _ReusableInlineExampleState createState() => _ReusableInlineExampleState();
 }

@@ -716,7 +716,8 @@ class Funcoes {
   // Bottom bar used at Home Page
   Widget uxBottomBar(SharePlus sharePlus, {corBottomBar = COR_02}) {
     final params = ShareParams(
-      text: appLang('Share this app with your friends.'),
+      text:
+          '${appLang('Check out the CCSE Fácil app to prepare for your citizenship exam!')}\n\n${(deviceType == 'iOS') ? 'https://apps.apple.com/es/app/ccse-facil/id6748478239' : 'https://play.google.com/store/apps/details?id=com.ccsefacil.app2'}',
     );
     return BottomAppBar(
       color: corBottomBar,
@@ -760,7 +761,7 @@ class Funcoes {
                         : 'https://play.google.com/store/apps/details?id=com.ccsefacil.app2');
                   },
                   icon: Icon(
-                    Icons.verified,
+                    Icons.star_half_rounded,
                     color: Colors.white,
                   )),
             ]),
