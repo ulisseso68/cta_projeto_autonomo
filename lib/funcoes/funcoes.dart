@@ -140,6 +140,8 @@ class Funcoes {
         return appLang('Spanish');
       case 3:
         return appLang('Moroccan Arabic');
+      case 4:
+        return appLang('French');
       default:
         return appLang('Unknown');
     }
@@ -155,6 +157,8 @@ class Funcoes {
         return 'spanish';
       case 3:
         return 'moroccan_arabic';
+      case 4:
+        return 'french';
       default:
         return 'spanish';
     }
@@ -913,6 +917,9 @@ class Funcoes {
       case '3':
         code = 'mo';
         break;
+      case '4':
+        code = 'fr';
+        break;
       default:
         code = '';
     }
@@ -979,5 +986,159 @@ class Funcoes {
       nativeAdUnitIdAndroid =
           adUnits['nativeAdUnitIdAndroid'] ?? nativeAdUnitIdAndroid;
     }
+  }
+
+  Future<void> uxToChangeLanguage(
+      context, double altura, double largura) async {
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            Funcoes().appLang('Available Languages'),
+            style: const TextStyle(fontSize: 20, color: COR_02),
+            textAlign: TextAlign.center,
+          ),
+          content: SizedBox(
+            height: altura * 0.35,
+            child: Column(
+              spacing: 8,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 0) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(0);
+                    Navigator.pop(context);
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('0', size: 30),
+                        Text(Funcoes().appLang('English'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 1) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(1);
+                    Navigator.pop(context);
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('1', size: 30),
+                        Text(Funcoes().appLang('Portuguese'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 2) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(2);
+                    Navigator.pop(context);
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('2', size: 30),
+                        Text(Funcoes().appLang('Spanish'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 3) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(3);
+                    Navigator.pop(context);
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('3', size: 30),
+                        Text(Funcoes().appLang('Marroquí'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: (language == 4) ? COR_04 : COR_02,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onPressed: () {
+                    Funcoes().setLanguage(4);
+                    Navigator.pop(context);
+                  },
+                  child: SizedBox(
+                    width: largura * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        Funcoes().languageFlag('4', size: 30),
+                        Text(Funcoes().appLang('French'),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

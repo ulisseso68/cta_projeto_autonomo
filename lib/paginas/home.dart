@@ -292,7 +292,9 @@ class _HomePageState extends State<HomePage> {
               child: GestureDetector(
                 onTap: () async {
                   // Handle language change
-                  uxToChangeLanguage(context, altura, largura);
+                  await Funcoes().uxToChangeLanguage(context, altura, largura);
+                  await CallApi().getFirstPartyAd();
+                  setState(() {});
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8.0),
@@ -471,75 +473,7 @@ class _HomePageState extends State<HomePage> {
 
                 // 1st Party Ad
                 if (!offlineMode) Funcoes().wFirstPartyAd(),
-/* 
-                Container(
-                  height: altura / 8,
-                  width: largura,
-                  margin: EdgeInsets.only(top: 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    //color: Colors.grey.shade400,
-                    border: Border.all(
-                      color: Colors.grey.shade400,
-                      width: 1,
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: screenW / 4,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                          /* border: Border.all(color: COR_02, width: 1), */
-                          image: DecorationImage(
-                            image: AssetImage('img/ad1.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: screenW * 0.5,
-                        padding: const EdgeInsets.all(4.0),
-                        child: Text(
-                          Funcoes().appLang(
-                              'Keep learning with the content in our social media. Follow us and stay updated with news, curiosities, and tips to help you pass the CCSE exam.'),
-                          textAlign: TextAlign.start,
-                          maxLines: 6,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: COR_01,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: screenW / 8,
-                        height: altura / 8,
-                        decoration: BoxDecoration(
-                          color: COR_02,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
-                        ),
-                        child: IconButton(
-                            onPressed: () {
-                              launchUrl(Uri.parse(
-                                  'https://www.instagram.com/ccsefacil/'));
-                            },
-                            icon: Icon(Icons.supervised_user_circle_rounded,
-                                color: Colors.white, size: 30)),
-                      ),
-                    ],
-                  ),
-                ),
- */
+
                 //Study with flash cards
                 Divider(
                   color: COR_02,
@@ -699,14 +633,8 @@ class _HomePageState extends State<HomePage> {
                   height: 30,
                   color: COR_02,
                 ),
+
                 Funcoes().logoWidget(opacity: 0, letterColor: Colors.grey),
-                /* Divider(
-                  thickness: 1,
-                  height: 100,
-                  indent: 10,
-                  endIndent: 10,
-                  color: Colors.white,
-                ) */
               ]),
         ),
       ),
@@ -953,138 +881,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
       ],
-    );
-  }
-
-  void uxToChangeLanguage(context, double altura, double largura) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(
-            Funcoes().appLang('Available Languages'),
-            style: const TextStyle(fontSize: 20, color: COR_02),
-            textAlign: TextAlign.center,
-          ),
-          content: SizedBox(
-            //padding: EdgeInsets.all(8.0),
-            height: altura * 0.50,
-            child: Column(
-              spacing: 8,
-              children: [
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 0) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(0);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('0', size: 30),
-                        Text(Funcoes().appLang('English'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 1) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(1);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('1', size: 30),
-                        Text(Funcoes().appLang('Portuguese'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 2) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(2);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('2', size: 30),
-                        Text(Funcoes().appLang('Spanish'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 3) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(3);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('3', size: 30),
-                        Text(Funcoes().appLang('Marroquí'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

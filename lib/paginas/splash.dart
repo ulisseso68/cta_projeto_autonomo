@@ -330,8 +330,10 @@ class _SplashPageState extends State<SplashPage> {
             leading: IconButton(
               icon: const Icon(Icons.change_circle_rounded,
                   color: COR_02, size: 30),
-              onPressed: () {
-                uxToChangeLanguage(context, altura, largura);
+              onPressed: () async {
+                // Handle language change
+                await Funcoes().uxToChangeLanguage(context, altura, largura);
+                setState(() {});
               },
             ),
           ),
@@ -543,137 +545,6 @@ class _SplashPageState extends State<SplashPage> {
       ),
       bottomNavigationBar: Funcoes().uxBottomBar(SharePlus.instance,
           corBottomBar: developerMode ? COR_dev : COR_02),
-    );
-  }
-
-  void uxToChangeLanguage(context, double altura, double largura) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(
-            Funcoes().appLang('Available Languages'),
-            style: const TextStyle(fontSize: 20, color: COR_02),
-            textAlign: TextAlign.center,
-          ),
-          content: SizedBox(
-            height: altura * 0.35,
-            child: Column(
-              spacing: 8,
-              children: [
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 0) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(0);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('0', size: 30),
-                        Text(Funcoes().appLang('English'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 1) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(1);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('1', size: 30),
-                        Text(Funcoes().appLang('Portuguese'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 2) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(2);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('2', size: 30),
-                        Text(Funcoes().appLang('Spanish'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: (language == 3) ? COR_04 : COR_02,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  onPressed: () {
-                    Funcoes().setLanguage(3);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    width: largura * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      spacing: 8,
-                      children: [
-                        Funcoes().languageFlag('3', size: 30),
-                        Text(Funcoes().appLang('Marroquí'),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16)),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }
