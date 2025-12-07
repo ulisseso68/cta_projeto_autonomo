@@ -7,6 +7,69 @@
 
 // Listing of messages
 final lang = {
+  'Better experience, without distractions.': [
+    'Better experience, without distractions.',
+    'Melhor experiência, sem distrações.',
+    'Mejor experiencia, sin distracciones.',
+    'تجربة أفضل، بدون تشتيت.',
+    'Meilleure expérience, sans distractions.'
+  ],
+  'Not connected': [
+    'Not connected',
+    'Não conectado',
+    'No conectado',
+    'غير متصل',
+    'Non connecté'
+  ],
+  'Unable to connect to the payments processor.': [
+    'Unable to connect to the payments processor.',
+    'Não foi possível conectar ao processador de pagamentos.',
+    'No se puede conectar al procesador de pagos.',
+    'غير قادر على الاتصال بمعالج الدفع.',
+    'Impossible de se connecter au processeur de paiement.'
+  ],
+  'Available purchases': [
+    'Available purchases',
+    'Compras disponíveis',
+    'Compras disponibles',
+    'المشتريات المتاحة',
+    'Achats disponibles'
+  ],
+  'Restore purchases': [
+    'Restore purchases',
+    'Restaurar compras',
+    'Restaurar compras',
+    'استعادة المشتريات',
+    'Restaurer les achats'
+  ],
+  'Fetching products...': [
+    'Fetching products...',
+    'Buscando produtos...',
+    'Buscando productos...',
+    'جاري جلب المنتجات...',
+    'Récupération des produits...'
+  ],
+  'The store is unavailable': [
+    'The Store is Unavailable',
+    'A Loja está Indisponível',
+    'La Tienda no está Disponible',
+    'المتجر غير متوفر',
+    'Le magasin est indisponible'
+  ],
+  'The store is available': [
+    'The Store is Available',
+    'A Loja está Disponível',
+    'La Tienda está Disponible',
+    'المتجر متوفر',
+    'Le magasin est disponible'
+  ],
+  'Remove Ads': [
+    'Remove Ads',
+    'Remover Anúncios',
+    'Eliminar Anuncios',
+    'إزالة الإعلانات',
+    'Supprimer les publicités'
+  ],
   'Check out the CCSE Fácil app to prepare for your citizenship exam!': [
     'Check out the CCSE Fácil app to prepare for your citizenship exam!',
     'Confira o aplicativo CCSE Fácil para se preparar para o seu exame de cidadania!',
@@ -147,6 +210,13 @@ final lang = {
     'Nos preocupamos por su privacidad y la seguridad de sus datos. Mantenemos esta aplicación gratuita mostrando anuncios. ¿Podemos continuar usando sus datos para personalizar los anuncios para usted? Puede cambiar su elección en cualquier momento en la configuración de la aplicación. ¡Gracias por apoyarnos!',
     'نحن نهتم بخصوصيتك وأمان بياناتك. نحافظ على هذا التطبيق مجانيًا من خلال عرض الإعلانات. هل يمكننا الاستمرار في استخدام بياناتك لتخصيص الإعلانات لك؟ يمكنك تغيير اختيارك في أي وقت في إعدادات التطبيق. شكرًا لدعمنا!',
     'Nous nous soucions de votre vie privée et de la sécurité de vos données. Nous maintenons cette application gratuite en affichant des publicités. Pouvons-nous continuer à utiliser vos données pour personnaliser les publicités pour vous ? Vous pouvez changer votre choix à tout moment dans les paramètres de l\'application. Merci de nous soutenir !'
+  ],
+  'payingToRemoveAdsMessage': [
+    'By paying to remove ads, you support the development of the app and help us maintain it and improve it. This is a one-time payment and you get the app free of ads for life. Thank you for your support!',
+    'Ao pagar para remover os anúncios, você apoia o desenvolvimento do aplicativo e nos ajuda a mantê-lo e melhorá-lo. Este é um pagamento único e você obtém o aplicativo sem anúncios para toda a vida. Obrigado pelo seu apoio!',
+    'Al pagar para eliminar los anuncios, apoyas el desarrollo de la aplicación y nos ayudas a mantenerla y mejorarla. Es un pago único y obtienes la aplicación sin anuncios de por vida. ¡Gracias por tu apoyo!',
+    'من خلال الدفع لإزالة الإعلانات ، فإنك تدعم تطوير التطبيق وتساعدنا في صيانته وتحسينه. هذه دفعة لمرة واحدة وتحصل على التطبيق خاليًا من الإعلانات مدى الحياة. شكرا لدعمكم!',
+    'En payant pour supprimer les publicités, vous soutenez le développement de l\'application et nous aidez à la maintenir et à l\'améliorer. Il s\'agit d\'un paiement unique et vous obtenez l\'application sans publicité à vie. Merci pour votre soutien !'
   ],
   'Progress': ['Progress', 'Progresso', 'Progreso', 'التقدم', 'Progrès'],
   'Click to learn more about how you have to take the exam.': [

@@ -35,7 +35,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   );
 
   void loadAd() {
-    if (_adUnitId != '') {
+    if (_adUnitId != '' && !isPremiumUser) {
       _nativeAd = NativeAd(
           adUnitId: _adUnitId,
           listener: NativeAdListener(
@@ -93,7 +93,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
   @override
   void initState() {
     super.initState();
-    loadAd();
+    if (!isPremiumUser) loadAd();
     if (respostasCorretas / (respostasCorretas + respostasErradas) >= 0.60) {
       confettiController.play();
       passed = true;
@@ -247,7 +247,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
               ),
 
               // Advertisement if available
-              (_nativeAdIsLoaded)
+              (_nativeAdIsLoaded && !isPremiumUser)
                   ? Container(
                       color: Colors.white,
                       height: altura * 0.44,

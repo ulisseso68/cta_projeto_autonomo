@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'paginas/questionsPage1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'paginas/purchases.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -75,6 +76,7 @@ class MyApp extends StatelessWidget {
         'termosUsoPrivacidade': (context) => const PaginaTermosUsoPrivacidade(),
         'splashPage': (context) => const SplashPage(),
         'examClosing': (context) => const ExamClosing(),
+        'purchases': (context) => Purchases(),
       },
       initialRoute: 'homePage',
     );

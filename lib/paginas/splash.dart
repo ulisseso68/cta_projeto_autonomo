@@ -422,6 +422,34 @@ class _SplashPageState extends State<SplashPage> {
                   dense: true,
                   visualDensity: VisualDensity.compact,
                   title: Text(
+                    'Premium User',
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: COR_dev,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  subtitle: Text(
+                    isPremiumUser ? 'Yes' : 'No',
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  ),
+                  /* trailing:
+                      const Icon(Icons.developer_mode, color: COR_01, size: 30), */
+                  leading: IconButton(
+                    icon: Icon(Icons.star, color: COR_dev, size: 30),
+                    onPressed: () => {
+                      setState(() {
+                        isPremiumUser = !isPremiumUser;
+                        Funcoes().savePremiumStatusToStorage(isPremiumUser);
+                      })
+                    },
+                  ),
+                )
+              : Container(),
+          (modoDeveloper)
+              ? ListTile(
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  title: Text(
                     'Ad UUID',
                     style: const TextStyle(
                         fontSize: 20,

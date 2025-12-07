@@ -155,6 +155,7 @@ class CallApi {
       'devicetype': deviceType,
       'uuid': uuid,
       'firebaseUserId': FirebaseUserId,
+      'isPremiumUser': isPremiumUser,
       'language': Funcoes().languageForTranslation,
       'country': citizenship,
     }, {

@@ -31,16 +31,12 @@ class _HomePageState extends State<HomePage> {
   String adUnitId = '';
   bool adLoaded = false;
   final _consentManager = ConsentManager();
-  /* final params = ShareParams(
-    text: 'Check out this app: https://app.ccsefacil.es',
-  ); */
   var _isMobileAdsInitializeCalled = false;
   var _isPrivacyOptionsRequired = false;
 
   Future<void> _initFirebaseAnalytics() async {
     await FirebaseAnalytics.instance.logAppOpen();
     FirebaseUserId = await FirebaseAnalytics.instance.appInstanceId;
-    //print('Firebase User ID: $FirebaseUserId');
   }
 
   @override
@@ -50,7 +46,6 @@ class _HomePageState extends State<HomePage> {
     WidgetsFlutterBinding.ensureInitialized()
         .addPostFrameCallback((_) => initPlugin());
     _getDatafromServer();
-    //var result = SharePlus.instance.share(params);
   }
 
   @override
@@ -72,8 +67,10 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  //Get data from server and local storage
   Future<void> _getDatafromServer() async {
     await CallApi().getFirstPartyAd();
+    await Funcoes().getPremiumStatusFromStorage();
     await Funcoes().getCountryFromStorage();
     await Funcoes().getLanguageFromStorage();
     await Funcoes().getTcsAcceptedFromStorage();
@@ -89,7 +86,7 @@ class _HomePageState extends State<HomePage> {
     //included in the getDatafromServer with updates all data, including adUnitId
     //print('Ad Unit ID: $adUnitId');
     _bannerAd?.dispose();
-    _loadAd();
+    if (!isPremiumUser) _loadAd();
     deviceID = (await _getId()).toString();
 
     if (!loginRegistered) {
@@ -98,7 +95,7 @@ class _HomePageState extends State<HomePage> {
     }
 
     // redirect to splash page if TCS not accepted
-    if (!tcsAccepted) {
+    if (!tcsAccepted || citizenship == '') {
       Navigator.pushNamed(context, 'splashPage');
     }
 
@@ -110,12 +107,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  //update home page when returning from other pages
   void updateStatus() {
-    //update other Things if needed - Ads??
     //requests ads more frequently
     _bannerAd?.dispose();
-    _loadAd();
-    //print('Loaded Ad again');
+    if (!isPremiumUser) _loadAd();
     setState(() {});
   }
 
@@ -325,8 +321,6 @@ class _HomePageState extends State<HomePage> {
         displacement: 50,
         backgroundColor: Colors.grey.shade300,
         onRefresh: () {
-          //_bannerAd?.dispose();
-          //_loadAd();
           return _getDatafromServer();
         },
         child: SingleChildScrollView(
@@ -398,7 +392,7 @@ class _HomePageState extends State<HomePage> {
                   ),
 
                 //Ad Banner or Progress Indicator
-                (adLoaded)
+                (adLoaded && !isPremiumUser)
                     ? Container(
                         height: _bannerAd!.size.height.toDouble() + 6,
                         width: largura,
@@ -472,7 +466,7 @@ class _HomePageState extends State<HomePage> {
                 _buildListTile(),
 
                 // 1st Party Ad
-                if (!offlineMode) Funcoes().wFirstPartyAd(),
+                if (!offlineMode && !isPremiumUser) Funcoes().wFirstPartyAd(),
 
                 //Study with flash cards
                 Divider(

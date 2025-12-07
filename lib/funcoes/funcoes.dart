@@ -189,6 +189,17 @@ class Funcoes {
     saveAnsweredQuestionsToLocal();
   }
 
+  Future<void> savePremiumStatusToStorage(bool status) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setBool('isPremiumUser', status);
+    isPremiumUser = status;
+  }
+
+  Future<void> getPremiumStatusFromStorage() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    isPremiumUser = localStorage.getBool('isPremiumUser') ?? false;
+  }
+
   Future<void> saveAnsweredQuestionsToLocal() async {
     // You need to add shared_preferences to your pubspec.yaml
     // import 'package:shared_preferences/shared_preferences.dart';
