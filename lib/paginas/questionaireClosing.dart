@@ -277,9 +277,10 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Funcoes().progressBar(barSize: 0.9)),
-                            SizedBox(
-                                width: largura - 10,
-                                child: Funcoes().wFirstPartyAd()),
+                            if (!isPremiumUser)
+                              SizedBox(
+                                  width: largura * 0.9,
+                                  child: Funcoes().wFirstPartyAd()),
                           ])),
             ],
           ),

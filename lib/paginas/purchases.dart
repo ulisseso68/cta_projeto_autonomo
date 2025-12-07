@@ -458,6 +458,11 @@ class _PurchasesState extends State<Purchases> {
         isPremiumUser = true;
         Funcoes().savePremiumStatusToStorage(isPremiumUser);
         _purchasePending = false;
+        final snackBar = SnackBar(
+          content: Text(Funcoes().appLang('Purchase successful!')),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Navigator.pop(context);
       });
     }
   }

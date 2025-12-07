@@ -69,6 +69,44 @@ class AJDrawer extends StatelessWidget {
                 height: screenH * 0.02,
               ),
 
+              // Remove Ads
+              (!isPremiumUser)
+                  ? ListTile(
+                      leading: const Icon(
+                        Icons.remove_circle_outline,
+                        size: 40,
+                        color: redEspana,
+                      ),
+                      title: Text(
+                        Funcoes().appLang('Remove Ads'),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(color: COR_01, fontSize: 14),
+                      ),
+                      onTap: () async {
+                        //Navigator.popUntil(context, ModalRoute.withName('splashPage'));
+                        await Navigator.pushNamed(context, 'purchases')
+                            .then((value) {
+                          // This callback is executed when returning from the splash page
+                          Navigator.pop(context);
+                        });
+                      },
+                    )
+                  : ListTile(
+                      leading: const Icon(
+                        Icons.star,
+                        size: 40,
+                        color: redEspana,
+                      ),
+                      title: Text(
+                        Funcoes().appLang('Premium User'),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            color: redEspana,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () async {},
+                    ),
               // Settings
               ListTile(
                 leading: const Icon(
@@ -94,32 +132,6 @@ class AJDrawer extends StatelessWidget {
                   });
                 },
               ),
-              // Remove Ads
-              if (!isPremiumUser)
-                ListTile(
-                  leading: const Icon(
-                    Icons.remove_circle_outline,
-                    size: 40,
-                    color: redEspana,
-                  ),
-                  title: Text(
-                    Funcoes().appLang('Remove Ads'),
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: COR_01, fontSize: 14),
-                  ),
-                  /* subtitle: Text(
-                  Funcoes().appLang('Name, Country, Language'),
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
-                ), */
-                  onTap: () async {
-                    //Navigator.popUntil(context, ModalRoute.withName('splashPage'));
-                    await Navigator.pushNamed(context, 'purchases')
-                        .then((value) {
-                      // This callback is executed when returning from the splash page
-                      Navigator.pop(context);
-                    });
-                  },
-                ),
 
               // Terms of Use
               ListTile(

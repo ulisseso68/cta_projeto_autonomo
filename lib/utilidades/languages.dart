@@ -7,6 +7,13 @@
 
 // Listing of messages
 final lang = {
+  'French added as a language option. Option to buy the app and remove ads': [
+    'French added as a language option. Option to buy the app and remove ads',
+    'Francês adicionado como opção de idioma. Opção para comprar o aplicativo e remover anúncios',
+    'Francés añadido como opción de idioma. Opción para comprar la aplicación y eliminar anuncios',
+    'تمت إضافة الفرنسية كخيار للغة. خيار لشراء التطبيق وإزالة الإعلانات',
+    'Le français a été ajouté comme option de langue. Option pour acheter l\'application et supprimer les publicités'
+  ],
   'Better experience, without distractions.': [
     'Better experience, without distractions.',
     'Melhor experiência, sem distrações.',
