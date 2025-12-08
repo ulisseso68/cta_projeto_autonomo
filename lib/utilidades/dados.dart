@@ -2,7 +2,7 @@ import 'package:ccse_mob/models/question_model.dart';
 
 var indexPreguntas = 0;
 var temaPreguntas = 'Cidadania e Direitos';
-var appVersion = '5.6.0';
+var appVersion = '5.7.0';
 bool modoDeveloper = false;
 bool developerMode = false;
 List uniqueCategories = [

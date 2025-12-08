@@ -466,7 +466,8 @@ class _HomePageState extends State<HomePage> {
                 _buildListTile(),
 
                 // 1st Party Ad
-                if (!offlineMode && !isPremiumUser) Funcoes().wFirstPartyAd(),
+                if (!offlineMode && !isPremiumUser)
+                  Funcoes().wFirstPartyAd(context),
 
                 //Study with flash cards
                 Divider(

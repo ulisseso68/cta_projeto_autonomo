@@ -785,7 +785,7 @@ class Funcoes {
   }
 
   // First Party Ad Widget
-  Widget wFirstPartyAd() {
+  Widget wFirstPartyAd(BuildContext context) {
     if (firstPartyAd != null &&
         firstPartyAd is Map &&
         firstPartyAd.isNotEmpty &&
@@ -881,7 +881,12 @@ class Funcoes {
                             body,
                             firstPartyAd['advertising']['actionLink'] ?? '');
                         break;
-
+                      case 'Open App Page':
+                        Navigator.pushNamed(
+                            context,
+                            firstPartyAd['advertising']['actionLink'] ??
+                                'purchases');
+                        break;
                       default:
                         launchUrl(
                           Uri.parse(

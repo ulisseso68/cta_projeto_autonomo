@@ -7,6 +7,7 @@
 
 // Listing of messages
 final lang = {
+  //Whats is new in this version
   'French added as a language option. Option to buy the app and remove ads': [
     'French added as a language option. Option to buy the app and remove ads',
     'Francês adicionado como opção de idioma. Opção para comprar o aplicativo e remover anúncios',

@@ -280,7 +280,7 @@ class _QuestionareClosingState extends State<QuestionareClosing> {
                             if (!isPremiumUser)
                               SizedBox(
                                   width: largura * 0.9,
-                                  child: Funcoes().wFirstPartyAd()),
+                                  child: Funcoes().wFirstPartyAd(context)),
                           ])),
             ],
           ),

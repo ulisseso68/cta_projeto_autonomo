@@ -222,7 +222,7 @@ class _PurchasesState extends State<Purchases> {
           Navigator.pop(context);
         },
         child: Icon(
-          Icons.menu,
+          Icons.home,
           color: Colors.white,
           size: screenH / 25,
         ),

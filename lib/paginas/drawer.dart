@@ -73,7 +73,7 @@ class AJDrawer extends StatelessWidget {
               (!isPremiumUser)
                   ? ListTile(
                       leading: const Icon(
-                        Icons.remove_circle_outline,
+                        Icons.monetization_on_rounded,
                         size: 40,
                         color: redEspana,
                       ),
