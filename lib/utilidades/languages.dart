@@ -15,6 +15,20 @@ final lang = {
     'تمت إضافة الفرنسية كخيار للغة. خيار لشراء التطبيق وإزالة الإعلانات',
     'Le français a été ajouté comme option de langue. Option pour acheter l\'application et supprimer les publicités'
   ],
+  'Purchase successful!': [
+    'Purchase successful!',
+    'Compra realizada com sucesso!',
+    '¡Compra exitosa!',
+    'تمت عملية الشراء بنجاح!',
+    'Achat réussi !'
+  ],
+  'Premium User': [
+    'Premium User',
+    'Usuário Premium',
+    'Usuario Premium',
+    'مستخدم مميز',
+    'Utilisateur Premium'
+  ],
   'Better experience, without distractions.': [
     'Better experience, without distractions.',
     'Melhor experiência, sem distrações.',

@@ -17,16 +17,16 @@ import 'package:ccse_mob/utilidades/dados.dart';
 /* import 'consumable_store.dart'; */
 
 final bool _kAutoConsume = Platform.isIOS || true;
-
+final InAppPurchase _inAppPurchase = InAppPurchase.instance;
 const String _kConsumableId = 'consumable';
 const String _kUpgradeId = 'remove_ads';
-const String _kSilverSubscriptionId = 'subscription_silver';
+const String _kSilverSubscriptionId = 'removeads';
 const String _kGoldSubscriptionId = 'subscription_gold';
 const List<String> _kProductIds = <String>[
   //_kConsumableId,
   _kUpgradeId,
-  //_kSilverSubscriptionId,
-  //_kGoldSubscriptionId,
+  _kSilverSubscriptionId,
+  _kGoldSubscriptionId,
 ];
 
 class Purchases extends StatefulWidget {
@@ -35,7 +35,6 @@ class Purchases extends StatefulWidget {
 }
 
 class _PurchasesState extends State<Purchases> {
-  final InAppPurchase _inAppPurchase = InAppPurchase.instance;
   late StreamSubscription<List<PurchaseDetails>> _subscription;
   List<String> _notFoundIds = <String>[];
   List<ProductDetails> _products = <ProductDetails>[];
@@ -53,18 +52,20 @@ class _PurchasesState extends State<Purchases> {
         purchaseUpdated.listen((List<PurchaseDetails> purchaseDetailsList) {
       _listenToPurchaseUpdated(purchaseDetailsList);
     }, onDone: () {
+      print('Purchase Stream Done');
       _subscription.cancel();
     }, onError: (Object error) {
       // handle error here.
-      //print('Purchase Stream Error: $error');
+      print('Purchase Stream Error: $error');
     });
     initStoreInfo();
     super.initState();
   }
 
   Future<void> initStoreInfo() async {
-    //print('Initializing Store Info');
+    print('Initializing Store Info');
     final bool isAvailable = await _inAppPurchase.isAvailable();
+    print('returned: $isAvailable');
     if (!isAvailable) {
       setState(() {
         _isAvailable = isAvailable;
@@ -74,7 +75,8 @@ class _PurchasesState extends State<Purchases> {
         _purchasePending = false;
         _loading = false;
       });
-      //print('Not Available');
+    } else {
+      print('Not Available');
       return;
     }
 
@@ -89,10 +91,11 @@ class _PurchasesState extends State<Purchases> {
       //print('iOS Delegate Set');
       //print(iosPlatformAddition.toString());
     }
-
+    //_loading = false;
+    print('Querying Product Details:' + _kProductIds.toString());
     final ProductDetailsResponse productDetailResponse =
         await _inAppPurchase.queryProductDetails(_kProductIds.toSet());
-    //print(productDetailResponse.toString());
+    print('debugUC');
     if (productDetailResponse.error != null) {
       /* print(
           'Product Detail Response Error: ${productDetailResponse.error!.message}'); */
@@ -109,7 +112,7 @@ class _PurchasesState extends State<Purchases> {
     }
 
     if (productDetailResponse.productDetails.isEmpty) {
-      //print('No Products Found');
+      print('No Products Found');
       setState(() {
         _queryProductError = null;
         _isAvailable = isAvailable;
@@ -129,7 +132,7 @@ class _PurchasesState extends State<Purchases> {
       _purchasePending = false;
       _queryProductError = null;
     });
-    //print('Products Found: ${_products.length}');
+    print('Products Found: ${_products.length}');
     _loading = false;
   }
 
@@ -155,12 +158,12 @@ class _PurchasesState extends State<Purchases> {
             _buildConnectionCheckTile(),
             Container(
               height: screenH / 4,
-              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage('img/removeads.png'),
+                  image: AssetImage('img/removeads2.png'),
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
                 ),
@@ -199,14 +202,12 @@ class _PurchasesState extends State<Purchases> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white, size: 40),
         backgroundColor: COR_02,
-
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Funcoes().logoWidget(opacity: 0),
           ],
         ),
-        //shadowColor: Colors.white70.withOpacity(0.0),
       ),
       body: Container(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
@@ -243,11 +244,14 @@ class _PurchasesState extends State<Purchases> {
     String message2 = Funcoes()
         .appLang('The store is ${_isAvailable ? 'available' : 'unavailable'}');
     final Widget storeHeader = ListTile(
-      leading: Icon(_isAvailable ? Icons.check : Icons.block,
-          color: _isAvailable
-              ? Colors.green
-              : ThemeData.light().colorScheme.error),
-      title: Text(message2, style: TextStyle(fontSize: 15)),
+      tileColor: _isAvailable ? COR_02 : redEspana,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      leading:
+          Icon(_isAvailable ? Icons.check : Icons.block, color: Colors.white),
+      title:
+          Text(message2, style: TextStyle(fontSize: 15, color: Colors.white)),
     );
     final List<Widget> children = <Widget>[storeHeader];
 
@@ -256,7 +260,7 @@ class _PurchasesState extends State<Purchases> {
       String message6 =
           Funcoes().appLang('Unable to connect to the payments processor.');
       children.addAll(<Widget>[
-        const Divider(),
+        //const Divider(),
         ListTile(
           title: Text(message5,
               style: TextStyle(color: ThemeData.light().colorScheme.error)),
@@ -437,6 +441,7 @@ class _PurchasesState extends State<Purchases> {
     });
   }
  */
+
   void showPendingUI() {
     setState(() {
       _purchasePending = true;
@@ -453,15 +458,16 @@ class _PurchasesState extends State<Purchases> {
         _consumables = consumables; */
       });
     } else {
-      setState(() {
+      setState(() async {
         _purchases.add(purchaseDetails);
         isPremiumUser = true;
         Funcoes().savePremiumStatusToStorage(isPremiumUser);
         _purchasePending = false;
         final snackBar = SnackBar(
+          backgroundColor: COR_02b,
           content: Text(Funcoes().appLang('Purchase successful!')),
         );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        await ScaffoldMessenger.of(context).showSnackBar(snackBar);
         Navigator.pop(context);
       });
     }

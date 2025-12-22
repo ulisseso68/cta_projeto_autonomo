@@ -69,8 +69,8 @@ android {
             applicationId "com.ccsefacil.app2"  // this stays as-is
             minSdkVersion flutter.minSdkVersion
             targetSdkVersion 36
-            versionCode 21
-            versionName "5.4.1"
+            versionCode 23
+            versionName "5.6"
         }
 
     }
@@ -98,5 +98,8 @@ flutter {
 dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.8.0"
-    implementation "com.google.android.gms:play-services-ads:24.6.0"
+    implementation "com.google.android.gms:play-services-ads:24.6.0"    
+    implementation "com.android.billingclient:billing:8.2.0"
+    implementation platform('com.google.firebase:firebase-bom:33.1.2')
+    implementation 'com.google.firebase:firebase-analytics'
 }
